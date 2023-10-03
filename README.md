@@ -1,10 +1,10 @@
-# Proyecto Fundamentos de la Web
-
+# 8Ball
 ## Integrantes
 > Jaime Portillo Pérez
 > 
 > Diego Sánchez Rincón
 > 
-> Daniel Sntos López
+> Daniel Santos López
 
 ## Link 
+> https://github.com/PortiESP/ProyectoWebURJC
