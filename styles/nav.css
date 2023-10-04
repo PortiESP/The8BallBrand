@@ -1,0 +1,44 @@
+.logo,
+.logo-small {
+  height: 60px;
+  aspect-ratio: 3/1;
+}
+
+.logo-small {
+  display: none;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.nav-search {
+  height: 60%;
+}
+
+.icon-search {
+  display: none;
+}
+
+.form-search {
+  display: flex;
+}
+
+@media (max-width: 800px) {
+  .logo-small {
+    display: inline-block;
+    aspect-ratio: 1/1;
+  }
+  .logo {
+    display: none;
+  }
+  .icon-search {
+    display: inline-block;
+  }
+  .form-search {
+    display: none;
+  }
+}
