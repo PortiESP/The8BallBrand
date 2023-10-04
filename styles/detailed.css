@@ -1,31 +1,48 @@
 :root {
-    --color1: #2f1f1a;
-    --color2: #46322a;
-    --color3: #694b39;
-    --color4: #8f734e;
-    --color5: #ab9362;
-    --color6: #0c3d2e;
-    --color7: #0f5037;
-    --color8: #3c714a;
-    --color9: #2b8f3a;
-    --colorX: #aed678;
+  --color1: #2f1f1a;
+  --color2: #46322a;
+  --color3: #694b39;
+  --color4: #8f734e;
+  --color5: #ab9362;
+  --color6: #0c3d2e;
+  --color7: #0f5037;
+  --color8: #3c714a;
+  --color9: #2b8f3a;
+  --colorX: #aed678;
 }
 
 body {
-    background-image: url("../assets/texture.png");
+  background-image: url("../assets/texture.png");
 }
 
-.itempic {
-    margin: 2%;
-    background-color: white;
-    width: 40%;
-    border: solid black;
+.ProductInfoContainer {
+  width: 40%;
+  padding: 20px;
+  margin: 5%;
+  background-color: darkgrey;
+  align-items: center;
 }
 .fullview {
-    border: solid black;
-    margin-top: 5%;
+  border: solid black;
+  margin-top: 5%;
 }
-.bidbutton{
-align-items: center;
+.ProductName {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.itempic {
+  margin: 2%;
+  background-color: #ddd0a5;
+  width: 40%;
+  border: solid black;
+}
+.itemDescription {
+  align-self: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+/* .sizeselector{}*/
 
+.bidbutton {
+  justify-content: space-around;
+  align-items: space;
+  margin: 5px;
 }
