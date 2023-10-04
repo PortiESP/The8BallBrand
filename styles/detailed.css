@@ -1,0 +1,31 @@
+:root {
+    --color1: #2f1f1a;
+    --color2: #46322a;
+    --color3: #694b39;
+    --color4: #8f734e;
+    --color5: #ab9362;
+    --color6: #0c3d2e;
+    --color7: #0f5037;
+    --color8: #3c714a;
+    --color9: #2b8f3a;
+    --colorX: #aed678;
+}
+
+body {
+    background-color: #d0c8af;
+}
+
+.itempic {
+    margin: 2%;
+    background-color: white;
+    width: 40%;
+    border: solid black;
+}
+.fullview {
+    border: solid black;
+    margin-top: 5%;
+}
+.bidbutton{
+align-items: center;
+
+}
