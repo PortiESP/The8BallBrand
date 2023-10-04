@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(208, 200, 175);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: rgb(123, 119, 86);
+    height: 150px;
+}
+
+.full-icon-container {
+    width: fit-content;
+}
+
+.full-icon {
+    height: 125px;
+}
