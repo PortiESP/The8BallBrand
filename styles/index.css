@@ -1,18 +1,51 @@
+:root {
+    --color1: #2f1f1a;
+    --color2: #46322a;
+    --color3: #694b39;
+    --color4: #8f734e;
+    --color5: #ab9362;
+    --color6: #0c3d2e;
+    --color7: #0f5037;
+    --color8: #3c714a;
+    --color9: #2b8f3a;
+    --colorX: #aed678;
+}
+
 body {
     background-color: rgb(208, 200, 175);
 }
 
 nav {
-    display: flex;
-    align-items: center;
-    background-color: rgb(123, 119, 86);
-    height: 150px;
+    background-color: var(--color4);
+    border-left:   5px solid var(--color1);
+    border-right:  5px solid var(--color1);
+    border-bottom: 5px solid var(--color1);
 }
 
+/* Logo */
 .full-icon-container {
-    width: fit-content;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .full-icon {
     height: 125px;
+}
+
+/* Buttons */
+.buttons-container {
+    width: 55%;
+    display: flex;
+    padding: 10px;
+    justify-content: right;
+}
+
+.nav-item {
+    width: fit-content;
+}
+
+.nav-item {
+    height: 70px;
 }
