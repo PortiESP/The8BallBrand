@@ -22,27 +22,40 @@ body {
   background-color: darkgrey;
   align-items: center;
 }
+
 .fullview {
   border: solid black;
   margin-top: 5%;
+
 }
+
 .ProductName {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+
 .itempic {
   margin: 2%;
   background-color: #ddd0a5;
   width: 40%;
   border: solid black;
 }
+
 .itemDescription {
   align-self: center;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+
 /* .sizeselector{}*/
 
 .bidbutton {
   justify-content: space-around;
   align-items: space;
   margin: 5px;
+}
+
+.ItemMatList {
+  display: flex;
+  flex-flow: column;
+  margin: 10px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
