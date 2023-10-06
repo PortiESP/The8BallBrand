@@ -41,7 +41,7 @@
       </div>
 
       <form class="form-container">
-        <div class="text-input-container">
+        <div class="input-container">
           <div class="text-input A">
             <label for="inputName" class="text-input-label">Title</label>
             <input type="text" class="form-control title-input" id="inputName" placeholder="8B Hoodie">
@@ -51,33 +51,43 @@
             <input type="number" class="form-control price-input" id="inputPrice" placeholder="99" min=0>
           </div>
           <div class="size-selector C">
-            <span class="form-check">Size</span>
-            <div class="radio-checks radios-container">
-              <div class="form-check">
+            <span class="radio-element label">Size</span>
+            <div class="radios-container">
+              <div class="radio-element">
                 <input class="form-check-input" type="radio" name="size" id="size-xs" value="xs">
                 <label class="form-check-label" for="size-xs">XS</label>
               </div>
-              <div class="form-check">
+              <div class="radio-element">
                 <input class="form-check-input" type="radio" name="size" id="size-s" value="s">
                 <label class="form-check-label" for="size-s">S</label>
               </div>
-              <div class="form-check">
+              <div class="radio-element">
                 <input class="form-check-input" type="radio" name="size" id="size-m" value="m">
                 <label class="form-check-label" for="size-m">M</label>
               </div>
-              <div class="form-check">
+              <div class="radio-element">
                 <input class="form-check-input" type="radio" name="size" id="size-l" value="l">
                 <label class="form-check-label" for="size-l">L</label>
               </div>
-              <div class="form-check">
+              <div class="radio-element">
                 <input class="form-check-input" type="radio" name="size" id="size-xl" value="xl">
                 <label class="form-check-label" for="size-xl">XL</label>
               </div>
-              <div class="form-check">
+              <div class="radio-element">
                 <input class="form-check-input" type="radio" name="size" id="size-xxl" value="xxl">
                 <label class="form-check-label" for="size-xxl">XXL</label>
               </div>
             </div>
+          </div>
+          <div class="form-select-container">
+            <select class="form-select">
+              <option selected>Select your type</option>
+              <option value="1">Hoodie</option>
+              <option value="2">Pullover</option>
+              <option value="3">Shirt</option>
+              <option value="4">Jeans</option>
+              <option value="5">Shoes</option>
+            </select>
           </div>
         </div>
 
