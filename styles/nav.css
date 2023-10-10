@@ -27,6 +27,10 @@
   display: flex;
 }
 
+.navbar {
+  position: fixed;
+}
+
 @media (max-width: 800px) {
   .logo-small {
     display: inline-block;
