@@ -1,4 +1,4 @@
-/* * {border: 1px solid black;} */
+    /* * {border: 1px solid black;} */
 
 body {
     background-image: url("../assets/texture.png");
@@ -99,33 +99,28 @@ body {
     width: 60%;
 }
 
-.size-selector {
+.size-selector-wide {
     height: 100%;
+    width: 65%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 20px;
 }
+
+/* .size-selector-narrow {
+
+} */
 
 .radio-element {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
 }
 
 .title-input {
     width: 60%;
-}
-
-.img-input-container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.img-input {
-    width: 90%;
 }
 
 .form-select-container {

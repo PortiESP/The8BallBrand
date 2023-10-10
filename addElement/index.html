@@ -53,34 +53,38 @@
             <label for="inputPrice" class="text-input-label">Price</label>
             <input type="number" class="form-control price-input" id="inputPrice" placeholder="99" min="0" />
           </div>
-          <div class="size-selector C">
-            <div class="radio-element">
-              <input class="form-check-input" type="radio" name="size" id="size-xs" value="xs" />
-              <label class="form-check-label" for="size-xs">XS</label>
-            </div>
-            <div class="radio-element">
-              <input class="form-check-input" type="radio" name="size" id="size-s" value="s" />
-              <label class="form-check-label" for="size-s">S</label>
-            </div>
-            <div class="radio-element">
-              <input class="form-check-input" type="radio" name="size" id="size-m" value="m" />
-              <label class="form-check-label" for="size-m">M</label>
-            </div>
-            <div class="radio-element">
-              <input class="form-check-input" type="radio" name="size" id="size-l" value="l" />
-              <label class="form-check-label" for="size-l">L</label>
-            </div>
-            <div class="radio-element">
-              <input class="form-check-input" type="radio" name="size" id="size-xl" value="xl" />
-              <label class="form-check-label" for="size-xl">XL</label>
-            </div>
-            <div class="radio-element">
-              <input class="form-check-input" type="radio" name="size" id="size-xxl" value="xxl" />
-              <label class="form-check-label" for="size-xxl">XXL</label>
+          <div class="text-input C">
+            <label class="text-input-label">Size</label>
+            <div class="size-selector-wide">
+              <div class="radio-element">
+                <input class="form-check-input" type="radio" name="size" id="size-xs" value="xs" />
+                <label class="form-check-label" for="size-xs">XS</label>
+              </div>
+              <div class="radio-element">
+                <input class="form-check-input" type="radio" name="size" id="size-s" value="s" />
+                <label class="form-check-label" for="size-s">S</label>
+              </div>
+              <div class="radio-element">
+                <input class="form-check-input" type="radio" name="size" id="size-m" value="m" />
+                <label class="form-check-label" for="size-m">M</label>
+              </div>
+              <div class="radio-element">
+                <input class="form-check-input" type="radio" name="size" id="size-l" value="l" />
+                <label class="form-check-label" for="size-l">L</label>
+              </div>
+              <div class="radio-element">
+                <input class="form-check-input" type="radio" name="size" id="size-xl" value="xl" />
+                <label class="form-check-label" for="size-xl">XL</label>
+              </div>
+              <div class="radio-element">
+                <input class="form-check-input" type="radio" name="size" id="size-xxl" value="xxl" />
+                <label class="form-check-label" for="size-xxl">XXL</label>
+              </div>
             </div>
           </div>
-          <div class="img-input-container D">
-            <input id="img-input" name="img-input" type="file" class="form-control img-input" />
+          <div class="text-input D">
+            <label for="img-input" class="text-input-label">Image</label>
+            <input type="text" class="form-control title-input" id="inputName" placeholder="https://exampleurl..."/>
           </div>
           <div class="form-select-container">
             <select class="form-select">
@@ -93,11 +97,11 @@
             </select>
           </div>
           <div class="date-input-container BB">
-            <label for="begining-date">Bid Begining</label>
+            <label for="begining-date">Auction Begining</label>
             <input type="date" name="begining-date" min="2023-10-09" id="begining-date" />
           </div>
           <div class="date-input-container BE">
-            <label for="finishing-date">Bid Ending</label>
+            <label for="finishing-date">Auction Ending</label>
             <input type="date" name="finishing-date" max="2024-10-09" id="finishing-date" />
           </div>
         </div>
