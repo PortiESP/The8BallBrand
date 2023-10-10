@@ -1,0 +1,70 @@
+:root {
+  --color1: #2f1f1a;
+  --color2: #46322a;
+  --color3: #694b39;
+  --color4: #8f734e;
+  --color5: #ab9362;
+  --color6: #0c3d2e;
+  --color7: #0f5037;
+  --color8: #3c714a;
+  --color9: #2b8f3a;
+  --colorX: #aed678;
+}
+
+body {
+  background-image: url("../assets/texture.png");
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* ------------------------------- CARD ------------------------------- */
+.wrapper {
+  position: relative;
+  width: 100vw;
+}
+
+.items--wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 20px;
+}
+
+.item--images {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 200px;
+  overflow: hidden;
+}
+
+.item--images .item--image-front {
+  position: relative;
+  /* background: yellow; */
+  width: 100%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.item--images .item--image-back {
+  position: absolute;
+  /* background: green; */
+  object-fit: cover;
+  width: 100%;
+  filter: blur(10px);
+}
