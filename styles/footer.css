@@ -23,4 +23,16 @@ footer .footer--column .footer--item--title {
 footer .footer--brand {
   color: rgba(255, 255, 255, 0.5333333333);
   font-size: 0.8em;
+}
+
+@media (max-width: 1400px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+    gap: 100px;
+  }
+  footer .footer--column {
+    width: 50%;
+  }
 }/*# sourceMappingURL=footer.css.map */

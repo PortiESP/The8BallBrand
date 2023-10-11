@@ -1,6 +1,6 @@
 {
     "files.exclude": {
         "**/.git": true,
-        "**/*.map.css": false
+        "**/*.css.map": true
     }
 }

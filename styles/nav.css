@@ -1,53 +1,69 @@
-.logo,
-.logo-small {
-    height: 60px;
-    aspect-ratio: 3/1;
+nav.navbar {
+  background: #eee;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 5px 40px;
+  z-index: 100;
+  box-shadow: 1px 0 10px rgba(0, 0, 0, 0.5333333333);
 }
-
-.logo-small {
-    display: none;
+nav.navbar .navbar-brand .logo,
+nav.navbar .navbar-brand .logo-small {
+  height: 60px;
+  aspect-ratio: 3/1;
 }
-
-.navbar-nav {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
+nav.navbar .navbar-brand .logo-small {
+  display: none;
 }
-
-.nav-search {
-    height: 60%;
+nav.navbar .navbar-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
 }
-
-.icon-search {
-    display: none;
+nav.navbar .navbar-nav .nav-link:hover {
+  color: rgba(95, 43, 1, 0.5803921569);
 }
-
-.form-search {
-    display: flex;
+nav.navbar .navbar-nav .icon-search {
+  display: none;
 }
-
-.navbar {
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    padding: 10px 20px;
-    z-index: 100;
+nav.navbar .nav-search-bar {
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+nav.navbar form > .input-group input {
+  background: #eee;
+  border: none;
+  transition: all 0.1s ease;
+  font-weight: 300;
+  color: #666;
+}
+nav.navbar form > .input-group .input-group-text {
+  background: #eee;
+  border: none;
+  transition: all 0.1s ease;
+}
+nav.navbar form > .input-group:hover input {
+  background: #dfdfdf;
+}
+nav.navbar form > .input-group:hover .input-group-text {
+  background: #dfdfdf;
 }
 
 @media (max-width: 800px) {
-    .logo-small {
-        display: inline-block;
-        aspect-ratio: 1/1;
-    }
-    .logo {
-        display: none;
-    }
-    .icon-search {
-        display: inline-block;
-    }
-    .form-search {
-        display: none;
-    }
-}
+  .logo-small {
+    display: inline-block;
+    aspect-ratio: 1/1;
+  }
+  .logo {
+    display: none;
+  }
+  .icon-search {
+    display: inline-block;
+  }
+  .form-search {
+    display: none;
+  }
+}/*# sourceMappingURL=nav.css.map */

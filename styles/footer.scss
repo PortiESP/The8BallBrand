@@ -28,3 +28,16 @@ footer {
         font-size: 0.8em;
     }
 }
+
+@media (max-width: 1400px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: stretch;
+        gap: 100px;
+
+        & .footer--column {
+            width: 50%;
+        }
+    }
+}
