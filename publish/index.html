@@ -36,7 +36,7 @@
 
     <div class="main-container">
       <div class="title">
-        <span class="title-text">Sell your best Garments!</span>
+        <span class="text-label">Sell your best Garments!</span>
         <i class="bi bi-cash title-icon"></i>
       </div>
 
@@ -44,23 +44,51 @@
         <div class="input-container">
 
           <div class="input-group">
-            <span class="input-group-text" id="title">Title</span>
-            <input type="text" class="form-control" placeholder="8B Hoodie" aria-label="title" aria-describedby="title">
+            <span class="input-group-text" id="name">
+              <span class="text-label">Name</span>
+              <i class="bi bi-hash"></i>
+            </span>
+            <input type="text" class="form-control" placeholder="8B Hoodie" aria-label="name" aria-describedby="name">
+          </div>
+
+          <div class="input-group half">
+            <span class="input-group-text" id="price">
+              <span class="text-label">Price</span>
+              <i class="bi bi-currency-dollar"></i>
+            </span>
+            <input type="number" class="form-control" placeholder="99" aria-label="price" aria-describedby="price"
+              min="0">
           </div>
 
           <div class="input-group">
-            <span class="input-group-text" id="price">Price</span>
-            <input type="text" class="form-control" placeholder="99" aria-label="price" aria-describedby="price">
-          </div>
-
-          <div class="input-group">
-            <span class="input-group-text" id="image">Image</span>
+            <span class="input-group-text" id="image">
+              <span class="text-label">Image</span>
+              <i class="bi bi-images"></i>
+            </span>
             <input type="text" class="form-control" placeholder="https://exampleurl..." aria-label="image"
               aria-describedby="image">
           </div>
 
+          <div class="input-group half">
+            <span class="input-group-text" id="garment-type">
+              <span class="text-label">Type</span>
+              <i class="bi bi-hash"></i>
+            </span>
+            <select class="form-control" id="garment-type">
+              <option selected value="1">Other</option>
+              <option value="2">Hoodie</option>
+              <option value="3">Pullover</option>
+              <option value="4">Shirt</option>
+              <option value="5">Jeans</option>
+              <option value="6">Shoes</option>
+            </select>
+          </div>
+
           <div class="size-selector-wide input-group">
-            <span class="input-group-text" id="size">Size</span>
+            <span class="input-group-text" id="size">
+              <span class="text-label">Size</span>
+              <i class="bi bi-gear-wide"></i>
+            </span>
             <div class="radios form-control">
               <div class="radio-element">
                 <input class="form-check-input" type="radio" name="size" id="size-xs" value="xs" />
@@ -87,38 +115,27 @@
                 <label class="form-check-label" for="size-xxl">XXL</label>
               </div>
             </div>
-
-            <div class="size-selector-narrow">
-              <label class="text-input-label">Size</label>
-              <select class="form-select">
-                <option selected value="xs">XS</option>
-                <option value="s">S</option>
-                <option value="m">M</option>
-                <option value="l">L</option>
-                <option value="xl">XL</option>
-                <option value="xxl">XXL</option>
-              </select>
-            </div>
           </div>
-
-          <div class="input-group">
-            <span class="input-group-text" id="garment-type">Options</span>
-            <select class="form-control" id="garment-type">
-              <option selected value="1">Other</option>
-              <option value="2">Hoodie</option>
-              <option value="3">Pullover</option>
-              <option value="4">Shirt</option>
-              <option value="5">Jeans</option>
-              <option value="6">Shoes</option>
+          <div class="size-selector-narrow input-group">
+            <span class="input-group-text" id="size">
+              <i class="bi bi-gear-wide"></i>
+            </span>
+            <select class="form-control half" id="size">
+              <option selected value="xs">XS</option>
+              <option value="s">S</option>
+              <option value="m">M</option>
+              <option value="l">L</option>
+              <option value="xl">XL</option>
+              <option value="xxl">XXL</option>
             </select>
           </div>
 
           <div class="date-input-container BB text-input">
-            <label for="begining-date">Auction Begining</label>
+            <label for="begining-date">Begining</label>
             <input type="date" name="begining-date" min="2023-10-09" id="begining-date" />
           </div>
           <div class="date-input-container BE text-input">
-            <label for="finishing-date">Auction Ending</label>
+            <label for="finishing-date">Ending</label>
             <input type="date" name="finishing-date" max="2024-10-09" id="finishing-date" />
           </div>
         </div>
