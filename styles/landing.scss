@@ -1,0 +1,170 @@
+body {
+    background: #0006 url("../assets/texture.png");
+    background-attachment: fixed;
+    scrollbar-width: none;
+    font-family: "Poppins", monospace;
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* ------------------------------- CARD ------------------------------- */
+.wrapper {
+    position: relative;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.section--title {
+    font-style: italic;
+    font-family: none;
+    font-weight: 700;
+    padding-bottom: 0px;
+    width: 80%;
+    color: #fffa;
+    border-bottom: 2px solid #fffa;
+}
+
+.featured {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    margin: 50px 0;
+    margin-top: 10px;
+    background: #fff;
+    overflow-x: scroll;
+
+    /* width */
+    &::-webkit-scrollbar {
+        height: 14px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: #fff;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: #fff;
+    }
+    /* Handle */
+    &:hover {
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: #f0f0f0;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #dfdfdf;
+        }
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #c7c7c7;
+    }
+
+    & .item {
+        min-width: 280px;
+    }
+}
+
+.items--wrap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 80%;
+    padding-top: 20px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 20px;
+
+    & .item--images {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        height: 200px;
+        overflow: hidden;
+
+        & .item--image-front {
+            position: relative;
+            width: 100%;
+            object-fit: contain;
+            transition: all 0.1s ease;
+        }
+    }
+
+    & .item--content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding-bottom: 10px;
+
+        & p {
+            font-weight: 600;
+            margin: 0;
+            padding: 10px 30px;
+            border: 1px solid black;
+            text-align: center;
+
+            transition: all 0.1s ease;
+
+            &:hover {
+                background: black;
+                color: white;
+            }
+        }
+
+        & .item--price {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            & sup {
+                position: relative;
+                color: #0004;
+                top: 0px;
+            }
+
+            & .price--sale {
+                position: relative;
+                display: flex;
+                align-items: flex-start;
+                gap: 4px;
+                padding: 2px;
+
+                & .sale {
+                    position: absolute;
+                    top: -2px;
+                    right: -20px;
+                    background-color: #e00;
+                    color: #eee;
+                    font-size: 0.6em;
+                    padding: 0px 4px;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+
+    &:hover {
+        & .item--image-front {
+            transform: scale(110%);
+        }
+    }
+}

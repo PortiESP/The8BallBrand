@@ -1,41 +1,82 @@
-:root {
-  --color1: #2f1f1a;
-  --color2: #46322a;
-  --color3: #694b39;
-  --color4: #8f734e;
-  --color5: #ab9362;
-  --color6: #0c3d2e;
-  --color7: #0f5037;
-  --color8: #3c714a;
-  --color9: #2b8f3a;
-  --colorX: #aed678;
-}
-
 body {
-  background-image: url("../assets/texture.png");
+  background: rgba(0, 0, 0, 0.4) url("../assets/texture.png");
+  background-attachment: fixed;
   scrollbar-width: none;
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-body::-webkit-scrollbar {
-  display: none;
-}
-/* Hide scrollbar for IE, Edge and Firefox */
-body {
+  font-family: "Poppins", monospace;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 
 /* ------------------------------- CARD ------------------------------- */
 .wrapper {
   position: relative;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0;
+}
+
+.section--title {
+  font-style: italic;
+  font-family: none;
+  font-weight: 700;
+  padding-bottom: 0px;
+  width: 80%;
+  color: rgba(255, 255, 255, 0.6666666667);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6666666667);
+}
+
+.featured {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  margin: 50px 0;
+  margin-top: 10px;
+  background: #fff;
+  overflow-x: scroll;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle */
+  /* Handle on hover */
+}
+.featured::-webkit-scrollbar {
+  height: 14px;
+}
+.featured::-webkit-scrollbar-track {
+  background: #fff;
+}
+.featured::-webkit-scrollbar-thumb {
+  background: #fff;
+}
+.featured:hover {
+  /* Track */
+}
+.featured:hover::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+.featured:hover::-webkit-scrollbar-thumb {
+  background: #dfdfdf;
+}
+.featured::-webkit-scrollbar-thumb:hover {
+  background: #c7c7c7;
+}
+.featured .item {
+  min-width: 280px;
 }
 
 .items--wrap {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 10px;
+  width: 80%;
+  padding-top: 20px;
 }
 
 .item {
@@ -44,27 +85,66 @@ body {
   background: white;
   padding: 20px;
 }
-
-.item--images {
+.item .item--images {
   position: relative;
   display: flex;
   justify-content: center;
   height: 200px;
   overflow: hidden;
 }
-
-.item--images .item--image-front {
+.item .item--images .item--image-front {
   position: relative;
-  /* background: yellow; */
   width: 100%;
-  object-fit: contain;
-  z-index: 1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  transition: all 0.1s ease;
 }
-
-.item--images .item--image-back {
+.item .item--content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 10px;
+}
+.item .item--content p {
+  font-weight: 600;
+  margin: 0;
+  padding: 10px 30px;
+  border: 1px solid black;
+  text-align: center;
+  transition: all 0.1s ease;
+}
+.item .item--content p:hover {
+  background: black;
+  color: white;
+}
+.item .item--content .item--price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.item .item--content .item--price sup {
+  position: relative;
+  color: rgba(0, 0, 0, 0.2666666667);
+  top: 0px;
+}
+.item .item--content .item--price .price--sale {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 2px;
+}
+.item .item--content .item--price .price--sale .sale {
   position: absolute;
-  /* background: green; */
-  object-fit: cover;
-  width: 100%;
-  filter: blur(10px);
+  top: -2px;
+  right: -20px;
+  background-color: #e00;
+  color: #eee;
+  font-size: 0.6em;
+  padding: 0px 4px;
+  border-radius: 4px;
 }
+.item:hover .item--image-front {
+  transform: scale(110%);
+}/*# sourceMappingURL=landing.css.map */
