@@ -25,13 +25,14 @@ body {
 }
 
 .section--title {
-    font-style: italic;
-    font-family: none;
-    font-weight: 700;
-    padding-bottom: 0px;
+    // font-style: italic;
+    font-family: "Poppins";
+    font-weight: 400;
+    font-size: 2.6em;
     width: 80%;
-    color: #fffa;
-    border-bottom: 2px solid #fffa;
+    color: #fffc;
+    border-bottom: 2px solid #fff4;
+    margin: 20px 0;
 }
 
 .featured {
@@ -84,7 +85,7 @@ body {
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     width: 80%;
-    padding-top: 20px;
+    margin-top: 10px;
 }
 
 .item {

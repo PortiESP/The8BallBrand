@@ -1,0 +1,26 @@
+footer {
+  background: black;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  gap: 200px;
+  padding: 100px 0;
+}
+footer .footer--link {
+  text-decoration: none;
+  color: inherit;
+}
+footer .footer--column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 1em;
+  font-weight: 200;
+}
+footer .footer--column .footer--item--title {
+  font-weight: 400;
+}
+footer .footer--brand {
+  color: rgba(255, 255, 255, 0.5333333333);
+  font-size: 0.8em;
+}/*# sourceMappingURL=footer.css.map */

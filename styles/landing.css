@@ -23,13 +23,13 @@ body::-webkit-scrollbar {
 }
 
 .section--title {
-  font-style: italic;
-  font-family: none;
-  font-weight: 700;
-  padding-bottom: 0px;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 2.6em;
   width: 80%;
-  color: rgba(255, 255, 255, 0.6666666667);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.6666666667);
+  color: rgba(255, 255, 255, 0.8);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2666666667);
+  margin: 20px 0;
 }
 
 .featured {
@@ -76,7 +76,7 @@ body::-webkit-scrollbar {
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   width: 80%;
-  padding-top: 20px;
+  margin-top: 10px;
 }
 
 .item {

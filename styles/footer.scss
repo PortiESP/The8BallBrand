@@ -1,0 +1,30 @@
+footer {
+    background: black;
+    color: #fffc;
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    padding: 100px 0;
+
+    & .footer--link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    & .footer--column {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 1em;
+        font-weight: 200;
+
+        & .footer--item--title {
+            font-weight: 400;
+        }
+    }
+
+    & .footer--brand {
+        color: #fff8;
+        font-size: 0.8em;
+    }
+}
