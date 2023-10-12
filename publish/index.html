@@ -6,11 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>8 Ball | Add New Element</title>
     <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="./publish.css" />
     <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="./publish.css" />
   </head>
 
   <body>
@@ -46,7 +43,7 @@
           <div class="input-group">
             <span class="input-group-text" id="name">
               <span class="text-label">Name</span>
-              <i class="bi bi-hash"></i>
+              <i class="bi bi-hash bi-stretched"></i>
             </span>
             <input type="text" class="form-control" placeholder="8B Hoodie" aria-label="name" aria-describedby="name">
           </div>
@@ -54,16 +51,15 @@
           <div class="input-group half">
             <span class="input-group-text" id="price">
               <span class="text-label">Price</span>
-              <i class="bi bi-currency-dollar"></i>
+              <i class="bi bi-currency-dollar bi-stretched"></i>
             </span>
-            <input type="number" class="form-control" placeholder="99" aria-label="price" aria-describedby="price"
-              min="0">
+            <input type="number" class="form-control" placeholder="99" aria-label="price" aria-describedby="price" min="0">
           </div>
 
           <div class="input-group">
             <span class="input-group-text" id="image">
               <span class="text-label">Image</span>
-              <i class="bi bi-images"></i>
+              <i class="bi bi-images bi-stretched"></i>
             </span>
             <input type="text" class="form-control" placeholder="https://exampleurl..." aria-label="image"
               aria-describedby="image">
@@ -72,7 +68,7 @@
           <div class="input-group half">
             <span class="input-group-text" id="garment-type">
               <span class="text-label">Type</span>
-              <i class="bi bi-hash"></i>
+              <i class="bi bi-hash bi-stretched"></i>
             </span>
             <select class="form-control" id="garment-type">
               <option selected value="1">Other</option>
@@ -141,8 +137,8 @@
         </div>
 
         <div class="buttons">
-          <a href="/" class="btn btn-danger">Cancel</a>
-          <button type="submit" class="btn btn-success">Save</button>
+          <a href="/" class="btn btn-danger btn-form">Cancel</a>
+          <button type="submit" class="btn btn-success btn-form">Save</button>
         </div>
       </form>
     </div>
