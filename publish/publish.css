@@ -1,32 +1,35 @@
 .main-container {
   width: 100%;
   height: 85vh;
+  min-height: 95vh;
   margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
-.title {
+.main-container .title {
   margin-top: 30px;
-  height: 20%;
+  padding-top: 20px;
+  height: 15%;
   width: 70%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 45px;
   font-weight: bold;
   color: #000000;
-  border-radius: 5px 5px 0px 0px;
-  border-left: 2px solid #4f4f4f;
-  border-right: 2px solid #4f4f4f;
-  border-top: 2px solid #4f4f4f;
-  background-color: #ffffff;
+  background-color: #eee;
 }
-
-.form-container {
+.main-container .title .bi-wide {
+  color: #4c4c4c;
+}
+.main-container .title hr {
+  margin: 0px;
+  width: 80%;
+}
+.main-container .form-container {
   width: 70%;
-  height: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,148 +37,126 @@
   gap: 30px;
   font-weight: 500;
   color: #000000;
-  border-radius: 0px 0px 5px 5px;
-  border-left: 2px solid #4f4f4f;
-  border-right: 2px solid #4f4f4f;
-  border-bottom: 2px solid #4f4f4f;
-  background-color: rgba(171, 171, 171, 0.7529411765);
+  background-color: #eee;
 }
-.form-container .input-container {
-  margin-top: 50px;
+.main-container .form-container .input-container {
+  margin-bottom: 20px;
+  margin-top: 30px;
   width: 80%;
   height: 100%;
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
-.form-container .input-container .input-group span.input-group-text {
-  width: 10%;
+.main-container .form-container .input-container .input-group span.input-group-text {
+  padding: 0;
+  width: 15%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 18px;
   font-weight: 500;
-  color: #fff;
-  background-color: #2c2c2c;
-  border-color: #2c2c2c;
+  background: none;
+  border: none;
+  border-right: 2px solid #c8c8c8;
 }
-.form-container .input-container .input-group .radios.form-control {
-  gap: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background-color: rgb(128, 128, 128);
-  border-color: rgb(128, 128, 128);
-  border-radius: 5px 5px 5px 5px;
+.main-container .form-container .input-container input.form-control, .main-container .form-container .input-container select.form-control {
+  border: 0px;
+  box-shadow: none;
+  background: none;
 }
-.form-container .input-container .input-group .radios.form-control.radio-element {
-  height: 100%;
-  width: 16%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.form-container .input-container .input-group.half {
-  width: 50%;
-}
-.form-container .input-container .input-group.half span.input-group-text {
-  width: 20%;
-}
-.form-container .input-container input.form-control {
+.main-container .form-container .input-container input.form-control:focus, .main-container .form-container .input-container select.form-control:focus {
   border: 0px;
   box-shadow: none;
 }
-.form-container .input-container input.form-control:focus {
-  border: 0px;
-  box-shadow: none;
-}
-.form-container .input-container input.form-control::-moz-placeholder {
+.main-container .form-container .input-container input.form-control::-moz-placeholder, .main-container .form-container .input-container select.form-control::-moz-placeholder {
   opacity: 0.5;
   font-weight: 400;
 }
-.form-container .input-container input.form-control::placeholder {
+.main-container .form-container .input-container input.form-control::placeholder, .main-container .form-container .input-container select.form-control::placeholder {
   opacity: 0.5;
   font-weight: 400;
 }
-.form-container .input-container select.form-control {
-  border: 0px;
-  box-shadow: none;
+.main-container .form-container .input-container select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: red;
+  color: #4c4c4c;
 }
-.form-container .input-container select.form-control:focus {
-  border: 0px;
-  box-shadow: none;
+.main-container .form-container .input-container .date-input-container {
+  display: flex;
+  justify-content: left;
+  gap: 20px;
 }
-
-.input-container .size-selector-wide {
-  width: 100%;
+.main-container .form-container .input-container .date-input-container input[type=date] {
+  background: none;
+  border: none;
+  outline: none;
 }
-
-.input-container .size-selector-narrow {
-  width: 100%;
-  display: none;
-}
-
-.form-select-container {
+.main-container .form-container .form-select-container {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.date-input-container {
+.main-container .form-container .date-input-container {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-
-.buttons {
-  padding: 15px;
+.main-container .form-container .buttons {
+  padding-bottom: 40px;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
-
-.btn {
+.main-container .form-container .btn-form {
   width: 20%;
   display: flex;
   justify-content: center;
   font-weight: bold;
 }
-
-.title-icon {
+.main-container .form-container .title-icon {
   display: none;
 }
-
-.bi {
+.main-container .bi-stretched {
   display: none;
 }
 
 @media (max-width: 1200px) {
-  .bi {
-    display: inline;
+  .main-container .input-container .input-group span.input-group-text {
+    width: 50px;
   }
-  .text-label {
+  .main-container .bi-stretched {
+    display: inline;
+    color: #4c4c4c;
+  }
+  .main-container .bi-wide {
     display: none;
   }
-  .title {
+  .main-container .text-label {
+    display: none;
+  }
+  .main-container .title {
     width: 80%;
   }
-  .form-container {
+  .main-container .form-container {
     width: 80%;
   }
 }
 @media (max-width: 800px) {
-  .title {
-    width: 100%;
-    border: none;
-    border-radius: 0 0 0 0;
+  .main-container .title {
+    width: 90%;
   }
-  .form-container {
-    width: 100%;
-    border: none;
-    border-radius: 0 0 0 0;
+  .main-container .form-container {
+    width: 90%;
+  }
+  .main-container .form-container .input-container {
+    margin-top: 20px;
   }
   .input-container .size-selector-wide {
     width: 100%;
