@@ -1,4 +1,4 @@
- /* * {border: solid black 1px;}    */
+/* * {border: solid black 1px;}  */
 :root {
   --color1: #2f1f1a;
   --color2: #46322a;
@@ -26,6 +26,11 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+.backToMenuButton{
+  text-decoration: none;
+  color: #ffffff;
+  padding: 10px;
+}
 
 /*  
 .wrapper{
@@ -42,9 +47,13 @@ body {
   display: flex;
   justify-content:center;
   align-items: center;
-  gap: 30px;
-  font-weight: 500;
+  /* gap: 30px; */
   color: #ffffff;
+  border-radius: 10px;
+  border: 2px solid black;
+  background-color: #000000b5;
+  width: 60%;
+  padding: 30px;
 }
 
 .ProductInfoContainer {
@@ -63,7 +72,7 @@ body {
   border: solid black;
   /* margin: 2%;   */
   background-color: white;
-  width: 400px;
+  width: 40%;
   aspect-ratio: 1/1;
 }
 
@@ -74,11 +83,11 @@ body {
 
 .bidbutton {
   
-  justify-content:flex-start;
-  align-items: flex-start;
-  margin: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-
+.btn-secondary{margin: 20px;}
 /* bid product zone */
 
 
@@ -147,3 +156,8 @@ body {
  width: 100%;
 }
 div.row.d-flex.justify-content-center > div > div{padding: 10px; }
+.FinalBidButton{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
