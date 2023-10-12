@@ -3,6 +3,7 @@
 .main-container {
     width: 100%;
     height: 85vh;
+    min-height: 95vh;
     margin-bottom: 40px;
     display: flex;
     flex-direction: column;
@@ -10,24 +11,32 @@
 
     & .title {
         margin-top: 30px;
-        height: 20%;
+        padding-top: 20px;
+        height: 15%;
         width: 70%;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         font-size: 45px;
         font-weight: bold;
         color: #000000;
-        border-radius: 5px 5px 0px 0px;
-        border-left: 2px solid #4f4f4f;
-        border-right: 2px solid #4f4f4f;
-        border-top: 2px solid #4f4f4f;
-        background-color: #ffffff;
+        // border-bottom: 1px solid #acacac6b;
+        background-color: #eee;
+
+        & .bi-wide {
+            color: #4c4c4c;
+        }
+
+        & hr {
+            margin: 0px;
+            width: 80%;
+        }
     }
 
     & .form-container {
         width: 70%;
-        height: 80%;
+        // height: 85%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -35,98 +44,70 @@
         gap: 30px;
         font-weight: 500;
         color: #000000;
-        border-radius: 0px 0px 5px 5px;
-        border-left: 2px solid #4f4f4f;
-        border-right: 2px solid #4f4f4f;
-        border-bottom: 2px solid #4f4f4f;
-        background-color: #abababc0;
+        background-color: #eee;
 
         & .input-container {
-            margin-top: 50px;
+            margin-bottom: 20px;
+            margin-top: 30px;
             width: 80%;
             height: 100%;
             display: flex;
             flex-direction: column;
             gap: 25px;
 
-            & .input-group {
+            & .input-group {   
                 & span.input-group-text {
-                    width: 10%;
+                    padding: 0;
+                    width: 15%;
                     display: flex;
+                    align-items: center;
                     justify-content: center;
-                    align-items: center;
+                    color: #666;
+                    font-size: 18px;
                     font-weight: 500;
-                    color: #fff;
-                    background-color: #2c2c2c;
-                    border-color: #2c2c2c;
-
+                    background: none;
+                    border: none;
+                    border-right: 2px solid #c8c8c8;
                 }
-
-                & .radios.form-control {
-                    gap: 2px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    background-color: rgb(128, 128, 128);
-                    border-color: rgb(128, 128, 128);
-                    border-radius: 5px 5px 5px 5px;
-
-                    &.radio-element {
-                        height: 100%;
-                        width: 16%;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-                    }
-                }
-
-                &.half {
-                    width: 50%;
-
-                    & span.input-group-text {
-                        width: 20%;
-                    }
-                }
-
+                
             }
-
-            & input.form-control {
+            
+            & input.form-control, & select.form-control {
                 border: 0px;
                 box-shadow: none;
+                background: none;
 
                 &:focus {
                     border: 0px;
                     box-shadow: none;
                 }
-
+                
                 &::placeholder {
                     opacity: .5;
                     font-weight: 400;
                 }
+
             }
 
-            & select.form-control {
-                border: 0px;
-                box-shadow: none;
+                & select {
+                    appearance: none;
+                    background-color: red;
+                    color: #4c4c4c;
+            }
 
-                &:focus {
-                    border: 0px;
-                    box-shadow: none;
+            & .date-input-container {
+                display: flex;
+                justify-content: left;
+                gap: 20px;
+                & input[type=date] {
+                    background: none;
+                    border: none;
+                    outline: none;
                 }
             }
-
-
-            & .size-selector-wide {
-                width: 100%;
-            }
-
-            & .size-selector-narrow {
-                width: 100%;
-                display: none;
-            }
         }
-
+        
+        
         & .form-select-container {
             width: 100%;
             display: flex;
@@ -140,59 +121,78 @@
             align-items: center;
             justify-content: space-around;
         }
-
+        
         & .buttons {
-            padding: 15px;
+            padding-bottom: 40px;
             width: 100%;
             display: flex;
             justify-content: space-evenly;
             align-items: center;
         }
-
+        
         .btn-form {
             width: 20%;
             display: flex;
             justify-content: center;
             font-weight: bold;
         }
-
+        
         .title-icon {
             display: none;
         }
     }
-}
-
-@media (max-width: 1200px) {
-    .bi-stretched {
-        display: inline;
-    }
-
-    .text-label {
+    & .bi-stretched {
         display: none;
     }
+}
 
-    .title {
-        width: 80%;
-    }
 
-    .form-container {
-        width: 80%;
+@media (max-width: 1200px) {
+    .main-container {
+        & .input-container .input-group span.input-group-text {
+            width: 50px;
+        }
+    
+        & .bi-stretched {
+            display: inline;
+            color: #4c4c4c;
+        }
+
+        & .bi-wide {
+            display: none;
+        }
+    
+        & .text-label {
+            display: none;
+        }
+    
+        & .title {
+            width: 80%;
+        }
+    
+        & .form-container {
+            width: 80%;
+        }
+
     }
 }
 
 @media (max-width: 800px) {
+    .main-container {
+        & .title {
+            width: 90%;
+        }
 
-    .title {
-        width: 100%;
-        border: none;
-        border-radius: 0 0 0 0;
+        & .form-container {
+            width: 90%;
+
+            & .input-container {
+                margin-top: 20px;
+            }
+        }
     }
 
-    .form-container {
-        width: 100%;
-        border: none;
-        border-radius: 0 0 0 0;
-    }
+
 
     .input-container .size-selector-wide {
         width: 100%;
