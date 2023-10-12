@@ -101,12 +101,6 @@
   align-items: center;
   justify-content: center;
 }
-.main-container .form-container .date-input-container {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
 .main-container .form-container .buttons {
   padding-bottom: 40px;
   width: 100%;
@@ -114,14 +108,29 @@
   justify-content: space-evenly;
   align-items: center;
 }
-.main-container .form-container .btn-form {
-  width: 20%;
+.main-container .form-container .buttons .btn-form {
+  padding: 5px;
+  width: 25%;
   display: flex;
   justify-content: center;
   font-weight: bold;
+  background: none;
 }
-.main-container .form-container .title-icon {
-  display: none;
+.main-container .form-container .buttons .btn-form.btn-success {
+  color: green;
+  border-color: green;
+}
+.main-container .form-container .buttons .btn-form.btn-success:hover, .main-container .form-container .buttons .btn-form.btn-success:active {
+  color: #fff;
+  background-color: green;
+}
+.main-container .form-container .buttons .btn-form.btn-danger {
+  color: red;
+  border-color: red;
+}
+.main-container .form-container .buttons .btn-form.btn-danger:hover, .main-container .form-container .buttons .btn-form.btn-danger:active {
+  color: #fff;
+  background-color: red;
 }
 .main-container .bi-stretched {
   display: none;
@@ -157,13 +166,5 @@
   }
   .main-container .form-container .input-container {
     margin-top: 20px;
-  }
-  .input-container .size-selector-wide {
-    width: 100%;
-    display: none;
-  }
-  .input-container .size-selector-narrow {
-    width: 100%;
-    display: inline;
   }
 }/*# sourceMappingURL=publish.css.map */
