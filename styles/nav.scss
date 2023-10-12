@@ -22,7 +22,8 @@ nav.navbar {
     & .navbar-nav {
         display: flex;
         flex-direction: row;
-        gap: 10px;
+        justify-content: space-around;
+        gap: 20px;
         align-items: center;
 
         & .nav-link:hover {
@@ -65,17 +66,22 @@ nav.navbar {
 }
 
 @media (max-width: 800px) {
-    .logo-small {
-        display: inline-block;
-        aspect-ratio: 1/1;
-    }
-    .logo {
-        display: none;
-    }
-    .icon-search {
-        display: inline-block;
-    }
-    .form-search {
-        display: none;
+    nav.navbar {
+        padding: 5px 20px;
+
+        .navbar-brand .logo-small {
+            display: inline-block;
+            aspect-ratio: 1/1;
+            height: 40px;
+        }
+        .logo {
+            display: none;
+        }
+        .icon-search {
+            display: inline-block;
+        }
+        #search-input {
+            display: none;
+        }
     }
 }
