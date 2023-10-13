@@ -24,7 +24,7 @@ nav.navbar .navbar-nav {
   align-items: center;
 }
 nav.navbar .navbar-nav .nav-link:hover {
-  color: rgba(95, 43, 1, 0.5803921569);
+  color: rgba(88, 60, 39, 0.733);
 }
 nav.navbar .navbar-nav .icon-search {
   display: none;
