@@ -9,6 +9,7 @@ body {
     background: $colorPrimaryAlpha url("../assets/texture.png") fixed;
     scrollbar-width: none;
     font-family: "Poppins", monospace;
+    user-select: none;
 
     /* Hide scrollbar for IE, Edge and Firefox */
     -ms-overflow-style: none; /* IE and Edge */

@@ -10,36 +10,116 @@
         <link rel="stylesheet" href="./publish.css" />
     </head>
 
-    <body>
-        <!---------------------------------------------------------------------------------------------------------- Nav -->
-        <nav class="navbar mb-3">
-            <a class="navbar-brand" href="/">
-                <img src="../assets/full-icon.svg" class="img-fluid rounded-top logo" alt="" />
-                <img src="../assets/icon.svg" class="img-fluid rounded-top logo-small" alt="" />
-            </a>
-            <div class="d-flex gap-2 align-items-center">
-                <div class="navbar-nav">
-                    <a class="nav-link icon-search" href="#"><i class="fs-4 bi bi-search"></i></a>
-                    <a class="nav-link" href="#"><i class="fs-4 bi bi-cart2"></i></a>
-                    <a class="nav-link" href="#"><i class="fs-4 bi bi-person-circle"></i></a>
-                </div>
-                <form>
-                    <div class="input-group">
-                        <input type="text" class="nav-search-bar" id="search-input" placeholder="Search" />
-                        <div class="input-group-text"><i class="bi bi-search text-secondary"></i></div>
-                    </div>
-                </form>
-            </div>
-        </nav>
-        <!--------------------------------------------------------------------------------------------------------- Main -->
-        <div class="main-container">
-            <div class="title">
-                <span class="bi-wide">Sell your best Garments!</span>
-                <span class="bi-stretched">Publish</span>
-                <hr />
-            </div>
-            <form class="form-container">
-                <div class="input-container">
+  <body>
+    <!---------------------------------------------------------------------------------------------------------- Nav -->
+    <nav class="navbar mb-3">
+      <a class="navbar-brand" href="/">
+          <img src="../assets/full-icon.svg" class="img-fluid rounded-top logo" alt="" />
+          <img src="../assets/icon.svg" class="img-fluid rounded-top logo-small" alt="" />
+      </a>
+      <div class="d-flex gap-2 align-items-center">
+          <div class="navbar-nav">
+              <a class="nav-link icon-search" href="#"><i class="fs-4 bi bi-search"></i></a>
+              <label class="nav-link icon-cart" for="icon--cart" href="#"
+                  ><i class="fs-4 bi bi-cart2"></i>
+                  <input type="checkbox" id="icon--cart" checked />
+                  <div class="wrapper--cart">
+                      <div class="cart--list">
+                          <div class="item--cart">
+                              <div class="item--images"><img src="../assets/clothes/hoodie4.png" alt="hoodie" class="item--image-front" /></div>
+                              <div class="item--content">
+                                  <p>Hoodie Zara</p>
+                                  <div class="item--price"><span class="price">40.00€</span></div>
+                              </div>
+                              <div class="item--count"><input value="1" /></div>
+                          </div>
+                          <div class="item--cart">
+                              <div class="item--images"><img src="../assets/clothes/hoodie4.png" alt="hoodie" class="item--image-front" /></div>
+                              <div class="item--content">
+                                  <p>Hoodie Zara</p>
+                                  <div class="item--price"><span class="price">40.00€</span></div>
+                              </div>
+                              <div class="item--count"><input value="1" /></div>
+                          </div>
+                          <div class="item--cart">
+                              <div class="item--images"><img src="../assets/clothes/hoodie4.png" alt="hoodie" class="item--image-front" /></div>
+                              <div class="item--content">
+                                  <p>Hoodie Zara</p>
+                                  <div class="item--price"><span class="price">40.00€</span></div>
+                              </div>
+                              <div class="item--count"><input value="1" /></div>
+                          </div>
+                          <div class="item--cart">
+                              <div class="item--images"><img src="../assets/clothes/hoodie4.png" alt="hoodie" class="item--image-front" /></div>
+                              <div class="item--content">
+                                  <p>Hoodie Zara</p>
+                                  <div class="item--price"><span class="price">40.00€</span></div>
+                              </div>
+                              <div class="item--count"><input value="1" /></div>
+                          </div>
+                          <div class="item--cart">
+                              <div class="item--images"><img src="../assets/clothes/hoodie4.png" alt="hoodie" class="item--image-front" /></div>
+                              <div class="item--content">
+                                  <p>Hoodie Zara</p>
+                                  <div class="item--price"><span class="price">40.00€</span></div>
+                              </div>
+                              <div class="item--count"><input value="1" /></div>
+                          </div>
+                          <div class="item--cart">
+                              <div class="item--images"><img src="../assets/clothes/hoodie4.png" alt="hoodie" class="item--image-front" /></div>
+                              <div class="item--content">
+                                  <p>Hoodie Zara</p>
+                                  <div class="item--price"><span class="price">40.00€</span></div>
+                              </div>
+                              <div class="item--count"><input value="1" /></div>
+                          </div>
+                          <div class="item--cart">
+                              <div class="item--images"><img src="../assets/clothes/hoodie4.png" alt="hoodie" class="item--image-front" /></div>
+                              <div class="item--content">
+                                  <p>Hoodie Zara</p>
+                                  <div class="item--price"><span class="price">40.00€</span></div>
+                              </div>
+                              <div class="item--count"><input value="1" /></div>
+                          </div>
+                          <div class="item--cart">
+                              <div class="item--images"><img src="../assets/clothes/hoodie4.png" alt="hoodie" class="item--image-front" /></div>
+                              <div class="item--content">
+                                  <p>Hoodie Zara</p>
+                                  <div class="item--price"><span class="price">40.00€</span></div>
+                              </div>
+                              <div class="item--count"><input value="1" /></div>
+                          </div>
+                      </div>
+                      <div class="checkout"><button>Checkout</button></div>
+                  </div>
+              </label>
+              <a class="nav-link" href="#"><i class="fs-4 bi bi-person-circle"></i></a>
+          </div>
+          <form>
+              <div class="input-group">
+                  <input type="text" class="nav-search-bar" id="search-input" placeholder="Search" />
+                  <div class="input-group-text"><i class="bi bi-search text-secondary"></i></div>
+              </div>
+          </form>
+      </div>
+  </nav>
+    <!--------------------------------------------------------------------------------------------------------- Main -->
+    <div class="main-container">
+      <div class="title">
+        <span class="bi-wide">Sell your best Garments!</span>
+        <span class="bi-stretched">Publish</span>
+        <hr />
+      </div>
+      <form class="form-container">
+        <div class="input-container">
+          
+          <div class="input-group">
+            <span class="input-group-text" id="name">
+              <span class="text-label">Name</span>
+              <i class="bi bi-hash bi-stretched"></i>
+            </span>
+            <input type="text" class="form-control" placeholder="8B Hoodie" aria-label="name" aria-describedby="name">
+          </div>
 
                     <div class="input-group">
                         <span class="input-group-text" id="name">
