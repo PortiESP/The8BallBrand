@@ -69,18 +69,18 @@ nav.navbar {
     nav.navbar {
         padding: 5px 20px;
 
-        .navbar-brand .logo-small {
+        & .navbar-brand .logo-small {
             display: inline-block;
             aspect-ratio: 1/1;
             height: 40px;
         }
-        .logo {
+        & .logo {
             display: none;
         }
-        .icon-search {
+        & .icon-search {
             display: inline-block;
         }
-        #search-input {
+        & #search-input {
             display: none;
         }
     }
