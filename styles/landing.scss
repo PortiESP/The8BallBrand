@@ -9,6 +9,11 @@
     align-items: center;
     padding: 50px 0;
 
+    & .item--link{
+        text-decoration: none;
+        color: inherit;
+    }
+
 
     & .section--title {
         // font-style: italic;

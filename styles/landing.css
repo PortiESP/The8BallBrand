@@ -7,6 +7,10 @@
   align-items: center;
   padding: 50px 0;
 }
+.wrapper .item--link {
+  text-decoration: none;
+  color: inherit;
+}
 .wrapper .section--title {
   font-family: "Poppins";
   font-weight: 400;
