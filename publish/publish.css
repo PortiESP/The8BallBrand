@@ -78,9 +78,6 @@
   opacity: 0.5;
   font-weight: 400;
 }
-.main-container .form-container .input-container input.form-control:hover, .main-container .form-container .input-container select.form-control:hover {
-  background-color: #fdfdfd;
-}
 .main-container .form-container .input-container .date-input-container {
   display: flex;
   justify-content: left;
