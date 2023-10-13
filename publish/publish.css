@@ -62,7 +62,7 @@
   border-right: 2px solid #c8c8c8;
 }
 .main-container .form-container .input-container input.form-control, .main-container .form-container .input-container select.form-control {
-  border: 0px;
+  border: 0;
   box-shadow: none;
   background: none;
 }
@@ -78,12 +78,8 @@
   opacity: 0.5;
   font-weight: 400;
 }
-.main-container .form-container .input-container select {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background-color: red;
-  color: #4c4c4c;
+.main-container .form-container .input-container input.form-control:hover, .main-container .form-container .input-container select.form-control:hover {
+  background-color: #fdfdfd;
 }
 .main-container .form-container .input-container .date-input-container {
   display: flex;

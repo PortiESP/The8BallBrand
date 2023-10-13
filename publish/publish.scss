@@ -69,11 +69,10 @@
                     border: none;
                     border-right: 2px solid #c8c8c8;
                 }
-                
             }
             
             & input.form-control, & select.form-control {
-                border: 0px;
+                border: 0;
                 box-shadow: none;
                 background: none;
 
@@ -87,13 +86,12 @@
                     font-weight: 400;
                 }
 
+                &:hover {
+                    background-color: #fdfdfd;
+                }
+
             }
 
-                & select {
-                    appearance: none;
-                    background-color: red;
-                    color: #4c4c4c;
-            }
 
             & .date-input-container {
                 display: flex;
