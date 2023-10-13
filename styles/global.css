@@ -7,6 +7,9 @@ body {
   background: rgba(88, 60, 39, 0.733) url("../assets/texture.png") fixed;
   scrollbar-width: none;
   font-family: "Poppins", monospace;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */

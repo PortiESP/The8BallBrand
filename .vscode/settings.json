@@ -2,5 +2,6 @@
     "files.exclude": {
         "**/.git": true,
         "**/*.css.map": true
-    }
+    },
+    "prettier.tabWidth": 4
 }
