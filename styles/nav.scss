@@ -38,6 +38,7 @@ nav.navbar {
         // ----------------------------------------------------------------- CART
         & .icon-cart {
             position: relative;
+            cursor: pointer;
 
             // --------------------------------------- BUBBLE
             &::after {
@@ -73,7 +74,6 @@ nav.navbar {
                 top: 55px;
                 left: -20px;
                 width: 300px;
-                height: 450px;
                 background: $cartBg;
                 border-radius: 4px;
                 box-shadow: 0 0 10px #0004;
@@ -88,6 +88,27 @@ nav.navbar {
                     border-left: 10px solid transparent;
                     border-right: 10px solid transparent;
                     border-bottom: 10px solid $cartBg;
+                }
+
+                & > .cart--title{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 40px;
+                    margin: 0 10px;
+                    font-weight: 700;
+                    border-bottom: 1px solid #4441;
+
+
+                    & .close {
+                        background: none;
+                        border:none;
+                        color: #0004;
+                        font-weight: 300;
+                        font-size: .8em;
+                        padding: 4px 10px;
+                        cursor: pointer;
+                    }
                 }
 
                 & > .cart--list {
@@ -128,7 +149,8 @@ nav.navbar {
 
                         & > .item--images {
                             position: relative;
-                            width: 30%;
+                            width: 40%;
+                            max-width: 80px;
                             height: 100%;
 
                             & img {
@@ -139,7 +161,7 @@ nav.navbar {
                         }
 
                         & > .item--content {
-                            width: 60%;
+                            width: 100%;
                             display: flex;
                             flex-direction: column;
                             justify-content: center;
@@ -158,7 +180,9 @@ nav.navbar {
 
                         & > .item--count {
                             position: relative;
-                            width: 10%;
+                            width: 50px;
+                            max-width: 100px;
+
 
                             & input {
                                 width: 100%;
@@ -174,7 +198,7 @@ nav.navbar {
                                 content: "";
                                 position: absolute;
                                 top: -20px;
-                                left: 3px;
+                                left: 7px;
                                 width: 1px;
                                 border-top: 10px solid transparent;
                                 border-left: 10px solid transparent;
@@ -185,7 +209,7 @@ nav.navbar {
                                 content: "";
                                 position: absolute;
                                 top: 25px;
-                                left: 3px;
+                                left: 7px;
                                 width: 1px;
                                 border-top: 10px solid $cartItemArrowColor;
                                 border-left: 10px solid transparent;
@@ -200,17 +224,32 @@ nav.navbar {
                     justify-content: center;
                     align-items: center;
                     width: 95%;
-                    height: 50px;
+                    height: 70px;
                     border-top: 1px solid #4441;
                     margin: 0 auto;
 
                     & button {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
                         border: none;
                         background: $themePrimaryAlpha;
                         color: $white;
                         width: 100%;
                         height: 70%;
                         border-radius: 4px;
+
+                        & p{
+                            margin: 0;
+                            line-height: 14px;
+                        }
+
+                        & > span{
+                            font-size: .6em;
+                            color: #fff8;
+                            height: 10%;
+                        }
 
                         &:hover{
                             background: $themePrimary;
@@ -267,6 +306,33 @@ nav.navbar {
 
         & #search-input {
             display: none;
+        }
+
+        & .navbar-nav .icon-cart .wrapper--cart#wrapper--cart{
+            position: fixed;
+            top:0;
+            left: 0;
+
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+
+            border-radius: 0;
+            z-index: 10;
+
+            &::after{content: none;}
+
+            & .cart--title{
+                height: 60px;
+                font-size: 1.2em;
+            }
+
+            & .cart--list{
+                height: 100%;
+            }
         }
     }
 }
