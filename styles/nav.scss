@@ -31,7 +31,7 @@ nav.navbar {
         gap: 20px;
         align-items: center;
 
-        & > a.nav-link:hover i {
+        & > .nav-link:hover i {
             color: $themePrimaryAlpha;
         }
 
@@ -260,9 +260,11 @@ nav.navbar {
             aspect-ratio: 1/1;
             height: 40px;
         }
+
         & .logo {
             display: none;
         }
+
         & #search-input {
             display: none;
         }
