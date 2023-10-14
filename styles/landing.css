@@ -144,6 +144,9 @@
   }
 }
 @media (max-width: 500px) {
+  .wrapper .section--title {
+    font-size: 2em;
+  }
   .wrapper .items--wrap {
     grid-template-columns: 1fr;
   }
