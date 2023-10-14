@@ -127,11 +127,10 @@
                     display: flex;
                     align-items: flex-start;
                     gap: 4px;
-                    padding: 2px;
 
                     & .sale {
                         position: absolute;
-                        top: -2px;
+                        top: -4px;
                         right: -20px;
                         background-color: $notification;
                         color: $white;
@@ -139,10 +138,12 @@
                         padding: 0px 4px;
                         border-radius: 4px;
                         border: 1px solid $cardBackground;
+                        padding: 0 2px;
                     }
                 }
 
                 & .price--old {
+                    height: 0;
                     color: $cardPriceOld;
                     font-size: 0.8em;
                     text-decoration: line-through;
