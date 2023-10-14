@@ -36,10 +36,7 @@ nav.navbar {
         }
 
         // ----------------------------------------------------------------- CART
-        & .icon-cart {
-            position: relative;
-            cursor: pointer;
-
+        & .icon-cart{
             // --------------------------------------- BUBBLE
             &::after {
                 $size: 18px;
@@ -56,23 +53,29 @@ nav.navbar {
                 border-radius: 50%;
                 font-size: 0.8em;
             }
+        }
+        & .div-cart {
+            position: absolute;
+            cursor: pointer;
+
+            
             // --------------------------------------- TOGGLE CHECKBOX
             & input[type="checkbox"] {
                 display: none;
 
-                & + .wrapper--cart {
+                & + .wrapper--cart#wrapper--cart {
                     display: none;
                 }
 
-                &:checked + .wrapper--cart {
+                &:checked + .wrapper--cart#wrapper--cart {
                     display: block;
                 }
             }
             // --------------------------------------- CART MENU
             & .wrapper--cart {
                 position: absolute;
-                top: 55px;
-                left: -20px;
+                top: 40px;
+                left: -55px;
                 width: 300px;
                 background: $cartBg;
                 border-radius: 4px;
@@ -308,7 +311,7 @@ nav.navbar {
             display: none;
         }
 
-        & .navbar-nav .icon-cart .wrapper--cart#wrapper--cart{
+        & .navbar-nav .div-cart .wrapper--cart#wrapper--cart{
             position: fixed;
             top:0;
             left: 0;
@@ -331,7 +334,11 @@ nav.navbar {
             }
 
             & .cart--list{
-                height: 100%;
+                height: calc(100vh - 60px - 80px);
+            }
+
+            & .checkout{
+                height: 80px;
             }
         }
     }
