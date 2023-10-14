@@ -6,7 +6,7 @@
 @import "./identity";
 
 body {
-    background: $colorPrimaryAlpha url("../assets/texture.png") fixed;
+    background: $themePrimaryAlpha url("../assets/texture.png") fixed;
     scrollbar-width: none;
     font-family: "Poppins", monospace;
     user-select: none;

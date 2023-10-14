@@ -20,43 +20,43 @@
         font-weight: 400;
         font-size: 2.6em;
         width: 80%;
-        color: #fff;
-        border-bottom: 2px solid #fff4;
+        color: $title;
+        border-bottom: 2px solid $titleLine;
         margin: 20px 0;
     }
-
+    
     & .featured {
         width: 100%;
         margin: 20px 0;
         display: flex;
         margin: 50px 0;
         margin-top: 10px;
-        background: #fff;
         overflow-x: scroll;
+        background: $cardBackground;
 
         &::-webkit-scrollbar {
             height: 14px;
         }
 
         &::-webkit-scrollbar-track {
-            background: #fff;
+            background: $cardBackground;
         }
 
         &::-webkit-scrollbar-thumb {
-            background: #fff;
+            background: $cardBackground;
         }
         &:hover {
             &::-webkit-scrollbar-track {
-                background: #f0f0f0;
+                background: $featuredScrollBarBg;
             }
 
             &::-webkit-scrollbar-thumb {
-                background: #dfdfdf;
+                background: $featuredScrollBar;
             }
         }
 
         &::-webkit-scrollbar-thumb:hover {
-            background: #c7c7c7;
+            background: $featuredScrollBarHover;
         }
 
         & .item {
@@ -75,7 +75,8 @@
     & .item {
         display: flex;
         flex-direction: column;
-        background: white;
+        background:$cardBackground;
+        color: $cardColor;
         padding: 20px;
 
         & .item--images {
@@ -104,14 +105,14 @@
                 font-weight: 600;
                 margin: 0;
                 padding: 10px 30px;
-                border: 1px solid black;
+                border: 1px solid $cardColor;
                 text-align: center;
 
                 transition: all 0.1s ease;
 
                 &:hover {
-                    background: $colorPrimary;
-                    color: white;
+                    background: $themePrimary;
+                    color: $white;
                 }
             }
 
@@ -120,12 +121,7 @@
                 flex-direction: column;
                 align-items: center;
 
-                & sup {
-                    position: relative;
-                    color: #0004;
-                    top: 0px;
-                }
-
+    
                 & .price--sale {
                     position: relative;
                     display: flex;
@@ -137,17 +133,17 @@
                         position: absolute;
                         top: -2px;
                         right: -20px;
-                        background-color: #e00;
-                        color: #eee;
+                        background-color: $notification;
+                        color: $white;
                         font-size: 0.6em;
                         padding: 0px 4px;
                         border-radius: 4px;
-                        border: 1px solid white;
+                        border: 1px solid $cardBackground;
                     }
                 }
 
                 & .price--old {
-                    color: gray;
+                    color: $cardPriceOld;
                     font-size: 0.8em;
                     text-decoration: line-through;
                     position: relative;

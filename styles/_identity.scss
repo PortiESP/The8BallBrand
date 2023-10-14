@@ -1,3 +1,27 @@
-$colorPrimary: rgba(88, 60, 39, 1);
-$colorPrimaryAlpha: rgba(88, 60, 39, 0.733);
+$themePrimary: rgba(88, 60, 39, 1);
+$themePrimaryAlpha: rgba(88, 60, 39, 0.733);
+$notification: #e00;
 $white: #eee;
+
+// Landing -----------------------------------------------------------------------------------
+$title: #eee;
+$titleLine: #fff4;
+$featuredScrollBar: #dfdfdf;
+$featuredScrollBarHover: #c7c7c7;
+$featuredScrollBarBg: #f0f0f0;
+
+/// Items
+$cardBackground: #fff;
+$cardColor: #000;
+$cardPriceOld: #0004;
+
+// NAV ---------------------------------------------------------------------------------------
+$navBg: #eee;
+$navIcons: #666;
+
+/// Cart
+$cartBg: #eee;
+$cartItemColor: #444;
+$cartItemHover: #e0e0e0;
+$cartItemPriceColor: #aaa;
+$cartItemArrowColor: #e0e0e0;

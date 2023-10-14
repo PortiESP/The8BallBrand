@@ -1,7 +1,7 @@
 @import "./identity";
 
 nav.navbar {
-    background: #eee;
+    background: $navBg;
     position: sticky;
     top: 0;
     left: 0;
@@ -32,7 +32,7 @@ nav.navbar {
         align-items: center;
 
         & > a.nav-link:hover i {
-            color: $colorPrimaryAlpha;
+            color: $themePrimaryAlpha;
         }
 
         // ----------------------------------------------------------------- CART
@@ -42,10 +42,11 @@ nav.navbar {
             // --------------------------------------- BUBBLE
             &::after {
                 $size: 18px;
+
                 content: "4";
                 position: absolute;
                 left: 14px;
-                background: red;
+                background: $notification;
                 color: $white;
                 width: $size;
                 height: $size;
@@ -73,9 +74,9 @@ nav.navbar {
                 left: -20px;
                 width: 300px;
                 height: 450px;
-                background: #eee;
+                background: $cartBg;
                 border-radius: 4px;
-                box-shadow: 0 0 10px #0003;
+                box-shadow: 0 0 10px #0004;
 
                 &::after {
                     content: "";
@@ -86,7 +87,7 @@ nav.navbar {
                     border-top: 10px solid transparent;
                     border-left: 10px solid transparent;
                     border-right: 10px solid transparent;
-                    border-bottom: 10px solid #eee;
+                    border-bottom: 10px solid $cartBg;
                 }
 
                 & > .cart--list {
@@ -112,15 +113,16 @@ nav.navbar {
                         height: 100px;
                         padding: 4px;
                         padding-right: 10px;
+                        color: $cartItemColor;
 
                         &:hover {
-                            background: #e0e0e0;
+                            background: $cartItemHover;
 
                             & .item--count::before {
-                                border-bottom: 10px solid #ccc;
+                                border-bottom: 10px solid #0002;
                             }
                             & .item--count::after {
-                                border-top: 10px solid #ccc;
+                                border-top: 10px solid #0002;
                             }
                         }
 
@@ -149,7 +151,7 @@ nav.navbar {
                             & .item--price {
                                 position: relative;
                                 font-size: 0.8em;
-                                color: #aaa;
+                                color: $cartItemPriceColor;
                                 line-height: 14px;
                             }
                         }
@@ -167,7 +169,6 @@ nav.navbar {
                                 outline: none;
                             }
 
-                            $arrowColor: #e0e0e0;
 
                             &::before {
                                 content: "";
@@ -178,7 +179,7 @@ nav.navbar {
                                 border-top: 10px solid transparent;
                                 border-left: 10px solid transparent;
                                 border-right: 10px solid transparent;
-                                border-bottom: 10px solid $arrowColor;
+                                border-bottom: 10px solid $cartItemArrowColor;
                             }
                             &::after {
                                 content: "";
@@ -186,7 +187,7 @@ nav.navbar {
                                 top: 25px;
                                 left: 3px;
                                 width: 1px;
-                                border-top: 10px solid $arrowColor;
+                                border-top: 10px solid $cartItemArrowColor;
                                 border-left: 10px solid transparent;
                                 border-right: 10px solid transparent;
                                 border-bottom: 10px solid transparent;
@@ -200,28 +201,23 @@ nav.navbar {
                     align-items: center;
                     width: 95%;
                     height: 50px;
-                    border-top: 1px solid #e0e0e0;
+                    border-top: 1px solid #4441;
                     margin: 0 auto;
 
                     & button {
                         border: none;
-                        background: $colorPrimaryAlpha;
-                        color: #fff;
+                        background: $themePrimaryAlpha;
+                        color: $white;
                         width: 100%;
                         height: 70%;
                         border-radius: 4px;
 
                         &:hover{
-                            background: $colorPrimary;
+                            background: $themePrimary;
                         }
                     }
                 }
             }
-        }
-
-        // ------------------------------------------------------------------------------ SEARCH
-        & .icon-search {
-            display: none;
         }
     }
 
@@ -233,26 +229,25 @@ nav.navbar {
     }
 
     form > .input-group {
+        background: $navBg;
+        transition: all 0.1s ease;
+        color: $navIcons;
+        border-radius: 5px;
+        
+        &:hover {
+            background: #0000000f;
+        }
+
         & input {
-            background: #eee;
             border: none;
-            transition: all 0.1s ease;
+            background: none;
             font-weight: 300;
-            color: #666;
         }
         & .input-group-text {
-            background: #eee;
             border: none;
-            transition: all 0.1s ease;
+            background: none;
         }
-        &:hover {
-            & input {
-                background: #dfdfdf;
-            }
-            & .input-group-text {
-                background: #dfdfdf;
-            }
-        }
+        
     }
 }
 
@@ -267,9 +262,6 @@ nav.navbar {
         }
         & .logo {
             display: none;
-        }
-        & .icon-search {
-            display: inline-block;
         }
         & #search-input {
             display: none;
