@@ -4,7 +4,7 @@
 @import url("./nav.css");
 @import url("./footer.css");
 body {
-  background: rgba(94, 93, 93, 0.733) url("../assets/texture.png") fixed;
+  background: rgba(107, 107, 107, 0.733) url("../assets/texture.png") fixed;
   scrollbar-width: none;
   font-family: "Poppins", monospace;
   -webkit-user-select: none;

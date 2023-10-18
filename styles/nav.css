@@ -25,7 +25,7 @@ nav.navbar .navbar-nav {
   align-items: center;
 }
 nav.navbar .navbar-nav > .nav-link:hover i {
-  color: rgba(88, 60, 39, 0.733);
+  color: rgba(107, 107, 107, 0.733);
 }
 nav.navbar .navbar-nav .icon-cart::after {
   content: "4";
@@ -56,7 +56,7 @@ nav.navbar .navbar-nav .div-cart input[type=checkbox]:checked + .wrapper--cart#w
 nav.navbar .navbar-nav .div-cart .wrapper--cart {
   position: absolute;
   top: 40px;
-  left: -55px;
+  left: -80px;
   width: 300px;
   background: #eee;
   border-radius: 4px;
@@ -197,9 +197,9 @@ nav.navbar .navbar-nav .div-cart .wrapper--cart > .checkout button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: none;
-  background: rgba(88, 60, 39, 0.733);
-  color: #eee;
+  border: 1px solid black;
+  background: none;
+  color: black;
   width: 100%;
   height: 70%;
   border-radius: 4px;
@@ -210,11 +210,15 @@ nav.navbar .navbar-nav .div-cart .wrapper--cart > .checkout button p {
 }
 nav.navbar .navbar-nav .div-cart .wrapper--cart > .checkout button > span {
   font-size: 0.6em;
-  color: rgba(255, 255, 255, 0.5333333333);
+  color: rgba(0, 0, 0, 0.5333333333);
   height: 10%;
 }
 nav.navbar .navbar-nav .div-cart .wrapper--cart > .checkout button:hover {
-  background: rgb(88, 60, 39);
+  background: black;
+  color: #eee;
+}
+nav.navbar .navbar-nav .div-cart .wrapper--cart > .checkout button:hover > span {
+  color: rgba(255, 255, 255, 0.5333333333);
 }
 nav.navbar .nav-search-bar {
   padding: 10px;

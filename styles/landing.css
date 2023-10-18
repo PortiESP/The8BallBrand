@@ -59,6 +59,29 @@ main section .items--wrap {
   width: 80%;
   margin-top: 10px;
 }
+main section .items--wrap .add--item {
+  border: 3px solid rgba(170, 170, 170, 0.4666666667);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 400%;
+  color: rgba(170, 170, 170, 0.4666666667);
+}
+main section .items--wrap .add--item:hover {
+  background: rgba(170, 170, 170, 0.1333333333);
+}
+main section .items--wrap .add--item span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid rgba(170, 170, 170, 0.4666666667);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  font-weight: 200;
+}
 main section .item {
   display: flex;
   flex-direction: column;
@@ -96,7 +119,7 @@ main section .item .item--content p {
   transition: all 0.1s ease;
 }
 main section .item .item--content p:hover {
-  background: rgb(88, 60, 39);
+  background: black;
   color: #eee;
 }
 main section .item .item--content .item--price {

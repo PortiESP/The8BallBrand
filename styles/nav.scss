@@ -75,7 +75,7 @@ nav.navbar {
             & .wrapper--cart {
                 position: absolute;
                 top: 40px;
-                left: -55px;
+                left: -80px;
                 width: 300px;
                 background: $cartBg;
                 border-radius: 4px;
@@ -236,9 +236,9 @@ nav.navbar {
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
-                        border: none;
-                        background: $themePrimaryAlpha;
-                        color: $white;
+                        border: 1px solid black;
+                        background: none;
+                        color: black;
                         width: 100%;
                         height: 70%;
                         border-radius: 4px;
@@ -250,12 +250,17 @@ nav.navbar {
 
                         & > span{
                             font-size: .6em;
-                            color: #fff8;
+                            color: #0008;
                             height: 10%;
                         }
 
                         &:hover{
-                            background: $themePrimary;
+                            background: black;
+                            color: $white;
+
+                            & > span{
+                                color: #fff8;
+                            }
                         }
                     }
                 }
