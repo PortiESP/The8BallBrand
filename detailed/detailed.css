@@ -31,48 +31,59 @@ body {
   color: #ffffff;
   padding: 10px;
 }
-
-/*  
-.wrapper{
-  display: flex;
-}*/
 .container{
   margin-bottom: 50px;
-  display: flex;
-  
+  display: flex; 
 }
 /* detailed element */
 .fullview {
-  margin-top: 5%;
+  margin-top: 15px; 
   display: flex;
   justify-content:center;
   align-items: center;
-  /* gap: 30px; */
   color: #000000;
-  border-radius: 10px;
-  border: 2px solid black;
   background-color: #eee; 
   width: 70%;
-  padding: 30 px;
+  height: 500px;
 }
-.ProductName {
-  margin-top: 4%;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+.ProductInfoContainer{
+  width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
 }
-
+.ProductName{
+  height: 20%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ItemDescriptrion{
+  height: 20%;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.size{
+  border-radius: 2px;
+  background-color: black;
+  color: white;
+}
 .itempic {
+  width: 35%;
   border: solid black 2px; 
-  margin: 2%;  
-  background-color: rgba(rgba(54, 37, 37, 0.311), green, blue, alpha);
+  margin: 2%;
   aspect-ratio: 1/1;
   display: flex;
   align-items: center;
   justify-content: center ;
 }
 
-.itemDescription {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-}
+
 
 .bidbutton {
   
