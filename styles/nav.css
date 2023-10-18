@@ -221,21 +221,21 @@ nav.navbar .nav-search-bar {
   border-radius: 5px;
   outline: none;
 }
-nav.navbar form > .input-group {
+nav.navbar .input-group {
   background: #eee;
   transition: all 0.1s ease;
   color: #666;
   border-radius: 5px;
 }
-nav.navbar form > .input-group:hover {
+nav.navbar .input-group:hover {
   background: rgba(0, 0, 0, 0.0588235294);
 }
-nav.navbar form > .input-group input {
+nav.navbar .input-group input {
   border: none;
   background: none;
   font-weight: 300;
 }
-nav.navbar form > .input-group .input-group-text {
+nav.navbar .input-group .input-group-text {
   border: none;
   background: none;
 }

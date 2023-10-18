@@ -263,14 +263,14 @@ nav.navbar {
         }
     }
 
-    // ------------------------------------------------------------------------------------------- SEARCH
+    // ----------------------------------------------------------------------------------------------------------------------------------------------- SEARCH
     & .nav-search-bar {
         padding: 10px;
         border-radius: 5px;
         outline: none;
     }
 
-    form > .input-group {
+    & .input-group {
         background: $navBg;
         transition: all 0.1s ease;
         color: $navIcons;
