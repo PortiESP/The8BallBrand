@@ -9,14 +9,17 @@ main section {
   align-items: center;
   width: 100%;
 }
-main section .section--title {
+main section heading {
+  width: 100%;
+}
+main section heading .section--title {
   font-family: "Poppins";
   font-weight: 400;
   font-size: 2.6em;
   width: 80%;
   color: #eee;
   border-bottom: 2px solid rgba(255, 255, 255, 0.2666666667);
-  margin: 20px 0;
+  margin: 20px auto;
 }
 main section .item--link {
   text-decoration: none;

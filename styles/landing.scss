@@ -11,15 +11,20 @@ main {
         align-items: center;
         width: 100%;
 
-        & .section--title {
-            font-family: "Poppins";
-            font-weight: 400;
-            font-size: 2.6em;
-            width: 80%;
-            color: $title;
-            border-bottom: 2px solid $titleLine;
-            margin: 20px 0;
+        & heading{
+            width: 100%;
+
+            & .section--title {
+                font-family: "Poppins";
+                font-weight: 400;
+                font-size: 2.6em;
+                width: 80%;
+                color: $title;
+                border-bottom: 2px solid $titleLine;
+                margin: 20px auto;
+            }
         }
+
 
         & .item--link {
             text-decoration: none;
