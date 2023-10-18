@@ -55,14 +55,6 @@ body {
   width: 60%;
   padding: 30px;
 }
-
-.ProductInfoContainer {
-  width: auto;
-  padding: 20px;
-  /* margin: 5%;  */
-  align-items: center;
-}
-
 .ProductName {
   margin-top: 4%;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -72,7 +64,6 @@ body {
   border: solid black;
   /* margin: 2%;   */
   background-color: white;
-  width: 40%;
   aspect-ratio: 1/1;
 }
 
