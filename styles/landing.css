@@ -1,17 +1,15 @@
 /* ------------------------------- CARD ------------------------------- */
-.wrapper {
-  position: relative;
+main {
   width: 100vw;
+  padding: 50px 0;
+}
+main section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 0;
+  width: 100%;
 }
-.wrapper .item--link {
-  text-decoration: none;
-  color: inherit;
-}
-.wrapper .section--title {
+main section .section--title {
   font-family: "Poppins";
   font-weight: 400;
   font-size: 2.6em;
@@ -20,7 +18,11 @@
   border-bottom: 2px solid rgba(255, 255, 255, 0.2666666667);
   margin: 20px 0;
 }
-.wrapper .featured {
+main section .item--link {
+  text-decoration: none;
+  color: inherit;
+}
+main section .featured {
   width: 100%;
   margin: 20px 0;
   display: flex;
@@ -29,63 +31,63 @@
   overflow-x: scroll;
   background: #fff;
 }
-.wrapper .featured::-webkit-scrollbar {
+main section .featured::-webkit-scrollbar {
   height: 14px;
 }
-.wrapper .featured::-webkit-scrollbar-track {
+main section .featured::-webkit-scrollbar-track {
   background: #fff;
 }
-.wrapper .featured::-webkit-scrollbar-thumb {
+main section .featured::-webkit-scrollbar-thumb {
   background: #fff;
 }
-.wrapper .featured:hover::-webkit-scrollbar-track {
+main section .featured:hover::-webkit-scrollbar-track {
   background: #f0f0f0;
 }
-.wrapper .featured:hover::-webkit-scrollbar-thumb {
+main section .featured:hover::-webkit-scrollbar-thumb {
   background: #dfdfdf;
 }
-.wrapper .featured::-webkit-scrollbar-thumb:hover {
+main section .featured::-webkit-scrollbar-thumb:hover {
   background: #c7c7c7;
 }
-.wrapper .featured .item {
+main section .featured .item {
   min-width: 280px;
 }
-.wrapper .items--wrap {
+main section .items--wrap {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   width: 80%;
   margin-top: 10px;
 }
-.wrapper .item {
+main section .item {
   display: flex;
   flex-direction: column;
   background: #fff;
   color: #000;
   padding: 20px;
 }
-.wrapper .item .item--images {
+main section .item .item--images {
   position: relative;
   display: flex;
   justify-content: center;
   height: 200px;
   overflow: hidden;
 }
-.wrapper .item .item--images .item--image-front {
+main section .item .item--images .item--image-front {
   position: relative;
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
   transition: all 0.1s ease;
 }
-.wrapper .item .item--content {
+main section .item .item--content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
   padding-bottom: 10px;
 }
-.wrapper .item .item--content p {
+main section .item .item--content p {
   font-weight: 600;
   margin: 0;
   padding: 10px 30px;
@@ -93,22 +95,20 @@
   text-align: center;
   transition: all 0.1s ease;
 }
-.wrapper .item .item--content p:hover {
+main section .item .item--content p:hover {
   background: rgb(88, 60, 39);
   color: #eee;
 }
-.wrapper .item .item--content .item--price {
+main section .item .item--content .item--price {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.wrapper .item .item--content .item--price .price--sale {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  gap: 4px;
+main section .item .item--content .item--price strong {
+  font-weight: 500;
 }
-.wrapper .item .item--content .item--price .price--sale .sale {
+main section .item .item--content .item--price .sale {
   position: absolute;
   top: -4px;
   right: -20px;
@@ -120,7 +120,10 @@
   border: 1px solid #fff;
   padding: 0 2px;
 }
-.wrapper .item .item--content .item--price .price--old {
+main section .item .item--content .item--price .price--old {
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 0;
   color: rgba(0, 0, 0, 0.2666666667);
   font-size: 0.8em;
@@ -129,25 +132,25 @@
   top: -10px;
   font-weight: 300;
 }
-.wrapper .item:hover .item--image-front {
+main section .item:hover .item--image-front {
   transform: scale(110%);
 }
 
 @media (max-width: 1100px) {
-  .wrapper .items--wrap {
+  main section .items--wrap {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 @media (max-width: 800px) {
-  .wrapper .items--wrap {
+  main section .items--wrap {
     grid-template-columns: 1fr 1fr;
   }
 }
 @media (max-width: 500px) {
-  .wrapper .section--title {
+  main section .section--title {
     font-size: 2em;
   }
-  .wrapper .items--wrap {
+  main .items--wrap {
     grid-template-columns: 1fr;
   }
 }/*# sourceMappingURL=landing.css.map */

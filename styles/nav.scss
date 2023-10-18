@@ -28,7 +28,7 @@ nav.navbar {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        gap: 20px;
+        gap: 25px;
         align-items: center;
 
         & > .nav-link:hover i {
@@ -263,14 +263,14 @@ nav.navbar {
         }
     }
 
-    // ------------------------------------------------------------------------------------------- SEARCH
+    // ----------------------------------------------------------------------------------------------------------------------------------------------- SEARCH
     & .nav-search-bar {
         padding: 10px;
         border-radius: 5px;
         outline: none;
     }
 
-    form > .input-group {
+    & .input-group {
         background: $navBg;
         transition: all 0.1s ease;
         color: $navIcons;
