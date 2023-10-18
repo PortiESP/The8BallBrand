@@ -166,6 +166,7 @@ main section .item:hover .item--image-front {
 }
 @media (max-width: 800px) {
   main section .items--wrap {
+    width: 90%;
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -173,7 +174,7 @@ main section .item:hover .item--image-front {
   main section .section--title {
     font-size: 2em;
   }
-  main .items--wrap {
+  main section .items--wrap {
     grid-template-columns: 1fr;
   }
 }/*# sourceMappingURL=landing.css.map */

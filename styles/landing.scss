@@ -208,6 +208,7 @@ main {
     main {
         & section {
             & .items--wrap {
+                width: 90%;
                 grid-template-columns: 1fr 1fr;
             }
         }
@@ -220,10 +221,11 @@ main {
             & .section--title {
                 font-size: 2em;
             }
+
+            & .items--wrap {
+                grid-template-columns: 1fr;
+            }
         }
 
-        & .items--wrap {
-            grid-template-columns: 1fr;
-        }
     }
 }

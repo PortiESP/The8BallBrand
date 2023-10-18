@@ -78,7 +78,9 @@ nav.navbar .navbar-nav .div-cart .wrapper--cart > .cart--title {
   justify-content: space-between;
   align-items: center;
   height: 40px;
-  margin: 0 10px;
+  margin: 0px 10px;
+  padding-top: 20px;
+  padding-bottom: 8px;
   font-weight: 700;
   border-bottom: 1px solid rgba(68, 68, 68, 0.0666666667);
 }
@@ -247,6 +249,7 @@ nav.navbar .input-group .input-group-text {
 @media (max-width: 800px) {
   nav.navbar {
     padding: 5px 20px;
+    width: 100vw;
   }
   nav.navbar .navbar-brand .logo-small {
     display: inline-block;
