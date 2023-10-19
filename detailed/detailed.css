@@ -70,7 +70,7 @@ body {
 }
 .itempic {
   width: 35%;
-  /* border: solid black 2px;  */
+  border: solid black 2px; 
   background-color: rgba(200, 200, 200, 0.259);
   margin: 2%;
   aspect-ratio: 1/1; 
