@@ -48,12 +48,13 @@ nav.navbar {
         & input[type="checkbox"] {
             display: none;
 
-            & + [role="modal"] {
+            & + .div--search[role="modal"] {
                 display: none;
             }
 
             &:checked + [role="modal"] {
                 display: block;
+                transform: translateX(0);
             }
         }
 
@@ -79,26 +80,15 @@ nav.navbar {
 
         // -------------- liked MENU
         & .div--liked[role="modal"] {
-            position: absolute;
-            top: 50px;
-            right: 0;
-            width: 300px;
+            position: fixed;
+            top: 100px;
+            right: 10px;
+            width: 350px;
             background: $likedBg;
             border-radius: 4px;
             box-shadow: 0 0 10px #0004;
-
-            // ---- Anchor
-            &::after {
-                content: "";
-                position: absolute;
-                top: -20px;
-                right: 92px;
-                width: 1px;
-                border-top: 10px solid transparent;
-                border-left: 10px solid transparent;
-                border-right: 10px solid transparent;
-                border-bottom: 10px solid $likedBg;
-            }
+            transition: all .1s ease;
+            transform: translateX(110%);
 
             // ---- Title
             & > .liked--title {
@@ -125,16 +115,30 @@ nav.navbar {
 
             // ---- List
             & > .liked--list {
-                height: 400px;
+                max-height: calc(100vh - 100px - 40px - 70px - 20px);  // Total - nav - likedTitle - checkout - paddingFromBottom
                 overflow-y: scroll;
 
-                /* Hide scrollbar for IE, Edge and Firefox */
-                -ms-overflow-style: none; /* IE and Edge */
-                scrollbar-width: none; /* Firefox */
-
-                /* Hide scrollbar for Chrome, Safari and Opera */
                 &::-webkit-scrollbar {
-                    display: none;
+                    height: 12px;
+                }
+    
+                &::-webkit-scrollbar-track {
+                    background: #eee;
+                }
+                
+                &::-webkit-scrollbar-thumb {
+                    background: #0001;
+                    border: 5px solid #eee;
+                    border-radius: 20px;
+                }
+                &:hover {    
+                    &::-webkit-scrollbar-thumb {
+                        background: $featuredScrollBar;
+                    }
+                }
+    
+                &::-webkit-scrollbar-thumb:hover {
+                    background: $featuredScrollBarHover;
                 }
 
                 // ----------------------------- liked ITEM
@@ -358,6 +362,7 @@ nav.navbar {
 
             & .liked--list {
                 height: calc(100vh - 60px - 80px);
+                max-height: none;
             }
 
             & .checkout {

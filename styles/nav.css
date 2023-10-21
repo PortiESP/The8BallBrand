@@ -37,11 +37,12 @@ nav.navbar .navbar-nav > .nav-link:hover i[class*=bi-heart-fill] {
 nav.navbar .navbar-nav input[type=checkbox] {
   display: none;
 }
-nav.navbar .navbar-nav input[type=checkbox] + [role=modal] {
+nav.navbar .navbar-nav input[type=checkbox] + .div--search[role=modal] {
   display: none;
 }
 nav.navbar .navbar-nav input[type=checkbox]:checked + [role=modal] {
   display: block;
+  transform: translateX(0);
 }
 nav.navbar .navbar-nav .icon--liked::after {
   content: "7";
@@ -57,24 +58,15 @@ nav.navbar .navbar-nav .icon--liked::after {
   font-size: 0.8em;
 }
 nav.navbar .navbar-nav .div--liked[role=modal] {
-  position: absolute;
-  top: 50px;
-  right: 0;
-  width: 300px;
+  position: fixed;
+  top: 100px;
+  right: 10px;
+  width: 350px;
   background: #eee;
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2666666667);
-}
-nav.navbar .navbar-nav .div--liked[role=modal]::after {
-  content: "";
-  position: absolute;
-  top: -20px;
-  right: 92px;
-  width: 1px;
-  border-top: 10px solid transparent;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid #eee;
+  transition: all 0.1s ease;
+  transform: translateX(110%);
 }
 nav.navbar .navbar-nav .div--liked[role=modal] > .liked--title {
   display: flex;
@@ -97,15 +89,25 @@ nav.navbar .navbar-nav .div--liked[role=modal] > .liked--title .close {
   cursor: pointer;
 }
 nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list {
-  height: 400px;
+  max-height: calc(100vh - 100px - 40px - 70px - 20px);
   overflow-y: scroll;
-  /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-  /* Hide scrollbar for Chrome, Safari and Opera */
 }
 nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list::-webkit-scrollbar {
-  display: none;
+  height: 12px;
+}
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list::-webkit-scrollbar-track {
+  background: #eee;
+}
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.0666666667);
+  border: 5px solid #eee;
+  border-radius: 20px;
+}
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list:hover::-webkit-scrollbar-thumb {
+  background: #dfdfdf;
+}
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list::-webkit-scrollbar-thumb:hover {
+  background: #c7c7c7;
 }
 nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked {
   position: relative;
@@ -294,6 +296,7 @@ nav.navbar .nav-search-bar {
   }
   nav.navbar .navbar-nav .div--liked[role=modal] .liked--list {
     height: calc(100vh - 60px - 80px);
+    max-height: none;
   }
   nav.navbar .navbar-nav .div--liked[role=modal] .checkout {
     height: 80px;
