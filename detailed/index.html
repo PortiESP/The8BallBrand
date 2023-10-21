@@ -121,7 +121,7 @@
     </div>
   </nav>
   <!----------------------------------------------------------------------------------------------------------------------------- body -->
-  <a class="backToMenuButton" href="/"><button class=" btn-secondary"><i class="bi bi-arrow-left"></i></button> </a>
+  <a class="backToMenuButton" href="/"><button class="btn-secondary "><i class="bi bi-arrow-left"></i></button> </a>
   <div class="wrapper">
     <!------------------------------------------------------------------------------------------------------------------- product zone -->
     <div class="container fullview">
@@ -146,7 +146,7 @@
         </div>
         <div class="d-flex bidbutton">
           <button class="btn-secondary">Add to wishlist</button>
-          <button class="btn-secondary">Add to cart</button>
+          <a href="#finalbid" class="btn-secondary"><button class="btn-secondary">Bid</button></a>  
         </div>
       </div>
     </div>
@@ -181,7 +181,7 @@
                 </div>
               </div>
 
-              <div class="card mb-4" style="background-color:aquamarine;">
+              <div class="card mb-4 selected-card">
                 <div class="card-body">
                   <div class="d-flex justify-content-between">
                     <div class="d-flex flex-row align-items-center">
@@ -228,10 +228,11 @@
             </div>
           </div>
         </div>
+        
 
         <!-----------------------------------------------------------------------------------------------------------------bidder info.-->
         <div class="bidData">
-          <span>Bidder Data</span>
+          <span id="finalbid">Bidder Data</span>
           <div class="input-row">
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">@</span>
