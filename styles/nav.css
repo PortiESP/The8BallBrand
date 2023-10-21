@@ -28,7 +28,7 @@ nav.navbar .navbar-nav > .nav-link:hover i {
   color: rgba(107, 107, 107, 0.733);
 }
 nav.navbar .navbar-nav .icon-cart::after {
-  content: "4";
+  content: "9";
   position: absolute;
   left: 14px;
   background: #e00;
