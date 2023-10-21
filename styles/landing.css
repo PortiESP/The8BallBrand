@@ -69,6 +69,7 @@ main section .items--wrap .add--item {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 300px;
   font-size: 400%;
   color: rgba(170, 170, 170, 0.4666666667);
 }
@@ -81,9 +82,13 @@ main section .items--wrap .add--item span {
   align-items: center;
   border: 3px solid rgba(170, 170, 170, 0.4666666667);
   border-radius: 50%;
-  width: 70px;
-  height: 70px;
-  font-weight: 200;
+  width: 60px;
+  height: 60px;
+}
+main section .items--wrap .add--item span .bi {
+  display: flex;
+  justify-content: center;
+  font-size: 0.8em;
 }
 main section .item {
   display: flex;
