@@ -24,15 +24,28 @@ nav.navbar .navbar-nav {
   gap: 25px;
   align-items: center;
 }
+nav.navbar .navbar-nav > .nav-link {
+  color: rgba(102, 102, 102, 0.4);
+}
 nav.navbar .navbar-nav > .nav-link:hover i {
-  color: rgba(107, 107, 107, 0.733);
+  color: rgba(0, 0, 0, 0.9333333333);
   transition: all 0.1s ease;
 }
 nav.navbar .navbar-nav > .nav-link:hover i[class*=bi-heart-fill] {
   color: rgb(255, 0, 106);
 }
-nav.navbar .navbar-nav .icon-liked::after {
-  content: "9";
+nav.navbar .navbar-nav input[type=checkbox] {
+  display: none;
+}
+nav.navbar .navbar-nav input[type=checkbox] + .div--search[role=modal] {
+  display: none;
+}
+nav.navbar .navbar-nav input[type=checkbox]:checked + [role=modal] {
+  display: block;
+  transform: translateX(0);
+}
+nav.navbar .navbar-nav .icon--liked::after {
+  content: "7";
   position: absolute;
   left: 14px;
   background: #e00;
@@ -44,40 +57,18 @@ nav.navbar .navbar-nav .icon-liked::after {
   border-radius: 50%;
   font-size: 0.8em;
 }
-nav.navbar .navbar-nav .div-liked {
-  position: absolute;
-  cursor: pointer;
-}
-nav.navbar .navbar-nav .div-liked input[type=checkbox] {
-  display: none;
-}
-nav.navbar .navbar-nav .div-liked input[type=checkbox] + .wrapper--liked#wrapper--liked {
-  display: none;
-}
-nav.navbar .navbar-nav .div-liked input[type=checkbox]:checked + .wrapper--liked#wrapper--liked {
-  display: block;
-}
-nav.navbar .navbar-nav .div-liked .wrapper--liked {
-  position: absolute;
-  top: 40px;
-  left: -80px;
-  width: 300px;
+nav.navbar .navbar-nav .div--liked[role=modal] {
+  position: fixed;
+  top: 100px;
+  right: 10px;
+  width: 350px;
   background: #eee;
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2666666667);
+  transition: all 0.1s ease;
+  transform: translateX(110%);
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked::after {
-  content: "";
-  position: absolute;
-  top: -20px;
-  left: 22px;
-  width: 1px;
-  border-top: 10px solid transparent;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid #eee;
-}
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--title {
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--title {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -88,7 +79,7 @@ nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--title {
   font-weight: 700;
   border-bottom: 1px solid rgba(68, 68, 68, 0.0666666667);
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--title .close {
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--title .close {
   background: none;
   border: none;
   color: rgba(0, 0, 0, 0.2666666667);
@@ -97,18 +88,28 @@ nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--title .close {
   padding: 4px 10px;
   cursor: pointer;
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list {
-  height: 400px;
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list {
+  max-height: calc(100vh - 100px - 40px - 70px - 20px);
   overflow-y: scroll;
-  /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-  /* Hide scrollbar for Chrome, Safari and Opera */
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list::-webkit-scrollbar {
-  display: none;
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list::-webkit-scrollbar {
+  height: 12px;
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list > .item--liked {
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list::-webkit-scrollbar-track {
+  background: #eee;
+}
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.0666666667);
+  border: 5px solid #eee;
+  border-radius: 20px;
+}
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list:hover::-webkit-scrollbar-thumb {
+  background: #dfdfdf;
+}
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list::-webkit-scrollbar-thumb:hover {
+  background: #c7c7c7;
+}
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked {
   position: relative;
   display: flex;
   align-items: center;
@@ -116,50 +117,51 @@ nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list > .item--liked 
   padding: 4px 10px;
   padding-right: 10px;
   color: #444;
+  text-decoration: none;
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list > .item--liked:hover {
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked:hover {
   background: #e0e0e0;
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list > .item--liked:hover .item--count::before {
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked:hover .item--count::before {
   border-bottom: 10px solid rgba(0, 0, 0, 0.1333333333);
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list > .item--liked:hover .item--count::after {
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked:hover .item--count::after {
   border-top: 10px solid rgba(0, 0, 0, 0.1333333333);
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list > .item--liked > .item--images {
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked > .item--images {
   position: relative;
   width: 40%;
   max-width: 80px;
   height: 100%;
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list > .item--liked > .item--images img {
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked > .item--images img {
   -o-object-fit: contain;
      object-fit: contain;
   width: 100%;
   height: 100%;
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list > .item--liked > .item--content {
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked > .item--content {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-left: 6px;
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list > .item--liked > .item--content p {
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked > .item--content p {
   margin: 0;
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list > .item--liked > .item--content .item--price {
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked > .item--content .item--price {
   position: relative;
   font-size: 0.8em;
   color: #aaa;
   line-height: 14px;
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list > .item--liked > .item--count {
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked > .item--count {
   position: relative;
   width: 50px;
   max-width: 100px;
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list > .item--liked > .item--count input {
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked > .item--count input {
   width: 100%;
   background: none;
   border: none;
@@ -167,7 +169,7 @@ nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list > .item--liked 
   text-align: center;
   outline: none;
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list > .item--liked > .item--count::before {
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked > .item--count::before {
   content: "";
   position: absolute;
   top: -20px;
@@ -178,7 +180,7 @@ nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list > .item--liked 
   border-right: 10px solid transparent;
   border-bottom: 10px solid #e0e0e0;
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list > .item--liked > .item--count::after {
+nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked > .item--count::after {
   content: "";
   position: absolute;
   top: 25px;
@@ -189,7 +191,7 @@ nav.navbar .navbar-nav .div-liked .wrapper--liked > .liked--list > .item--liked 
   border-right: 10px solid transparent;
   border-bottom: 10px solid transparent;
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .checkout {
+nav.navbar .navbar-nav .div--liked[role=modal] > .checkout {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -198,7 +200,7 @@ nav.navbar .navbar-nav .div-liked .wrapper--liked > .checkout {
   border-top: 1px solid rgba(68, 68, 68, 0.0666666667);
   margin: 0 auto;
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .checkout button {
+nav.navbar .navbar-nav .div--liked[role=modal] > .checkout button {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -210,32 +212,54 @@ nav.navbar .navbar-nav .div-liked .wrapper--liked > .checkout button {
   height: 70%;
   border-radius: 4px;
 }
-nav.navbar .navbar-nav .div-liked .wrapper--liked > .checkout button:hover {
+nav.navbar .navbar-nav .div--liked[role=modal] > .checkout button:hover {
   background: black;
   color: #eee;
+}
+nav.navbar .navbar-nav .icon--search {
+  font-size: 22px;
+}
+nav.navbar .navbar-nav .div--search[role=modal] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7333333333);
+}
+nav.navbar .navbar-nav .div--search[role=modal] search {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+nav.navbar .navbar-nav .div--search[role=modal] search .search--group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+nav.navbar .navbar-nav .div--search[role=modal] search .search--group input {
+  width: clamp(250px, 80vw, 1000px);
+  background: #eee;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  padding: 20px;
+}
+nav.navbar .navbar-nav .div--search[role=modal] search .search--group button.icon--close-search {
+  position: absolute;
+  color: rgba(136, 136, 136, 0.5333333333);
+  font-size: 2em;
+  right: 10px;
+  border: none;
+  outline: none;
 }
 nav.navbar .nav-search-bar {
   padding: 10px;
   border-radius: 5px;
   outline: none;
-}
-nav.navbar .input-group {
-  background: #eee;
-  transition: all 0.1s ease;
-  color: #666;
-  border-radius: 5px;
-}
-nav.navbar .input-group:hover {
-  background: rgba(0, 0, 0, 0.0588235294);
-}
-nav.navbar .input-group input {
-  border: none;
-  background: none;
-  font-weight: 300;
-}
-nav.navbar .input-group .input-group-text {
-  border: none;
-  background: none;
 }
 
 @media (max-width: 800px) {
@@ -251,10 +275,7 @@ nav.navbar .input-group .input-group-text {
   nav.navbar .logo {
     display: none;
   }
-  nav.navbar #search-input {
-    display: none;
-  }
-  nav.navbar .navbar-nav .div-liked .wrapper--liked#wrapper--liked {
+  nav.navbar .navbar-nav .div--liked[role=modal] {
     position: fixed;
     top: 0;
     left: 0;
@@ -266,17 +287,18 @@ nav.navbar .input-group .input-group-text {
     border-radius: 0;
     z-index: 10;
   }
-  nav.navbar .navbar-nav .div-liked .wrapper--liked#wrapper--liked::after {
+  nav.navbar .navbar-nav .div--liked[role=modal]::after {
     content: none;
   }
-  nav.navbar .navbar-nav .div-liked .wrapper--liked#wrapper--liked .liked--title {
+  nav.navbar .navbar-nav .div--liked[role=modal] .liked--title {
     height: 60px;
     font-size: 1.2em;
   }
-  nav.navbar .navbar-nav .div-liked .wrapper--liked#wrapper--liked .liked--list {
+  nav.navbar .navbar-nav .div--liked[role=modal] .liked--list {
     height: calc(100vh - 60px - 80px);
+    max-height: none;
   }
-  nav.navbar .navbar-nav .div-liked .wrapper--liked#wrapper--liked .checkout {
+  nav.navbar .navbar-nav .div--liked[role=modal] .checkout {
     height: 80px;
   }
 }/*# sourceMappingURL=nav.css.map */
