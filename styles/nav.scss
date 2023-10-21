@@ -30,13 +30,18 @@ nav.navbar {
         justify-content: space-around;
         gap: 25px;
         align-items: center;
-
+        
         & > .nav-link:hover i {
             color: $themePrimaryAlpha;
+            transition: all .1s ease;
+
+            &[class*=bi-heart-fill]{
+                color: $heartColor;
+            }
         }
 
-        // ----------------------------------------------------------------- CART
-        & .icon-cart{
+        // ----------------------------------------------------------------- liked
+        & .icon-liked{
             // --------------------------------------- BUBBLE
             &::after {
                 $size: 18px;
@@ -54,7 +59,7 @@ nav.navbar {
                 font-size: 0.8em;
             }
         }
-        & .div-cart {
+        & .div-liked {
             position: absolute;
             cursor: pointer;
 
@@ -63,21 +68,21 @@ nav.navbar {
             & input[type="checkbox"] {
                 display: none;
 
-                & + .wrapper--cart#wrapper--cart {
+                & + .wrapper--liked#wrapper--liked {
                     display: none;
                 }
 
-                &:checked + .wrapper--cart#wrapper--cart {
+                &:checked + .wrapper--liked#wrapper--liked {
                     display: block;
                 }
             }
-            // --------------------------------------- CART MENU
-            & .wrapper--cart {
+            // --------------------------------------- liked MENU
+            & .wrapper--liked {
                 position: absolute;
                 top: 40px;
                 left: -80px;
                 width: 300px;
-                background: $cartBg;
+                background: $likedBg;
                 border-radius: 4px;
                 box-shadow: 0 0 10px #0004;
 
@@ -90,10 +95,10 @@ nav.navbar {
                     border-top: 10px solid transparent;
                     border-left: 10px solid transparent;
                     border-right: 10px solid transparent;
-                    border-bottom: 10px solid $cartBg;
+                    border-bottom: 10px solid $likedBg;
                 }
 
-                & > .cart--title{
+                & > .liked--title{
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
@@ -116,7 +121,7 @@ nav.navbar {
                     }
                 }
 
-                & > .cart--list {
+                & > .liked--list {
                     height: 400px;
                     overflow-y: scroll;
 
@@ -130,19 +135,19 @@ nav.navbar {
                         display: none;
                     }
 
-                    // ----------------------------- CART ITEM
+                    // ----------------------------- liked ITEM
 
-                    & > .item--cart {
+                    & > .item--liked {
                         position: relative;
                         display: flex;
                         align-items: center;
                         height: 100px;
-                        padding: 4px;
+                        padding: 4px 10px;
                         padding-right: 10px;
-                        color: $cartItemColor;
+                        color: $likedItemColor;
 
                         &:hover {
-                            background: $cartItemHover;
+                            background: $likedItemHover;
 
                             & .item--count::before {
                                 border-bottom: 10px solid #0002;
@@ -178,7 +183,7 @@ nav.navbar {
                             & .item--price {
                                 position: relative;
                                 font-size: 0.8em;
-                                color: $cartItemPriceColor;
+                                color: $likedItemPriceColor;
                                 line-height: 14px;
                             }
                         }
@@ -208,7 +213,7 @@ nav.navbar {
                                 border-top: 10px solid transparent;
                                 border-left: 10px solid transparent;
                                 border-right: 10px solid transparent;
-                                border-bottom: 10px solid $cartItemArrowColor;
+                                border-bottom: 10px solid $likedItemArrowColor;
                             }
                             &::after {
                                 content: "";
@@ -216,7 +221,7 @@ nav.navbar {
                                 top: 25px;
                                 left: 7px;
                                 width: 1px;
-                                border-top: 10px solid $cartItemArrowColor;
+                                border-top: 10px solid $likedItemArrowColor;
                                 border-left: 10px solid transparent;
                                 border-right: 10px solid transparent;
                                 border-bottom: 10px solid transparent;
@@ -245,24 +250,12 @@ nav.navbar {
                         height: 70%;
                         border-radius: 4px;
 
-                        & p{
-                            margin: 0;
-                            line-height: 14px;
-                        }
-
-                        & > span{
-                            font-size: .6em;
-                            color: #0008;
-                            height: 10%;
-                        }
-
+                      
                         &:hover{
                             background: black;
                             color: $white;
 
-                            & > span{
-                                color: #fff8;
-                            }
+                     
                         }
                     }
                 }
@@ -319,7 +312,7 @@ nav.navbar {
             display: none;
         }
 
-        & .navbar-nav .div-cart .wrapper--cart#wrapper--cart{
+        & .navbar-nav .div-liked .wrapper--liked#wrapper--liked{
             position: fixed;
             top:0;
             left: 0;
@@ -336,12 +329,12 @@ nav.navbar {
 
             &::after{content: none;}
 
-            & .cart--title{
+            & .liked--title{
                 height: 60px;
                 font-size: 1.2em;
             }
 
-            & .cart--list{
+            & .liked--list{
                 height: calc(100vh - 60px - 80px);
             }
 

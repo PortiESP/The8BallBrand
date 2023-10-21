@@ -2,6 +2,7 @@ $themePrimary: black;
 $themePrimaryAlpha: rgba(107, 107, 107, 0.733);
 $notification: #e00;
 $white: #eee;
+$heartColor: rgb(255, 0, 106);
 
 // Landing -----------------------------------------------------------------------------------
 $title: #eee;
@@ -19,9 +20,9 @@ $cardPriceOld: #0004;
 $navBg: #eee;
 $navIcons: #666;
 
-/// Cart
-$cartBg: #eee;
-$cartItemColor: #444;
-$cartItemHover: #e0e0e0;
-$cartItemPriceColor: #aaa;
-$cartItemArrowColor: #e0e0e0;
+/// liked
+$likedBg: #eee;
+$likedItemColor: #444;
+$likedItemHover: #e0e0e0;
+$likedItemPriceColor: #aaa;
+$likedItemArrowColor: #e0e0e0;
