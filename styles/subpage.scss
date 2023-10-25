@@ -52,7 +52,7 @@
             flex-direction: column;
             gap: 25px;
 
-            & .input-group {   
+            & .input-group {
                 & span.input-group-text {
                     padding: 0;
                     width: 15%;
@@ -67,8 +67,9 @@
                     border-right: 2px solid #c8c8c8;
                 }
             }
-            
-            & input.form-control, & select.form-control {
+
+            & input.form-control,
+            & select.form-control {
                 border: 0;
                 box-shadow: none;
                 background: none;
@@ -77,7 +78,7 @@
                     border: 0px;
                     box-shadow: none;
                 }
-                
+
                 &::placeholder {
                     opacity: .5;
                     font-weight: 400;
@@ -89,6 +90,7 @@
                 display: flex;
                 justify-content: left;
                 gap: 20px;
+
                 & input[type=date] {
                     background: none;
                     border: none;
@@ -96,15 +98,15 @@
                 }
             }
         }
-        
-        
+
+
         & .form-select-container {
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        
+
         & .buttons {
             padding-bottom: 40px;
             width: 100%;
@@ -124,7 +126,8 @@
                     color: green;
                     border-color: green;
 
-                    &:hover, &:active {
+                    &:hover,
+                    &:active {
                         color: #fff;
                         background-color: green;
                     }
@@ -134,9 +137,11 @@
                     color: red;
                     border-color: red;
 
-                    &:hover, &:active {
+                    &:hover,
+                    &:active {
                         color: #fff;
-                        background-color: red;;
+                        background-color: red;
+                        ;
                     }
                 }
             }
@@ -155,7 +160,7 @@
         & .input-container .input-group span.input-group-text {
             width: 50px;
         }
-    
+
         & .bi-stretched {
             display: inline;
             color: #4c4c4c;
@@ -164,15 +169,15 @@
         & .bi-wide {
             display: none;
         }
-    
+
         & .text-label {
             display: none;
         }
-    
+
         & .title {
             width: 80%;
         }
-    
+
         & .form-container {
             width: 80%;
         }
