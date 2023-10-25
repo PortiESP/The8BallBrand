@@ -1,3 +1,69 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+.wrapper .fullview {
+  width: 70%;
+  padding: 30px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  background-color: #eee;
+}
+.wrapper .fullview .itempic {
+  width: 40%;
+  border: solid rgba(0, 0, 0, 0.1490196078) 2px;
+  background-color: rgba(200, 200, 200, 0.2588235294);
+  margin-left: 30px;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.wrapper .fullview .itempic .imgdirect {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 100%;
+}
+.wrapper .fullview .product-info-container {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper .fullview .product-info-container .product-name {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper .fullview .product-info-container .item-description {
+  height: 25%;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper .fullview .product-info-container .item-tags {
+  height: 15%;
+}
+.wrapper .fullview .product-info-container .item-buttons {
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .main-container {
   width: 100%;
   min-height: 95vh;
@@ -17,7 +83,7 @@
   align-items: center;
   font-size: 45px;
   font-weight: bold;
-  color: #000000;
+  color: #000;
   background-color: #eee;
 }
 .main-container .title .bi-wide {
@@ -35,7 +101,7 @@
   flex-direction: column;
   gap: 30px;
   font-weight: 500;
-  color: #000000;
+  color: #000;
   background-color: #eee;
 }
 .main-container .form-container .input-container {
@@ -109,20 +175,20 @@
   background: none;
 }
 .main-container .form-container .buttons .btn-form.btn-success {
-  color: green;
-  border-color: green;
+  color: #1c7b1c;
+  border-color: #1c7b1c;
 }
 .main-container .form-container .buttons .btn-form.btn-success:hover, .main-container .form-container .buttons .btn-form.btn-success:active {
-  color: #fff;
-  background-color: green;
+  color: #eee;
+  background-color: #1c7b1c;
 }
 .main-container .form-container .buttons .btn-form.btn-danger {
-  color: red;
-  border-color: red;
+  color: #a61313;
+  border-color: #a61313;
 }
 .main-container .form-container .buttons .btn-form.btn-danger:hover, .main-container .form-container .buttons .btn-form.btn-danger:active {
-  color: #fff;
-  background-color: red;
+  color: #eee;
+  background-color: #a61313;
 }
 .main-container .bi-stretched {
   display: none;
