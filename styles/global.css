@@ -4,6 +4,7 @@
 @import url("./nav.css");
 @import url("./footer.css");
 @import url("./subpage.css");
+@import url("./detailed.css");
 body {
   background: rgba(107, 107, 107, 0.733) url("../assets/texture.png") fixed;
   scrollbar-width: none;
