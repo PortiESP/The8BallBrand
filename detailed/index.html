@@ -164,58 +164,61 @@
   <!-------------------------------------------------------------------------------------------------------------------- bid zone -->
   <div class="main-container">
     <div class="title">
-        <span class="bi-wide ">Bid Zone!</span>
+        <span class="bi-wide">Bid Zone!</span>
         <span class="bi-stretched">Bid!</span>
         <hr>
     </div>
     <div class="comment-zone">
         <div class="comment-background">
-        <div class="comment-card">
+        <div class="comment-card user-selected">
             <div class="img-card">
-                <img class="img-fluid" src="https://pbs.twimg.com/media/E9sN5jzVUAUgYHn.png" alt="">
+                <img class="img-fluid" src="https://pbs.twimg.com/media/E9sN5jzVUAUgYHn.png" alt="user-img">
             </div>
-            <div class="user-info">texto ejemplo jjjjj</div>
+            <div class="user-info">
+              <span class="bi-wide">My_Username</span>
+              <span class="bi-wide">99€</span>
+            </div>
             <div class="date">22/2/22 at 15:00</div>
             <div class="buttons">
-                <button class="btn-secondary"><i class="bi bi-trash"></i></button>
-                <button class="btn-secondary"><i class="bi bi-pencil-square"></i></button>
-            </div>
-        </div>
-        <div class="comment-card">
-            <div class="img-card">
-                <img class="img-fluid" src="https://pbs.twimg.com/media/E9sN5jzVUAUgYHn.png" alt="">
-            </div>
-            <div class="user-info">texto ejemplo jjjjj</div>
-            <div class="date">22/2/22 at 15:00</div>
-            <div class="buttons">
-                <button class="btn-secondary"><i class="bi bi-trash"></i></button>
-                <button class="btn-secondary"><i class="bi bi-pencil-square"></i></button>
+                <button class="btn btn-danger">
+                  <i class="bi bi-trash"></i>
+                </button>
+                <button class="btn btn-success">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
             </div>
         </div>
         <div class="comment-card">
             <div class="img-card">
-                <img class="img-fluid" src="https://pbs.twimg.com/media/E9sN5jzVUAUgYHn.png" alt="">
+                <img class="img-fluid" src="https://pbs.twimg.com/media/E9sN5jzVUAUgYHn.png" alt="user-img">
             </div>
-            <div class="user-info">texto ejemplo jjjjj</div>
+            <div class="user-info">
+              <span class="bi-wide">My_Username</span>
+              <span class="bi-wide">99€</span>
+            </div>
             <div class="date">22/2/22 at 15:00</div>
-            <div class="buttons">
-                <button class="btn-secondary"><i class="bi bi-trash"></i></button>
-                <button class="btn-secondary"><i class="bi bi-pencil-square"></i></button>
-            </div>
         </div>
         <div class="comment-card">
             <div class="img-card">
-                <img class="img-fluid" src="https://pbs.twimg.com/media/E9sN5jzVUAUgYHn.png" alt="">
+                <img class="img-fluid" src="https://pbs.twimg.com/media/E9sN5jzVUAUgYHn.png" alt="user-img">
             </div>
-            <div class="user-info">texto ejemplo jjjjj</div>
+            <div class="user-info">
+              <span class="bi-wide">My_Username</span>
+              <span class="bi-wide">99€</span>
+            </div>
             <div class="date">22/2/22 at 15:00</div>
-            <div class="buttons">
-                <button class="btn-secondary"><i class="bi bi-trash"></i></button>
-                <button class="btn-secondary"><i class="bi bi-pencil-square"></i></button>
+        </div>
+        <div class="comment-card">
+            <div class="img-card">
+                <img class="img-fluid" src="https://pbs.twimg.com/media/E9sN5jzVUAUgYHn.png" alt="user-img">
             </div>
+            <div class="user-info">
+              <span class="bi-wide">My_Username</span>
+              <span class="bi-wide">99€</span>
+            </div>
+            <div class="date">22/2/22 at 15:00</div>
         </div>
-        </div>
-
+      </div>
     </div>
     <form class="form-container">
         <!-- <span>bidder data</span> -->
@@ -225,25 +228,24 @@
                     <span class="text-label">Username</span>
                     <i class="bi bi-person bi-stretched"></i>
                 </span>
-                <input type="text" class="form-control" placeholder="@exampleusername">
+                <input type="text" class="form-control" placeholder="Username">
             </div>
             <div class="input-group">
                 <span class="input-group-text" id="user mail">
                     <span class="text-label">e-mail</span>
                     <i class="bi bi-envelope bi-stretched"></i>
                 </span>
-                <input type="text" class="form-control" placeholder="mymail@mail.com">
+                <input type="text" class="form-control" placeholder="examplemail@mail.com">
             </div>
             <div class="input-group">
                 <span class="input-group-text" id="price">
-                    <span class="text-label">Insert your bid</span>
+                    <span class="text-label">Bid</span>
                     <i class="bi bi-coin bi-stretched"></i>
                 </span>
-                <input type="number" min="0" class="form-control" placeholder="$$$">
+                <input type="number" min="0" class="form-control" placeholder="Place your bid">
             </div>
         </div>
         <div class="buttons">
-            <!-- <a href="/" class="btn btn-danger btn-form">Cancel</a> -->
             <button type="submit" class="btn btn-success btn-form">BID</button>
         </div>
     </form>
