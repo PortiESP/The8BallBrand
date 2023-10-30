@@ -102,10 +102,6 @@
   background-color: #eee;
   font-size: small;
 }
-.main-container .comment-zone .comment-background .comment-card.user-selected {
-  background-color: #759d96;
-  color: #eee;
-}
 .main-container .comment-zone .comment-background .comment-card .img-card {
   grid-row: 1/3;
   display: flex;
@@ -117,6 +113,8 @@
   height: 75px;
   width: 75px;
   border-radius: 3px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .main-container .comment-zone .comment-background .comment-card .user-info {
   grid-row: 1/3;
@@ -126,12 +124,28 @@
   justify-content: center;
   padding-left: 5px;
 }
+.main-container .comment-zone .comment-background .comment-card .user-info span.bid-info {
+  width: 100%;
+  font-size: 12px;
+  color: #000;
+}
+.main-container .comment-zone .comment-background .comment-card.user-selected {
+  background-color: #759d96;
+  color: #eee;
+}
+.main-container .comment-zone .comment-background .comment-card.user-selected span.bid-info {
+  color: #eee;
+}
+.main-container .comment-zone .comment-background .comment-card.user-selected .date {
+  color: #eee;
+}
 .main-container .comment-zone .comment-background .comment-card .date {
   grid-row: 1/2;
   display: flex;
   align-items: center;
   justify-content: right;
   padding-right: 5px;
+  color: #a4a4a4;
 }
 .main-container .comment-zone .comment-background .comment-card .buttons {
   grid-row: 2/3;
@@ -153,4 +167,47 @@
 .main-container .comment-zone .comment-background .comment-card .buttons button.btn.btn-success:hover {
   background-color: #1c7b1c;
   color: #eee;
+}
+
+@media (max-width: 1300px) {
+  .main-container .comment-zone {
+    width: 80%;
+  }
+  .main-container .comment-zone .comment-background .comment-card {
+    grid-template-columns: 20% 45% 35%;
+    grid-template-rows: 50% 50%;
+    width: 100%;
+    height: 100px;
+    background-color: #eee;
+    font-size: small;
+  }
+}
+@media (max-width: 800px) {
+  .main-container .comment-zone {
+    width: 90%;
+  }
+  .main-container .comment-zone .comment-background .comment-card {
+    grid-template-columns: 25% 35% 40%;
+    grid-template-rows: 50% 50%;
+    width: 100%;
+    height: 100px;
+    background-color: #eee;
+    font-size: small;
+  }
+}
+@media (max-width: 600px) {
+  .main-container .comment-zone {
+    width: 90%;
+  }
+  .main-container .comment-zone .comment-background {
+    width: 90%;
+  }
+  .main-container .comment-zone .comment-background .comment-card {
+    grid-template-columns: 25% 40% 35%;
+    grid-template-rows: 50% 50%;
+    width: 100%;
+    height: 100px;
+    background-color: #eee;
+    font-size: small;
+  }
 }/*# sourceMappingURL=detailed.css.map */
