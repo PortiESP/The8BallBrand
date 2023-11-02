@@ -10,6 +10,9 @@
   justify-content: center;
   margin-bottom: 60px;
 }
+.wrapper .product-name.stretched {
+  display: none;
+}
 .wrapper .fullview {
   width: 70%;
   padding: 30px;
@@ -45,25 +48,31 @@
   justify-content: center;
   align-items: center;
 }
-.wrapper .fullview .product-info-container .product-name {
-  height: 30%;
+.wrapper .fullview .product-info-container .product-name.wide {
+  height: 40%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .wrapper .fullview .product-info-container .item-description {
-  height: 25%;
-  width: 70%;
+  height: 40%;
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .wrapper .fullview .product-info-container .item-tags {
-  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 30%;
+  padding: 15px;
 }
 .wrapper .fullview .product-info-container .item-buttons {
-  height: 20%;
+  height: 30%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -183,6 +192,12 @@
   }
 }
 @media (max-width: 800px) {
+  .wrapper .fullview {
+    width: 90%;
+  }
+  .wrapper .fullview .product-info-container .item-description {
+    display: none;
+  }
   .main-container .comment-zone {
     width: 90%;
   }
@@ -196,6 +211,34 @@
   }
 }
 @media (max-width: 600px) {
+  .wrapper .product-name.stretched {
+    display: flex;
+    margin: 15px;
+  }
+  .wrapper .fullview {
+    width: 90%;
+    padding: 15px;
+    flex-direction: column;
+  }
+  .wrapper .fullview .itempic {
+    width: 90%;
+    margin-left: 5px;
+  }
+  .wrapper .fullview .product-info-container {
+    width: 90%;
+  }
+  .wrapper .fullview .product-info-container .product-name.wide {
+    display: none;
+  }
+  .wrapper .fullview .product-info-container .item-tags {
+    width: 100%;
+    height: 50%;
+    margin-top: 10px;
+  }
+  .wrapper .fullview .product-info-container .item-buttons {
+    width: 100%;
+    height: 50%;
+  }
   .main-container .comment-zone {
     width: 90%;
   }
@@ -209,5 +252,45 @@
     height: 100px;
     background-color: #eee;
     font-size: small;
+  }
+}
+@media (max-width: 450px) {
+  .main-container .comment-zone .comment-background .comment-card {
+    grid-template-columns: 35% 50% 15%;
+    grid-template-rows: 70% 30%;
+  }
+  .main-container .comment-zone .comment-background .comment-card .img-card {
+    grid-row: 1/4;
+  }
+  .main-container .comment-zone .comment-background .comment-card .user-info {
+    grid-row: 1/3;
+    grid-column: 2/3;
+  }
+  .main-container .comment-zone .comment-background .comment-card .date {
+    grid-column: 2/4;
+    grid-row: 2/3;
+    display: flex;
+    font-size: 8px;
+  }
+  .main-container .comment-zone .comment-background .comment-card .buttons {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    gap: 0px;
+  }
+  .main-container .comment-zone .comment-background .comment-card .buttons button.btn {
+    font-size: 13px;
+  }
+  .main-container .comment-zone .comment-background .comment-card .buttons button.btn.btn-danger:hover {
+    background: none;
+    color: #a61313;
+  }
+  .main-container .comment-zone .comment-background .comment-card .buttons button.btn.btn-success:hover {
+    background: none;
+    color: #1c7b1c;
   }
 }/*# sourceMappingURL=detailed.css.map */

@@ -1,4 +1,5 @@
 @import "./identity";
+
 // *{ border: solid black 1px;}
 .backToMenuButton {
     text-decoration: none;
@@ -11,6 +12,10 @@
     display: flex;
     justify-content: center;
     margin-bottom: 60px;
+
+    & .product-name.stretched {
+        display: none;
+    }
 
     & .fullview {
         width: 70%;
@@ -48,8 +53,8 @@
             justify-content: center;
             align-items: center;
 
-            & .product-name {
-                height: 30%;
+            & .product-name.wide {
+                height: 40%;
                 width: 100%;
                 display: flex;
                 align-items: center;
@@ -57,19 +62,25 @@
             }
 
             & .item-description {
-                height: 25%;
-                width: 70%;
+                height: 40%;
+                width: 80%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
 
             & .item-tags {
-                height: 15%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                width: 100%;
+                height: 30%;
+                padding: 15px;
             }
 
             & .item-buttons {
-                height: 20%;
+                height: 30%;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
@@ -111,14 +122,14 @@
             background-color: $white;
             font-size: small;
 
-            
+
             & .img-card {
                 grid-row: 1/3;
                 display: flex;
                 align-items: center;
                 justify-content: left;
                 padding: 15px;
-                
+
                 & img {
                     height: 75px;
                     width: 75px;
@@ -126,7 +137,7 @@
                     object-fit: contain;
                 }
             }
-            
+
             & .user-info {
                 grid-row: 1/3;
                 display: flex;
@@ -134,19 +145,19 @@
                 align-items: left;
                 justify-content: center;
                 padding-left: 5px;
-                
-                & span.bid-info{
+
+                & span.bid-info {
                     width: 100%;
                     font-size: 12px;
                     color: $black;
                 }
             }
-            
+
             &.user-selected {
                 background-color: #759d96;
                 color: $white;
 
-                & span.bid-info{
+                & span.bid-info {
                     color: $white;
                 }
 
@@ -154,6 +165,7 @@
                     color: $white;
                 }
             }
+
             & .date {
                 grid-row: 1/2;
                 display: flex;
@@ -190,11 +202,12 @@
         }
     }
 }
+
 @media (max-width: 1300px) {
-    .main-container{
+    .main-container {
         & .comment-zone {
-            width: 80%;    
-              
+            width: 80%;
+
             & .comment-background {
                 & .comment-card {
                     grid-template-columns: 20% 45% 35%;
@@ -204,38 +217,86 @@
                     background-color: $white;
                     font-size: small;
                 }
-    
+
             }
-        }   
+        }
 
     }
 }
 
 @media (max-width: 800px) {
-    .main-container{
+    .wrapper {
+        & .fullview {
+            width: 90%;
+
+            & .product-info-container {
+                & .item-description {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .main-container {
         & .comment-zone {
-            width: 90%;    
-              
+            width: 90%;
+
             & .comment-background {
                 & .comment-card {
-                    grid-template-columns:25% 35% 40%;
+                    grid-template-columns: 25% 35% 40%;
                     grid-template-rows: 50% 50%;
                     width: 100%;
                     height: 100px;
                     background-color: $white;
                     font-size: small;
                 }
-    
+
             }
-        }   
+        }
 
     }
 }
+
 @media (max-width: 600px) {
-    .main-container{
+    .wrapper {
+        & .product-name.stretched {
+            display: flex;
+            margin: 15px;
+        }
+
+        & .fullview {
+            width: 90%;
+            padding: 15px;
+            flex-direction: column;
+
+            & .itempic {
+                width: 90%;
+                margin-left: 5px;
+            }
+
+            & .product-info-container {
+                width: 90%;
+
+                & .product-name.wide {
+                    display: none;
+                }
+                & .item-tags{
+                    width: 100%;
+                    height: 50%;
+                    margin-top: 10px;
+                }
+                & .item-buttons{
+                    width: 100%;
+                    height: 50%;
+                }
+            }
+        }
+    }
+
+    .main-container {
         & .comment-zone {
-            width: 90%;    
-              
+            width: 90%;
+
             & .comment-background {
                 width: 90%;
 
@@ -246,9 +307,59 @@
                     height: 100px;
                     background-color: $white;
                     font-size: small;
-                    
+
                 }
             }
-        }  
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .main-container .comment-zone .comment-background {
+        & .comment-card {
+            grid-template-columns: 35% 50% 15%;
+            grid-template-rows: 70% 30%;
+
+            & .img-card {
+                grid-row: 1/4;
+            }
+
+            & .user-info {
+                grid-row: 1/3;
+                grid-column: 2/3;
+            }
+
+            & .date {
+                grid-column: 2/4;
+                grid-row: 2/3;
+                display: flex;
+                font-size: 8px;
+            }
+
+            & .buttons {
+                grid-column: 3/4;
+                grid-row: 1/2;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding-top: 10px;
+                gap: 0px;
+
+                & button.btn {
+                    font-size: 13px;
+
+                    &.btn-danger:hover {
+                        background: none;
+                        color: $dangerColor;
+                    }
+
+                    &.btn-success:hover {
+                        background: none;
+                        color: $successColor;
+                    }
+                }
+            }
+        }
     }
 }
