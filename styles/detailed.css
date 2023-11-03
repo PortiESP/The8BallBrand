@@ -1,4 +1,4 @@
-.backToMenuButton {
+.back-to-menu-button {
   text-decoration: none;
   color: #ffffff;
   padding: 10px;
@@ -47,16 +47,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 .wrapper .fullview .product-info-container .product-name.wide {
-  height: 40%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .wrapper .fullview .product-info-container .item-description {
-  height: 40%;
   width: 80%;
   display: flex;
   align-items: center;
@@ -68,18 +67,15 @@
   justify-content: center;
   gap: 10px;
   width: 100%;
-  height: 30%;
   padding: 15px;
 }
 .wrapper .fullview .product-info-container .item-buttons {
-  height: 30%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 15px;
 }
-
 .main-container .comment-zone {
   padding-top: 20px;
   width: 70%;
@@ -165,16 +161,14 @@
   gap: 15px;
 }
 .main-container .comment-zone .comment-background .comment-card .buttons button.btn {
-  color: #eee;
-  background-color: #759d96;
+  color: rgba(255, 255, 255, 0.3333333333);
+  background: none;
   border: none;
 }
 .main-container .comment-zone .comment-background .comment-card .buttons button.btn.btn-danger:hover {
-  background-color: #a61313;
   color: #eee;
 }
 .main-container .comment-zone .comment-background .comment-card .buttons button.btn.btn-success:hover {
-  background-color: #1c7b1c;
   color: #eee;
 }
 
