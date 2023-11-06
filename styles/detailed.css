@@ -77,6 +77,15 @@
   width: 100%;
   padding: 15px;
 }
+.wrapper .fullview .product-info-container .item-tags kbd.tag:nth-child(1) {
+  background-color: #6a90a8;
+}
+.wrapper .fullview .product-info-container .item-tags kbd.tag:nth-child(2) {
+  background-color: #43596a;
+}
+.wrapper .fullview .product-info-container .item-tags kbd.tag:nth-child(3) {
+  background-color: #202a35;
+}
 .wrapper .fullview .product-info-container .item-buttons {
   width: 100%;
   display: flex;
