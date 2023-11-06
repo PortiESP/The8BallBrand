@@ -94,6 +94,9 @@
   border: 1px solid #000;
   color: #000;
 }
+.wrapper .fullview .product-info-container .item-buttons .button--detailed.stretched-button {
+  display: none;
+}
 .wrapper .fullview .product-info-container .item-buttons .button--detailed:hover {
   background: #000;
   color: #eee;
@@ -196,6 +199,9 @@
 }
 
 @media (max-width: 1300px) {
+  .wrapper .fullview {
+    width: 80%;
+  }
   .main-container .comment-zone {
     width: 80%;
   }
@@ -272,6 +278,12 @@
   }
 }
 @media (max-width: 450px) {
+  .wrapper .fullview .product-info-container .item-buttons .button--detailed {
+    display: none;
+  }
+  .wrapper .fullview .product-info-container .item-buttons .button--detailed.stretched-button {
+    display: flex;
+  }
   .main-container .comment-zone .comment-background .comment-card {
     grid-template-columns: 35% 50% 15%;
     grid-template-rows: 70% 30%;

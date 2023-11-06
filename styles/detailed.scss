@@ -107,6 +107,10 @@
                     border: 1px solid $black;
                     color: $black;
 
+                    &.stretched-button {
+                        display: none;
+                    }
+
                     &:hover {
                         background: $black;
                         color: $white;
@@ -228,6 +232,12 @@
 }
 
 @media (max-width: 1300px) {
+    .wrapper {
+        & .fullview {
+            width: 80%;
+        }
+    }
+
     .main-container {
         & .comment-zone {
             width: 80%;
@@ -341,6 +351,16 @@
 }
 
 @media (max-width: 450px) {
+    .wrapper .fullview .product-info-container .item-buttons {
+        & .button--detailed {
+            display: none;
+
+            &.stretched-button {
+                display: flex;
+            }
+        }
+    }
+
     .main-container .comment-zone .comment-background {
         & .comment-card {
             grid-template-columns: 35% 50% 15%;
