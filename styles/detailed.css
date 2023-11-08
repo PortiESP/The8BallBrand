@@ -1,13 +1,26 @@
-.back-to-menu-button {
-  width: 150px;
-  margin: 50px;
+.back-to-menu-container {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.back-to-menu-container .back-to-menu-button {
+  width: 70%;
+  height: 100%;
+}
+.back-to-menu-container .back-to-menu-button .back-to-menu {
+  width: 100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   background-color: #eee;
   color: #000;
 }
-.back-to-menu-button:hover {
+.back-to-menu-container .back-to-menu-button .back-to-menu:hover {
   background: #000;
   color: #eee;
 }
@@ -208,6 +221,9 @@
 }
 
 @media (max-width: 1300px) {
+  .back-to-menu-container .back-to-menu-button {
+    width: 80%;
+  }
   .wrapper .fullview {
     width: 80%;
   }
@@ -224,6 +240,9 @@
   }
 }
 @media (max-width: 800px) {
+  .back-to-menu-container .back-to-menu-button {
+    width: 90%;
+  }
   .wrapper .fullview {
     width: 90%;
   }
@@ -243,6 +262,9 @@
   }
 }
 @media (max-width: 600px) {
+  .back-to-menu-container .back-to-menu-button {
+    width: 90%;
+  }
   .wrapper .product-name.stretched {
     display: flex;
     margin: 15px;
