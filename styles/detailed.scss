@@ -71,6 +71,7 @@
         & .product-info-container {
             width: 60%;
             height: 100%;
+            padding: 15px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -122,6 +123,20 @@
                 justify-content: center;
                 gap: 15px;
 
+                & input#favorite-checkbox {
+                    display: none;
+
+                    & + label {
+                        color: $black;
+                        background-color: $white;
+                    }
+
+                    &:checked + label {
+                        color: $white;
+                        background-color: $black;
+                    }
+                }
+
                 & .button--detailed {
                     width: 150px;
                     display: flex;
@@ -130,6 +145,7 @@
                     background: none;
                     border: 1px solid $black;
                     color: $black;
+
 
                     &.stretched-button {
                         display: none;
@@ -436,16 +452,6 @@
 
                 & button.btn {
                     font-size: 13px;
-
-                    &.btn-danger:hover {
-                        background: none;
-                        color: $dangerColor;
-                    }
-
-                    &.btn-success:hover {
-                        background: none;
-                        color: $successColor;
-                    }
                 }
             }
         }
