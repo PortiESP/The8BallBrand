@@ -167,20 +167,33 @@
                         </p>
                     </div>
                     <div class="item-tags">
-                        <kbd class="tag">XXL</kbd>
-                        <kbd class="tag">Hoodie</kbd>
-                        <kbd class="tag">14/11/2023</kbd>
+                        <table class="table">
+                           
+                            <tbody>
+                              <tr>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                              </tr>
+                              <tr>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                              </tr>
+                              <tr>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                              </tr>
+                            </tbody>
+                          </table>
                     </div>
                     <div class="item-buttons">
                         <!-- Wide Buttons -->
                         <input type="checkbox" id="favorite-checkbox">
-                        <label class="button--detailed" for="favorite-checkbox">Favorite</label>
+                        <label class="button--detailed" for="favorite-checkbox"><i class="bi bi-heart-fill"></i></label>
                         <button class="button--detailed">Edit</button>
                         <button class="button--detailed">Delete</button>
                         <!-- Stretched Buttons -->
-                        <button class="button--detailed stretched-button"><i class="bi bi-star"></i></button>
                         <button class="button--detailed stretched-button"><i class="bi bi-pencil-square"></i></button>
-                        <button class="button--detailed stretched-button"><i class="bi bi-x-circle"></i></button>
+                        <button class="button--detailed stretched-button"><i class="bi bi-trash"></i></button>
                     </div>
                 </div>
             </div>
@@ -262,21 +275,21 @@
                             <span class="text-label">Username</span>
                             <i class="bi bi-person bi-stretched"></i>
                         </span>
-                        <input type="text" class="form-control" placeholder="Username">
+                        <input type="text" class="form-control " require placeholder="Username">
                     </div>
                     <div class="input-group">
                         <span class="input-group-text" id="user mail">
                             <span class="text-label">e-mail</span>
                             <i class="bi bi-envelope bi-stretched"></i>
                         </span>
-                        <input type="text" class="form-control" placeholder="examplemail@mail.com">
+                        <input type="email" class="form-control " require placeholder="examplemail@mail.com">
                     </div>
                     <div class="input-group">
                         <span class="input-group-text" id="price">
                             <span class="text-label">Bid</span>
                             <i class="bi bi-coin bi-stretched"></i>
                         </span>
-                        <input type="number" min="0" class="form-control" placeholder="Place your bid">
+                        <input type="number" min="0" class="form-control " require placeholder="Place your bid">
                     </div>
                 </div>
                 <div class="buttons">
