@@ -39,7 +39,7 @@
   padding: 30px;
   margin-top: 15px;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   color: #000;
   background-color: #eee;
@@ -48,7 +48,6 @@
   width: 40%;
   border: solid rgba(0, 0, 0, 0.1490196078) 2px;
   background-color: rgba(200, 200, 200, 0.2588235294);
-  margin-left: 30px;
   aspect-ratio: 1/1;
   display: flex;
   align-items: center;
@@ -82,6 +81,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 .wrapper .fullview .product-info-container .item-tags {
   display: flex;
@@ -91,14 +91,8 @@
   width: 100%;
   padding: 15px;
 }
-.wrapper .fullview .product-info-container .item-tags kbd.tag:nth-child(1) {
-  background-color: #6a90a8;
-}
-.wrapper .fullview .product-info-container .item-tags kbd.tag:nth-child(2) {
-  background-color: #43596a;
-}
-.wrapper .fullview .product-info-container .item-tags kbd.tag:nth-child(3) {
-  background-color: #202a35;
+.wrapper .fullview .product-info-container .item-tags table tbody tr td {
+  background: none;
 }
 .wrapper .fullview .product-info-container .item-buttons {
   width: 100%;
@@ -292,7 +286,6 @@
   }
   .wrapper .fullview .itempic {
     width: 90%;
-    margin-left: 5px;
   }
   .wrapper .fullview .product-info-container {
     width: 90%;

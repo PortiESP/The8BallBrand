@@ -45,7 +45,7 @@
         padding: 30px;
         margin-top: 15px;
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
         color: $black;
         background-color: $white;
@@ -54,7 +54,6 @@
             width: 40%;
             border: solid $imageBorderColor 2px;
             background-color: $imageBgColor;
-            margin-left: 30px;
             aspect-ratio: 1/1;
             display: flex;
             align-items: center;
@@ -90,6 +89,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                text-align: center;
             }
 
             & .item-tags {
@@ -100,17 +100,9 @@
                 width: 100%;
                 padding: 15px;
 
-                & kbd.tag {
-                    &:nth-child(1) {
-                        background-color: $tagSizeColor;
-                    }
-
-                    &:nth-child(2) {
-                        background-color: $tagTypeColor;
-                    }
-
-                    &:nth-child(3) {
-                        background-color: $tagDateColor;
+                & table{
+                    & tbody tr td{
+                        background: none;
                     }
                 }
             }
@@ -369,7 +361,6 @@
 
             & .itempic {
                 width: 90%;
-                margin-left: 5px;
             }
 
             & .product-info-container {
