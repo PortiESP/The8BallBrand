@@ -248,13 +248,16 @@ nav.navbar .navbar-nav .div--search[role=modal] search .search--group input {
   border-radius: 6px;
   padding: 20px;
 }
-nav.navbar .navbar-nav .div--search[role=modal] search .search--group button.icon--close-search {
+nav.navbar .navbar-nav .div--search[role=modal] search .search--group button.icon--backspace-search {
   position: absolute;
   color: rgba(136, 136, 136, 0.5333333333);
-  font-size: 2em;
+  font-size: 1.5em;
   right: 10px;
   border: none;
   outline: none;
+}
+nav.navbar .navbar-nav .div--search[role=modal] search .search--group button.icon--backspace-search:hover {
+  color: rgba(0, 0, 0, 0.4);
 }
 nav.navbar .nav-search-bar {
   padding: 10px;

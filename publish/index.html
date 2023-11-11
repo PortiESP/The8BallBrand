@@ -130,7 +130,7 @@
                         <search>
                             <div class="search--group">
                                 <input placeholder="Zara hoodie black..." autofocus />
-                                <button class="icon--close-search"><i class="bi bi-x "></i></button>
+                                <button class="icon--backspace-search"><i class="bi bi-x "></i></button>
                             </div>
                             <div class="div--search-results"></div>
                         </search>
@@ -154,7 +154,7 @@
                             <i class="bi bi-hash bi-stretched"></i>
                         </span>
                         <input type="text" class="form-control" placeholder="Selling Name" aria-label="name"
-                            aria-describedby="name">
+                            aria-describedby="name" required>
                     </div>
 
                     <div class="input-group">
@@ -163,7 +163,7 @@
                             <i class="bi bi-card-text bi-stretched"></i>
                         </span>
                         <input type="text" class="form-control" placeholder="Small Description" aria-label="description"
-                            aria-describedby="description">
+                            aria-describedby="description" required>
                     </div>
 
                     <div class="input-group">
@@ -171,23 +171,23 @@
                             <span class="text-label">Price</span>
                             <i class="bi bi-currency-dollar bi-stretched"></i>
                         </span>
-                        <input type="number" class="form-control" placeholder="99" aria-label="price"
-                            aria-describedby="price" min="0">
+                        <input type="number" class="form-control" placeholder="Initial bid" aria-label="price"
+                            aria-describedby="price" min="0" required>
                     </div>
 
                     <div class="input-group">
                         <span class="input-group-text" id="image">
                             <span class="text-label">Image</span>
-                            <i class="bi bi-images bi-stretched"></i>
+                            <i class="bi bi-image bi-stretched"></i>
                         </span>
                         <input type="text" class="form-control" placeholder="https://exampleurl..." aria-label="image"
-                            aria-describedby="image">
+                            aria-describedby="image" required>
                     </div>
 
                     <div class="input-group">
                         <span class="input-group-text" id="garment-type">
                             <span class="text-label">Type</span>
-                            <i class="bi bi-hash bi-stretched"></i>
+                            <i class="bi bi-tag bi-stretched"></i>
                         </span>
                         <select class="form-control" id="garment-type">
                             <option selected value="1" id="other-option">Other</option>
@@ -202,7 +202,7 @@
                     <div class="size-selector input-group">
                         <span class="input-group-text" id="size">
                             <span class="text-label">Size</span>
-                            <i class="bi bi-gear-wide bi-stretched"></i>
+                            <i class="bi bi-sort-down bi-stretched"></i>
                         </span>
                         <select class="form-control" id="size">
                             <option selected value="xs">XS</option>
@@ -215,20 +215,17 @@
                     </div>
 
                     <div class="input-group date-input-container">
-                        <span class="input-group-text" id="begining-date">
-                            <span class="text-label">Beginning</span>
-                            <i class="bi bi-calendar bi-stretched"></i>
-                        </span>
-                        <input type="date" class="date-input" name="beginning-date" id="begining-date" />
-                    </div>
-
-                    <div class="input-group date-input-container">
                         <span class="input-group-text" id="ending-date">
                             <span class="text-label">Ending</span>
                             <i class="bi bi-calendar-check bi-stretched"></i>
                         </span>
-                        <input type="date" class="date-input" name="finishing-date" id="finishing-date" />
+                        <input type="date" class="date-input" name="finishing-date" id="finishing-date" required/>
                     </div>
+                </div>
+
+                <div class="terms-container">
+                    <input type="checkbox" name="terms" id="terms" required>
+                    <label for="terms">I accept the Terms and Conditions</label>
                 </div>
 
                 <div class="buttons">

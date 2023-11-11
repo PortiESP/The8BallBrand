@@ -300,13 +300,17 @@ nav.navbar {
                         padding: 20px;
                     }
 
-                    & button.icon--close-search {
+                    & button.icon--backspace-search {
                         position: absolute;
                         color: #8888;
-                        font-size: 2em;
+                        font-size: 1.5em;
                         right: 10px;
                         border: none;
                         outline: none;
+
+                        &:hover{
+                            color: #0006;
+                        }
                     }
 
                 }

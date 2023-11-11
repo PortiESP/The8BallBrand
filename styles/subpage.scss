@@ -99,12 +99,20 @@
             }
         }
 
-
         & .form-select-container {
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        & .terms-container {
+            padding: 10px 30px 10px 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
         }
 
         & .buttons {
