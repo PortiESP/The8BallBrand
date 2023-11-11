@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .main-container {
   width: 100%;
   min-height: 95vh;
@@ -99,7 +100,95 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 10px;
+}
+.main-container .form-container .terms-container .terms-label {
+  font-style: italic;
+}
+.main-container .form-container .terms-container .checkbox-wrapper-5 {
+  display: flex;
+  align-items: center;
+}
+.main-container .form-container .terms-container .checkbox-wrapper-5 .check {
+  --size: 20px;
+  position: relative;
+  background: linear-gradient(90deg, #43d367, #1eac55);
+  line-height: 0;
+  perspective: 400px;
+  font-size: var(--size);
+}
+.main-container .form-container .terms-container .checkbox-wrapper-5 .check input[type=checkbox], .main-container .form-container .terms-container .checkbox-wrapper-5 .check label, .main-container .form-container .terms-container .checkbox-wrapper-5 .check label::before, .main-container .form-container .terms-container .checkbox-wrapper-5 .check label::after, .main-container .form-container .terms-container .checkbox-wrapper-5 .check {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: inline-block;
+  border-radius: var(--size);
+  transition: 0.35s ease-in-out;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.main-container .form-container .terms-container .checkbox-wrapper-5 .check label {
+  width: calc(2.2 * var(--size));
+  height: var(--size);
+  background: #d7d7d7;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.2666666667);
+}
+.main-container .form-container .terms-container .checkbox-wrapper-5 .check input[type=checkbox] {
+  position: absolute;
+  z-index: 1;
+  width: calc(0.8 * var(--size));
+  height: calc(0.8 * var(--size));
+  top: calc(0.1 * var(--size));
+  left: calc(0.1 * var(--size));
+  background: linear-gradient(45deg, #dedede, #ffffff);
+  box-shadow: 0 6px 7px rgba(0, 0, 0, 0.3);
+  outline: none;
+  margin: 0;
+}
+.main-container .form-container .terms-container .checkbox-wrapper-5 .check input[type=checkbox]:checked {
+  left: calc(1.3 * var(--size));
+}
+.main-container .form-container .terms-container .checkbox-wrapper-5 .check input[type=checkbox]:checked + label {
+  background: transparent;
+}
+.main-container .form-container .terms-container .checkbox-wrapper-5 .check label::before, .main-container .form-container .terms-container .checkbox-wrapper-5 .check label::after {
+  content: "· ·";
+  position: absolute;
+  overflow: hidden;
+  left: calc(0.15 * var(--size));
+  top: calc(0.5 * var(--size));
+  height: var(--size);
+  letter-spacing: calc(-0.04 * var(--size));
+  color: #9b9b9b;
+  font-family: "Times New Roman", serif;
+  z-index: 2;
+  font-size: calc(0.6 * var(--size));
+  border-radius: 0;
+  transform-origin: 0 0 calc(-0.5 * var(--size));
+  backface-visibility: hidden;
+}
+.main-container .form-container .terms-container .checkbox-wrapper-5 .check label::after {
+  content: "●";
+  top: calc(0.65 * var(--size));
+  left: calc(0.2 * var(--size));
+  height: calc(0.1 * var(--size));
+  width: calc(0.35 * var(--size));
+  font-size: calc(0.2 * var(--size));
+  transform-origin: 0 0 calc(-0.4 * var(--size));
+}
+.main-container .form-container .terms-container .checkbox-wrapper-5 .check input[type=checkbox]:checked + label::before, .main-container .form-container .terms-container .checkbox-wrapper-5 .check input[type=checkbox]:checked + label::after {
+  left: calc(1.55 * var(--size));
+  top: calc(0.4 * var(--size));
+  line-height: calc(0.1 * var(--size));
+  transform: rotateY(360deg);
+}
+.main-container .form-container .terms-container .checkbox-wrapper-5 .check input[type=checkbox]:checked + label::after {
+  height: calc(0.16 * var(--size));
+  top: calc(0.55 * var(--size));
+  left: calc(1.6 * var(--size));
+  font-size: calc(0.6 * var(--size));
+  line-height: 0;
 }
 .main-container .form-container .buttons {
   padding-bottom: 40px;

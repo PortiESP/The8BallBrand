@@ -96,6 +96,7 @@ main section .item {
   background: #fff;
   color: #000;
   padding: 20px;
+  height: 100%;
 }
 main section .item .item--images {
   position: relative;
