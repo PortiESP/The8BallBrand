@@ -93,6 +93,14 @@
   align-items: center;
   justify-content: center;
 }
+.main-container .form-container .terms-container {
+  padding: 10px 30px 10px 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
 .main-container .form-container .buttons {
   padding-bottom: 40px;
   width: 100%;
