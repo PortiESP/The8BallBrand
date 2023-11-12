@@ -21,7 +21,6 @@
             text-decoration: none;
             background-color: $white;
             color: $black;
-            border: 1px solid $black;
             transition: 0.3s;
 
             &:hover {
@@ -104,6 +103,13 @@
                 & table {
                     & tbody tr td {
                         background: none;
+
+                        &:nth-child(1){
+                            font-weight: 500;
+                        }
+                        &:nth-child(2){
+                            color:#0006;
+                        }
                     }
                 }
             }
@@ -205,7 +211,7 @@
         width: 80%;
         background-color: $secondaryBackgroundColor;
         gap: 10px;
-        padding: 10px;
+        padding: 20px;
 
         & .comment-card {
             display: grid;
@@ -215,6 +221,13 @@
             height: 100px;
             background-color: $white;
             font-size: small;
+
+            filter: brightness(95%);
+
+            &:nth-child(1){
+                box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+                filter: none;
+            }
 
 
             & .img-card {
@@ -306,6 +319,10 @@
     .back-to-menu-container {
         & .back-to-menu-button {
             width: 80%;
+
+            & .back-to-menu{
+                border:none;
+            }
         }
     }
 
