@@ -1,8 +1,12 @@
-<img src="./assets/full-icon.svg">
 
-### The 8 Ball Brand
 
------------------------------------------------------------------
+# The 8 Ball Brand
+
+![alt text](./assets/full-icon.svg)
+
+------------------------------------------------------------------
+
+
 ### Integrantes
 + Jaime Portillo Pérez
 
@@ -18,5 +22,6 @@
     width="50px">](https://github.com/danisntoss)
 
 -----------------------------------------------------------------
-### Link 
-+ https://github.com/PortiESP/ProyectoWebURJC
+
+### Repository link in Github
+> https://github.com/PortiESP/ProyectoWebURJC
