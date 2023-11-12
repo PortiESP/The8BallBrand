@@ -19,6 +19,8 @@
   text-decoration: none;
   background-color: #eee;
   color: #000;
+  border: 1px solid #000;
+  transition: 0.3s;
 }
 .back-to-menu-container .back-to-menu-button .back-to-menu:hover {
   background: #000;
