@@ -2,7 +2,7 @@
 
 # The 8 Ball Brand
 
-![alt text](./assets/full-icon.svg)
+![alt text](./assets/full-icon.svg "Logo")
 
 ------------------------------------------------------------------
 
@@ -14,12 +14,10 @@
 
 + Daniel Santos López
 
-[<img src="https://avatars.githubusercontent.com/u/47105148?v=4"
-    width="50px">](https://github.com/PortiESP)
-[<img src="https://avatars.githubusercontent.com/u/121297520?v=4"
-    width="50px">](https://github.com/CuB1z)
-[<img src="https://avatars.githubusercontent.com/u/146845008?v=4"
-    width="50px">](https://github.com/danisntoss)
+<img src="https://avatars.githubusercontent.com/u/47105148?v=4" width="100">
+<img src="https://avatars.githubusercontent.com/u/121297520?v=4" width="100">
+<img src="https://avatars.githubusercontent.com/u/146845008?v=4" width="100">
+
 
 -----------------------------------------------------------------
 
