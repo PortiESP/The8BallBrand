@@ -130,7 +130,7 @@
                     color: $navIcons;
                     background: none;
                     text-decoration: none;
-                    font-weight: 600;
+                    font-weight: 400;
                     transition: 0.3s;
                     
                     &.edit {
@@ -242,8 +242,13 @@
 
                 & span.bid-info {
                     width: 100%;
-                    font-size: 12px;
+                    font-size: 1.1em;
                     color: $black;
+                    font-weight: 500;
+
+                    &:nth-child(2){
+                        color: #0008;
+                    }
                 }
             }
 
@@ -261,17 +266,19 @@
             }
 
             & .date {
+                font-weight: 400;
+                font-size: .9em;
                 grid-row: 1/2;
                 display: flex;
                 align-items: center;
                 justify-content: right;
-                padding-right: 5px;
+                padding-right: 10px;
                 color: $dateColor;
             }
 
             & .buttons {
+                display: none; // Disabled
                 grid-row: 2/3;
-                display: flex;
                 align-items: center;
                 justify-content: right;
                 padding-right: 5px;
@@ -432,6 +439,7 @@
     .wrapper .fullview .product-info-container {
         padding: 5px 0;
         margin-bottom: 15px;
+        gap: 0;
 
         & .item-buttons {
             & input#favorite-checkbox+label {
@@ -480,6 +488,7 @@
                 grid-row: 2/3;
                 display: flex;
                 font-size: 8px;
+                font-weight: 100;
             }
 
             & .buttons {

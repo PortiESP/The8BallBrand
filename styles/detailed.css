@@ -116,7 +116,7 @@
   color: #666;
   background: none;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 400;
   transition: 0.3s;
 }
 .wrapper .fullview .product-info-container .item-buttons .button--detailed.edit {
@@ -213,8 +213,12 @@
 }
 .main-container .comment-zone .comment-background .comment-card .user-info span.bid-info {
   width: 100%;
-  font-size: 12px;
+  font-size: 1.1em;
   color: #000;
+  font-weight: 500;
+}
+.main-container .comment-zone .comment-background .comment-card .user-info span.bid-info:nth-child(2) {
+  color: rgba(0, 0, 0, 0.5333333333);
 }
 .main-container .comment-zone .comment-background .comment-card.user-selected {
   background-color: #759d96;
@@ -227,16 +231,18 @@
   color: #eee;
 }
 .main-container .comment-zone .comment-background .comment-card .date {
+  font-weight: 400;
+  font-size: 0.9em;
   grid-row: 1/2;
   display: flex;
   align-items: center;
   justify-content: right;
-  padding-right: 5px;
+  padding-right: 10px;
   color: #a4a4a4;
 }
 .main-container .comment-zone .comment-background .comment-card .buttons {
+  display: none;
   grid-row: 2/3;
-  display: flex;
   align-items: center;
   justify-content: right;
   padding-right: 5px;
@@ -342,6 +348,7 @@
   .wrapper .fullview .product-info-container {
     padding: 5px 0;
     margin-bottom: 15px;
+    gap: 0;
   }
   .wrapper .fullview .product-info-container .item-buttons input#favorite-checkbox + label {
     border: none;
@@ -379,6 +386,7 @@
     grid-row: 2/3;
     display: flex;
     font-size: 8px;
+    font-weight: 100;
   }
   .main-container .comment-zone .comment-background .comment-card .buttons {
     grid-column: 3/4;
