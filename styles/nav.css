@@ -32,7 +32,7 @@ nav.navbar .navbar-nav > .nav-link:hover i {
   transition: all 0.1s ease;
 }
 nav.navbar .navbar-nav > .nav-link:hover i[class*=bi-heart-fill] {
-  color: rgb(255, 0, 106);
+  color: #ff006a;
 }
 nav.navbar .navbar-nav input[type=checkbox] {
   display: none;

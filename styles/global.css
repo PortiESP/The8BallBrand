@@ -6,7 +6,7 @@
 @import url("./subpage.css");
 @import url("./detailed.css");
 body {
-  background: rgba(107, 107, 107, 0.733) url("../assets/texture.png") fixed;
+  background: rgba(107, 107, 107, 0.7333333333) url("../assets/texture.png") fixed;
   scrollbar-width: none;
   font-family: "Poppins", monospace;
   -webkit-user-select: none;

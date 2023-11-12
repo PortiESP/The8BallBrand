@@ -234,6 +234,7 @@
                 justify-content: center;
                 font-weight: bold;
                 background: none;
+                transition: 0.3s;
 
                 &.btn-success {
                     color: $successColor;
@@ -241,8 +242,7 @@
 
                     &:hover,
                     &:active {
-                        color: $white;
-                        background-color: $successColor;
+                        background-color: $successColorBackground;
                     }
                 }
 
@@ -252,9 +252,7 @@
 
                     &:hover,
                     &:active {
-                        color: $white;
-                        background-color: $dangerColor;
-                        ;
+                        background-color: $dangerColorBackground;
                     }
                 }
             }

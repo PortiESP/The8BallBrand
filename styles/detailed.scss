@@ -93,15 +93,14 @@
             }
 
             & .item-tags {
+                padding: 15px 20px;
+                width: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 10px;
-                width: 100%;
-                padding: 15px;
 
-                & table{
-                    & tbody tr td{
+                & table {
+                    & tbody tr td {
                         background: none;
                     }
                 }
@@ -109,49 +108,74 @@
 
             & .item-buttons {
                 width: 100%;
-                height: 40px;
+                height: 30px;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
                 gap: 15px;
 
+                
+                & .button--detailed {
+                    padding: 1px 1px 1px 1px;
+                    width: 100px;
+                    height: 28px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 1px solid $black;
+                    border-radius: 5px;
+                    color: $navIcons;
+                    background: none;
+                    text-decoration: none;
+                    font-weight: 600;
+                    transition: 0.3s;
+                    
+                    &.edit {
+                        border-color: $navIcons;
+                        color: $navIcons;
+                        
+                        &:hover {
+                            background-color: $successColorBackground;
+                            border-color: $successColor;
+                            color: $successColor;
+                        }
+                    }
+                    
+                    &.delete {
+                        border-color: $navIcons;
+                        color: $navIcons;
+                        
+                        &:hover {
+                            background-color: $dangerColorBackground;
+                            border-color: $dangerColor;
+                            color: $dangerColor;
+                        }
+                    }
+                    
+                    &.stretched-button {
+                        display: none;
+                    }
+                }
+
                 & input#favorite-checkbox {
                     display: none;
-                    
 
-                    & + label {
-                        color: #666;
-                        background-color: $white;
-                          &:hover {
-                        background: $black;
-                        color: $white;
+                    &+label {
+                        color: $navIcons;
+                        border-color: $navIcons;
+
+                        &:hover {
+                            background-color: $heartColorBackground;
+                            border-color: $heartColorBackground;
+                            color: $heartColorHover;
+                            cursor: pointer;
                         }
                     }
 
                     &:checked + label {
                         color: $heartColor;
-                        
-                    }
-                }
-
-                & .button--detailed {
-                    width: 150px;
-                    display: flex;
-                    justify-content: center;
-                    text-decoration: none;
-                    background: none;
-                    border: 1px solid $black;
-                    color: $black;
-
-
-                    &.stretched-button {
-                        display: none;
-                    }
-
-                    &:hover {
-                        background: $black;
-                        color: $white;
+                        border-color: $heartColor;
                     }
                 }
             }
@@ -372,13 +396,10 @@
 
                 & .item-tags {
                     width: 100%;
-                    height: 50%;
-                    margin-top: 10px;
                 }
 
                 & .item-buttons {
                     width: 100%;
-                    height: 50%;
                 }
             }
         }
@@ -406,16 +427,34 @@
 }
 
 @media (max-width: 450px) {
-    .wrapper .fullview .product-info-container .item-buttons {
-        & input#favorite-checkbox + label {
-            border:none;
-        }
-        & button.button--detailed {
-            display: none;
-            
-            &.stretched-button {
-                display: flex;
-                border:none;
+    .wrapper .fullview .product-info-container {
+        padding: 5px 0;
+        margin-bottom: 15px;
+
+        & .item-buttons {
+            & input#favorite-checkbox+label {
+                border: none;
+                width: 70px;
+            }
+
+            & button.button--detailed {
+                display: none;
+                width: 70px;
+
+                &.stretched-button {
+                    display: flex;
+                    border: none;
+
+                    &.edit:hover {
+                        background: $successColorBackground;
+                        color: $successColor;
+                    }
+
+                    &.delete:hover {
+                        background: $dangerColorBackground;
+                        color: $dangerColor;
+                    }
+                }
             }
         }
     }

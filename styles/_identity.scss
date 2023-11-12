@@ -1,9 +1,11 @@
 $themePrimary: black;
-$themePrimaryAlpha: rgba(107, 107, 107, 0.733);
+$themePrimaryAlpha: #6b6b6bbb;
 $notification: #e00;
 $white: #eee;
 $black: #000;
-$heartColor: rgb(255, 0, 106);
+$heartColor: #ff006a;
+$heartColorHover: #ff006a80;
+$heartColorBackground: #ff006a12;
 
 // Landing -----------------------------------------------------------------------------------
 $title: #eee;
@@ -42,8 +44,10 @@ $secondaryBackgroundColor: #0000001a;
 
 /// BUTTONS
 $successColor: #1c7b1c;
+$successColorBackground: #1c7b1c1a;
 $dangerColor: #a61313;
-$disabledColor: #fff5;
+$dangerColorBackground: #a613131a;
+$disabledColor: #ffffff3c;
 
 /// TAGS
 $tagDateColor: #202a35;

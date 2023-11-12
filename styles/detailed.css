@@ -84,54 +84,76 @@
   text-align: center;
 }
 .wrapper .fullview .product-info-container .item-tags {
+  padding: 15px 20px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  width: 100%;
-  padding: 15px;
 }
 .wrapper .fullview .product-info-container .item-tags table tbody tr td {
   background: none;
 }
 .wrapper .fullview .product-info-container .item-buttons {
   width: 100%;
-  height: 40px;
+  height: 30px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 15px;
 }
+.wrapper .fullview .product-info-container .item-buttons .button--detailed {
+  padding: 1px 1px 1px 1px;
+  width: 100px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 5px;
+  color: #666;
+  background: none;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.wrapper .fullview .product-info-container .item-buttons .button--detailed.edit {
+  border-color: #666;
+  color: #666;
+}
+.wrapper .fullview .product-info-container .item-buttons .button--detailed.edit:hover {
+  background-color: rgba(28, 123, 28, 0.1019607843);
+  border-color: #1c7b1c;
+  color: #1c7b1c;
+}
+.wrapper .fullview .product-info-container .item-buttons .button--detailed.delete {
+  border-color: #666;
+  color: #666;
+}
+.wrapper .fullview .product-info-container .item-buttons .button--detailed.delete:hover {
+  background-color: rgba(166, 19, 19, 0.1019607843);
+  border-color: #a61313;
+  color: #a61313;
+}
+.wrapper .fullview .product-info-container .item-buttons .button--detailed.stretched-button {
+  display: none;
+}
 .wrapper .fullview .product-info-container .item-buttons input#favorite-checkbox {
   display: none;
 }
 .wrapper .fullview .product-info-container .item-buttons input#favorite-checkbox + label {
   color: #666;
-  background-color: #eee;
+  border-color: #666;
 }
 .wrapper .fullview .product-info-container .item-buttons input#favorite-checkbox + label:hover {
-  background: #000;
-  color: #eee;
+  background-color: rgba(255, 0, 106, 0.0705882353);
+  border-color: rgba(255, 0, 106, 0.0705882353);
+  color: rgba(255, 0, 106, 0.5019607843);
+  cursor: pointer;
 }
 .wrapper .fullview .product-info-container .item-buttons input#favorite-checkbox:checked + label {
-  color: rgb(255, 0, 106);
-}
-.wrapper .fullview .product-info-container .item-buttons .button--detailed {
-  width: 150px;
-  display: flex;
-  justify-content: center;
-  text-decoration: none;
-  background: none;
-  border: 1px solid #000;
-  color: #000;
-}
-.wrapper .fullview .product-info-container .item-buttons .button--detailed.stretched-button {
-  display: none;
-}
-.wrapper .fullview .product-info-container .item-buttons .button--detailed:hover {
-  background: #000;
-  color: #eee;
+  color: #ff006a;
+  border-color: #ff006a;
 }
 
 .main-container .comment-zone {
@@ -219,7 +241,7 @@
   gap: 15px;
 }
 .main-container .comment-zone .comment-background .comment-card .buttons button.btn {
-  color: rgba(255, 255, 255, 0.3333333333);
+  color: rgba(255, 255, 255, 0.2352941176);
   background: none;
   border: none;
 }
@@ -295,12 +317,9 @@
   }
   .wrapper .fullview .product-info-container .item-tags {
     width: 100%;
-    height: 50%;
-    margin-top: 10px;
   }
   .wrapper .fullview .product-info-container .item-buttons {
     width: 100%;
-    height: 50%;
   }
   .main-container .comment-zone {
     width: 90%;
@@ -318,15 +337,29 @@
   }
 }
 @media (max-width: 450px) {
+  .wrapper .fullview .product-info-container {
+    padding: 5px 0;
+    margin-bottom: 15px;
+  }
   .wrapper .fullview .product-info-container .item-buttons input#favorite-checkbox + label {
     border: none;
+    width: 70px;
   }
   .wrapper .fullview .product-info-container .item-buttons button.button--detailed {
     display: none;
+    width: 70px;
   }
   .wrapper .fullview .product-info-container .item-buttons button.button--detailed.stretched-button {
     display: flex;
     border: none;
+  }
+  .wrapper .fullview .product-info-container .item-buttons button.button--detailed.stretched-button.edit:hover {
+    background: rgba(28, 123, 28, 0.1019607843);
+    color: #1c7b1c;
+  }
+  .wrapper .fullview .product-info-container .item-buttons button.button--detailed.stretched-button.delete:hover {
+    background: rgba(166, 19, 19, 0.1019607843);
+    color: #a61313;
   }
   .main-container .comment-zone .comment-background .comment-card {
     grid-template-columns: 35% 50% 15%;
