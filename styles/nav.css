@@ -156,41 +156,6 @@ nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked > .
   color: #aaa;
   line-height: 14px;
 }
-nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked > .item--count {
-  position: relative;
-  width: 50px;
-  max-width: 100px;
-}
-nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked > .item--count input {
-  width: 100%;
-  background: none;
-  border: none;
-  font-weight: 300;
-  text-align: center;
-  outline: none;
-}
-nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked > .item--count::before {
-  content: "";
-  position: absolute;
-  top: -20px;
-  left: 7px;
-  width: 1px;
-  border-top: 10px solid transparent;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid #e0e0e0;
-}
-nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked > .item--count::after {
-  content: "";
-  position: absolute;
-  top: 25px;
-  left: 7px;
-  width: 1px;
-  border-top: 10px solid #e0e0e0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-}
 nav.navbar .navbar-nav .div--liked[role=modal] > .checkout {
   display: flex;
   justify-content: center;
