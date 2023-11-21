@@ -1,13 +1,16 @@
 import express from 'express'
 import mustache from "mustache-express"
+import bodyParser from 'body-parser'
 import router from './router.js'
 
 // INIT
 const app = express()
+
 // Config
 app.set("views", "./views")
 app.set("view engine", "html")
 app.engine('html', mustache())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 
 // Enable routes
