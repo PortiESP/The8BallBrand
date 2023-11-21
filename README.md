@@ -2,9 +2,7 @@
 
 # The 8 Ball Brand
 
-![alt text](./assets/full-icon.svg "Logo")
-
-------------------------------------------------------------------
+![alt text](./public/assets/full-icon.svg "Logo")
 
 
 ### Integrantes
@@ -19,7 +17,19 @@
 <img src="https://avatars.githubusercontent.com/u/146845008?v=4" width="100">
 
 
------------------------------------------------------------------
 
 ### Repository link in Github
+
 > https://github.com/PortiESP/ProyectoWebURJC
+
+
+------------------------------------------------------------------------------------------------------------
+
+
+## Startup
+
+> Make sure to have all the dependencies installed. Run `npm i` in the terminal to install the necesary packages
+
+```bash
+node app.js
+```
