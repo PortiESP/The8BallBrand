@@ -16,8 +16,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // Enable routes
 app.get('/', router)
 app.get('/publish', router)
-app.get('/detailed', router)
+app.get('/detailed/:id', router)
 app.get('/legal', router)
+app.post('/add-element', router)
 
 // Static files
 app.use(express.static('./public'))

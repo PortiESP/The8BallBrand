@@ -23,43 +23,43 @@
         <div class="wrapper">
             <div class="fullview">
                 <div class="product-name stretched">
-                    <h1 class="text-center">Oversized Fit Hoodie</h1>
+                    <h1 class="text-center">{{name}}</h1>
                 </div>
                 <div class="itempic">
                     <img src="../assets/clothes/hoodie1.png" class="imgdirect" alt="Item Img" />
                 </div>
                 <div class="product-info-container">
                     <div class="product-name wide">
-                        <h1 class="text-center">Oversized Fit Hoodie</h1>
+                        <h1 class="text-center">{{name}}</h1>
                     </div>
                     <div class="item-description">
-                        <p>Longsleeve oversized hoodie. Kangaroo front pocket. Washed Effect.</p>
+                        <p>{{description}}</p>
                     </div>
                     <div class="item-tags">
                         <table class="table">
                             <tbody>
                                 <tr>
                                     <td>Size</td>
-                                    <td>XXL</td>
+                                    <td>{{size}}</td>
                                 </tr>
                                 <tr>
                                     <td>Initial bid</td>
-                                    <td>30€</td>
+                                    <td>{{price}}€</td>
                                 </tr>
                                 <tr>
                                     <td>Finished by</td>
-                                    <td>Nov 30, 2023</td>
+                                    <td>{{finishingDate}}</td>
                                 </tr>
                                 <tr>
                                     <td>Category</td>
-                                    <td><kbd>Hoodie</kbd></td>
+                                    <td><kbd>{{type}}</kbd></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="item-buttons">
                         <!-- Wide Buttons -->
-                        <input type="checkbox" id="favorite-checkbox" />
+                        <input type="checkbox" id="favorite-checkbox"/>
                         <label class="button--detailed" for="favorite-checkbox"><i class="bi bi-heart-fill"></i></label>
                         <button class="button--detailed edit">Edit</button>
                         <button class="button--detailed delete">Delete</button>
