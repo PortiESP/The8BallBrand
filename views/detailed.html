@@ -82,64 +82,9 @@
             </div>
             <div class="comment-zone">
                 <div class="comment-background">
-                    <div class="comment-card">
-                        <div class="img-card">
-                            <img class="img-fluid" src="/assets/Gravatars/avatar1.png" alt="user-img" />
-                        </div>
-                        <div class="user-info">
-                            <span class="bid-info">RandomUser45</span>
-                            <span class="bid-info">Raises the bid to <strong>99€</strong></span>
-                        </div>
-                        <div class="date">14/11/23 at 15:00</div>
-                        <div class="buttons">
-                            <button class="btn btn-danger">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                            <button class="btn btn-success">
-                                <i class="bi bi-pencil-square"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="comment-card">
-                        <div class="img-card">
-                            <img class="img-fluid" src="/assets/Gravatars/avatar2.png" alt="user-img" />
-                        </div>
-                        <div class="user-info">
-                            <span class="bid-info">EverydayJane</span>
-                            <span class="bid-info">95€</span>
-                        </div>
-                        <div class="date">14/11/23 at 12:05</div>
-                    </div>
-                    <div class="comment-card">
-                        <div class="img-card">
-                            <img class="img-fluid" src="/assets/Gravatars/avatar3.png" alt="user-img" />
-                        </div>
-                        <div class="user-info">
-                            <span class="bid-info">SimpleSimon</span>
-                            <span class="bid-info">70€</span>
-                        </div>
-                        <div class="date">13/11/23 at 00:10</div>
-                    </div>
-                    <div class="comment-card">
-                        <div class="img-card">
-                            <img class="img-fluid" src="/assets/Gravatars/avatar4.png" alt="user-img" />
-                        </div>
-                        <div class="user-info">
-                            <span class="bid-info">CommonFolk23</span>
-                            <span class="bid-info">45€</span>
-                        </div>
-                        <div class="date">12/11/23 at 22:30</div>
-                    </div>
-                    <div class="comment-card">
-                        <div class="img-card">
-                            <img class="img-fluid" src="/assets/Gravatars/avatar5.png" alt="user-img" />
-                        </div>
-                        <div class="user-info">
-                            <span class="bid-info">JoeAverage76</span>
-                            <span class="bid-info">Sees the initial 30€</span>
-                        </div>
-                        <div class="date">11/11/23 at 10:00</div>
-                    </div>
+                    {{#each bids}}
+                    <li>PRUEBA</li>
+                    {{/each bids}}
                 </div>
             </div>
             <form class="form-container" method="post" action="/add-bid/{{id}}">
