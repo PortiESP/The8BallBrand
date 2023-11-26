@@ -82,9 +82,9 @@
             </div>
             <div class="comment-zone">
                 <div class="comment-background">
-                    {{#each bids}}
-                    <li>PRUEBA</li>
-                    {{/each bids}}
+                    {{#bids}}
+                        {{> components/bidCard}}
+                    {{/bids}}
                 </div>
             </div>
             <form class="form-container" method="post" action="/add-bid/{{id}}">

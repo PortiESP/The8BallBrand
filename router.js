@@ -21,7 +21,7 @@ function renderDetailed(req, res)  {
   const bids = Object.values(data[req.params.id].bidders).sort((a, b) => b.bid - a.bid)   // Extract bids from data and sort them
   const elementData = data[req.params.id]   // Extract element data from data
 
-  res.render('detailed', {...elementData, 'bids':[1,2,3]})
+  res.render('detailed', {...elementData, bids})
 }
 
 function handleAddElement (req, res) {
@@ -46,9 +46,12 @@ function handleAddBid (req, res) {
   const date = getDate()
 
   data[id].bidders[username] = { ...req.body, date }
-  console.log("BODY", req.body)  // Debug
-  console.log("DATA", data)  // Debug
-  res.redirect(`/detailed/${id}`)
+
+  if (data[id].price > req.body.bid || data[id].bids[0].bid > req.body.bid) {
+    res.redirect(`/detailed/${id}?error=1`)
+  } 
+  else 
+    res.redirect(`/detailed/${id}`)
 }
 
 // Export routes definitions

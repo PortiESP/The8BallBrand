@@ -8,14 +8,14 @@ const data = {
         type: "hoodie",
         size: "XL",
         finishingDate: "2023-12-11",
-        bidders: {
-            "default": {
+        bids: [
+            {
                 username: "",
                 email: "",
                 bid: 0,
                 date: ""
             }
-        },
+        ],
     },
     "0002": {
         id: "0002",
@@ -26,14 +26,14 @@ const data = {
         type: "hoodie",
         size: "M",
         finishingDate: "2023-12-13",
-        bidders: {
-            "default": {
+        bids: [
+            {
                 username: "",
                 email: "",
                 bid: 0,
                 date: ""
             }
-        },
+        ],
     },
     "0003": {
         id: "0003",
@@ -44,14 +44,14 @@ const data = {
         type: "hoodie",
         size: "L",
         finishingDate: "2024-01-04",
-        bidders: {
-            "default": {
+        bids: [
+            {
                 username: "",
                 email: "",
                 bid: 0,
                 date: ""
             }
-        },
+        ],
     },
     "0004": {
         id: "0004",
@@ -62,14 +62,14 @@ const data = {
         type: "hoodie",
         size: "L",
         finishingDate: "2024-02-09",
-        bidders: {
-            "default": {
+        bids: [
+            {
                 username: "",
                 email: "",
                 bid: 0,
                 date: ""
             }
-        },
+        ],
     },
 }
 
