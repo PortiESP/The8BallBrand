@@ -17,6 +17,7 @@ router.get('/edit/:id', renderEdit)
 // POST routes
 router.post('/add-element', handleAddElement)
 router.post('/add-bid/:id', handleAddBid)
+router.post('/edit-element/:id', handleEditElement)
 
 //===================================================[Functions]===================================================//
 
@@ -57,6 +58,15 @@ function handleAddElement(req, res) {
 	res.redirect(`/detailed/${id}`)
 }
 
+function handleEditElement(req, res) {
+	const id = req.params.id
+	const price = parseFloat(req.body.price)
+	const finishingDate = formatDate(req.body.finishingDate)
+
+	data[id] = { id, ...req.body, finishingDate, price }
+	res.redirect(`/detailed/${id}`)
+}
+
 function handleDeleteElement(req, res) {
 	const id = req.params.id
 	delete data[id]
@@ -74,7 +84,6 @@ function handleAddBid(req, res) {
 		data[id].bids = [{ date, ...req.body, bid }, ...data[id].bids]
 		res.redirect(`/detailed/${id}`)
 	}
-
 }
 
 // Export routes definitions

@@ -23,6 +23,7 @@ app.get('/delete-element/:id', router)
 
 // POST routes
 app.post('/add-element', router)
+app.post('/edit-element/:id', router)
 app.post('/add-bid/:id', router)
 
 // Static files
