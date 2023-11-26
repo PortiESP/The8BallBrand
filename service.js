@@ -8,20 +8,7 @@ const data = {
         type: "hoodie",
         size: "XL",
         finishingDate: "11/12/2023",
-        bids: [
-            {
-                date: "11/12/2023",
-                name: "John Doe",
-                bid: 30.00,
-                email: ""
-            },
-            {
-                date: "11/12/2023",
-                name: "John Doe",
-                bid: 30.00,
-                email: ""
-            }
-        ],
+        bids: [],
     },
     "0002": {
         id: "0002",
@@ -31,7 +18,7 @@ const data = {
         price: 34.99,
         type: "hoodie",
         size: "M",
-        finishingDate: "2023/12/13",
+        finishingDate: "13/12/2023",
         bids: [],
     },
     "0003": {
@@ -42,7 +29,7 @@ const data = {
         price: 19.99,
         type: "hoodie",
         size: "L",
-        finishingDate: "2024/01/04",
+        finishingDate: "04/01/2024",
         bids: [],
     },
     "0004": {
@@ -53,7 +40,7 @@ const data = {
         price: 59.99,
         type: "hoodie",
         size: "L",
-        finishingDate: "2024/02/09",
+        finishingDate: "09/02/2024",
         bids: [],
     },
 }

@@ -18,6 +18,8 @@ app.get('/', router)
 app.get('/publish', router)
 app.get('/detailed/:id', router)
 app.get('/legal', router)
+app.get('/edit/:id', router)
+app.get('/delete-element/:id', router)
 
 // POST routes
 app.post('/add-element', router)
