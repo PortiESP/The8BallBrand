@@ -9,7 +9,7 @@ const router = express.Router()
 // Declare possible routes (not enabled until enabled by `app.get()`)
 router.get('/', (req, res) => res.render('index'))
 router.get('/detailed/:id', renderDetailed)
-router.get('/publish', (req, res) => res.render('publish'))
+router.get('/publish', renderPublish)
 router.get('/legal', (req, res) => res.render('legal'))
 
 // POST routes
@@ -22,6 +22,12 @@ function renderDetailed(req, res) {
   const elementData = data[req.params.id]                          // Extract element data from data
 
   res.render('detailed', { ...elementData, bids, isEmpty: !bids.length})
+}
+
+function renderPublish(req, res) {
+  const today = new Date().toISOString().split('T')[0]
+
+  res.render('publish', {today})
 }
 
 function handleAddElement(req, res) {
