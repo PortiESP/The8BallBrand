@@ -61,12 +61,9 @@
                             <i class="bi bi-tag bi-stretched"></i>
                         </span>
                         <select class="form-control" name="type" id="garment-type">
-                            <option selected value="other" id="other-option">Other</option>
-                            <option value="hoodie">Hoodie</option>
-                            <option value="pullover">Pullover</option>
-                            <option value="shirt">Shirt</option>
-                            <option value="jeans">Jeans</option>
-                            <option value="shoes">Shoes</option>
+                            {{#types}}
+                                <option value="{{type}}">{{type}}</option>
+                            {{/types}}
                         </select>
                     </div>
 
@@ -76,12 +73,9 @@
                             <i class="bi bi-sort-down bi-stretched"></i>
                         </span>
                         <select class="form-control" name="size" id="size">
-                            <option selected value="XS">XS</option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                            <option value="XXL">XXL</option>
+                            {{#sizes}}
+                                <option value="{{size}}">{{size}}</option>
+                            {{/sizes}}
                         </select>
                     </div>
 

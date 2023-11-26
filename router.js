@@ -1,5 +1,5 @@
 import express from 'express'
-import data from './service.js'
+import {data, sizes, types} from './service.js'
 import formatDate from './tools/dateUtils.js'
 
 // INIT
@@ -22,23 +22,28 @@ router.post('/add-bid/:id', handleAddBid)
 
 // Rendering Functions -------------------------------------------------
 function renderDetailed(req, res) {
-	const bids = data[req.params.id].bids                            // Extract bids from data and sort them
-	const elementData = data[req.params.id]                          // Extract element data from data
+	const bids = data[req.params.id]?.bids			        	// Extract bids from data and sort them
+	const elementData = data[req.params.id]         			// Extract element data from data
 
-	res.render('detailed', { ...elementData, bids, isEmpty: !bids.length })
+	res.render('detailed', { ...elementData, bids, isEmpty: !bids?.length })
 }
 
 function renderPublish(req, res) {
 	const today = new Date().toISOString().split('T')[0]
 
-	res.render('publish', { today })
+	res.render('publish', { today, types, sizes })
 }
 
 function renderEdit(req, res) {
 	const today = new Date().toISOString().split('T')[0]
 	const finishingDate = data[req.params.id].finishingDate.split('/').reverse().join('-')
+	const selectedType = data[req.params.id].type
+	const selectedSize = data[req.params.id].size
+
+	types.forEach(one => one.selected = one.type === selectedType ? 'selected' : '')
+	sizes.forEach(one => one.selected = one.size === selectedSize ? 'selected' : '')
 	
-	res.render('edit', { ...data[req.params.id], today, finishingDate })
+	res.render('edit', { ...data[req.params.id], today, finishingDate, types, sizes })
 }
 
 // Handling Functions --------------------------------------------------

@@ -1,11 +1,11 @@
-const data = {
+export const data = {
     "0001": {
         id: "0001",
         name: "Oversized Fit Hoodie",
         description: "Template description",
         image: "../assets/clothes/hoodie1.png",
         price: 29.99,
-        type: "hoodie",
+        type: "Hoodie",
         size: "XL",
         finishingDate: "11/12/2023",
         bids: [],
@@ -16,7 +16,7 @@ const data = {
         description: "Template description",
         image: "../assets/clothes/hoodie2.png",
         price: 34.99,
-        type: "hoodie",
+        type: "Hoodie",
         size: "M",
         finishingDate: "13/12/2023",
         bids: [],
@@ -27,7 +27,7 @@ const data = {
         description: "Template description",
         image: "../assets/clothes/hoodie3.png",
         price: 19.99,
-        type: "hoodie",
+        type: "Hoodie",
         size: "L",
         finishingDate: "04/01/2024",
         bids: [],
@@ -38,12 +38,46 @@ const data = {
         description: "Template description",
         image: "../assets/clothes/hoodie4.png",
         price: 59.99,
-        type: "hoodie",
+        type: "Hoodie",
         size: "L",
         finishingDate: "09/02/2024",
         bids: [],
     },
+    "0005": {
+        id: "0005",
+        name: "Top Jeans",
+        description: "Template description",
+        image: "../assets/clothes/jeans.png",
+        price: 44.99,
+        type: "Jeans",
+        size: "L",
+        finishingDate: "09/01/2024",
+        bids: [],
+    },
 }
 
+export const sizes = [
+                     { "size": "XS" },
+                     { "size": "S" },
+                     { "size": "M" },
+                     { "size": "L" },
+                     { "size": "XL" },
+                     { "size": "XXL" },
+]
 
-export default data
+export const types = [
+                     { "type": "Hoodie" },
+                     { "type": "Jeans" },
+                     { "type": "T-Shirt" },
+                     { "type": "Shirt" },
+                     { "type": "Sweater" },
+                     { "type": "Jacket" },
+                     { "type": "Coat" },
+                     { "type": "Dress" },
+                     { "type": "Skirt" },
+                     { "type": "Shorts" },
+                     { "type": "Underwear" },
+                     { "type": "Socks" },
+                     { "type": "Shoes" },
+                     { "type": "Other" },
+]
