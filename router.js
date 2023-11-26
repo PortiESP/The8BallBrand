@@ -1,5 +1,6 @@
 import express from 'express'
-import data from './storage.js'
+import data from './service.js'
+import getDate from './tools/getDate.js'
 
 // INIT
 const router = express.Router()
@@ -10,11 +11,33 @@ router.get('/', (req, res) => res.render('index'))
 router.get('/detailed/:id', (req, res) => res.render('detailed', data[req.params.id]))
 router.get('/publish', (req, res) => res.render('publish'))
 router.get('/legal', (req, res) => res.render('legal'))
+
+// POST routes
 router.post('/add-element', (req, res) => {
-  const ms = Date.now()
-  data[ms] = req.body
+  const id = Date.now()
+  const bidders = {
+    "default": {
+      username: "",
+      email: "",
+      bid: 0,
+      date: ""
+    }
+  }
+
+  data[id] = {id, ...req.body, bidders}
   console.log(data)  // Debug
-  res.redirect(`/detailed/${ms}`)
+  res.redirect(`/detailed/${id}`)
+})
+
+router.post('/add-bid/:id', (req, res) => {
+  const id = req.params.id
+  const username = req.body.username
+  const date = getDate()
+
+  data[id].bidders[username] = {...req.body, date}
+  console.log("BODY", req.body)  // Debug
+  console.log("DATA", data)  // Debug
+  res.redirect(`/detailed/${id}`)
 })
 
 // Export routes definitions

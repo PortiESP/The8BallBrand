@@ -18,7 +18,10 @@ app.get('/', router)
 app.get('/publish', router)
 app.get('/detailed/:id', router)
 app.get('/legal', router)
+
+// POST routes
 app.post('/add-element', router)
+app.post('/add-bid/:id', router)
 
 // Static files
 app.use(express.static('./public'))
