@@ -185,6 +185,11 @@
   gap: 10px;
   padding: 20px;
 }
+.main-container .comment-zone .comment-background .flag--empty-bids {
+  font-size: 0.5em;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.4);
+}
 .main-container .comment-zone .comment-background .comment-card {
   display: grid;
   grid-template-columns: 15% 60% 25%;

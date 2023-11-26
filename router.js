@@ -1,6 +1,6 @@
 import express from 'express'
 import data from './service.js'
-import getDate from './tools/getDate.js'
+import formatDate from './tools/dateUtils.js'
 
 // INIT
 const router = express.Router()
@@ -17,41 +17,37 @@ router.post('/add-element', handleAddElement)
 router.post('/add-bid/:id', handleAddBid)
 
 //==================================================== Functions ====================================================
-function renderDetailed(req, res)  {
-  const bids = Object.values(data[req.params.id].bidders).sort((a, b) => b.bid - a.bid)   // Extract bids from data and sort them
-  const elementData = data[req.params.id]   // Extract element data from data
+function renderDetailed(req, res) {
+  const bids = data[req.params.id].bids                            // Extract bids from data and sort them
+  const elementData = data[req.params.id]                          // Extract element data from data
 
-  res.render('detailed', {...elementData, bids})
+  res.render('detailed', { ...elementData, bids, isEmpty: !bids.length})
 }
 
-function handleAddElement (req, res) {
+function handleAddElement(req, res) {
   const id = Date.now()
-  const bidders = {
-    "default": {
-      username: "",
-      email: "",
-      bid: 0,
-      date: ""
-    }
-  }
+  const bids = []
+  const price = parseFloat(req.body.price)
+  const finishingDate = formatDate(req.body.finishingDate)
 
-  data[id] = { id, ...req.body, bidders }
+  data[id] = { id, ...req.body, finishingDate, price, bids }
   console.log(data)  // Debug
   res.redirect(`/detailed/${id}`)
 }
 
-function handleAddBid (req, res) {
+function handleAddBid(req, res) {
   const id = req.params.id
-  const username = req.body.username
-  const date = getDate()
+  const date = formatDate(Date.now())
+  const bid = parseFloat(req.body.bid)
 
-  data[id].bidders[username] = { ...req.body, date }
-
-  if (data[id].price > req.body.bid || data[id].bids[0].bid > req.body.bid) {
+  if (data[id].price > bid || data[id].bids[0]?.bid > bid) {
+    console.log(req.body, data[id]) // Debug
     res.redirect(`/detailed/${id}?error=1`)
-  } 
-  else 
+  } else {
+    data[id].bids = [{ date, ...req.body, bid }, ...data[id].bids]
     res.redirect(`/detailed/${id}`)
+  }
+
 }
 
 // Export routes definitions

@@ -213,6 +213,12 @@
         gap: 10px;
         padding: 20px;
 
+        & .flag--empty-bids {
+            font-size: 0.5em;
+            font-weight: 400;
+            color: #0006;
+        }
+
         & .comment-card {
             display: grid;
             grid-template-columns: 15% 60% 25%;

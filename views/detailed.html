@@ -59,7 +59,7 @@
                     </div>
                     <div class="item-buttons">
                         <!-- Wide Buttons -->
-                        <input type="checkbox" id="favorite-checkbox"/>
+                        <input type="checkbox" id="favorite-checkbox" />
                         <label class="button--detailed" for="favorite-checkbox"><i class="bi bi-heart-fill"></i></label>
                         <button class="button--detailed edit">Edit</button>
                         <button class="button--detailed delete">Delete</button>
@@ -82,8 +82,12 @@
             </div>
             <div class="comment-zone">
                 <div class="comment-background">
+                    {{#isEmpty}}
+                    <span class="flag--empty-bids">Be the first one to make a bid!</span>
+                    {{/isEmpty}}
+
                     {{#bids}}
-                        {{> components/bidCard}}
+                    {{> components/bidCard}}
                     {{/bids}}
                 </div>
             </div>
@@ -91,24 +95,26 @@
                 <div class="input-container">
                     <div class="input-group">
                         <span class="input-group-text" id="username">
-                            <span class="text-label">Username</span>
+                            <span class="text-label">Name</span>
                             <i class="bi bi-person bi-stretched"></i>
                         </span>
-                        <input type="text" name="username" class="form-control" required placeholder="Username" />
+                        <input type="text" name="name" class="form-control" required placeholder="Name" />
                     </div>
                     <div class="input-group">
                         <span class="input-group-text" id="user mail">
                             <span class="text-label">e-mail</span>
                             <i class="bi bi-envelope bi-stretched"></i>
                         </span>
-                        <input type="email" name="email" class="form-control" required placeholder="examplemail@mail.com" />
+                        <input type="email" name="email" class="form-control" required
+                            placeholder="examplemail@mail.com" />
                     </div>
                     <div class="input-group">
                         <span class="input-group-text" id="price">
                             <span class="text-label">Bid</span>
                             <i class="bi bi-coin bi-stretched"></i>
                         </span>
-                        <input type="number" name="bid" min="0" class="form-control" required placeholder="Place your bid" />
+                        <input type="number" name="bid" min="0" class="form-control" required
+                            placeholder="Place your bid" />
                     </div>
                 </div>
                 <div class="buttons">
