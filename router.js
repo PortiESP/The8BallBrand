@@ -1,5 +1,5 @@
 import express from 'express'
-import {data, sizes, types} from './service.js'
+import {data, dataValues, sizes, types} from './service.js'
 import formatDate from './tools/dateUtils.js'
 
 // INIT
@@ -7,7 +7,7 @@ const router = express.Router()
 
 
 // Declare possible routes (not enabled until enabled by `app.get()`)
-router.get('/', (req, res) => res.render('index'))
+router.get('/', renderIndex)
 router.get('/detailed/:id', renderDetailed)
 router.get('/publish', renderPublish)
 router.get('/legal', (req, res) => res.render('legal'))
@@ -22,6 +22,10 @@ router.post('/edit-element/:id', handleEditElement)
 //===================================================[Functions]===================================================//
 
 // Rendering Functions -------------------------------------------------
+function renderIndex(req, res) {
+	res.render('index', { dataValues })
+}
+
 function renderDetailed(req, res) {
 	const bids = data[req.params.id]?.bids			        	// Extract bids from data and sort them
 	const elementData = data[req.params.id]         			// Extract element data from data
