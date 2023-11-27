@@ -59,6 +59,7 @@ function handleAddElement(req, res) {
 	const finishingDate = formatDate(req.body.finishingDate)
 
 	data[id] = { id, ...req.body, finishingDate, price, bids }
+	dataValues = Object.values(data)
 	res.redirect(`/detailed/${id}`)
 }
 
