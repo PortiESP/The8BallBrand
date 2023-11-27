@@ -4,7 +4,7 @@ import formatDate from './tools/dateUtils.js'
 
 // INIT
 const router = express.Router()
-const dataValues = Object.values(data)
+let dataValues = Object.values(data)
 
 // Declare possible routes (not enabled until enabled by `app.get()`)
 router.get('/', renderIndex)
@@ -75,6 +75,7 @@ function handleEdit(req, res) {
 function handleDeleteElement(req, res) {
 	const id = req.params.id
 	delete data[id]
+	dataValues = Object.values(data)
 	res.redirect(`/`)
 }
 
