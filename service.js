@@ -56,8 +56,6 @@ export const data = {
     },
 }
 
-export const dataValues = Object.values(data)
-
 export const sizes = [
                      { "size": "XS" },
                      { "size": "S" },

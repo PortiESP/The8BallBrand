@@ -1,10 +1,10 @@
 import express from 'express'
-import {data, dataValues, sizes, types} from './service.js'
+import {data, sizes, types} from './service.js'
 import formatDate from './tools/dateUtils.js'
 
 // INIT
 const router = express.Router()
-
+const dataValues = Object.values(data)
 
 // Declare possible routes (not enabled until enabled by `app.get()`)
 router.get('/', renderIndex)
@@ -17,7 +17,7 @@ router.get('/edit/:id', renderEdit)
 // POST routes
 router.post('/add-element', handleAddElement)
 router.post('/add-bid/:id', handleAddBid)
-router.post('/edit-element/:id', handleEditElement)
+router.post('/edit-element/:id', handleEdit)
 
 //===================================================[Functions]===================================================//
 
@@ -62,12 +62,13 @@ function handleAddElement(req, res) {
 	res.redirect(`/detailed/${id}`)
 }
 
-function handleEditElement(req, res) {
+function handleEdit(req, res) {
 	const id = req.params.id
 	const price = parseFloat(req.body.price)
 	const finishingDate = formatDate(req.body.finishingDate)
+	const bids = data[id].bids
 
-	data[id] = { id, ...req.body, finishingDate, price }
+	data[id] = { id, ...req.body, finishingDate, price, bids }
 	res.redirect(`/detailed/${id}`)
 }
 
