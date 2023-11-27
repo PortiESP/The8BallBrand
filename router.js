@@ -1,6 +1,7 @@
 import express from 'express'
 import {data, sizes, types} from './service.js'
 import formatDate from './tools/dateUtils.js'
+import avatarGenerator from './tools/avatarGenerator.js'
 
 // INIT
 const router = express.Router()
@@ -84,11 +85,12 @@ function handleAddBid(req, res) {
 	const id = req.params.id
 	const date = formatDate(Date.now())
 	const bid = parseFloat(req.body.bid)
+	const picture = avatarGenerator(req.body.email)
 
 	if (data[id].price > bid || data[id].bids[0]?.bid > bid) {
 		res.redirect(`/detailed/${id}?error=1`)
 	} else {
-		data[id].bids = [{ date, ...req.body, bid }, ...data[id].bids]
+		data[id].bids = [{ ...req.body, date, bid, picture }, ...data[id].bids]
 		res.redirect(`/detailed/${id}`)
 	}
 }
