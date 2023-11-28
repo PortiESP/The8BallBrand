@@ -37,39 +37,40 @@ function renderDetailed(req, res) {
         error: true,
         errorMsgTitle: "Bid too low",
         errorMsg: "Your bid is too low. Please try again.",
-		
+
     });
 }
 
 function renderPublish(req, res) {
-    const today = new Date().toISOString().split("T")[0];
+	const today = new Date().toISOString().split('T')[0]
+	const pageTitle = "Sell your best Garments!"
+	const pageMessage = "Publish"
 
-    res.render("publish", { today, types, sizes });
+	const route = "/"
+	const postRoute = "/add-element"
+
+	res.render('publish', { today, types, sizes, pageTitle, pageMessage, route, postRoute })
 }
 
 function renderEdit(req, res) {
-    const today = new Date().toISOString().split("T")[0];
-    const finishingDate = data[req.params.id].finishingDate
-        .split("/")
-        .reverse()
-        .join("-");
-    const selectedType = data[req.params.id].type;
-    const selectedSize = data[req.params.id].size;
+	const today = new Date().toISOString().split('T')[0]
+	const id = req.params.id
+	const finishingDate = data[id].finishingDate.split('/').reverse().join('-')
+	const selectedType = data[id].type
+	const selectedSize = data[id].size
+	const pageTitle = "Edit your selling"
+	const pageMessage = "Edit"
 
-    types.forEach(
-        (one) => (one.selected = one.type === selectedType ? "selected" : "")
-    );
-    sizes.forEach(
-        (one) => (one.selected = one.size === selectedSize ? "selected" : "")
-    );
+	const route = `/detailed/${id}`
+	const postRoute = `/edit-element/${id}`
 
-    res.render("edit", {
-        ...data[req.params.id],
-        today,
-        finishingDate,
-        types,
-        sizes,
-    });
+	types.forEach(one => one.selected = one.type === selectedType ? 'selected' : '')
+	sizes.forEach(one => one.selected = one.size === selectedSize ? 'selected' : '')
+	
+	res.render('publish', { ...data[req.params.id], today, finishingDate,
+							types, sizes, pageTitle, pageMessage, route, postRoute
+						  }
+	)
 }
 
 // Handling Functions --------------------------------------------------
