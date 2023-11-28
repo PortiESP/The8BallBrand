@@ -5,6 +5,7 @@
 @import url("./footer.css");
 @import url("./subpage.css");
 @import url("./detailed.css");
+@import url("./errorBubble.css");
 body {
   background: rgba(107, 107, 107, 0.7333333333) url("../assets/texture.png") fixed;
   scrollbar-width: none;
