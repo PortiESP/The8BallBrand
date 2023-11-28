@@ -36,20 +36,34 @@ function renderDetailed(req, res) {
 
 function renderPublish(req, res) {
 	const today = new Date().toISOString().split('T')[0]
+	const pageTitle = "Sell your best Garments!"
+	const pageMessage = "Publish"
 
-	res.render('publish', { today, types, sizes })
+	const route = "/"
+	const postRoute = "/add-element"
+
+	res.render('publish', { today, types, sizes, pageTitle, pageMessage, route, postRoute })
 }
 
 function renderEdit(req, res) {
 	const today = new Date().toISOString().split('T')[0]
-	const finishingDate = data[req.params.id].finishingDate.split('/').reverse().join('-')
-	const selectedType = data[req.params.id].type
-	const selectedSize = data[req.params.id].size
+	const id = req.params.id
+	const finishingDate = data[id].finishingDate.split('/').reverse().join('-')
+	const selectedType = data[id].type
+	const selectedSize = data[id].size
+	const pageTitle = "Edit your selling"
+	const pageMessage = "Edit"
+
+	const route = `/detailed/${id}`
+	const postRoute = `/edit-element/${id}`
 
 	types.forEach(one => one.selected = one.type === selectedType ? 'selected' : '')
 	sizes.forEach(one => one.selected = one.size === selectedSize ? 'selected' : '')
 	
-	res.render('edit', { ...data[req.params.id], today, finishingDate, types, sizes })
+	res.render('publish', { ...data[req.params.id], today, finishingDate,
+							types, sizes, pageTitle, pageMessage, route, postRoute
+						  }
+	)
 }
 
 // Handling Functions --------------------------------------------------
