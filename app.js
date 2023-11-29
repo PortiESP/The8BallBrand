@@ -19,12 +19,12 @@ app.get('/publish', router)
 app.get('/detailed/:id', router)
 app.get('/legal', router)
 app.get('/edit/:id', router)
-app.get('/delete-element/:id', router)
+app.get('/delete/:id', router)
 
 // POST routes
 app.post('/add-element', router)
-app.post('/edit-element/:id', router)
 app.post('/add-bid/:id', router)
+app.post('/edit-element/:id', router)
 
 // Static files
 app.use(express.static('./public'))
