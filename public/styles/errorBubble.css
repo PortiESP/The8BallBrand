@@ -31,6 +31,10 @@
   cursor: pointer;
   font-size: 1.2em;
   font-weight: 500;
+  color: #000;
+}
+.error-bubble .error-bubble-header .error-bubble-button:visited {
+  text-decoration: none;
 }
 .error-bubble .error-bubble-body {
   padding: 15px;
