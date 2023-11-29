@@ -20,6 +20,7 @@ app.get('/detailed/:id', router)
 app.get('/legal', router)
 app.get('/edit/:id', router)
 app.get('/delete/:id', router)
+app.get('/quitErrorMsg/:id', router)
 
 // POST routes
 app.post('/add-element', router)

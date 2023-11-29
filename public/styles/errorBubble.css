@@ -36,4 +36,7 @@
   padding: 15px;
   font-size: 0.8em;
   color: #888;
+}
+.error-bubble.notError {
+  display: none;
 }/*# sourceMappingURL=errorBubble.css.map */

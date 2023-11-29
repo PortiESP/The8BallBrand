@@ -13,7 +13,9 @@ router.get("/detailed/:id", renderDetailed);
 router.get("/publish", renderPublish);
 router.get("/legal", (req, res) => res.render("legal"));
 router.get("/edit/:id", renderEdit)
+
 router.get("/delete/:id", handleDeleteElement)
+router.get("/quitErrorMsg/:id", handleQuitErrorMsg )
 
 // POST routes
 router.post("/add-element", handleAddElement)
@@ -35,13 +37,15 @@ function renderDetailed(req, res) {
     // Render detailed page with or without error message
     if (!req.query.error) {
         let error = false
-        res.render("detailed", { ...elementData, bids, isEmpty, error })
+        let notError = "notError"
+        res.render("detailed", { ...elementData, bids, isEmpty, error, notError })
 
     } else {
         let error = true
+        let notError = ""
         const errorMsgTitle = "Bid too low"
         const errorMsg = "Your bid is too low. Please try again."
-        res.render("detailed", { ...elementData, bids, isEmpty, error, errorMsgTitle, errorMsg })
+        res.render("detailed", { ...elementData, bids, isEmpty, error, errorMsgTitle, errorMsg, notError })
     }
 }
 
@@ -104,6 +108,10 @@ function handleDeleteElement(req, res) {
     delete data[id]
     dataValues = Object.values(data)
     res.redirect(`/`)
+}
+
+function handleQuitErrorMsg(req, res) {
+    res.redirect(`/detailed/${req.params.id}`)
 }
 
 function handleAddBid(req, res) {
