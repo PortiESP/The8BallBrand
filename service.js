@@ -8,7 +8,19 @@ export const data = {
         type: "Hoodie",
         size: "XL",
         finishingDate: "11/12/2023",
-        bids: [],
+        bids: [
+            
+            {
+                name: "Diego Sanchez",
+                email: "diego@sanchez.com",
+                bid: 38
+            },
+            {
+                name: "Dani Santos",
+                email: "dani@santos.com",
+                bid: 35
+            },
+        ],
     },
     "0002": {
         id: "0002",
