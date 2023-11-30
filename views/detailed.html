@@ -64,15 +64,10 @@
                         <input type="checkbox" id="favorite-checkbox" />
                         <label class="button--detailed" for="favorite-checkbox"><i class="bi bi-heart-fill"></i></label>
                         <a class="button--detailed edit" href="/edit/{{id}}">Edit</a>
+                        <a class="button--detailed stretched-button edit" href="/edit/{{id}}"><i class="bi bi-pencil-fill"></i></a>
                         <a>{{> components/popUp }}</a>  <!-- Delete button pop up -->
                         
                         <!-- Stretched Buttons -->
-                        <a class="button--detailed edit stretched-button" href="/edit/{{id}}">
-                            <i class="bi bi-pencil-fill"></i>
-                        </a>
-                        <a class="button--detailed delete stretched-button" href="/delete/{{id}}">
-                            {{> components/popUp }}
-                        </a>
                     </div>
                 </div>
             </div>
