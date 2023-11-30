@@ -1,0 +1,19 @@
+button--detailed {
+    display: none;
+    width: 70px;
+
+    &.stretched-button {
+        display: flex;
+        border: none;
+
+        &.edit:hover {
+            background: $successColorBackground;
+            color: $successColor;
+        }
+
+        &.delete:hover {
+            background: $dangerColorBackground;
+            color: $dangerColor;
+        }
+    }
+}

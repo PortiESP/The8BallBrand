@@ -13,7 +13,9 @@ export const data = {
             {
                 name: "Diego Sanchez",
                 email: "diego@sanchez.com",
-                bid: 38
+                bid: 38,
+                date: "11/12/2023",
+                
             },
             {
                 name: "Dani Santos",

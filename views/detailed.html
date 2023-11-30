@@ -12,9 +12,7 @@
     <body>
         <!----------------------------------------------------------------------------------------------------------------------------- nav -->
         {{> components/nav}}
-        <!----------------------------------------------------------------------------------------------------------------------------- body -->
-        {{> components/popUp}}
-        
+        <!----------------------------------------------------------------------------------------------------------------------------- body --> 
         <div class="back-to-menu-container">
             <div class="back-to-menu-button">
                 <a class="back-to-menu" href="/"><i class="bi bi-arrow-left"></i></a>
@@ -64,7 +62,7 @@
                         <input type="checkbox" id="favorite-checkbox" />
                         <label class="button--detailed" for="favorite-checkbox"><i class="bi bi-heart-fill"></i></label>
                         <a class="button--detailed edit" href="/edit/{{id}}">Edit</a>
-                        <a class="button--detailed delete" href="/delete/{{id}}">Delete</a>
+                        <a>{{> components/popUp }}</a>  <!-- Delete button pop up -->
                         <!-- Stretched Buttons -->
                         <a class="button--detailed edit stretched-button" href="/edit/{{id}}">
                             <i class="bi bi-pencil-fill"></i>
