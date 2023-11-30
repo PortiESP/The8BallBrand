@@ -9,7 +9,6 @@ export const data = {
         size: "XL",
         finishingDate: "11/12/2023",
         bids: [
-            
             {
                 name: "Diego Sanchez",
                 email: "diego@sanchez.com",

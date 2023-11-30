@@ -104,11 +104,12 @@
                     & tbody tr td {
                         background: none;
 
-                        &:nth-child(1){
+                        &:nth-child(1) {
                             font-weight: 500;
                         }
-                        &:nth-child(2){
-                            color:#0006;
+
+                        &:nth-child(2) {
+                            color: #0006;
                         }
                     }
                 }
@@ -123,7 +124,7 @@
                 justify-content: center;
                 gap: 15px;
 
-                
+
                 & .button--detailed {
                     padding: 1px 1px 1px 1px;
                     width: 100px;
@@ -133,46 +134,32 @@
                     align-items: center;
                     border: 1px solid $black;
                     border-radius: 5px;
+                    border-color: $navIcons;
                     color: $navIcons;
                     background: none;
                     text-decoration: none;
                     font-weight: 400;
                     transition: 0.3s;
-                    
-                    &.edit {
-                        border-color: $navIcons;
-                        color: $navIcons;
-                        
-                        &:hover {
-                            background-color: $successColorBackground;
-                            border-color: $successColor;
-                            color: $successColor;
-                        }
-                    }
-                    
-                    &.delete {
-                        border-color: $navIcons;
-                        color: $navIcons;
-                        
-                        &:hover {
-                            background-color: $dangerColorBackground;
-                            border-color: $dangerColor;
-                            color: $dangerColor;
-                        }
+
+                    &.edit:hover {
+                        background-color: $successColorBackground;
+                        border-color: $successColor;
+                        color: $successColor;
                     }
 
-                    &.close {
-                        border-color: $navIcons;
-                        color: $navIcons;
-                        
-                        &:hover {
-                            background-color: $warningColorBackground;
-                            border-color: $warningColor;
-                            color: $warningColor;
-                            cursor: pointer;
-                        }
+                    &.delete:hover {
+                        background-color: $dangerColorBackground;
+                        border-color: $dangerColor;
+                        color: $dangerColor;
                     }
-                    
+
+                    &.close:hover {
+                        background-color: $warningColorBackground;
+                        border-color: $warningColor;
+                        color: $warningColor;
+                        cursor: pointer;
+                    }
+
                     &.stretched-button {
                         display: none;
                     }
@@ -193,7 +180,7 @@
                         }
                     }
 
-                    &:checked + label {
+                    &:checked+label {
                         color: $heartColor;
                         border-color: $heartColor;
                     }
@@ -242,7 +229,7 @@
 
             filter: brightness(95%);
 
-            &:nth-child(1){
+            &:nth-child(1) {
                 box-shadow: 0px 0px 10px 0px #00000033;
                 filter: none;
 
@@ -281,7 +268,7 @@
                     color: $black;
                     font-weight: 500;
 
-                    &:nth-child(2){
+                    &:nth-child(2) {
                         color: #0008;
                     }
                 }
@@ -342,8 +329,8 @@
         & .back-to-menu-button {
             width: 80%;
 
-            & .back-to-menu{
-                border:none;
+            & .back-to-menu {
+                border: none;
             }
         }
     }
@@ -486,9 +473,13 @@
                 width: 70px;
             }
 
-            & button.button--detailed {
+            & a.button--detailed, & button.button--detailed {   
                 display: none;
                 width: 70px;
+
+                &.popUp {
+                    display: flex;
+                }
 
                 &.stretched-button {
                     display: flex;

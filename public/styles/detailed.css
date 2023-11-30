@@ -118,33 +118,22 @@
   align-items: center;
   border: 1px solid #000;
   border-radius: 5px;
+  border-color: #666;
   color: #666;
   background: none;
   text-decoration: none;
   font-weight: 400;
   transition: 0.3s;
 }
-.wrapper .fullview .product-info-container .item-buttons .button--detailed.edit {
-  border-color: #666;
-  color: #666;
-}
 .wrapper .fullview .product-info-container .item-buttons .button--detailed.edit:hover {
   background-color: rgba(28, 123, 28, 0.1019607843);
   border-color: #1c7b1c;
   color: #1c7b1c;
 }
-.wrapper .fullview .product-info-container .item-buttons .button--detailed.delete {
-  border-color: #666;
-  color: #666;
-}
 .wrapper .fullview .product-info-container .item-buttons .button--detailed.delete:hover {
   background-color: rgba(166, 19, 19, 0.1019607843);
   border-color: #a61313;
   color: #a61313;
-}
-.wrapper .fullview .product-info-container .item-buttons .button--detailed.close {
-  border-color: #666;
-  color: #666;
 }
 .wrapper .fullview .product-info-container .item-buttons .button--detailed.close:hover {
   background-color: rgba(166, 122, 19, 0.1019607843);
@@ -385,19 +374,22 @@
     border: none;
     width: 70px;
   }
-  .wrapper .fullview .product-info-container .item-buttons button.button--detailed {
+  .wrapper .fullview .product-info-container .item-buttons a.button--detailed, .wrapper .fullview .product-info-container .item-buttons button.button--detailed {
     display: none;
     width: 70px;
   }
-  .wrapper .fullview .product-info-container .item-buttons button.button--detailed.stretched-button {
+  .wrapper .fullview .product-info-container .item-buttons a.button--detailed.popUp, .wrapper .fullview .product-info-container .item-buttons button.button--detailed.popUp {
+    display: flex;
+  }
+  .wrapper .fullview .product-info-container .item-buttons a.button--detailed.stretched-button, .wrapper .fullview .product-info-container .item-buttons button.button--detailed.stretched-button {
     display: flex;
     border: none;
   }
-  .wrapper .fullview .product-info-container .item-buttons button.button--detailed.stretched-button.edit:hover {
+  .wrapper .fullview .product-info-container .item-buttons a.button--detailed.stretched-button.edit:hover, .wrapper .fullview .product-info-container .item-buttons button.button--detailed.stretched-button.edit:hover {
     background: rgba(28, 123, 28, 0.1019607843);
     color: #1c7b1c;
   }
-  .wrapper .fullview .product-info-container .item-buttons button.button--detailed.stretched-button.delete:hover {
+  .wrapper .fullview .product-info-container .item-buttons a.button--detailed.stretched-button.delete:hover, .wrapper .fullview .product-info-container .item-buttons button.button--detailed.stretched-button.delete:hover {
     background: rgba(166, 19, 19, 0.1019607843);
     color: #a61313;
   }
