@@ -178,6 +178,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   flex-direction: column;
   width: 80%;
   background-color: rgba(0, 0, 0, 0.1019607843);
@@ -354,6 +355,9 @@
   }
   .main-container .comment-zone .comment-background {
     width: 90%;
+  }
+  .main-container .comment-zone .comment-background .flag--empty-bids {
+    font-size: 0.4em;
   }
   .main-container .comment-zone .comment-background .comment-card {
     grid-template-columns: 25% 40% 35%;
