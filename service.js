@@ -15,12 +15,15 @@ export const data = {
                 email: "diego@sanchez.com",
                 bid: 38,
                 date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/diego@sanchez.com?s=256&d=identicon"
                 
             },
             {
                 name: "Dani Santos",
                 email: "dani@santos.com",
-                bid: 35
+                bid: 35,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/dani@santos.com?s=256&d=identicon"
             },
         ],
     },
