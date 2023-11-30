@@ -6,7 +6,7 @@ button--detailed {
         display: flex;
         border: none;
 
-        &.edit:hover {
+        &.close:hover {
             background: $successColorBackground;
             color: $successColor;
         }
