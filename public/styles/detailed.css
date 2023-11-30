@@ -142,6 +142,16 @@
   border-color: #a61313;
   color: #a61313;
 }
+.wrapper .fullview .product-info-container .item-buttons .button--detailed.close {
+  border-color: #666;
+  color: #666;
+}
+.wrapper .fullview .product-info-container .item-buttons .button--detailed.close:hover {
+  background-color: rgba(166, 122, 19, 0.1019607843);
+  border-color: #a9842c;
+  color: #a9842c;
+  cursor: pointer;
+}
 .wrapper .fullview .product-info-container .item-buttons .button--detailed.stretched-button {
   display: none;
 }

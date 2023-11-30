@@ -160,6 +160,18 @@
                             color: $dangerColor;
                         }
                     }
+
+                    &.close {
+                        border-color: $navIcons;
+                        color: $navIcons;
+                        
+                        &:hover {
+                            background-color: $warningColorBackground;
+                            border-color: $warningColor;
+                            color: $warningColor;
+                            cursor: pointer;
+                        }
+                    }
                     
                     &.stretched-button {
                         display: none;
