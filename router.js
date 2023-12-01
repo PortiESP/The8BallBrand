@@ -2,6 +2,7 @@ import express from "express"
 import { data, sizes, types } from "./service.js"
 import formatDate from "./tools/dateUtils.js"
 import avatarGenerator from "./tools/avatarGenerator.js"
+import {publishErrorManager, bidErrorManager} from "./tools/errorManager.js"
 
 // INIT
 const router = express.Router()
@@ -30,22 +31,28 @@ function renderIndex(req, res) {
 }
 
 function renderDetailed(req, res) {
-    const bids = data[req.params.id]?.bids // Extract bids from data and sort them
+    const id = req.params.id
+    const bids = data[id]?.bids // Extract bids from data and sort them
     const isEmpty = !bids?.length
-    const elementData = data[req.params.id] // Extract element data from data
+    const elementData = data[id] // Extract element data from data
 
     // Render detailed page with or without error message
     if (!req.query.error) {
-        let error = false
-        let notError = "notError"
+        const error = false
+        const notError = "notError"
+        
         res.render("detailed", { ...elementData, bids, isEmpty, error, notError })
 
     } else {
-        let error = true
-        let notError = ""
-        const errorMsgTitle = "Bid too low"
-        const errorMsg = "Your bid is too low. Please try again."
-        res.render("detailed", { ...elementData, bids, isEmpty, error, errorMsgTitle, errorMsg, notError })
+        const error = true
+
+        const errors = data[id].errors
+        data[id].errors = []
+
+        const errorMsgTitle = "Error!"
+        const notError = ""
+
+        res.render("detailed", { ...elementData, bids, isEmpty, error, errorMsgTitle, errors, notError })
     }
 }
 
@@ -117,11 +124,20 @@ function handleQuitErrorMsg(req, res) {
 function handleAddBid(req, res) {
     const id = req.params.id
     const date = formatDate(Date.now())
-    const bid = parseFloat(req.body.bid)
-    const picture = avatarGenerator(req.body.email)
+    const isEmpty = !data[id].bids?.length
 
-    if (data[id].price > bid || data[id].bids[0]?.bid > bid) {
-        res.redirect(`/detailed/${id}?error=1`)
+    const bid = parseFloat(req.body.bid)
+    const name = req.body.name
+    const email = req.body.email
+    const price = parseFloat(data[id].price)
+
+    const errors = bidErrorManager({ bid, name, email, price })
+    const picture = avatarGenerator(req.body.email)
+    
+    if (errors.length) {
+        data[id].errors = errors
+        res.redirect(`/detailed/${id}?error=true`)
+        
     } else {
         data[id].bids = [{ ...req.body, date, bid, picture }, ...data[id].bids]
         res.redirect(`/detailed/${id}`)

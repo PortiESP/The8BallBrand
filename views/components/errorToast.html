@@ -9,8 +9,10 @@
         </a>
     </div>
     <div class="error-bubble-body">
-        <span>
-            {{errorMsg}}
+        <ul>
+            {{#errors}}
+            <li>{{errorMsg}}</li>
+            {{/errors}}
         </span>
     </div>
 </div>
