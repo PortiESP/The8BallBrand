@@ -124,12 +124,13 @@ function handleQuitErrorMsg(req, res) {
 function handleAddBid(req, res) {
     const id = req.params.id
     const date = formatDate(Date.now())
-    const isEmpty = !data[id].bids?.length
 
     const bid = parseFloat(req.body.bid)
     const name = req.body.name
     const email = req.body.email
-    const price = parseFloat(data[id].price)
+
+    let price
+    data[id].bids.length ? price = parseFloat(data[id].bids[0].bid) : price = parseFloat(data[id].price)
 
     const errors = bidErrorManager({ bid, name, email, price })
     const picture = avatarGenerator(req.body.email)
@@ -137,7 +138,7 @@ function handleAddBid(req, res) {
     if (errors.length) {
         data[id].errors = errors
         res.redirect(`/detailed/${id}?error=true`)
-        
+
     } else {
         data[id].bids = [{ ...req.body, date, bid, picture }, ...data[id].bids]
         res.redirect(`/detailed/${id}`)
