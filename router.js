@@ -47,7 +47,6 @@ function renderDetailed(req, res) {
         const error = true
 
         const errors = data[id].errors
-        data[id].errors = []
 
         const errorMsgTitle = "Error!"
         const notError = ""
@@ -118,6 +117,8 @@ function handleDeleteElement(req, res) {
 }
 
 function handleQuitErrorMsg(req, res) {
+    const id = req.params.id
+    data[id].errors = []
     res.redirect(`/detailed/${req.params.id}`)
 }
 

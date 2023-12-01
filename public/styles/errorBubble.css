@@ -37,8 +37,8 @@
   text-decoration: none;
 }
 .error-bubble .error-bubble-body {
-  padding: 15px;
-  font-size: 0.8em;
+  padding-top: 15px;
+  font-size: 0.9em;
   color: #888;
 }
 .error-bubble.notError {
