@@ -91,11 +91,3 @@ export function bidErrorManager(obj) {
 
     return errors
 }
-
-// TEST
-const errors = publishErrorManager({ name: "Top Hoodie",
-                                     description: "Comfort and style combined in this top-tier hoodie for a relaxed day or night out.",
-                                     price: 34.99,
-                                     image: "../assets/clothes/hoodie2.png"
-                                    })
-console.log(errors)
