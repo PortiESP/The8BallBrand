@@ -7,6 +7,8 @@ import {publishErrorManager, bidErrorManager} from "./tools/errorManager.js"
 // CONSTANTS
 const today = new Date().toISOString().split('T')[0]
 const errorId = "X"
+const defaultPage = "Default"
+const detailedPage = "Detailed"
 
 // INIT
 const router = express.Router()
@@ -21,6 +23,8 @@ router.get("/legal", (req, res) => res.render("legal"));
 router.get("/edit/:id", renderEdit)
 
 router.get("/delete/:id", handleDeleteElement)
+router.get("/quitDetailedErrorMsg/:id", handleQuitDetailedErrorMsg )
+router.get("/quitDefaultErrorMsg/:id", handleQuitErrorMsg )
 router.get("/quitErrorMsg/:id", handleQuitErrorMsg )
 
 // POST routes
@@ -40,6 +44,7 @@ function renderDetailed(req, res) {
     const bids = data[id]?.bids // Extract bids from data and sort them
     const isEmpty = !bids?.length
     const elementData = data[id] // Extract element data from data
+    const page = detailedPage
 
     // Render detailed page with or without error message
     if (!req.query.error) {
@@ -53,13 +58,14 @@ function renderDetailed(req, res) {
         const notError = ""
         const errors = data[id].errors
 
-        res.render("detailed", { ...elementData, bids, isEmpty, error, errors, notError })
+        res.render("detailed", { ...elementData, bids, isEmpty, error, errors, notError, page })
     }
 }
 
 function renderPublish(req, res) {
 	const pageTitle = "Sell your best Garments!"
 	const pageMessage = "Publish"
+    const page = defaultPage
 
 	const route = "/"
 	const postRoute = "/add-element"
@@ -68,31 +74,27 @@ function renderPublish(req, res) {
     if (!req.query.error) {
         const error = false
         const notError = "notError"
-        
-        res.render("publish", { today, types, sizes, pageTitle, pageMessage, route, postRoute, error, notError })
+        const dataValues = {...data[errorId]}
+        delete data[errorId]
+        res.render("publish", { ...dataValues, today, types, sizes, pageTitle, pageMessage, route, postRoute, error, notError })
         
     } else {
+        const id = errorId
         const error = true
         const notError = ""
-
-        const finishingDate = data[errorId].finishingDate.split('/').reverse().join('-')
-        const selectedType = data[errorId].type
-        const selectedSize = data[errorId].size
-
-        types.forEach(one => one.selected = one.type === selectedType ? 'selected' : '')
-        sizes.forEach(one => one.selected = one.size === selectedSize ? 'selected' : '')
 
         const errors = data[errorId].errors
 
         res.render('publish', {
-            ...data[errorId], today, finishingDate, error, notError, errors,
-            types, sizes, pageTitle, pageMessage, route, postRoute
+            ...data[errorId], today, error, notError, errors,
+            types, sizes, pageTitle, pageMessage, route, postRoute, id, page
         })
     }
 }
 
 function renderEdit(req, res) {
 	const id = req.params.id
+    const page = defaultPage
 
 	const finishingDate = data[id].finishingDate.split('/').reverse().join('-')
 	const selectedType = data[id].type
@@ -123,7 +125,7 @@ function renderEdit(req, res) {
 
         res.render('publish', {
             ...data[id], today, finishingDate, error, notError, errors,
-            types, sizes, pageTitle, pageMessage, route, postRoute
+            types, sizes, pageTitle, pageMessage, route, postRoute, page
         })
     }
 }
@@ -138,15 +140,17 @@ function handleDeleteElement(req, res) {
 
 function handleQuitErrorMsg(req, res) {
     const id = req.params.id
+    data[id].errors = []
 
-    if (id) {
-        data[id].errors = []
-        res.redirect(`/detailed/${id}`)
+    if (id === errorId) res.redirect(`/publish`)
+    else res.redirect(`/edit/${id}`)
+}
 
-    } else {
-        data[errorId].errors = []
-        res.redirect(`/publish`)
-    }
+function handleQuitDetailedErrorMsg(req, res) {
+    const id = req.params.id
+
+    data[id].errors = []
+    res.redirect(`/detailed/${id}`)
 }
 
 function handleAddElement(req, res) {
