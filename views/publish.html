@@ -112,6 +112,10 @@
                 </div>
             </form>
         </div>
+        {{#error}}
+        {{> components/errorToast}}
+        {{/error}}
+        {{> components/footer}}
         <!----------------------------------------------------------------------------------------------------- Footer -->
         {{> components/footer}}
     </body>

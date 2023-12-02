@@ -3,25 +3,25 @@ const nameMinChars = 3
 const nameMaxChars = 20
 
 const descriptionMinChars = 10
-const descriptionMaxChars = 50
+const descriptionMaxChars = 100
 
 const priceMin = 0
 
-const imageValidURL = "https://"
+const imageValidURL = ["https://", "../assets/clothes/"]
 const imageValidExtensions = [".jpg", ".jpeg", ".png", ".svg"]
 const emailValidExtensions = ["@gmail.com", "@hotmail.com", "@outlook.com", "@yahoo.com"]
 
 // Errors messages
 const errorMessages = {
-    1: "Bid too low\n",
-    2: `Name must have (${nameMinChars}-${nameMaxChars}) characters\n`,
-    3: "Invalid name\n",
-    4: `Description must have (${nameMinChars}-${nameMaxChars}) characters\n`,
-    5: "Invalid description\n",
-    6: `Price must be greater than ${priceMin}"\n`,
-    7: "Invalid image URL\n",
-    8: "Invalid image format\n",
-    9: "Invalid email\n"
+    1: "Bid too low",
+    2: `Name must have (${nameMinChars}-${nameMaxChars}) chars`,
+    3: "Invalid name",
+    4: `Description must have (${nameMinChars}-${nameMaxChars}) chars`,
+    5: "Invalid description",
+    6: `Price must be greater than ${priceMin}"`,
+    7: "Invalid image URL",
+    8: "Invalid image format",
+    9: "Invalid email"
 }
 
 // Check if publish form contains errors
@@ -48,7 +48,7 @@ export function publishErrorManager(obj) {
         errors.push({ errorMsg: errorMessages[6] })
 
     // Check image URL
-    if (!image.startsWith(imageValidURL))
+    if (!image.startsWith(imageValidURL[0]) && !image.startsWith(imageValidURL[1]))
         errors.push({ errorMsg: errorMessages[7] })
 
     else {
@@ -91,3 +91,11 @@ export function bidErrorManager(obj) {
 
     return errors
 }
+
+// TEST
+const errors = publishErrorManager({ name: "Top Hoodie",
+                                     description: "Comfort and style combined in this top-tier hoodie for a relaxed day or night out.",
+                                     price: 34.99,
+                                     image: "../assets/clothes/hoodie2.png"
+                                    })
+console.log(errors)

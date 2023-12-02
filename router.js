@@ -4,6 +4,10 @@ import formatDate from "./tools/dateUtils.js"
 import avatarGenerator from "./tools/avatarGenerator.js"
 import {publishErrorManager, bidErrorManager} from "./tools/errorManager.js"
 
+// CONSTANTS
+const today = new Date().toISOString().split('T')[0]
+const errorId = "X"
+
 // INIT
 const router = express.Router()
 let dataValues = Object.values(data)
@@ -12,6 +16,7 @@ let dataValues = Object.values(data)
 router.get("/", renderIndex);
 router.get("/detailed/:id", renderDetailed);
 router.get("/publish", renderPublish);
+router.get("/publish/:id", renderPublish);
 router.get("/legal", (req, res) => res.render("legal"));
 router.get("/edit/:id", renderEdit)
 
@@ -21,7 +26,7 @@ router.get("/quitErrorMsg/:id", handleQuitErrorMsg )
 // POST routes
 router.post("/add-element", handleAddElement)
 router.post("/add-bid/:id", handleAddBid)
-router.post("/edit-element/:id", handleEditElement)
+router.post("/edit-element/:id", handleAddElement)
 
 //===================================================[Functions]===================================================//
 
@@ -45,33 +50,54 @@ function renderDetailed(req, res) {
 
     } else {
         const error = true
-
+        const notError = ""
         const errors = data[id].errors
 
-        const errorMsgTitle = "Error!"
-        const notError = ""
-
-        res.render("detailed", { ...elementData, bids, isEmpty, error, errorMsgTitle, errors, notError })
+        res.render("detailed", { ...elementData, bids, isEmpty, error, errors, notError })
     }
 }
 
 function renderPublish(req, res) {
-	const today = new Date().toISOString().split('T')[0]
 	const pageTitle = "Sell your best Garments!"
 	const pageMessage = "Publish"
 
 	const route = "/"
 	const postRoute = "/add-element"
 
-	res.render('publish', { today, types, sizes, pageTitle, pageMessage, route, postRoute })
+    // Render publish page with or without error message
+    if (!req.query.error) {
+        const error = false
+        const notError = "notError"
+        
+        res.render("publish", { today, types, sizes, pageTitle, pageMessage, route, postRoute, error, notError })
+        
+    } else {
+        const error = true
+        const notError = ""
+
+        const finishingDate = data[errorId].finishingDate.split('/').reverse().join('-')
+        const selectedType = data[errorId].type
+        const selectedSize = data[errorId].size
+
+        types.forEach(one => one.selected = one.type === selectedType ? 'selected' : '')
+        sizes.forEach(one => one.selected = one.size === selectedSize ? 'selected' : '')
+
+        const errors = data[errorId].errors
+
+        res.render('publish', {
+            ...data[errorId], today, finishingDate, error, notError, errors,
+            types, sizes, pageTitle, pageMessage, route, postRoute
+        })
+    }
 }
 
 function renderEdit(req, res) {
-	const today = new Date().toISOString().split('T')[0]
 	const id = req.params.id
+
 	const finishingDate = data[id].finishingDate.split('/').reverse().join('-')
 	const selectedType = data[id].type
 	const selectedSize = data[id].size
+
 	const pageTitle = "Edit your selling"
 	const pageMessage = "Edit"
 
@@ -80,35 +106,29 @@ function renderEdit(req, res) {
 
 	types.forEach(one => one.selected = one.type === selectedType ? 'selected' : '')
 	sizes.forEach(one => one.selected = one.size === selectedSize ? 'selected' : '')
-	
-	res.render('publish', { ...data[req.params.id], today, finishingDate,
-							types, sizes, pageTitle, pageMessage, route, postRoute
-						  }
-	)
+
+    if (!req.query.error) {
+        const error = false
+        const notError = "notError"
+
+        res.render('publish', {
+            ...data[id], today, finishingDate, error, notError,
+            types, sizes, pageTitle, pageMessage, route, postRoute
+        })
+
+    } else {
+        const error = true
+        const notError = ""
+        const errors = data[id].errors
+
+        res.render('publish', {
+            ...data[id], today, finishingDate, error, notError, errors,
+            types, sizes, pageTitle, pageMessage, route, postRoute
+        })
+    }
 }
 
 // Handling Functions --------------------------------------------------
-function handleAddElement(req, res) {
-    const id = Date.now()
-    const bids = []
-    const price = parseFloat(req.body.price)
-    const finishingDate = formatDate(req.body.finishingDate)
-
-    data[id] = { id, ...req.body, finishingDate, price, bids }
-    dataValues = Object.values(data)
-    res.redirect(`/detailed/${id}`)
-}
-
-function handleEditElement(req, res) {
-    const id = req.params.id
-    const price = parseFloat(req.body.price)
-    const finishingDate = formatDate(req.body.finishingDate)
-    const bids = data[id].bids
-
-    data[id] = { id, ...req.body, finishingDate, price, bids }
-    res.redirect(`/detailed/${id}`)
-}
-
 function handleDeleteElement(req, res) {
     const id = req.params.id
     delete data[id]
@@ -118,8 +138,48 @@ function handleDeleteElement(req, res) {
 
 function handleQuitErrorMsg(req, res) {
     const id = req.params.id
-    data[id].errors = []
-    res.redirect(`/detailed/${req.params.id}`)
+
+    if (id) {
+        data[id].errors = []
+        res.redirect(`/detailed/${id}`)
+
+    } else {
+        data[errorId].errors = []
+        res.redirect(`/publish`)
+    }
+}
+
+function handleAddElement(req, res) {
+    const dateNow = Date.now()
+
+    let id
+    if (!req.params.id) id = dateNow
+    else id = req.params.id
+    
+    const bids = data[id]?.bids || []
+    const price = parseFloat(req.body.price)
+    const finishingDate = formatDate(req.body.finishingDate)
+
+    const errors = publishErrorManager({ ...req.body, price })
+    const result = { id, ...req.body, finishingDate, price, bids }
+    
+    if (errors.length) {
+        if (id === dateNow) {
+            data[errorId] = result
+            data[errorId].errors = errors
+            res.redirect(`/publish/${errorId}?error=true`)
+
+        } else {
+            data[id] = result
+            data[id].errors = errors
+            res.redirect(`/edit/${id}?error=true`)
+        }
+
+    } else {
+        data[id] = result
+        dataValues = Object.values(data)
+        res.redirect(`/detailed/${id}`)
+    }
 }
 
 function handleAddBid(req, res) {
