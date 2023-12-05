@@ -44,8 +44,10 @@ nav.navbar .navbar-nav input[type=checkbox]:checked + [role=modal] {
   display: block;
   transform: translateX(0);
 }
-nav.navbar .navbar-nav .icon--liked::after {
-  content: "7";
+nav.navbar .navbar-nav .icon--liked {
+  position: relative;
+}
+nav.navbar .navbar-nav .icon--liked span.favs--bubble {
   position: absolute;
   left: 14px;
   background: #e00;

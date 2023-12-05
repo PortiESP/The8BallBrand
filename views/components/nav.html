@@ -6,93 +6,20 @@
     <div class="d-flex gap-2 align-items-center">
         <div class="navbar-nav">
             <!----------------------------------------------------------------------------- Heart --->
-            <label class="nav-link icon--liked" for="toggle--liked"><i class="fs-4 bi bi-heart-fill"
-                    role="button"></i></label>
+            <label class="nav-link icon--liked" for="toggle--liked">
+                <i class="fs-4 bi bi-heart-fill" role="button"></i>
+                {{#favs.length}}
+                <span class="favs--bubble">{{favs.length}}</span>
+                {{/favs.length}}
+            </label>
             <input type="checkbox" id="toggle--liked" />
             <div class="div--liked" id="div--liked" role="modal">
                 <heading class="liked--title"><span>Liked products</span><label for="toggle--liked" class="close"
                         role="button">Close</label></heading>
                 <div class="liked--list" role="listbox">
-                    <a class="item--liked" role="listitem" href="/detailed">
-                        <div class="item--images"><img src="/assets/clothes/hoodie4.png" alt="hoodie"
-                                class="item--image-front" /></div>
-                        <div class="item--content">
-                            <p role="button">Jordan Hoodie</p>
-                            <div class="item--price"><span class="price">40.00€</span></div>
-                        </div>
-                    </a>
-                    <a class="item--liked" role="listitem" href="/detailed">
-                        <div class="item--images"><img src="/assets/clothes/hoodie4.png" alt="hoodie"
-                                class="item--image-front" /></div>
-                        <div class="item--content">
-                            <p role="button">Jordan Hoodie</p>
-                            <div class="item--price"><span class="price">40.00€</span></div>
-                        </div>
-                    </a>
-                    <a class="item--liked" role="listitem" href="/detailed">
-                        <div class="item--images"><img src="/assets/clothes/hoodie4.png" alt="hoodie"
-                                class="item--image-front" /></div>
-                        <div class="item--content">
-                            <p role="button">Jordan Hoodie</p>
-                            <div class="item--price"><span class="price">40.00€</span></div>
-                        </div>
-                    </a>
-                    <a class="item--liked" role="listitem" href="/detailed">
-                        <div class="item--images"><img src="/assets/clothes/hoodie4.png" alt="hoodie"
-                                class="item--image-front" /></div>
-                        <div class="item--content">
-                            <p role="button">Jordan Hoodie</p>
-                            <div class="item--price"><span class="price">40.00€</span></div>
-                        </div>
-                    </a>
-                    <a class="item--liked" role="listitem" href="/detailed">
-                        <div class="item--images"><img src="/assets/clothes/hoodie4.png" alt="hoodie"
-                                class="item--image-front" /></div>
-                        <div class="item--content">
-                            <p role="button">Jordan Hoodie</p>
-                            <div class="item--price"><span class="price">40.00€</span></div>
-                        </div>
-                    </a>
-                    <a class="item--liked" role="listitem" href="/detailed">
-                        <div class="item--images"><img src="/assets/clothes/hoodie4.png" alt="hoodie"
-                                class="item--image-front" /></div>
-                        <div class="item--content">
-                            <p role="button">Jordan Hoodie</p>
-                            <div class="item--price"><span class="price">40.00€</span></div>
-                        </div>
-                    </a>
-                    <a class="item--liked" role="listitem" href="/detailed">
-                        <div class="item--images"><img src="/assets/clothes/hoodie4.png" alt="hoodie"
-                                class="item--image-front" /></div>
-                        <div class="item--content">
-                            <p role="button">Jordan Hoodie</p>
-                            <div class="item--price"><span class="price">40.00€</span></div>
-                        </div>
-                    </a>
-                    <a class="item--liked" role="listitem" href="/detailed">
-                        <div class="item--images"><img src="/assets/clothes/hoodie4.png" alt="hoodie"
-                                class="item--image-front" /></div>
-                        <div class="item--content">
-                            <p role="button">Jordan Hoodie</p>
-                            <div class="item--price"><span class="price">40.00€</span></div>
-                        </div>
-                    </a>
-                    <a class="item--liked" role="listitem" href="/detailed">
-                        <div class="item--images"><img src="/assets/clothes/hoodie4.png" alt="hoodie"
-                                class="item--image-front" /></div>
-                        <div class="item--content">
-                            <p role="button">Jordan Hoodie</p>
-                            <div class="item--price"><span class="price">40.00€</span></div>
-                        </div>
-                    </a>
-                    <a class="item--liked" role="listitem" href="/detailed">
-                        <div class="item--images"><img src="/assets/clothes/hoodie4.png" alt="hoodie"
-                                class="item--image-front" /></div>
-                        <div class="item--content">
-                            <p role="button">Jordan Hoodie</p>
-                            <div class="item--price"><span class="price">40.00€</span></div>
-                        </div>
-                    </a>
+                    {{#favs}}
+                    {{> components/navItem}}
+                    {{/favs}}
                 </div>
                 <div class="checkout">
                     <button>Checkout</button>

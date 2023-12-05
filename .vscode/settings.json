@@ -3,5 +3,8 @@
         "**/.git": true,
         "**/*.css.map": true
     },
-    "prettier.tabWidth": 4
+    "prettier.tabWidth": 4,
+    "cSpell.words": [
+        "favs"
+    ]
 }

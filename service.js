@@ -207,3 +207,10 @@ export const types = [
     { "type": "Shoes" },
     { "type": "Other" },
 ]
+
+export const favorites = {
+    // Template value
+    "uuidxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx": ["0001", "0002", "0003", "0004"],
+    // Values
+    "mxzbwdhy-xmrt-lvap-arcs-popy": ["0001", "0002", "0003", "0004"],
+}

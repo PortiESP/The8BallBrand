@@ -1,8 +1,11 @@
 import express from "express"
-import { data, sizes, types } from "./service.js"
+import { data, favorites, sizes, types } from "./service.js"
+
+// AUX FUNCTIONS
 import formatDate from "./tools/dateUtils.js"
 import avatarGenerator from "./tools/avatarGenerator.js"
 import {publishErrorManager, bidErrorManager} from "./tools/errorManager.js"
+import {uuidGenerator} from "./tools/uuidGenerator.js"
 
 // CONSTANTS
 const today = new Date().toISOString().split('T')[0]
@@ -36,7 +39,13 @@ router.post("/edit-element/:id", handleAddElement)
 
 // Rendering Functions -------------------------------------------------
 function renderIndex(req, res) {
-    res.render("index", { dataValues })
+    if (!req.cookies.uuid) res.cookie("uuid", uuidGenerator())  // Generate uuid cookie if not exists
+    const favs = favorites[req.cookies.uuid]?.map(prodId => data[prodId]) || []  // Extract favorite elements of the user
+
+    console.log(favs)
+
+    // RENDER
+    res.render("index", { dataValues, favs })
 }
 
 function renderDetailed(req, res) {

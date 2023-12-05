@@ -60,11 +60,11 @@ nav.navbar {
 
         // ----------------------------------------------------------------- liked
         & .icon--liked {
+            position: relative;
             // ------------------- BUBBLE
-            &::after {
+            & span.favs--bubble {
                 $size: 18px;
 
-                content: "7";
                 position: absolute;
                 left: 14px;
                 background: $notification;
