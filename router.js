@@ -49,20 +49,23 @@ function renderDetailed(req, res) {
     const isEmpty = !bids?.length
     const elementData = data[id] // Extract element data from data
     const page = detailedPage
+    const isFav = favorites[req.cookies.uuid]?.includes(id)
+
+    console.log(isFav)
 
     // Render detailed page with or without error message
     if (!req.query.error) {
         const error = false
         const notError = "notError"
         
-        res.render("detailed", { ...elementData, bids, isEmpty, error, notError, ...renderNav(req) })
+        res.render("detailed", { ...elementData, bids, isEmpty, error, notError, isFav, ...renderNav(req) })
 
     } else {
         const error = true
         const notError = ""
         const errors = data[id].errors
 
-        res.render("detailed", { ...elementData, bids, isEmpty, error, errors, notError, page, ...renderNav(req) })
+        res.render("detailed", { ...elementData, bids, isEmpty, error, errors, notError, page, isFav, ...renderNav(req) })
     }
 }
 

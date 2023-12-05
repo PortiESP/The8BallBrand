@@ -62,8 +62,14 @@
                         </table>
                     </div>
                     <div class="item-buttons">
+                        {{#isFav}}
+                        <input type="checkbox" id="favorite-checkbox" checked/>
+                        {{/isFav}}
+                        {{^isFav}}
                         <input type="checkbox" id="favorite-checkbox"/>
-                        <a class="button--detailed" for="favorite-checkbox"><i class="bi bi-heart-fill"></i></a>
+                        {{/isFav}}
+
+                        <label class="button--detailed" for="favorite-checkbox"><i class="bi bi-heart-fill"></i></label>
                         <a class="button--detailed edit" href="/edit/{{id}}">Edit</a>
                         <a class="button--detailed stretched-button edit" href="/edit/{{id}}"><i class="bi bi-pencil-fill"></i></a>
                         <a>{{> components/popUp }}</a>
