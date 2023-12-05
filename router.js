@@ -52,7 +52,6 @@ function renderDetailed(req, res) {
     const page = detailedPage
     const isFav = favorites[req.cookies.uuid]?.includes(id)
 
-    console.log(isFav)
 
     // Render detailed page with or without error message
     if (!req.query.error) {
@@ -238,9 +237,7 @@ function handleToggleFav(req, res){
         else favorites[uuid].push(id)
     }
 
-    console.log(favorites[uuid])
-
-    res.json({success: true})
+    res.json({success: true, numFavs: favorites[uuid].length})
 }
 
 // Export routes definitions
