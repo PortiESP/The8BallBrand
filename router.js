@@ -37,15 +37,10 @@ router.post("/edit-element/:id", handleAddElement)
 
 //===================================================[Functions]===================================================//
 
+
 // Rendering Functions -------------------------------------------------
 function renderIndex(req, res) {
-    if (!req.cookies.uuid) res.cookie("uuid", uuidGenerator())  // Generate uuid cookie if not exists
-    const favs = favorites[req.cookies.uuid]?.map(prodId => data[prodId]) || []  // Extract favorite elements of the user
-
-    console.log(favs)
-
-    // RENDER
-    res.render("index", { dataValues, favs })
+    res.render("index", { dataValues, ...renderNav(req) })
 }
 
 function renderDetailed(req, res) {
@@ -60,14 +55,14 @@ function renderDetailed(req, res) {
         const error = false
         const notError = "notError"
         
-        res.render("detailed", { ...elementData, bids, isEmpty, error, notError })
+        res.render("detailed", { ...elementData, bids, isEmpty, error, notError, ...renderNav(req) })
 
     } else {
         const error = true
         const notError = ""
         const errors = data[id].errors
 
-        res.render("detailed", { ...elementData, bids, isEmpty, error, errors, notError, page })
+        res.render("detailed", { ...elementData, bids, isEmpty, error, errors, notError, page, ...renderNav(req) })
     }
 }
 
@@ -85,7 +80,7 @@ function renderPublish(req, res) {
         const notError = "notError"
         const dataValues = {...data[errorId]}
         delete data[errorId]
-        res.render("publish", { ...dataValues, today, types, sizes, pageTitle, pageMessage, route, postRoute, error, notError })
+        res.render("publish", { ...dataValues, today, types, sizes, pageTitle, pageMessage, route, postRoute, error, notError, ...renderNav(req) })
         
     } else {
         const id = errorId
@@ -96,7 +91,7 @@ function renderPublish(req, res) {
 
         res.render('publish', {
             ...data[errorId], today, error, notError, errors,
-            types, sizes, pageTitle, pageMessage, route, postRoute, id, page
+            types, sizes, pageTitle, pageMessage, route, postRoute, id, page, ...renderNav(req)
         })
     }
 }
@@ -124,7 +119,7 @@ function renderEdit(req, res) {
 
         res.render('publish', {
             ...data[id], today, finishingDate, error, notError,
-            types, sizes, pageTitle, pageMessage, route, postRoute
+            types, sizes, pageTitle, pageMessage, route, postRoute, ...renderNav(req)
         })
 
     } else {
@@ -134,10 +129,19 @@ function renderEdit(req, res) {
 
         res.render('publish', {
             ...data[id], today, finishingDate, error, notError, errors,
-            types, sizes, pageTitle, pageMessage, route, postRoute, page
+            types, sizes, pageTitle, pageMessage, route, postRoute, page, ...renderNav(req)
         })
     }
 }
+
+// Sub-components Rendering Functions ---------------------------------
+
+function renderNav(req){
+    if (!req.cookies.uuid) res.cookie("uuid", uuidGenerator())  // Generate uuid cookie if not exists
+    const favs = favorites[req.cookies.uuid]?.map(prodId => data[prodId]) || []  // Extract favorite elements of the user
+    return {favs}
+}
+
 
 // Handling Functions --------------------------------------------------
 function handleDeleteElement(req, res) {

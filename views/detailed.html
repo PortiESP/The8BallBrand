@@ -5,8 +5,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>8 Ball | {{name}}</title>
-        <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
-        <link rel="stylesheet" href="../styles/global.css" />
+        <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
+        <link rel="stylesheet" href="/styles/global.css" />
     </head>
 
     <body>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="item-buttons">
                         <input type="checkbox" id="favorite-checkbox"/>
-                        <label class="button--detailed" for="favorite-checkbox"><i class="bi bi-heart-fill"></i></label>
+                        <a class="button--detailed" for="favorite-checkbox"><i class="bi bi-heart-fill"></i></a>
                         <a class="button--detailed edit" href="/edit/{{id}}">Edit</a>
                         <a class="button--detailed stretched-button edit" href="/edit/{{id}}"><i class="bi bi-pencil-fill"></i></a>
                         <a>{{> components/popUp }}</a>
