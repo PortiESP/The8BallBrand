@@ -34,6 +34,7 @@ router.get("/quitErrorMsg/:id", handleQuitErrorMsg )
 router.post("/add-element", handleAddElement)
 router.post("/add-bid/:id", handleAddBid)
 router.post("/edit-element/:id", handleAddElement)
+router.post("/toggle-fav", handleToggleFav)
 
 //===================================================[Functions]===================================================//
 
@@ -224,6 +225,22 @@ function handleAddBid(req, res) {
         data[id].bids = [{ ...req.body, date, bid, picture }, ...data[id].bids]
         res.redirect(`/detailed/${id}`)
     }
+}
+
+
+function handleToggleFav(req, res){
+    const id = req.query.id
+    const uuid = req.cookies.uuid
+
+    if (!favorites[uuid]) favorites[uuid] = [id]
+    else {
+        if (favorites[uuid].includes(id)) favorites[uuid] = favorites[uuid].filter(favId => favId !== id)
+        else favorites[uuid].push(id)
+    }
+
+    console.log(favorites[uuid])
+
+    res.json({success: true})
 }
 
 // Export routes definitions
