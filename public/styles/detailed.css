@@ -77,12 +77,18 @@
   align-items: center;
   justify-content: center;
 }
+.wrapper .fullview .product-info-container .product-name.wide h1 {
+  word-break: break-word;
+}
 .wrapper .fullview .product-info-container .item-description {
   width: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+.wrapper .fullview .product-info-container .item-description p {
+  word-break: break-word;
 }
 .wrapper .fullview .product-info-container .item-tags {
   padding: 15px 20px;
