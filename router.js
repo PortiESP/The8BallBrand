@@ -145,6 +145,7 @@ function renderNav(req, res){
         res.cookie("uuid", uuid)  // Generate uuid cookie if not exists
         favorites[uuid] = new Set()
     }
+    if (favorites[uuid] === undefined) favorites[uuid] = new Set()
      
     // Extract favorite elements of the user
     const favs = [...favorites[uuid]].map(id => data[id]) || []
