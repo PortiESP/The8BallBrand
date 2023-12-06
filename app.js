@@ -20,7 +20,6 @@ app.use(loggerMiddleware)
 // Enable routes
 app.get('/', router)
 app.get('/publish', router)
-app.get('/publish/:id', router)
 app.get('/detailed/:id', router)
 app.get('/legal', router)
 app.get('/edit/:id', router)

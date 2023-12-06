@@ -20,7 +20,7 @@ const router = express.Router()
 router.get("/", renderIndex);
 router.get("/detailed/:id", renderDetailed);
 router.get("/publish", renderPublish);
-router.get("/publish/:id", renderPublish);
+router.get("/publish", renderPublish);
 router.get("/legal", (_, res) => res.render("legal"));
 router.get("/edit/:id", renderEdit)
 
@@ -40,8 +40,10 @@ router.post("/edit-element/:id", handleAddElement)
 
 // Rendering Functions -------------------------------------------------
 function renderIndex(req, res) {
+    // Extract data of the elements to be featured
     const featuredItems = [...featured].map(id => data[id])
 
+    // Render page
     res.render("index", { dataValues: Object.values(data), featuredItems, ...renderNav(req, res) })
 }
 
@@ -59,12 +61,13 @@ function renderDetailed(req, res) {
     const error = req.query.error  // Error flag
     if (error) errors = decodeURIComponent(req.query.errorMsg).split(",")  // Error list (from query)
 
+    // Render page
     res.render("detailed", { ...elementData, bids, isEmpty, error, errors, page: DETAILED_PAGE, isFav, ...renderNav(req, res) })
 }
 
 function renderPublish(req, res) {
 
-    // Constant values
+    // Template page values
     const templateParams = {
         pageTitle: "Sell your best Garments!",
         cancelRoute: "/",
@@ -77,6 +80,7 @@ function renderPublish(req, res) {
     const error = req.query.error  // Error flag
     if (error) errors = decodeURIComponent(req.query.errorMsg).split(",")  // Error list (from query)
 
+    // Render page
     res.render("publish", { ...templateParams, types, sizes, error, errors, ...renderNav(req, res) })
 
 }
