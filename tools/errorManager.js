@@ -7,7 +7,7 @@ const descriptionMaxChars = 100
 
 const priceMin = 0
 
-const imageValidURL = ["https://", "../assets/clothes/"]
+const imageValidURL = ["http://", "https://", "../assets/clothes/"]
 const imageValidExtensions = [".jpg", ".jpeg", ".png", ".svg"]
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -15,7 +15,7 @@ const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const errorMessages = {
     100: "Bid too low",
     200: `Name must have (${nameMinChars}-${nameMaxChars}) chars`,
-    210: `Description must have (${nameMinChars}-${nameMaxChars}) chars`,
+    210: `Description must have (${descriptionMinChars}-${descriptionMaxChars}) chars`,
     300: `Price must be greater than ${priceMin}"`,
     410: "Invalid image URL",
     420: "Invalid image format",
