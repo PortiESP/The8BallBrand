@@ -58,14 +58,14 @@ function renderDetailed(req, res) {
         const error = false
         const notError = "notError"
         
-        res.render("detailed", { ...elementData, bids, isEmpty, error, notError, isFav, ...renderNav(req) })
+        res.render("detailed", { ...elementData, bids, isEmpty, error, notError, isFav, ...renderNav(req, res) })
 
     } else {
         const error = true
         const notError = ""
         const errors = data[id].errors
 
-        res.render("detailed", { ...elementData, bids, isEmpty, error, errors, notError, page, isFav, ...renderNav(req) })
+        res.render("detailed", { ...elementData, bids, isEmpty, error, errors, notError, page, isFav, ...renderNav(req, res) })
     }
 }
 
@@ -83,7 +83,7 @@ function renderPublish(req, res) {
         const notError = "notError"
         const dataValues = {...data[errorId]}
         delete data[errorId]
-        res.render("publish", { ...dataValues, today, types, sizes, pageTitle, pageMessage, route, postRoute, error, notError, ...renderNav(req) })
+        res.render("publish", { ...dataValues, today, types, sizes, pageTitle, pageMessage, route, postRoute, error, notError, ...renderNav(req, res) })
         
     } else {
         const id = errorId
@@ -94,7 +94,7 @@ function renderPublish(req, res) {
 
         res.render('publish', {
             ...data[errorId], today, error, notError, errors,
-            types, sizes, pageTitle, pageMessage, route, postRoute, id, page, ...renderNav(req)
+            types, sizes, pageTitle, pageMessage, route, postRoute, id, page, ...renderNav(req,res)
         })
     }
 }
@@ -139,8 +139,8 @@ function renderEdit(req, res) {
 
 // Sub-components Rendering Functions ---------------------------------
 
-function renderNav(req){
-    if (!req.cookies.uuid) res.cookie("uuid", uuidGenerator())  // Generate uuid cookie if not exists
+function renderNav(req, res){
+    if (!req.cookies.uuid) res?.cookie("uuid", uuidGenerator())  // Generate uuid cookie if not exists
     const favs = favorites[req.cookies.uuid]?.map(prodId => data[prodId]) || []  // Extract favorite elements of the user
     return {favs}
 }
