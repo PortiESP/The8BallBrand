@@ -1,3 +1,5 @@
+import { favorites } from "../service.js"
+
 export function uuidGenerator() {
     const template = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxx'
     const result = template.replace(/x/g, function() {

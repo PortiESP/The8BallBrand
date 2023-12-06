@@ -16,7 +16,7 @@ router.get("/detailed/:id", renderDetailed);
 router.get("/publish", renderPublish);
 router.get("/publish", renderPublish);
 router.get("/legal", (_, res) => res.render("legal"));
-router.get("/edit/:id", renderEdit)
+router.get("/edit/:id", renderPublishEdit)
 
 router.get("/delete/:id", handleDeleteElement)
 router.get("/quit-errorMsg", handleQuitErrorMsg )
@@ -32,21 +32,23 @@ router.post("/add-bid/:id", handleAddBid)
 
 // Rendering Functions --------------------------------------------------------------------------------------------------
 function renderIndex(req, res) {
+    const uuid = getUUID(req, res)
     // Extract data of the elements to be featured
     const featuredItems = [...featured].map(id => data[id])
 
     // Render page
-    res.render("index", { dataValues: Object.values(data), featuredItems, ...renderNav(req, res) })
+    res.render("index", { dataValues: Object.values(data), featuredItems, ...parseNav(req, res, uuid) })
 }
 
 function renderDetailed(req, res) {
     const id = req.params.id
+    const uuid = getUUID(req, res)
 
     // Template page values
     const templateParams = {
         ...data[id],  // Element data
         isEmpty: !(data[id]?.bids.length),  // Bids array is empty
-        isFav: favorites[getUUID(req, res)].has(id),  // Element is in used favorites list
+        isFav: favorites[uuid].has(id),  // Element is in used favorites list
     }
     
     // Handle errors
@@ -55,17 +57,18 @@ function renderDetailed(req, res) {
     if (error) errors = decodeURIComponent(req.query.errorMsg).split(",")  // Error list (from query)
 
     // Render page
-    res.render("detailed", { ...templateParams, error, errors, ...renderNav(req, res) })
+    res.render("detailed", { ...templateParams, error, errors, ...parseNav(req, res, uuid) })
 }
 
 function renderPublish(req, res) {
+    const uuid = getUUID(req, res)
+
     // Template page values
     const templateParams = {
         pageTitle: "Sell your best Garments!",
         cancelRoute: "/",
         postRoute: "/add-element",
         today: new Date().toISOString().split('T')[0],
-        referrer: req.get('Referrer'),
     }
 
     // Handle errors
@@ -74,11 +77,11 @@ function renderPublish(req, res) {
     if (error) errors = decodeURIComponent(req.query.errorMsg).split(",")  // Error list (from query)
 
     // Render page
-    res.render("publish", { ...templateParams, types, sizes, error, errors, ...renderNav(req, res) })
+    res.render("publish", { ...templateParams, types, sizes, error, errors, ...parseNav(req, res, uuid) })
 }
 
 
-function renderEdit(req, res) {
+function renderPublishEdit(req, res) {
     const id = req.params.id
     // Template page values
     const templateParams = {
@@ -86,7 +89,6 @@ function renderEdit(req, res) {
         cancelRoute: `/detailed/${id}`,
         postRoute: `/edit-element/${id}`,
         today: new Date().toISOString().split('T')[0],
-        referrer: req.get('Referrer'),
         // Form data
         ...data[id],
         finishingDate: data[id].finishingDate.split('/').reverse().join('-'),
@@ -102,15 +104,12 @@ function renderEdit(req, res) {
     if (error) errors = decodeURIComponent(req.query.errorMsg).split(",")  // Error list (from query)
 
     // Render page
-    res.render("publish", { ...templateParams, types, sizes, error, errors, ...renderNav(req, res) })
+    res.render("publish", { ...templateParams, types, sizes, error, errors, ...parseNav(req, res, uuid) })
 }
 
 // Sub-components Rendering Functions --------------------------------------------------------------------------------------------------
 
-function renderNav(req, res){
-    // Cookies
-    const uuid = getUUID(req, res)
-    
+function parseNav(req, res, uuid){
     // If user does not have a favorites list, create one
     if (favorites[uuid] === undefined) favorites[uuid] = new Set()
      
