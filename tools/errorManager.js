@@ -59,7 +59,7 @@ export function publishErrorManager(obj) {
             errors.push(errorMessages[420])
     }
 
-    return errors ? "&errorMsg=" + encodeURIComponent(errors.join(",")) : false
+    return errors.length ? "&errorMsg=" + encodeURIComponent(errors.join(",")) : false
 }
 
 // Check if bid form contains errors
@@ -82,5 +82,5 @@ export function bidErrorManager(obj) {
     if (bid <= price)
         errors.push(errorMessages[100])
 
-    return errors ? "&errorMsg=" + encodeURIComponent(errors.join(",")) : false
+    return errors.length ? "&errorMsg=" + encodeURIComponent(errors.join(",")) : false
 }

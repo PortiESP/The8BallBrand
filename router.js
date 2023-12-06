@@ -29,8 +29,8 @@ router.get("/toggle-fav", handleToggleFav)
 
 // POST routes
 router.post("/add-element", handleAddElement)
-router.post("/add-bid/:id", handleAddBid)
 router.post("/edit-element/:id", handleAddElement)
+router.post("/add-bid/:id", handleAddBid)
 
 //================================================================[Functions]================================================================//
 
@@ -84,40 +84,30 @@ function renderPublish(req, res) {
 
 
 function renderEdit(req, res) {
-	const id = req.params.id
-
-	const finishingDate = data[id].finishingDate.split('/').reverse().join('-')
-	const selectedType = data[id].type
-	const selectedSize = data[id].size
-
-	const pageTitle = "Edit your selling"
-	const pageMessage = "Edit"
-
-	const route = `/detailed/${id}`
-	const postRoute = `/edit-element/${id}`
-
-	types.forEach(one => one.selected = one.type === selectedType ? 'selected' : '')
-	sizes.forEach(one => one.selected = one.size === selectedSize ? 'selected' : '')
-
-    if (!req.query.error) {
-        const error = false
-        const notError = "notError"
-
-        res.render('publish', {
-            ...data[id], today: TODAY, finishingDate, error, notError,
-            types, sizes, pageTitle, pageMessage, route, postRoute, ...renderNav(req, res)
-        })
-
-    } else {
-        const error = true
-        const notError = ""
-        const errors = data[id].errors
-
-        res.render('publish', {
-            ...data[id], today: TODAY, finishingDate, error, notError, errors,
-            types, sizes, pageTitle, pageMessage, route, postRoute, page: DEFAULT_PAGE, ...renderNav(req, res)
-        })
+    const id = req.params.id
+    // Template page values
+    const templateParams = {
+        pageTitle: "Edit your selling",
+        cancelRoute: `/detailed/${id}`,
+        postRoute: `/edit-element/${id}`,
+        today: new Date().toISOString().split('T')[0],
+        referrer: req.get('Referrer'),
+        // Form data
+        ...data[id],
+        finishingDate: data[id].finishingDate.split('/').reverse().join('-'),
     }
+
+    // Set selected tag values
+	types.forEach(e => e.selected = e.type === data[id].type ? 'selected' : '')
+	sizes.forEach(e => e.selected = e.size === data[id].size ? 'selected' : '')
+
+    // Handle errors
+    let errors = []
+    const error = req.query.error  // Error flag
+    if (error) errors = decodeURIComponent(req.query.errorMsg).split(",")  // Error list (from query)
+
+    // Render page
+    res.render("publish", { ...templateParams, types, sizes, error, errors, ...renderNav(req, res) })
 }
 
 // Sub-components Rendering Functions --------------------------------------------------------------------------------------------------
@@ -156,16 +146,17 @@ function handleQuitErrorMsg(req, res) {
 }
 
 
+// Handle adding elements and editing elements
 function handleAddElement(req, res) {
-    console.log(req.body)
     // Validate form data
     const errors = publishErrorManager(req.body)
-    if (errors)  // Errors - Redirect to publish page
-        res.redirect(`/publish?error=true${errors}`) 
+    if (errors) res.redirect(`/publish?error=true${errors}`) // Errors - Redirect to publish page
     else {  // No errors - Add element to data
-        // Add new element object to data
+        // Add/edit element
+        const referrer = req.get("Referrer")
+        const id = referrer.includes("edit") ? referrer.split("/").slice(-1)[0] : Date.now()  // Generate element ID, based on current time (use the value from the referrer if we are editing an element)
         data[id] = {
-            newElementID: Date.now(),  // Generate element ID, based on current time
+            id,  
             finishingDate: formatDate(req.body.finishingDate),  // Format finishing date
             price: parseFloat(req.body.price),  // Format price (float)
             ...req.body,  // Add rest of form data
