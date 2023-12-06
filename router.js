@@ -41,7 +41,7 @@ router.post("/toggle-fav", handleToggleFav)
 
 // Rendering Functions -------------------------------------------------
 function renderIndex(req, res) {
-    res.render("index", { dataValues, ...renderNav(req) })
+    res.render("index", { dataValues, ...renderNav(req, res) })
 }
 
 function renderDetailed(req, res) {
@@ -94,7 +94,7 @@ function renderPublish(req, res) {
 
         res.render('publish', {
             ...data[errorId], today, error, notError, errors,
-            types, sizes, pageTitle, pageMessage, route, postRoute, id, page, ...renderNav(req,res)
+            types, sizes, pageTitle, pageMessage, route, postRoute, id, page, ...renderNav(req, res)
         })
     }
 }
@@ -122,7 +122,7 @@ function renderEdit(req, res) {
 
         res.render('publish', {
             ...data[id], today, finishingDate, error, notError,
-            types, sizes, pageTitle, pageMessage, route, postRoute, ...renderNav(req)
+            types, sizes, pageTitle, pageMessage, route, postRoute, ...renderNav(req, res)
         })
 
     } else {
@@ -132,7 +132,7 @@ function renderEdit(req, res) {
 
         res.render('publish', {
             ...data[id], today, finishingDate, error, notError, errors,
-            types, sizes, pageTitle, pageMessage, route, postRoute, page, ...renderNav(req)
+            types, sizes, pageTitle, pageMessage, route, postRoute, page, ...renderNav(req, res)
         })
     }
 }
@@ -140,7 +140,7 @@ function renderEdit(req, res) {
 // Sub-components Rendering Functions ---------------------------------
 
 function renderNav(req, res){
-    if (!req.cookies.uuid) res?.cookie("uuid", uuidGenerator())  // Generate uuid cookie if not exists
+    if (!req.cookies.uuid) res.cookie("uuid", uuidGenerator())  // Generate uuid cookie if not exists
     const favs = favorites[req.cookies.uuid]?.map(prodId => data[prodId]) || []  // Extract favorite elements of the user
     return {favs}
 }
