@@ -38,6 +38,7 @@ nav.navbar {
         & > .nav-link:hover i {
             color: #000e;
             transition: all 0.1s ease;
+            cursor: pointer;
 
             &[class*="bi-heart-fill"] {
                 color: $heartColor;
