@@ -41,6 +41,7 @@ function renderIndex(req, res) {
 
 function renderDetailed(req, res) {
     const id = req.params.id
+    const uuid = getUUID(req, res)
 
     // Template page values
     const templateParams = {
