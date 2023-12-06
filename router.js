@@ -41,7 +41,6 @@ function renderIndex(req, res) {
 
 function renderDetailed(req, res) {
     const id = req.params.id
-    const uuid = getUUID(req, res)
 
     // Template page values
     const templateParams = {
@@ -62,6 +61,11 @@ function renderDetailed(req, res) {
 function renderPublish(req, res) {
     const uuid = getUUID(req, res)
 
+    // Handle errors
+    let errors = []
+    const error = req.query.error  // Error flag
+    if (error) errors = decodeURIComponent(req.query.errorMsg).split(",")  // Error list (from query)
+
     // Template page values
     const templateParams = {
         pageTitle: "Sell your best Garments!",
@@ -69,12 +73,9 @@ function renderPublish(req, res) {
         cancelRoute: "/",
         postRoute: "/add-element",
         today: new Date().toISOString().split('T')[0],
+        ...(error ? JSON.parse(decodeURIComponent(req.query.form)): {})  // Form data (from query) or empty object in case of error
     }
 
-    // Handle errors
-    let errors = []
-    const error = req.query.error  // Error flag
-    if (error) errors = decodeURIComponent(req.query.errorMsg).split(",")  // Error list (from query)
 
     // Render page
     res.render("publish", { ...templateParams, types, sizes, error, errors, ...parseNav(req, res, uuid) })
@@ -84,6 +85,12 @@ function renderPublish(req, res) {
 function renderPublishEdit(req, res) {
     const id = req.params.id
     const uuid = getUUID(req, res)
+
+    // Handle errors
+    let errors = []
+    const error = req.query.error  // Error flag
+    if (error) errors = decodeURIComponent(req.query.errorMsg).split(",")  // Error list (from query)
+
     // Template page values
     const templateParams = {
         pageTitle: "Edit your selling",
@@ -94,16 +101,12 @@ function renderPublishEdit(req, res) {
         // Form data
         ...data[id],
         finishingDate: data[id].finishingDate.split('/').reverse().join('-'),
+        ...(error ? JSON.parse(decodeURIComponent(req.query.form)): {})
     }
 
     // Set selected tag values
 	types.forEach(e => e.selected = e.type === data[id].type ? 'selected' : '')
 	sizes.forEach(e => e.selected = e.size === data[id].size ? 'selected' : '')
-
-    // Handle errors
-    let errors = []
-    const error = req.query.error  // Error flag
-    if (error) errors = decodeURIComponent(req.query.errorMsg).split(",")  // Error list (from query)
 
     // Render page
     res.render("publish", { ...templateParams, types, sizes, error, errors, ...parseNav(req, res, uuid) })
@@ -143,7 +146,8 @@ function handleQuitErrorMsg(req, res) {
 function handleAddElement(req, res) {
     // Validate form data
     const errors = publishErrorManager(req.body)
-    if (errors) res.redirect(`/publish?error=true${errors}`) // Errors - Redirect to publish page
+    const encodedForm = encodeURIComponent(JSON.stringify(req.body))  // Encode form data to be able to send it back to the form in case of error
+    if (errors) res.redirect(`/publish?error=true${errors}&form=${encodedForm}`) // Errors - Redirect to publish page
     else {  // No errors - Add element to data
         // Add/edit element
         const referrer = req.get("Referrer")

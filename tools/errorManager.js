@@ -47,8 +47,8 @@ export function publishErrorManager(obj) {
     if (price < priceMin)
         errors.push(errorMessages[300])
 
-    // Check image URL
-    if (!image.startsWith(imageValidURL[0]) && !image.startsWith(imageValidURL[1]))
+    // Check image URL match with at least one of the valid patterns
+    if (imageValidURL.every(pattern => !image.startsWith(pattern)))
         errors.push(errorMessages[410])
 
     else {
