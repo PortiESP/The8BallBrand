@@ -10,19 +10,18 @@ import {uuidGenerator} from "./tools/uuidGenerator.js"
 // CONSTANTS
 const today = new Date().toISOString().split('T')[0]
 const errorId = "X"
-const defaultPage = "Default"
-const detailedPage = "Detailed"
+const DEFAULT_PAGE = "Default"
+const DETAILED_PAGE = "Detailed"
 
 // INIT
 const router = express.Router()
-let dataValues = Object.values(data)
 
 // Declare possible routes (not enabled until enabled by `app.get()`)
 router.get("/", renderIndex);
 router.get("/detailed/:id", renderDetailed);
 router.get("/publish", renderPublish);
 router.get("/publish/:id", renderPublish);
-router.get("/legal", (req, res) => res.render("legal"));
+router.get("/legal", (_, res) => res.render("legal"));
 router.get("/edit/:id", renderEdit)
 
 router.get("/delete/:id", handleDeleteElement)
@@ -48,10 +47,11 @@ function renderIndex(req, res) {
 
 function renderDetailed(req, res) {
     const id = req.params.id
-    const bids = data[id]?.bids // Extract bids from data and sort them
-    const isEmpty = !bids?.length
+    // Element
     const elementData = data[id] // Extract element data from data
-    const page = detailedPage
+    // Bids
+    const bids = data[id]?.bids // Extract bids from data and sort them
+    const isEmpty = !(bids?.length)
     const isFav = favorites[req.cookies.uuid].has(id)
 
     // Render detailed page with or without error message
@@ -66,14 +66,13 @@ function renderDetailed(req, res) {
         const notError = ""
         const errors = data[id].errors
 
-        res.render("detailed", { ...elementData, bids, isEmpty, error, errors, notError, page, isFav, ...renderNav(req, res) })
+        res.render("detailed", { ...elementData, bids, isEmpty, error, errors, notError, page: DETAILED_PAGE, isFav, ...renderNav(req, res) })
     }
 }
 
 function renderPublish(req, res) {
 	const pageTitle = "Sell your best Garments!"
 	const pageMessage = "Publish"
-    const page = defaultPage
 
 	const route = "/"
 	const postRoute = "/add-element"
@@ -82,9 +81,8 @@ function renderPublish(req, res) {
     if (!req.query.error) {
         const error = false
         const notError = "notError"
-        const dataValues = {...data[errorId]}
         delete data[errorId]
-        res.render("publish", { ...dataValues, today, types, sizes, pageTitle, pageMessage, route, postRoute, error, notError, ...renderNav(req, res) })
+        res.render("publish", { dataValues: Object.values(data), today, types, sizes, pageTitle, pageMessage, route, postRoute, error, notError, ...renderNav(req, res) })
         
     } else {
         const id = errorId
@@ -95,14 +93,13 @@ function renderPublish(req, res) {
 
         res.render('publish', {
             ...data[errorId], today, error, notError, errors,
-            types, sizes, pageTitle, pageMessage, route, postRoute, id, page, ...renderNav(req, res)
+            types, sizes, pageTitle, pageMessage, route, postRoute, id, page: DEFAULT_PAGE, ...renderNav(req, res)
         })
     }
 }
 
 function renderEdit(req, res) {
 	const id = req.params.id
-    const page = defaultPage
 
 	const finishingDate = data[id].finishingDate.split('/').reverse().join('-')
 	const selectedType = data[id].type
@@ -133,7 +130,7 @@ function renderEdit(req, res) {
 
         res.render('publish', {
             ...data[id], today, finishingDate, error, notError, errors,
-            types, sizes, pageTitle, pageMessage, route, postRoute, page, ...renderNav(req, res)
+            types, sizes, pageTitle, pageMessage, route, postRoute, page: DEFAULT_PAGE, ...renderNav(req, res)
         })
     }
 }
@@ -163,7 +160,6 @@ function handleDeleteElement(req, res) {
     favorites[req.cookies.uuid].delete(id)
     featured.delete(id)
 
-    dataValues = Object.values(data)
     res.redirect(`/`)
 }
 
@@ -210,7 +206,7 @@ function handleAddElement(req, res) {
 
     } else {
         data[id] = result
-        dataValues = Object.values(data)
+
         res.redirect(`/detailed/${id}`)
     }
 }
