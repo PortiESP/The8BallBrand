@@ -6,3 +6,15 @@ export function uuidGenerator() {
 
     return result
 }
+
+// Generate uuid cookie if not exists or return existing uuid
+export default function getUUID(req, res) {
+  let uuid = req.cookies.uuid
+  if (!uuid) {
+    uuid = uuidGenerator()
+    res.cookie("uuid", uuid)  // Generate uuid cookie if not exists
+    favorites[uuid] = new Set()
+  }
+
+  return uuid
+}

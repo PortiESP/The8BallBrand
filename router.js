@@ -5,7 +5,7 @@ import { data, featured, favorites, sizes, types } from "./service.js"
 import formatDate from "./tools/dateUtils.js"
 import avatarGenerator from "./tools/avatarGenerator.js"
 import {publishErrorManager, bidErrorManager} from "./tools/errorManager.js"
-import {uuidGenerator} from "./tools/uuidGenerator.js"
+import getUUID from "./tools/uuidGenerator.js"
 
 // INIT
 const router = express.Router()
@@ -46,7 +46,7 @@ function renderDetailed(req, res) {
     const templateParams = {
         ...data[id],  // Element data
         isEmpty: !(data[id]?.bids.length),  // Bids array is empty
-        isFav: favorites[req.cookies.uuid].has(id),  // Element is in used favorites list
+        isFav: favorites[getUUID(req, res)].has(id),  // Element is in used favorites list
     }
     
     // Handle errors
@@ -109,12 +109,9 @@ function renderEdit(req, res) {
 
 function renderNav(req, res){
     // Cookies
-    let uuid = req.cookies.uuid
-    if (!uuid) {
-        uuid = uuidGenerator()
-        res.cookie("uuid", uuid)  // Generate uuid cookie if not exists
-        favorites[uuid] = new Set()
-    }
+    const uuid = getUUID(req, res)
+    
+    // If user does not have a favorites list, create one
     if (favorites[uuid] === undefined) favorites[uuid] = new Set()
      
     // Extract favorite elements of the user
@@ -128,7 +125,7 @@ function renderNav(req, res){
 function handleDeleteElement(req, res) {
     const id = req.params.id
     delete data[id]
-    favorites[req.cookies.uuid].delete(id)
+    favorites[getUUID(req, res)].delete(id)
     featured.delete(id)
 
     res.redirect(`/`)
@@ -178,6 +175,7 @@ function handleAddBid(req, res) {
     // Validate bid data
     const errors = bidErrorManager({ bid, name, email, price })
     
+    // Render error message or add bid to the list
     if (errors) res.redirect(`/detailed/${id}?error=true${errors}`)
     else {
         data[id].bids = [{ name, date, bid, picture }, ...data[id].bids]
@@ -188,13 +186,13 @@ function handleAddBid(req, res) {
 
 function handleToggleFav(req, res){
     const id = req.query.id
-    const uuid = req.cookies.uuid
+    const uuid = getUUID(req, res)
 
+    // Toggle favorite element on the users list
     if (favorites[uuid].has(id)) favorites[uuid].delete(id)
     else favorites[uuid].add(id)
 
-    console.log(favorites)
-
+    // Return success flag
     res.json({success: true})
 }
 
