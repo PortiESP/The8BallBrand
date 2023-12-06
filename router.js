@@ -1,5 +1,5 @@
 import express from "express"
-import { data, favorites, sizes, types } from "./service.js"
+import { data, featured, favorites, sizes, types } from "./service.js"
 
 // AUX FUNCTIONS
 import formatDate from "./tools/dateUtils.js"
@@ -41,7 +41,9 @@ router.post("/edit-element/:id", handleAddElement)
 
 // Rendering Functions -------------------------------------------------
 function renderIndex(req, res) {
-    res.render("index", { dataValues, ...renderNav(req, res) })
+    const featuredItems = featured.map(id => data[id])
+    
+    res.render("index", { dataValues, featuredItems, ...renderNav(req, res) })
 }
 
 function renderDetailed(req, res) {
