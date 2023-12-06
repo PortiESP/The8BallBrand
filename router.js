@@ -58,37 +58,27 @@ function renderDetailed(req, res) {
     let errors = []
     const error = req.query.error  // Error flag
     if (error) errors = decodeURIComponent(req.query.errorMsg).split(",")  // Error list (from query)
-    console.log(error, errors)
 
     res.render("detailed", { ...elementData, bids, isEmpty, error, errors, page: DETAILED_PAGE, isFav, ...renderNav(req, res) })
 }
 
 function renderPublish(req, res) {
-	const pageTitle = "Sell your best Garments!"
-	const pageMessage = "Publish"
 
-	const route = "/"
-	const postRoute = "/add-element"
-
-    // Render publish page with or without error message
-    if (!req.query.error) {
-        const error = false
-        const notError = "notError"
-        delete data[ERROR_ID]
-        res.render("publish", { dataValues: Object.values(data), today: TODAY, types, sizes, pageTitle, pageMessage, route, postRoute, error, notError, ...renderNav(req, res) })
-        
-    } else {
-        const id = ERROR_ID
-        const error = true
-        const notError = ""
-
-        const errors = data[ERROR_ID].errors
-
-        res.render('publish', {
-            ...data[ERROR_ID], today: TODAY, error, notError, errors,
-            types, sizes, pageTitle, pageMessage, route, postRoute, id, page: DEFAULT_PAGE, ...renderNav(req, res)
-        })
+    // Constant values
+    const templateParams = {
+        pageTitle: "Sell your best Garments!",
+        cancelRoute: "/",
+        postRoute: "/add-element",
+        today: new Date().toISOString().split('T')[0],
     }
+
+    // Handle errors
+    let errors = []
+    const error = req.query.error  // Error flag
+    if (error) errors = decodeURIComponent(req.query.errorMsg).split(",")  // Error list (from query)
+
+    res.render("publish", { ...templateParams, types, sizes, error, errors, ...renderNav(req, res) })
+
 }
 
 function renderEdit(req, res) {
@@ -173,32 +163,20 @@ function handleQuitDetailedErrorMsg(req, res) {
 }
 
 function handleAddElement(req, res) {
-    const dateNow = Date.now()
-
-    let id
-    if (!req.params.id) id = dateNow
-    else id = req.params.id
-    
-    const bids = data[id]?.bids || []
-    const price = parseFloat(req.body.price)
-    const finishingDate = formatDate(req.body.finishingDate)
-
-    const errors = publishErrorManager({ ...req.body, price })
-    const result = { id, ...req.body, finishingDate, price, bids }
-    
-    if (errors.length) {
-        if (id === dateNow) {
-            data[ERROR_ID] = result
-            data[ERROR_ID].errors = errors
-            res.redirect(`/publish/${ERROR_ID}?error=true`)
-
-        } else {
-            data[id].errors = errors
-            res.redirect(`/edit/${id}?error=true`)
+    console.log(req.body)
+    // Validate form data
+    const errors = publishErrorManager(req.body)
+    if (errors)  // Errors - Redirect to publish page
+        res.redirect(`/publish?error=true${errors}`) 
+    else {  // No errors - Add element to data
+        // Add new element object to data
+        data[id] = {
+            newElementID: Date.now(),  // Generate element ID, based on current time
+            finishingDate: formatDate(req.body.finishingDate),  // Format finishing date
+            price: parseFloat(req.body.price),  // Format price (float)
+            ...req.body,  // Add rest of form data
+            bids: []  // Initialize bids array
         }
-
-    } else {
-        data[id] = result
         res.redirect(`/detailed/${id}`)
     }
 }
