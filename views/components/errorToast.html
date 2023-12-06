@@ -1,4 +1,5 @@
-<div class="error-bubble {{notError}}" role="alert">
+{{#error}}
+<div class="error-bubble" role="alert">
     <div class="error-bubble-header">
         <span class="error-bubble-title">
             <i class="bi bi-cone-striped error-bubble-icon"></i>
@@ -11,8 +12,9 @@
     <div class="error-bubble-body">
         <ul>
             {{#errors}}
-            <li>{{errorMsg}}</li>
+            <li>{{.}}</li>
             {{/errors}}
         </span>
     </div>
 </div>
+{{/error}}

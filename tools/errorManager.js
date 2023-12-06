@@ -9,19 +9,19 @@ const priceMin = 0
 
 const imageValidURL = ["https://", "../assets/clothes/"]
 const imageValidExtensions = [".jpg", ".jpeg", ".png", ".svg"]
-const emailValidExtensions = ["@gmail.com", "@hotmail.com", "@outlook.com", "@yahoo.com"]
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 // Errors messages
 const errorMessages = {
-    1: "Bid too low",
-    2: `Name must have (${nameMinChars}-${nameMaxChars}) chars`,
-    3: "Invalid name",
-    4: `Description must have (${nameMinChars}-${nameMaxChars}) chars`,
-    5: "Invalid description",
-    6: `Price must be greater than ${priceMin}"`,
-    7: "Invalid image URL",
-    8: "Invalid image format",
-    9: "Invalid email"
+    100: "Bid too low",
+    200: `Name must have (${nameMinChars}-${nameMaxChars}) chars`,
+    210: `Description must have (${nameMinChars}-${nameMaxChars}) chars`,
+    300: `Price must be greater than ${priceMin}"`,
+    410: "Invalid image URL",
+    420: "Invalid image format",
+    430: "Invalid email",
+    440: "Invalid description",
+    450: "Invalid name",
 }
 
 // Check if publish form contains errors
@@ -31,35 +31,35 @@ export function publishErrorManager(obj) {
 
     // Check name
     if (name.length < nameMinChars || name.length > nameMaxChars)
-        errors.push({ errorMsg: errorMessages[2] })
+        errors.push(errorMessages[200])
 
     else if (!name.trim()) 
-        errors.push({ errorMsg: errorMessages[3] })
+        errors.push(errorMessages[450])
 
     // Check description
     if (description.length < descriptionMinChars || description.length > descriptionMaxChars)
-        errors.push({ errorMsg: errorMessages[4] })
+        errors.push(errorMessages[210])
 
     else if (!description.trim())
-        errors.push({ errorMsg: errorMessages[5] })
+        errors.push(errorMessages[440])
 
     // Check price
     if (price < priceMin)
-        errors.push({ errorMsg: errorMessages[6] })
+        errors.push(errorMessages[300])
 
     // Check image URL
     if (!image.startsWith(imageValidURL[0]) && !image.startsWith(imageValidURL[1]))
-        errors.push({ errorMsg: errorMessages[7] })
+        errors.push(errorMessages[410])
 
     else {
         // Check image extension
         let extension = image.slice(image.lastIndexOf("."))
 
         if (!imageValidExtensions.includes(extension))
-            errors.push({ errorMsg: errorMessages[8] })
+            errors.push(errorMessages[420])
     }
 
-    return errors
+    return errors ? "&errorMsg=" + encodeURIComponent(errors.join(",")) : false
 }
 
 // Check if bid form contains errors
@@ -69,25 +69,18 @@ export function bidErrorManager(obj) {
 
     // Check name
     if (name.length < nameMinChars || name.length > nameMaxChars)
-        errors.push({ errorMsg: errorMessages[2] })
+        errors.push(errorMessages[200])
 
     else if (!name.trim())
-        errors.push({ errorMsg: errorMessages[3] })
+        errors.push(errorMessages[450])
 
-    // Ceck email
-    if (email.startsWith("@"))
-        errors.push({ errorMsg: errorMessages[9] })
-    else {
-        // Check email extension
-        let extension = email.slice(email.lastIndexOf("@"))
-
-        if (!emailValidExtensions.includes(extension))
-            errors.push({ errorMsg: errorMessages[9] })
-    }
+    // Check email
+    if (!email.match(EMAIL_REGEX))
+        errors.push(errorMessages[430])
 
     // Check bid
     if (bid <= price)
-        errors.push({ errorMsg: errorMessages[1] })
+        errors.push(errorMessages[100])
 
-    return errors
+    return errors ? "&errorMsg=" + encodeURIComponent(errors.join(",")) : false
 }

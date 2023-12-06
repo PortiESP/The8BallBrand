@@ -54,18 +54,13 @@ function renderDetailed(req, res) {
     const isEmpty = !(bids?.length)
     const isFav = favorites[req.cookies.uuid].has(id)
 
-    // Render detailed page with or without error message
-    let error = false
-    let notError = "notError"
+    // Handle errors
     let errors = []
+    const error = req.query.error  // Error flag
+    if (error) errors = decodeURIComponent(req.query.errorMsg).split(",")  // Error list (from query)
+    console.log(error, errors)
 
-    if (req.query.error) {
-        error = true
-        notError = ""
-        errors = data[id].errors
-    }
-
-    res.render("detailed", { ...elementData, bids, isEmpty, error, errors, notError, page: DETAILED_PAGE, isFav, ...renderNav(req, res) })
+    res.render("detailed", { ...elementData, bids, isEmpty, error, errors, page: DETAILED_PAGE, isFav, ...renderNav(req, res) })
 }
 
 function renderPublish(req, res) {
@@ -222,10 +217,8 @@ function handleAddBid(req, res) {
     const errors = bidErrorManager({ bid, name, email, price })
     const picture = avatarGenerator(req.body.email)
     
-    if (errors.length) {
-        data[id].errors = errors
-        res.redirect(`/detailed/${id}?error=true`)
-
+    if (errors) {
+        res.redirect(`/detailed/${id}?error=true${errors}`)
     } else {
         data[id].bids = [{ ...req.body, date, bid, picture }, ...data[id].bids]
         res.redirect(`/detailed/${id}`)
