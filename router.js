@@ -41,9 +41,9 @@ router.post("/edit-element/:id", handleAddElement)
 
 // Rendering Functions -------------------------------------------------
 function renderIndex(req, res) {
-    const featuredItems = featured.map(id => data[id])
-    
-    res.render("index", { dataValues, featuredItems, ...renderNav(req, res) })
+    const featuredItems = [...featured].map(id => data[id])
+
+    res.render("index", { dataValues: Object.values(data), featuredItems, ...renderNav(req, res) })
 }
 
 function renderDetailed(req, res) {
@@ -52,8 +52,7 @@ function renderDetailed(req, res) {
     const isEmpty = !bids?.length
     const elementData = data[id] // Extract element data from data
     const page = detailedPage
-    const isFav = favorites[req.cookies.uuid]?.includes(id)
-
+    const isFav = favorites[req.cookies.uuid].has(id)
 
     // Render detailed page with or without error message
     if (!req.query.error) {
@@ -142,8 +141,17 @@ function renderEdit(req, res) {
 // Sub-components Rendering Functions ---------------------------------
 
 function renderNav(req, res){
-    if (!req.cookies.uuid) res.cookie("uuid", uuidGenerator())  // Generate uuid cookie if not exists
-    const favs = favorites[req.cookies.uuid]?.map(prodId => data[prodId]) || []  // Extract favorite elements of the user
+    // Cookies
+    let uuid = req.cookies.uuid
+    if (!uuid) {
+        uuid = uuidGenerator()
+        res.cookie("uuid", uuid)  // Generate uuid cookie if not exists
+        favorites[uuid] = new Set()
+    }
+     
+    // Extract favorite elements of the user
+    const favs = [...favorites[uuid]].map(id => data[id]) || []
+
     return {favs}
 }
 
@@ -152,6 +160,9 @@ function renderNav(req, res){
 function handleDeleteElement(req, res) {
     const id = req.params.id
     delete data[id]
+    favorites[req.cookies.uuid].delete(id)
+    featured.delete(id)
+
     dataValues = Object.values(data)
     res.redirect(`/`)
 }
@@ -233,11 +244,10 @@ function handleToggleFav(req, res){
     const id = req.query.id
     const uuid = req.cookies.uuid
 
-    if (!favorites[uuid]) favorites[uuid] = [id]
-    else {
-        if (favorites[uuid].includes(id)) favorites[uuid] = favorites[uuid].filter(favId => favId !== id)
-        else favorites[uuid].push(id)
-    }
+    if (favorites[uuid].has(id)) favorites[uuid].delete(id)
+    else favorites[uuid].add(id)
+
+    console.log(favorites)
 
     res.json({success: true})
 }

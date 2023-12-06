@@ -182,7 +182,7 @@ export const data = {
     }
 }
 
-export const featured = ["0001", "0002", "0003", "0004", "0005", "0006", "0007", "0008"]
+export const featured = new Set(["0001", "0002", "0003", "0004", "0005", "0006", "0007", "0008"])
 
 export const sizes = [
     { "size": "XS" },
@@ -212,7 +212,7 @@ export const types = [
 
 export const favorites = {
     // Template value
-    "uuidxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx": ["0001", "0002", "0003", "0004"],
+    "uuidxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx": new Set(["0001", "0002", "0003", "0004"]),
     // Values
-    "mxzbwdhy-xmrt-lvap-arcs-popy": ["0001", "0002", "0003", "0004"],
+    "mxzbwdhy-xmrt-lvap-arcs-popy": new Set(["0001", "0002", "0003", "0004"]),
 }
