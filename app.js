@@ -3,7 +3,7 @@ import mustache from "mustache-express"
 import bodyParser from 'body-parser'
 import router from './router.js'
 import cookieParser from 'cookie-parser'
-import logger from "./tools/serverLogger.js"
+import loggerMiddleware from "./tools/serverLogger.js"
 
 
 // INIT
@@ -15,7 +15,7 @@ app.set("view engine", "html")  // Use html as template engine
 app.engine('html', mustache())  // Use mustache as template engine
 app.use(bodyParser.urlencoded({ extended: true }))  // Manage POST requests
 app.use(cookieParser())  // Manage cookies
-app.use((req, _, next) => {logger(req); next()})
+app.use(loggerMiddleware)
 
 // Enable routes
 app.get('/', router)
