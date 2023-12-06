@@ -151,6 +151,7 @@ nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked > .
 }
 nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked > .item--content p {
   margin: 0;
+  word-break: break-word;
 }
 nav.navbar .navbar-nav .div--liked[role=modal] > .liked--list > .item--liked > .item--content .item--price {
   position: relative;
