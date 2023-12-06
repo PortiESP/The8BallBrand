@@ -24,8 +24,7 @@ app.get('/detailed/:id', router)
 app.get('/legal', router)
 app.get('/edit/:id', router)
 app.get('/delete/:id', router)
-app.get('/quitDetailedErrorMsg/:id', router)
-app.get('/quitDefaultErrorMsg/:id', router)
+app.get('/quit-errorMsg', router)
 app.get("/toggle-fav", router)
 
 // POST routes

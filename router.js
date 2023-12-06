@@ -9,7 +9,6 @@ import {uuidGenerator} from "./tools/uuidGenerator.js"
 
 // CONSTANTS
 const TODAY = new Date().toISOString().split('T')[0]
-const ERROR_ID = "X"
 const DEFAULT_PAGE = "Default"
 const DETAILED_PAGE = "Detailed"
 
@@ -25,9 +24,7 @@ router.get("/legal", (_, res) => res.render("legal"));
 router.get("/edit/:id", renderEdit)
 
 router.get("/delete/:id", handleDeleteElement)
-router.get("/quitDetailedErrorMsg/:id", handleQuitDetailedErrorMsg )
-router.get("/quitDefaultErrorMsg/:id", handleQuitErrorMsg )
-router.get("/quitErrorMsg/:id", handleQuitErrorMsg )
+router.get("/quit-errorMsg", handleQuitErrorMsg )
 router.get("/toggle-fav", handleToggleFav)
 
 // POST routes
@@ -66,13 +63,13 @@ function renderDetailed(req, res) {
 }
 
 function renderPublish(req, res) {
-
     // Template page values
     const templateParams = {
         pageTitle: "Sell your best Garments!",
         cancelRoute: "/",
         postRoute: "/add-element",
         today: new Date().toISOString().split('T')[0],
+        referrer: req.get('Referrer'),
     }
 
     // Handle errors
@@ -82,8 +79,8 @@ function renderPublish(req, res) {
 
     // Render page
     res.render("publish", { ...templateParams, types, sizes, error, errors, ...renderNav(req, res) })
-
 }
+
 
 function renderEdit(req, res) {
 	const id = req.params.id
@@ -152,19 +149,10 @@ function handleDeleteElement(req, res) {
 }
 
 function handleQuitErrorMsg(req, res) {
-    const id = req.params.id
-    data[id].errors = []
-
-    if (id === ERROR_ID) res.redirect(`/publish`)
-    else res.redirect(`/edit/${id}`)
+    // Redirect to previous page (do not keep error message in query)
+    res.redirect(req.get('Referrer').split('?')[0])
 }
 
-function handleQuitDetailedErrorMsg(req, res) {
-    const id = req.params.id
-
-    data[id].errors = []
-    res.redirect(`/detailed/${id}`)
-}
 
 function handleAddElement(req, res) {
     console.log(req.body)
