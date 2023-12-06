@@ -6,6 +6,7 @@ import formatDate from "./tools/dateUtils.js"
 import avatarGenerator from "./tools/avatarGenerator.js"
 import {publishErrorManager, bidErrorManager} from "./tools/errorManager.js"
 import getUUID from "./tools/uuidGenerator.js"
+import { getURLLastPath } from "./tools/urlUtils.js"
 
 // INIT
 const router = express.Router()
@@ -145,14 +146,19 @@ function handleQuitErrorMsg(req, res) {
 
 // Handle adding elements and editing elements
 function handleAddElement(req, res) {
+
+    // Referrer
+    const referrer = req.get("Referrer")
+    const target = referrer.includes("edit") ? "edit/" + getURLLastPath(referrer) : "publish"
+    console.log(referrer, target)
+
     // Validate form data
     const errors = publishErrorManager(req.body)
     const encodedForm = encodeURIComponent(JSON.stringify(req.body))  // Encode form data to be able to send it back to the form in case of error
-    if (errors) res.redirect(`/publish?error=true${errors}&form=${encodedForm}`) // Errors - Redirect to publish page
+    if (errors) res.redirect(`/${target}?error=true${errors}&form=${encodedForm}`) // Errors - Redirect to publish page
     else {  // No errors - Add element to data
         // Add/edit element
-        const referrer = req.get("Referrer")
-        const id = referrer.includes("edit") ? referrer.split("/").slice(-1)[0] : Date.now()  // Generate element ID, based on current time (use the value from the referrer if we are editing an element)
+        const id = referrer.includes("edit") ? getURLLastPath(referrer) : Date.now()  // Generate element ID, based on current time (use the value from the referrer if we are editing an element)
         data[id] = {
             id,  
             finishingDate: formatDate(req.body.finishingDate),  // Format finishing date
