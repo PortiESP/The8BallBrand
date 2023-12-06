@@ -32,10 +32,10 @@ router.post("/add-element", handleAddElement)
 router.post("/add-bid/:id", handleAddBid)
 router.post("/edit-element/:id", handleAddElement)
 
-//===================================================[Functions]===================================================//
+//================================================================[Functions]================================================================//
 
 
-// Rendering Functions -------------------------------------------------
+// Rendering Functions --------------------------------------------------------------------------------------------------
 function renderIndex(req, res) {
     // Extract data of the elements to be featured
     const featuredItems = [...featured].map(id => data[id])
@@ -46,20 +46,21 @@ function renderIndex(req, res) {
 
 function renderDetailed(req, res) {
     const id = req.params.id
-    // Element
-    const elementData = data[id] // Extract element data from data
-    // Bids
-    const bids = data[id]?.bids // Extract bids from data and sort them
-    const isEmpty = !(bids?.length)
-    const isFav = favorites[req.cookies.uuid].has(id)
 
+    // Template page values
+    const templateParams = {
+        ...data[id],  // Element data
+        isEmpty: !(data[id]?.length),  // Bids array is empty
+        isFav: favorites[req.cookies.uuid].has(id),  // Element is in used favorites list
+    }
+    
     // Handle errors
     let errors = []
     const error = req.query.error  // Error flag
     if (error) errors = decodeURIComponent(req.query.errorMsg).split(",")  // Error list (from query)
 
     // Render page
-    res.render("detailed", { ...elementData, bids, isEmpty, error, errors, page: DETAILED_PAGE, isFav, ...renderNav(req, res) })
+    res.render("detailed", { ...templateParams, error, errors, ...renderNav(req, res) })
 }
 
 function renderPublish(req, res) {
@@ -119,7 +120,7 @@ function renderEdit(req, res) {
     }
 }
 
-// Sub-components Rendering Functions ---------------------------------
+// Sub-components Rendering Functions --------------------------------------------------------------------------------------------------
 
 function renderNav(req, res){
     // Cookies
@@ -138,7 +139,7 @@ function renderNav(req, res){
 }
 
 
-// Handling Functions --------------------------------------------------
+// Handling Functions ------------------------------------------------------------------------------------------------------------------
 function handleDeleteElement(req, res) {
     const id = req.params.id
     delete data[id]
@@ -147,6 +148,7 @@ function handleDeleteElement(req, res) {
 
     res.redirect(`/`)
 }
+
 
 function handleQuitErrorMsg(req, res) {
     // Redirect to previous page (do not keep error message in query)
@@ -172,6 +174,7 @@ function handleAddElement(req, res) {
         res.redirect(`/detailed/${id}`)
     }
 }
+
 
 function handleAddBid(req, res) {
     const id = req.params.id
