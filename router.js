@@ -7,11 +7,6 @@ import avatarGenerator from "./tools/avatarGenerator.js"
 import {publishErrorManager, bidErrorManager} from "./tools/errorManager.js"
 import {uuidGenerator} from "./tools/uuidGenerator.js"
 
-// CONSTANTS
-const TODAY = new Date().toISOString().split('T')[0]
-const DEFAULT_PAGE = "Default"
-const DETAILED_PAGE = "Detailed"
-
 // INIT
 const router = express.Router()
 
@@ -50,7 +45,7 @@ function renderDetailed(req, res) {
     // Template page values
     const templateParams = {
         ...data[id],  // Element data
-        isEmpty: !(data[id]?.length),  // Bids array is empty
+        isEmpty: !(data[id]?.bids.length),  // Bids array is empty
         isFav: favorites[req.cookies.uuid].has(id),  // Element is in used favorites list
     }
     
@@ -169,22 +164,23 @@ function handleAddElement(req, res) {
 
 function handleAddBid(req, res) {
     const id = req.params.id
-    const date = formatDate(Date.now())
-
+    
+    // Bid data
     const bid = parseFloat(req.body.bid)
     const name = req.body.name
     const email = req.body.email
-
-    let price
-    data[id].bids.length ? price = parseFloat(data[id].bids[0].bid) : price = parseFloat(data[id].price)
-
-    const errors = bidErrorManager({ bid, name, email, price })
     const picture = avatarGenerator(req.body.email)
+    const date = formatDate(Date.now())
+
+    // Item price (initial price or highest bid)
+    const price = data[id].bids.length ? parseFloat(data[id].bids[0].bid) : parseFloat(data[id].price)
+
+    // Validate bid data
+    const errors = bidErrorManager({ bid, name, email, price })
     
-    if (errors) {
-        res.redirect(`/detailed/${id}?error=true${errors}`)
-    } else {
-        data[id].bids = [{ ...req.body, date, bid, picture }, ...data[id].bids]
+    if (errors) res.redirect(`/detailed/${id}?error=true${errors}`)
+    else {
+        data[id].bids = [{ name, date, bid, picture }, ...data[id].bids]
         res.redirect(`/detailed/${id}`)
     }
 }

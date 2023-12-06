@@ -1,8 +1,8 @@
-let originRoute = "https://www.gravatar.com/avatar/"
-let params = "?s=256&d=identicon"
+const ORIGIN_ROUTE = "https://www.gravatar.com/avatar/"
+const QUERY = "?s=256&d=identicon"
 
 function avatarGenerator(email) {
-    return originRoute + email + params
+    return ORIGIN_ROUTE + email + QUERY
 }
 
 export default avatarGenerator
