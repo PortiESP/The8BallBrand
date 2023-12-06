@@ -8,8 +8,8 @@ import {publishErrorManager, bidErrorManager} from "./tools/errorManager.js"
 import {uuidGenerator} from "./tools/uuidGenerator.js"
 
 // CONSTANTS
-const today = new Date().toISOString().split('T')[0]
-const errorId = "X"
+const TODAY = new Date().toISOString().split('T')[0]
+const ERROR_ID = "X"
 const DEFAULT_PAGE = "Default"
 const DETAILED_PAGE = "Detailed"
 
@@ -81,18 +81,18 @@ function renderPublish(req, res) {
     if (!req.query.error) {
         const error = false
         const notError = "notError"
-        delete data[errorId]
-        res.render("publish", { dataValues: Object.values(data), today, types, sizes, pageTitle, pageMessage, route, postRoute, error, notError, ...renderNav(req, res) })
+        delete data[ERROR_ID]
+        res.render("publish", { dataValues: Object.values(data), today: TODAY, types, sizes, pageTitle, pageMessage, route, postRoute, error, notError, ...renderNav(req, res) })
         
     } else {
-        const id = errorId
+        const id = ERROR_ID
         const error = true
         const notError = ""
 
-        const errors = data[errorId].errors
+        const errors = data[ERROR_ID].errors
 
         res.render('publish', {
-            ...data[errorId], today, error, notError, errors,
+            ...data[ERROR_ID], today: TODAY, error, notError, errors,
             types, sizes, pageTitle, pageMessage, route, postRoute, id, page: DEFAULT_PAGE, ...renderNav(req, res)
         })
     }
@@ -119,7 +119,7 @@ function renderEdit(req, res) {
         const notError = "notError"
 
         res.render('publish', {
-            ...data[id], today, finishingDate, error, notError,
+            ...data[id], today: TODAY, finishingDate, error, notError,
             types, sizes, pageTitle, pageMessage, route, postRoute, ...renderNav(req, res)
         })
 
@@ -129,7 +129,7 @@ function renderEdit(req, res) {
         const errors = data[id].errors
 
         res.render('publish', {
-            ...data[id], today, finishingDate, error, notError, errors,
+            ...data[id], today: TODAY, finishingDate, error, notError, errors,
             types, sizes, pageTitle, pageMessage, route, postRoute, page: DEFAULT_PAGE, ...renderNav(req, res)
         })
     }
@@ -168,7 +168,7 @@ function handleQuitErrorMsg(req, res) {
     const id = req.params.id
     data[id].errors = []
 
-    if (id === errorId) res.redirect(`/publish`)
+    if (id === ERROR_ID) res.redirect(`/publish`)
     else res.redirect(`/edit/${id}`)
 }
 
@@ -195,9 +195,9 @@ function handleAddElement(req, res) {
     
     if (errors.length) {
         if (id === dateNow) {
-            data[errorId] = result
-            data[errorId].errors = errors
-            res.redirect(`/publish/${errorId}?error=true`)
+            data[ERROR_ID] = result
+            data[ERROR_ID].errors = errors
+            res.redirect(`/publish/${ERROR_ID}?error=true`)
 
         } else {
             data[id] = result
