@@ -29,12 +29,12 @@ router.get("/delete/:id", handleDeleteElement)
 router.get("/quitDetailedErrorMsg/:id", handleQuitDetailedErrorMsg )
 router.get("/quitDefaultErrorMsg/:id", handleQuitErrorMsg )
 router.get("/quitErrorMsg/:id", handleQuitErrorMsg )
+router.get("/toggle-fav", handleToggleFav)
 
 // POST routes
 router.post("/add-element", handleAddElement)
 router.post("/add-bid/:id", handleAddBid)
 router.post("/edit-element/:id", handleAddElement)
-router.post("/toggle-fav", handleToggleFav)
 
 //===================================================[Functions]===================================================//
 
@@ -237,7 +237,7 @@ function handleToggleFav(req, res){
         else favorites[uuid].push(id)
     }
 
-    res.json({success: true, numFavs: favorites[uuid].length})
+    res.json({success: true})
 }
 
 // Export routes definitions

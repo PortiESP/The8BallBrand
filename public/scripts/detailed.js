@@ -1,14 +1,8 @@
 
 function toggleFav(id){
-  fetch("/toggle-fav?id=" + id, {
-    method: "POST"
-  })
+  fetch("/toggle-fav?id=" + id)
   .then(res => res.json())
-  .then(data => {
-    document.querySelector("span.favs--bubble").innerText = data.numFavs
-  })
+  .then(data => data.success && location.reload())
 }
-
-
 
 document.querySelector("label[for='favorite-checkbox']").addEventListener("click", ()=>toggleFav(new URL(location).pathname.split("/").slice(-1)[0]))

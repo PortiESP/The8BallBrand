@@ -27,12 +27,12 @@ app.get('/edit/:id', router)
 app.get('/delete/:id', router)
 app.get('/quitDetailedErrorMsg/:id', router)
 app.get('/quitDefaultErrorMsg/:id', router)
+app.get("/toggle-fav", router)
 
 // POST routes
 app.post('/add-element', router)
 app.post('/add-bid/:id', router)
 app.post('/edit-element/:id', router)
-app.post("/toggle-fav", router)
 
 
 // Static files
