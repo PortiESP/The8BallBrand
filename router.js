@@ -55,19 +55,17 @@ function renderDetailed(req, res) {
     const isFav = favorites[req.cookies.uuid].has(id)
 
     // Render detailed page with or without error message
-    if (!req.query.error) {
-        const error = false
-        const notError = "notError"
-        
-        res.render("detailed", { ...elementData, bids, isEmpty, error, notError, isFav, ...renderNav(req, res) })
+    let error = false
+    let notError = "notError"
+    let errors = []
 
-    } else {
-        const error = true
-        const notError = ""
-        const errors = data[id].errors
-
-        res.render("detailed", { ...elementData, bids, isEmpty, error, errors, notError, page: DETAILED_PAGE, isFav, ...renderNav(req, res) })
+    if (req.query.error) {
+        error = true
+        notError = ""
+        errors = data[id].errors
     }
+
+    res.render("detailed", { ...elementData, bids, isEmpty, error, errors, notError, page: DETAILED_PAGE, isFav, ...renderNav(req, res) })
 }
 
 function renderPublish(req, res) {
@@ -206,7 +204,6 @@ function handleAddElement(req, res) {
 
     } else {
         data[id] = result
-
         res.redirect(`/detailed/${id}`)
     }
 }
