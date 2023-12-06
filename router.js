@@ -21,6 +21,7 @@ router.get("/edit/:id", renderPublishEdit)
 router.get("/delete/:id", handleDeleteElement)
 router.get("/quit-errorMsg", handleQuitErrorMsg )
 router.get("/toggle-fav", handleToggleFav)
+router.get("/clear-favs-list", handleClearFavsList)
 
 // POST routes
 router.post("/add-element", handleAddElement)
@@ -195,7 +196,6 @@ function handleAddBid(req, res) {
     }
 }
 
-
 function handleToggleFav(req, res){
     const id = req.query.id
     const uuid = getUUID(req, res)
@@ -206,6 +206,17 @@ function handleToggleFav(req, res){
 
     // Return success flag
     res.json({success: true})
+}
+
+function handleClearFavsList(req, res){
+    const uuid = getUUID(req, res)
+    const referrer = req.get("Referrer")
+
+    // Clear user favorites list
+    favorites[uuid] = new Set()
+
+    // Return success flag
+    res.redirect(referrer)
 }
 
 // Export routes definitions

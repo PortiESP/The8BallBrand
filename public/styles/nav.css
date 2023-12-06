@@ -185,6 +185,10 @@ nav.navbar .navbar-nav .div--liked[role=modal] > .checkout button:hover {
   background: black;
   color: #eee;
 }
+nav.navbar .navbar-nav .div--liked[role=modal] > .checkout button a {
+  color: inherit;
+  text-decoration: none;
+}
 nav.navbar .navbar-nav .icon--search {
   font-size: 22px;
 }
