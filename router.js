@@ -200,7 +200,6 @@ function handleAddElement(req, res) {
             res.redirect(`/publish/${ERROR_ID}?error=true`)
 
         } else {
-            data[id] = result
             data[id].errors = errors
             res.redirect(`/edit/${id}?error=true`)
         }
