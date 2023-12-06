@@ -14,7 +14,6 @@ const router = express.Router()
 router.get("/", renderIndex);
 router.get("/detailed/:id", renderDetailed);
 router.get("/publish", renderPublish);
-router.get("/publish", renderPublish);
 router.get("/legal", (_, res) => res.render("legal"));
 router.get("/edit/:id", renderPublishEdit)
 
@@ -66,6 +65,7 @@ function renderPublish(req, res) {
     // Template page values
     const templateParams = {
         pageTitle: "Sell your best Garments!",
+        pageLittleTitle: "Publish",
         cancelRoute: "/",
         postRoute: "/add-element",
         today: new Date().toISOString().split('T')[0],
@@ -83,9 +83,11 @@ function renderPublish(req, res) {
 
 function renderPublishEdit(req, res) {
     const id = req.params.id
+    const uuid = getUUID(req, res)
     // Template page values
     const templateParams = {
         pageTitle: "Edit your selling",
+        pageLittleTitle: "Edit",
         cancelRoute: `/detailed/${id}`,
         postRoute: `/edit-element/${id}`,
         today: new Date().toISOString().split('T')[0],

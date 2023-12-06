@@ -19,6 +19,9 @@
                 <span class="bi-wide">
                     {{pageTitle}}
                 </span>
+                <span class="bi-stretched">
+                    {{pageLittleTitle}}
+                </span>
                 <hr />
             </header>
             <form class="form-container" method="post" action={{postRoute}}>
@@ -106,7 +109,7 @@
 
                 <div class="buttons">
                     <a href="{{cancelRoute}}" class="btn btn-danger btn-form">Cancel</a>
-                    <button type="submit" class="btn btn-success btn-form">Confirm</button>
+                    <button type="submit" class="btn btn-success btn-form">{{pageLittleTitle}}</button>
                 </div>
             </form>
         </div>
