@@ -35,7 +35,31 @@ export const data = {
         type: "Hoodie",
         size: "M",
         finishingDate: "13/12/2023",
-        bids: [],
+        bids: [
+            {
+                name: "Jaime Portillo",
+                email: "jaime@portillo.com",
+                bid: 45,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/jjaimepp@portillo.com?s=256&d=identicon"
+                
+            },
+            {
+                name: "Diego Sanchez",
+                email: "diego@sanchez.com",
+                bid: 40,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/diego@sanchez.com?s=256&d=identicon"
+                
+            },
+            {
+                name: "Dani Santos",
+                email: "dani@santos.com",
+                bid: 37,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/dani@santos.com?s=256&d=identicon"
+            },
+        ],
     },
     "0003": {
         id: "0003",
@@ -46,7 +70,31 @@ export const data = {
         type: "Hoodie",
         size: "L",
         finishingDate: "04/01/2024",
-        bids: [],
+        bids: [
+            {
+                name: "Jaime Portillo",
+                email: "jaime@portillo.com",
+                bid: 30,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/jjaimepp@portillo.com?s=256&d=identicon"
+                
+            },
+            {
+                name: "Dani Santos",
+                email: "dani@santos.com",
+                bid: 25,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/dani@santos.com?s=256&d=identicon"
+            },
+            {
+                name: "Diego Sanchez",
+                email: "diego@sanchez.com",
+                bid: 23,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/diego@sanchez.com?s=256&d=identicon"
+                
+            },
+        ],
     },
     "0004": {
         id: "0004",
