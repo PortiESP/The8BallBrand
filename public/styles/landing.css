@@ -138,8 +138,9 @@ main section .item .item--content .number--of--bids {
 main section .item .item--content .number--of--bids span.bid--number {
   position: relative;
   z-index: 1;
+  font-size: 15px;
   font-weight: 700;
-  color: #000;
+  color: #fff;
 }
 main section .item .item--content .number--of--bids img {
   height: 30px;
