@@ -3,10 +3,10 @@
     <div class="item--images">
       <img src="{{image}}" alt="{{type}}" class="item--image-front" />
     </div>
-    <div class="item--content">
+    <div class="item--content"> {{#bids.length}}<span class="number--of--bids">{{bids.length}}</span>{{/bids.length}}
       <p role="button">
         {{name}}
-        {{#bids.length}}<span class="number--of--bids">{{bids.length}}</span>{{/bids.length}}
+       
       </p>
       <div class="item--price">
         <strong>{{price}}€</strong>

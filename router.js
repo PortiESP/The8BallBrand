@@ -36,9 +36,10 @@ function renderIndex(req, res) {
     const uuid = getUUID(req, res)
     // Extract data of the elements to be featured
     const featuredItems = [...featured].map(id => data[id])
+    const dataValues = Object.values(data).sort((a, b) => b.bids.length - a.bids.length) // Sort elements by number of bids
 
     // Render page
-    res.render("index", { dataValues: Object.values(data), featuredItems, ...parseNav(req, res, uuid) })
+    res.render("index", { dataValues, featuredItems, ...parseNav(req, res, uuid) })
 }
 
 function renderDetailed(req, res) {
