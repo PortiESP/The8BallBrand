@@ -142,7 +142,9 @@ main {
                 align-items: center;
                 gap: 15px;
                 padding-bottom: 10px;
+                
 
+                
                 & p {
                     font-weight: 600;
                     margin: 0;
@@ -150,6 +152,7 @@ main {
                     border: 1px solid $cardColor;
                     text-align: center;
                     word-break: break-word;
+                    position: relative;
 
                     transition: all 0.1s ease;
 
@@ -157,6 +160,22 @@ main {
                         background: $themePrimary;
                         color: $white;
                     }
+                    & .number--of--bids {
+                    position: absolute;
+                    $pos:-8px;
+                    top:$pos;
+                    right:$pos;
+                    background: #eee;
+                    border: 1px solid $cardColor;
+                    color: #000;
+                    width: 18px;
+                    height: 18px;
+                    text-align: center;
+                    line-height: 18px;
+                    border-radius: 50%;
+                    font-size: 0.8em;
+                }
+
                 }
 
                 & .item--price {
