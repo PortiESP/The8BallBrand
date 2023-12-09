@@ -8,6 +8,9 @@ import {publishErrorManager, bidErrorManager} from "./tools/errorManager.js"
 import getUUID from "./tools/uuidGenerator.js"
 import { getURLLastPath } from "./tools/urlUtils.js"
 
+// CONSTANTS
+const FEATURED_THRESHOLD = 3
+
 // INIT
 const router = express.Router()
 
@@ -35,7 +38,7 @@ router.post("/add-bid/:id", handleAddBid)
 function renderIndex(req, res) {
     const uuid = getUUID(req, res)
     // Extract data of the elements to be featured
-    const featuredItems = [...featured].map(id => data[id])
+    const featuredItems = [...featured].map(id => data[id]).sort((a, b) => b.bids.length - a.bids.length)
     const dataValues = Object.values(data).sort((a, b) => b.bids.length - a.bids.length) // Sort elements by number of bids
 
     // Render page
@@ -193,6 +196,7 @@ function handleAddBid(req, res) {
     if (errors) res.redirect(`/detailed/${id}?error=true${errors}`)
     else {
         data[id].bids = [{ name, date, bid, picture }, ...data[id].bids]
+        if (data[id].bids.length >= FEATURED_THRESHOLD) featured.add(id)  
         res.redirect(`/detailed/${id}`)
     }
 }

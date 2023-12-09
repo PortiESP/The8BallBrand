@@ -39,6 +39,7 @@ main {
             margin-top: 10px;
             overflow-x: scroll;
             background: $cardBackground;
+            justify-content: center;
 
             &::-webkit-scrollbar {
                 height: 14px;
@@ -164,7 +165,7 @@ main {
                         z-index: 1;
                         font-size: 15px;
                         font-weight: 500;
-                        color: #000;
+                        color: #888;
                     }
 
                     & img {

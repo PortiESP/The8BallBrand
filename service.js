@@ -10,6 +10,31 @@ export const data = {
         finishingDate: "11/12/2023",
         bids: [
             {
+                name: "Laura Pineda",
+                email: "laura@pineda.com",
+                bid: 50,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/laura@pineda.com?s=256&d=identicon"
+                
+            },
+            {
+                name: "Samuel Melián",
+                email: "samuel@melian.com",
+                bid: 45,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/samuel@melian.com?s=256&d=identicon"
+                
+            },
+            {
+                name: "Luis Abril",
+                email: "luis@abril.com",
+                bid: 42,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/luis@abril.com?s=256&d=identicon"
+                
+            },
+            
+            {
                 name: "Diego Sanchez",
                 email: "diego@sanchez.com",
                 bid: 38,
@@ -24,6 +49,15 @@ export const data = {
                 date: "11/12/2023",
                 picture: "https://www.gravatar.com/avatar/dani@santos.com?s=256&d=identicon"
             },
+            {
+                name: "Jaime Portillo",
+                email: "jaime@portillo.com",
+                bid: 30,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/jjaimepp@portillo.com?s=256&d=identicon"
+            }
+
+
         ],
     },
     "0002": {
@@ -36,6 +70,21 @@ export const data = {
         size: "M",
         finishingDate: "13/12/2023",
         bids: [
+            {
+                name: "Jaime Portillo",
+                email: "jaime@portillo.com",
+                bid: 30,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/jjaimepp@portillo.com?s=256&d=identicon"
+            },
+            {
+                name: "Laura Pineda",
+                email: "laura@pineda.com",
+                bid: 50,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/laura@pineda.com?s=256&d=identicon"
+                
+            },
             {
                 name: "Jaime Portillo",
                 email: "jaime@portillo.com",
@@ -105,7 +154,39 @@ export const data = {
         type: "Hoodie",
         size: "L",
         finishingDate: "09/02/2024",
-        bids: [],
+        bids: [
+            {
+                name: "Samuel Melián",
+                email: "samuel@melian.com",
+                bid: 80,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/samuel@melian.com?s=256&d=identicon"
+                
+            },
+            {
+                name: "Luis Abril",
+                email: "luis@abril.com",
+                bid: 75,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/luis@abril.com?s=256&d=identicon"
+                
+            },
+            {
+                name: "Afri :)",
+                email: "afri@ortega.com",
+                bid: 70,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/afri@ortega.com?s=256&d=identicon"
+            },
+            {
+                name: "Dani Santos",
+                email: "dani@santos.com",
+                bid: 65,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/dani@santos.com?s=256&d=identicon"
+            }
+            
+        ],
     },
     "0005": {
         id: "0005",
@@ -116,7 +197,40 @@ export const data = {
         type: "Jeans",
         size: "L",
         finishingDate: "09/01/2024",
-        bids: [],
+        bids: [
+            {
+                name: "Samuel Melián",
+                email: "samuel@melian.com",
+                bid: 70,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/samuel@melian.com?s=256&d=identicon"
+                
+            },
+            {
+                name: "Luis Abril",
+                email: "luis@abril.com",
+                bid: 60,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/luis@abril.com?s=256&d=identicon"
+                
+            },
+            {
+                name: "Diego Sanchez",
+                email: "diego@sanchez.com",
+                bid: 50,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/diego@sanchez.com?s=256&d=identicon"
+                
+            },
+            {
+                name: "Samuel Melián",
+                email: "samuel@melian.com",
+                bid: 45,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/samuel@melian.com?s=256&d=identicon"
+                
+            },
+        ],
     },
     "0006": {
         id: "0006",
@@ -127,7 +241,15 @@ export const data = {
         type: "Shirt",
         size: "M",
         finishingDate: "09/01/2024",
-        bids: []
+        bids: [
+            {
+                name: "Jaime Portillo",
+                email: "jaime@portillo.com",
+                bid: 30,
+                date: "11/12/2023",
+                picture: "https://www.gravatar.com/avatar/jjaimepp@portillo.com?s=256&d=identicon"
+            }
+        ]
     },
     "0007": {
         id: "0007",
@@ -230,7 +352,7 @@ export const data = {
     }
 }
 
-export const featured = new Set(["0001", "0002", "0003", "0004", "0005", "0006", "0007", "0008"])
+export const featured = new Set(["0001", "0002", "0003", "0004","0005"])
 
 export const sizes = [
     { "size": "XS" },
