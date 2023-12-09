@@ -33,7 +33,3 @@
 ```bash
 node app.js
 ```
-### To do list:
-  + Implment display: none in featured items section
-  + pop up with delete button (not to delete instantly)
-  + 
