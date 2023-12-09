@@ -20,10 +20,12 @@
                 <heading>
                     <h2 class="section--title">FEATURED ITEMS</h2>
                 </heading>
-                <div class="featured" role="listbox">
-                    {{# featuredItems}}
-                    {{> components/item}}
-                    {{/ featuredItems}}
+                <div class="featured--wrap">
+                    <div class="featured" role="listbox">
+                        {{# featuredItems}}
+                        {{> components/item}}
+                        {{/ featuredItems}}
+                    </div>
                 </div>
             </section>
             {{/featuredItems.length}}

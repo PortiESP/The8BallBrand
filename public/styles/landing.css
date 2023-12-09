@@ -25,35 +25,39 @@ main section .item--link {
   text-decoration: none;
   color: inherit;
 }
-main section .featured {
+main section .featured--wrap {
   width: 100%;
   margin: 20px 0;
-  display: flex;
-  margin: 50px 0;
   margin-top: 10px;
-  overflow-x: scroll;
-  background: #fff;
+  display: flex;
   justify-content: center;
+  background: #fff;
 }
-main section .featured::-webkit-scrollbar {
+main section .featured--wrap .featured {
+  max-width: 100vw;
+  margin-top: 10px;
+  display: flex;
+  overflow-x: scroll;
+}
+main section .featured--wrap .featured::-webkit-scrollbar {
   height: 14px;
 }
-main section .featured::-webkit-scrollbar-track {
+main section .featured--wrap .featured::-webkit-scrollbar-track {
   background: #fff;
 }
-main section .featured::-webkit-scrollbar-thumb {
+main section .featured--wrap .featured::-webkit-scrollbar-thumb {
   background: #fff;
 }
-main section .featured:hover::-webkit-scrollbar-track {
+main section .featured--wrap .featured:hover::-webkit-scrollbar-track {
   background: #f0f0f0;
 }
-main section .featured:hover::-webkit-scrollbar-thumb {
+main section .featured--wrap .featured:hover::-webkit-scrollbar-thumb {
   background: #dfdfdf;
 }
-main section .featured::-webkit-scrollbar-thumb:hover {
+main section .featured--wrap .featured::-webkit-scrollbar-thumb:hover {
   background: #c7c7c7;
 }
-main section .featured .item {
+main section .featured--wrap .featured .item {
   min-width: 280px;
 }
 main section .items--wrap {
