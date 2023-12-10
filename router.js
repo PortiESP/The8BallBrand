@@ -155,7 +155,6 @@ function handleAddElement(req, res) {
     // Referrer
     const referrer = req.get("Referrer")
     const target = referrer.includes("edit") ? "edit/" + getURLLastPath(referrer) : "publish"
-    console.log(referrer, target)
 
     // Validate form data
     const errors = publishErrorManager(req.body)
@@ -164,13 +163,16 @@ function handleAddElement(req, res) {
     else {  // No errors - Add element to data
         // Add/edit element
         const id = referrer.includes("edit") ? getURLLastPath(referrer) : Date.now()  // Generate element ID, based on current time (use the value from the referrer if we are editing an element)
+        const finishingDate = formatDate(req.body.finishingDate)  // Format finishing date
+
         data[id] = {
             id,  
-            finishingDate: formatDate(req.body.finishingDate),  // Format finishing date
+            ...req.body,  // Add form data
+            finishingDate: finishingDate,
             price: parseFloat(req.body.price),  // Format price (float)
-            ...req.body,  // Add rest of form data
             bids: []  // Initialize bids array
         }
+
         res.redirect(`/detailed/${id}`)
     }
 }
