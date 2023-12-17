@@ -4,12 +4,12 @@ import { sizes, types } from "../service.js"
 const NAME_MIN_CHARS = 3
 const NAME_MAX_CHARS = 20
 
-const DESCRIPTION_MIN_CHARS = 10
-const DESCRIPTION_MAX_CHARS = 100
+const DESCRIPTION_MIN_CHARS = 50
+const DESCRIPTION_MAX_CHARS = 500
 
 const MIN_PRICE = 0
 
-const IMAGE_VALID_URL = ["http://", "https://", "../assets/clothes/"]
+const IMAGE_VALID_URL = ["http://", "https://", "assets"]
 const IMAGE_VALID_EXTENSIONS = [".jpg", ".jpeg", ".png", ".svg"]
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 

@@ -48,6 +48,9 @@
   flex-direction: column;
   gap: 25px;
 }
+.main-container .form-container .input-container .input-group {
+  position: relative;
+}
 .main-container .form-container .input-container .input-group span.input-group-text {
   padding: 0;
   width: 15%;
@@ -57,14 +60,28 @@
   color: #666;
   font-size: 18px;
   font-weight: 500;
-  background: none;
+  background-color: transparent;
   border: none;
   border-right: 2px solid #c8c8c8;
+}
+.main-container .form-container .input-container .input-group .invalid-feedback {
+  position: absolute;
+  right: 10px;
+  bottom: -12px;
+  text-align: right;
+  margin: 0;
+  font-size: 0.75em;
+  pointer-events: none;
+  z-index: 10;
+}
+.main-container .form-container .input-container .input-group .invalid-feedback .feedback-msg {
+  background: #eee;
+  padding: 0;
 }
 .main-container .form-container .input-container input.form-control, .main-container .form-container .input-container select.form-control {
   border: 0;
   box-shadow: none;
-  background: none;
+  background-color: transparent;
 }
 .main-container .form-container .input-container input.form-control:focus, .main-container .form-container .input-container select.form-control:focus {
   border: 0px;
