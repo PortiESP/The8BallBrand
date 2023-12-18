@@ -1,35 +1,41 @@
+# 🎱 The 8 Ball Brand
 
+<p align="center">
+  <img src="./public/assets/full-icon.svg" alt="Logo">
+</p>
 
-# The 8 Ball Brand
+## 👥 Team Members
 
-![alt text](./public/assets/full-icon.svg "Logo")
+| Name | Avatar |
+| ---- | ------ |
+| **Jaime Portillo Pérez** | <img src="https://avatars.githubusercontent.com/u/47105148?v=4" width="100"> |
+| **Diego Sánchez Rincón** | <img src="https://avatars.githubusercontent.com/u/121297520?v=4" width="100"> |
+| **Daniel Santos López** | <img src="https://avatars.githubusercontent.com/u/146845008?v=4" width="100"> |
 
+## 📂 Repository
 
-### Integrantes
-+ Jaime Portillo Pérez
+#### You can find our project repository [here](https://github.com/PortiESP/ProyectoWebURJC).
 
-+ Diego Sánchez Rincón
+---
 
-+ Daniel Santos López
+## 🚀 Getting Started
 
-<img src="https://avatars.githubusercontent.com/u/47105148?v=4" width="100">
-<img src="https://avatars.githubusercontent.com/u/121297520?v=4" width="100">
-<img src="https://avatars.githubusercontent.com/u/146845008?v=4" width="100">
+Follow these steps to get the application up and running:
 
+1. 🖥️ **Open your terminal**
 
+2. 📁 **Navigate to the project directory**
 
-### Repository link in Github
+3. 📥 **Install the dependencies** by running the following command: 
 
-> https://github.com/PortiESP/ProyectoWebURJC
+    ```bash
+    npm install
+    ```
 
+4. 🚀 **Start the application** by running the following command: 
 
-------------------------------------------------------------------------------------------------------------
+    ```bash
+    npm run start
+    ```
 
-
-## Startup
-
-> Make sure to have all the dependencies installed. Run `npm i` in the terminal to install the necesary packages
-
-```bash
-node app.js
-```
+5. 🌐 **Open your browser** and go to `http://localhost:3000/`
