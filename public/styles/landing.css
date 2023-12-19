@@ -35,11 +35,11 @@ main section heading .heading--container .items--layout {
   font-size: 1.4rem;
   border: none;
   color: black;
-  background-color: #eee;
+  background-color: white;
 }
 main section heading .heading--container .items--layout:hover {
-  background-color: #fff;
-  color: black;
+  background-color: #212529;
+  color: white;
 }
 main section heading .heading--container .items--layout:active {
   background-color: #ddd;
