@@ -3,17 +3,21 @@
     <div class="item--images">
       <img src="{{image}}" alt="{{type}}" class="item--image-front" />
     </div>
-    <div class="item--content"> 
-      {{#bids.length}}
-      <span class="number--of--bids">
-        <span class="bid--number">{{bids.length}}</span>
-        <img src="../assets/bg-bid-info.svg" alt="cookie bg">
-        </span>
-      {{/bids.length}}
-      
+    <div class="item--content">
       <p role="button">
         {{name}}
       </p>
+      <div class="div--bids">
+        <span class="number--of--bids">
+          <span class="bid--number">{{bids.length}}</span>
+        </span>
+      </div>
+      <div class="list--view list--type">
+        <kbd>{{type}}</kbd>
+      </div>
+      <div class="list--view list--size">
+        {{size}}
+      </div>
       <div class="item--price">
         <strong>{{price}}€</strong>
       </div>
