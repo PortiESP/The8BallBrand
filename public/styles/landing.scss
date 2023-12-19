@@ -106,7 +106,13 @@ main {
         }
 
         & .items--wrap {
-            display: grid;
+            &.items-wrap--grid{
+                display: grid;
+            }
+            &.items-wrap--list{
+                display: flex;
+                flex-direction: column;
+            }
             grid-template-columns: repeat(4, 1fr);
             gap: 10px;
             width: 80%;

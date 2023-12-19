@@ -84,11 +84,17 @@ main section .featured--wrap .featured .item {
   min-width: 280px;
 }
 main section .items--wrap {
-  display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   width: 80%;
   margin-top: 10px;
+}
+main section .items--wrap.items-wrap--grid {
+  display: grid;
+}
+main section .items--wrap.items-wrap--list {
+  display: flex;
+  flex-direction: column;
 }
 main section .items--wrap .add--item {
   border: 3px solid rgba(170, 170, 170, 0.4666666667);
