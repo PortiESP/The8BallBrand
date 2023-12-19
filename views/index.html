@@ -8,6 +8,7 @@
         <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
         <link rel="stylesheet" href="/styles/global.css" />
         <link rel="stylesheet" href="/styles/landing.css" />
+        <link rel="stylesheet" href="/styles/itemsCard.css" />
     </head>
 
     <body>
@@ -41,7 +42,7 @@
                         </button>
                     </div>
                 </heading>
-                <div class="items--wrap items-wrap--grid">
+                <div class="items--wrap items-wrap--list">
                     {{# dataValues}}
                     {{> components/item}}
                     {{/ dataValues}}
