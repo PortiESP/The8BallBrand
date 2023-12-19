@@ -9,7 +9,7 @@ const DESCRIPTION_MAX_CHARS = 500
 
 const MIN_PRICE = 0
 
-const IMAGE_VALID_URL = ["http://", "https://", "assets"]
+const IMAGE_VALID_URL = ["http://", "https://", "/assets"]
 const IMAGE_VALID_EXTENSIONS = [".jpg", ".jpeg", ".png", ".svg"]
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 

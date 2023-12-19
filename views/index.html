@@ -18,7 +18,9 @@
             {{#featuredItems.length}}
             <section>
                 <heading>
-                    <h2 class="section--title">FEATURED ITEMS</h2>
+                    <div class="heading--container">
+                        <h2 class="section--title">FEATURED ITEMS</h2>
+                    </div>
                 </heading>
                 <div class="featured--wrap">
                     <div class="featured" role="listbox">
@@ -32,7 +34,12 @@
             <!------------------------------------------------------------------------------------------------------------------------------------------------------------------ LATEST SALES -->
             <section>
                 <heading>
-                    <h2 class="section--title">LATEST SALES</h2>
+                    <div class="heading--container">
+                        <h2 class="section--title">LATEST SALES</h2>
+                        <button class="items--layout">
+                            <span><i class="bi bi-grid-1x2-fill"></i></span>
+                        </button>
+                    </div>
                 </heading>
                 <div class="items--wrap">
                     {{# dataValues}}

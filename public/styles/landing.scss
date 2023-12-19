@@ -14,15 +14,40 @@ main {
         & heading{
             width: 100%;
 
-            & .section--title {
-                font-family: "Poppins";
-                font-weight: 400;
-                font-size: 2.6em;
+            & .heading--container {
                 width: 80%;
-                color: $title;
-                border-bottom: 2px solid $titleLine;
-                margin: 20px auto;
+                padding: 20px 0;
+                display: flex;
+                align-items: flex-end;
+                margin: auto;
+                gap: 20px;
+
+                & .section--title {
+                    font-family: "Poppins";
+                    font-weight: 400;
+                    font-size: 2.6em;
+                    width: 100%;
+                    color: $title;
+                    border-bottom: 2px solid $titleLine;
+                    margin: 0;
+                }
+
+                & .items--layout {
+                    $size: 60px;
+                    width: $size;
+                    height: $size;
+                    font-size: 1.2rem;
+                    border: none;
+                    color: black;
+                    background-color: #eee;
+
+                    &:hover {
+                        background-color: #fff;
+                        color: black;
+                    }
+                }
             }
+
         }
 
 
@@ -261,6 +286,9 @@ main {
 @media (max-width: 800px) {
     main {
         & section {
+            & heading .heading--container {
+                width: 90%;
+            }
             & .items--wrap {
                 width: 90%;
                 grid-template-columns: 1fr 1fr;

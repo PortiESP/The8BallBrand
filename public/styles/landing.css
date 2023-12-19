@@ -12,14 +12,34 @@ main section {
 main section heading {
   width: 100%;
 }
-main section heading .section--title {
+main section heading .heading--container {
+  width: 80%;
+  padding: 20px 0;
+  display: flex;
+  align-items: flex-end;
+  margin: auto;
+  gap: 20px;
+}
+main section heading .heading--container .section--title {
   font-family: "Poppins";
   font-weight: 400;
   font-size: 2.6em;
-  width: 80%;
+  width: 100%;
   color: #eee;
   border-bottom: 2px solid rgba(255, 255, 255, 0.2666666667);
-  margin: 20px auto;
+  margin: 0;
+}
+main section heading .heading--container .items--layout {
+  width: 60px;
+  height: 60px;
+  font-size: 1.2rem;
+  border: none;
+  color: black;
+  background-color: #eee;
+}
+main section heading .heading--container .items--layout:hover {
+  background-color: #fff;
+  color: black;
 }
 main section .item--link {
   text-decoration: none;
@@ -209,6 +229,9 @@ main section .item:hover .item--image-front {
   }
 }
 @media (max-width: 800px) {
+  main section heading .heading--container {
+    width: 90%;
+  }
   main section .items--wrap {
     width: 90%;
     grid-template-columns: 1fr 1fr;

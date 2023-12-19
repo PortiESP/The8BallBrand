@@ -5,8 +5,6 @@ const NAME_MAX_CHARS = 20
 const DESCRIPTION_MIN_CHARS = 50
 const DESCRIPTION_MAX_CHARS = 500
 
-const IMAGE_VALID_URL = ["http://", "https://", "../assets/clothes/"]
-const IMAGE_VALID_EXTENSIONS = [".jpg", ".jpeg", ".png", ".svg"]
 const URL_REGEX = /^(https?):\/\/[^ "]+\.[a-z]{0,3}\/[^ "]+\.(jpg|png|svg|jpeg|gif)$/
 const LOCAL_URL_REGEX = /^\/assets\/clothes\/[^ "]+\.(jpg|png|svg|jpeg|gif)$/
 
@@ -18,7 +16,6 @@ const $productImage = document.querySelector('input[name="image"]')
 const $productDate = document.querySelector('input[name="finishingDate"]')
 const $termsCheckbox = document.querySelector("#terms-checkbox")
 const $form = document.querySelector("form.form-container")
-// const $errorBubble = document.querySelector(".error-bubble")
 
 // Setup listeners
 $productName.addEventListener("input", validateProductName)
@@ -26,7 +23,6 @@ $productDescription.addEventListener("input", validateProductDescription)
 $productPrice.addEventListener("input", validateProductPrice)
 $productImage.addEventListener("input", validateProductImage)
 $form.addEventListener("submit", validateForm)
-// $errorBubble.addEventListener("contentloaded", e => e.target.style.display = "none")
 
 // Callbacks for listeners
 function validateProductName() {
@@ -94,7 +90,6 @@ function validateProductImage() {
 function validateForm(event) {
     if (!validateProductName($productName) || !validateProductDescription() || !validateProductPrice() || !validateProductImage() || !$termsCheckbox.checked) {
         $termsCheckbox.checked = false
-        // $errorBubble.style.display = "block"
         event.preventDefault()
     }
 }

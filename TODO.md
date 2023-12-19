@@ -2,21 +2,18 @@
 
 - [ ] Los elementos de la Página principal se cargan inicialmente usando AJAX. (1 punto)
 - [ ] Botón Cargar más elementos en la Página Principal. (2 puntos)
-  - [ ] Inicialmente se muestran entre 3 y 5 elementos (como mejor quede en el
-diseño de la página)
-  - [ ] El botón Cargar más elementos, al ser pulsado, descarga del servidor con
-AJAX los siguientes 3 a 5 elementos
-  - [ ] Se pueden implementar las siguientes alternativas en vez de un botón Cargar
-más elementos (misma calificación):
+  - [ ] Inicialmente se muestran entre 3 y 5 elementos (como mejor quede en el diseño de la página)
+  - [ ] El botón Cargar más elementos, al ser pulsado, descarga del servidor con AJAX los siguientes 3 a 5 elementos
+  - [ ] Se pueden implementar las siguientes alternativas en vez de un botón Cargar más elementos (misma calificación):
     - [ ] Scroll infinito
     - [ ] Paginación
-- [ ] Validación de formulario a nivel de cliente (pista: bootstrap tiene utilidades para esto)
-  - [ ]  El campo título no debe estar vacío. (0.25 puntos)
-  - [ ] El campo título debe tener como primer carácter una letra mayúscula. (0.75 puntos)
-  - [ ] El campo descripción no debe estar vacío. (0.25 puntos)
-  - [ ] El campo descripción debe contener entre 50 y 500 caracteres. (0.5 puntos)
-  - [ ] El campo URL de imagen debe ser una URL válida. (0.5 puntos)
-  - [ ] Inmediatamente al escribir datos inválidos en algún campo muestra un error. (0.75 puntos)
+- [X] Validación de formulario a nivel de cliente (pista: bootstrap tiene utilidades para esto)
+  - [X] El campo título no debe estar vacío. (0.25 puntos)
+  - [X] El campo título debe tener como primer carácter una letra mayúscula. (0.75 puntos)
+  - [X] El campo descripción no debe estar vacío. (0.25 puntos)
+  - [X] El campo descripción debe contener entre 50 y 500 caracteres. (0.5 puntos)
+  - [X] El campo URL de imagen debe ser una URL válida. (0.5 puntos)
+  - [X] Inmediatamente al escribir datos inválidos en algún campo muestra un error. (0.75 puntos)
 
 
 # Parte opcional
