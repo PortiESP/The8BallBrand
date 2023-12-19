@@ -32,7 +32,7 @@ main section heading .heading--container .section--title {
 main section heading .heading--container .items--layout {
   width: 60px;
   height: 60px;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   border: none;
   color: black;
   background-color: #eee;
@@ -40,6 +40,9 @@ main section heading .heading--container .items--layout {
 main section heading .heading--container .items--layout:hover {
   background-color: #fff;
   color: black;
+}
+main section heading .heading--container .items--layout:active {
+  background-color: #ddd;
 }
 main section .item--link {
   text-decoration: none;
