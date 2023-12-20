@@ -117,41 +117,6 @@ main {
             gap: 10px;
             width: 80%;
             margin-top: 10px;
-
-            & .add--item{
-                $color: #aaa7;
-                border: 3px solid $color;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                min-height: 300px;
-
-                font-size: 400%;
-    
-                color: $color;
-
-                &:hover{
-                    background: #aaa2;
-                }
-
-                & span{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    border: 3px solid $color;
-                    border-radius: 50%;
-                    width: 60px;
-                    height: 60px;
-
-                    & .bi{
-                        display: flex;
-                        justify-content: center;
-                        font-size: .8em;
-                    }
-                }
-            }
         }
     }
 }
