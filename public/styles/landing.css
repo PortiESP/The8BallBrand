@@ -118,4 +118,7 @@ main section .items--wrap.items-wrap--list {
   main section .items--wrap {
     grid-template-columns: 1fr;
   }
+  main .items-wrap--list .add--item {
+    height: 100px;
+  }
 }/*# sourceMappingURL=landing.css.map */
