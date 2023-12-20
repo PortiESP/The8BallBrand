@@ -16,8 +16,12 @@
   height: 200px;
   overflow: hidden;
 }
-.items-wrap--grid .item .item--images img,
-.featured .item .item--images img {
+.items-wrap--grid .item .item--images .item--image-front,
+.featured .item .item--images .item--image-front {
+  position: relative;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
   transition: all 0.1s ease;
 }
 .items-wrap--grid .item .item--content,
@@ -155,7 +159,11 @@
   overflow: hidden;
   transition: height 0.1s ease;
 }
-.items-wrap--list .item .item--images img {
+.items-wrap--list .item .item--images .item--image-front {
+  position: relative;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
   transition: all 0.1s ease;
 }
 .items-wrap--list .item .item--content {
