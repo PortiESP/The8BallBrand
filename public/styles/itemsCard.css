@@ -274,7 +274,7 @@
 }
 .items-wrap--list .add--item {
   border: 3px solid rgba(170, 170, 170, 0.4666666667);
-  height: 150px;
+  height: 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -325,6 +325,9 @@
     height: 30px;
     border: 6px solid #212529;
     font-size: 12px;
+  }
+  .items-wrap--list .add--item {
+    height: 80px;
   }
 }
 @media (max-width: 500px) {

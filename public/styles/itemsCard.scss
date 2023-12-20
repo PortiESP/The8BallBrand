@@ -227,7 +227,8 @@
                     border: calc($ballSize / 5) solid #212529;
                     font-size: calc($ballSize / 2.5);
                     flex-shrink: 0;
-                    & .bid--number{
+
+                    & .bid--number {
                         width: 100%;
                         text-align: center;
                     }
@@ -308,7 +309,7 @@
     & .add--item {
         $color: #aaa7;
         border: 3px solid $color;
-        height: 150px;
+        height: 120px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -360,61 +361,69 @@
 }
 
 @media (max-width: 800px) {
-    .items-wrap--list .item {
-        padding: 0 10px;
-        & .item--images {
-            height: 70px;
-            width: 80px;
-        }
+    .items-wrap--list {
+        & .item {
+            padding: 0 10px;
 
-        & .item--content {
-            & .div--bids .number--of--bids {
-                $ballSize: 30px;
-                width: $ballSize;
-                height: $ballSize;
-                border: calc($ballSize / 5) solid #212529;
-                font-size: calc($ballSize / 2.5);
+            & .item--images {
+                height: 70px;
+                width: 80px;
+            }
+
+            & .item--content {
+                & .div--bids .number--of--bids {
+                    $ballSize: 30px;
+                    width: $ballSize;
+                    height: $ballSize;
+                    border: calc($ballSize / 5) solid #212529;
+                    font-size: calc($ballSize / 2.5);
+                }
             }
         }
+
+        & .add--item {
+            height: 80px;
+        }
     }
+
 }
 
 @media (max-width: 500px) {
-    .items--wrap.items-wrap--list{
+    .items--wrap.items-wrap--list {
         width: 92%;
 
-        & .item{
+        & .item {
             padding: 0;
             padding-right: 10px;
-            
+
             & .item--images {
                 width: 70px;
             }
-    
+
             & .item--content {
                 font-size: 0.9rem;
-    
-                & p{
+
+                & p {
                     width: 100%;
                 }
-    
-                & .list--view.list--size{
+
+                & .list--view.list--size {
                     display: none;
                 }
             }
         }
 
-    } 
+    }
 }
 
 
 @media (max-width: 400px) {
-    .items-wrap--list .item{
+    .items-wrap--list .item {
         & .item--content {
             padding-right: 5px;
             font-size: 0.9rem;
 
-            & p{
+            & p {
                 padding: 0;
             }
 
