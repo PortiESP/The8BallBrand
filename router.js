@@ -27,6 +27,7 @@ router.get("/toggle-fav", handleToggleFav)
 router.get("/clear-favs-list", handleClearFavsList)
 
 router.get("/get-items", getMoreItems)
+router.get("/get-featured-items", getFeaturedItems)
 
 // POST routes
 router.post("/add-element", handleAddElement)
@@ -39,14 +40,9 @@ router.post("/add-bid/:id", handleAddBid)
 // Rendering Functions --------------------------------------------------------------------------------------------------
 function renderIndex(req, res) {
     const uuid = getUUID(req, res)
-    // Extract data of the elements to be featured
-    const featuredItems = [...featured].map(id => data[id]).sort((a, b) => b.bids.length - a.bids.length)
-
-    // let dataValues = Object.values(data).sort((a, b) => b.bids.length - a.bids.length) // Sort elements by number of bids
-    // dataValues = dataValues.slice(0, 4)
 
     // Render page
-    res.render("index", { featuredItems, ...parseNav(req, res, uuid) })
+    res.render("index", {...parseNav(req, res, uuid) })
 }
 
 function renderDetailed(req, res) {
@@ -238,6 +234,11 @@ function getMoreItems(req, res) {
 
     const dataValues = Object.values(data).sort((a, b) => b.bids.length - a.bids.length).slice(from, to)
     res.render("components/itemsContainer", { dataValues })
+}
+
+function getFeaturedItems(req, res) {
+    const featuredItems = [...featured].map(id => data[id]).sort((a, b) => b.bids.length - a.bids.length)
+    res.render("components/featuredItemsContainer", { featuredItems })    
 }
 
 // Export routes definitions

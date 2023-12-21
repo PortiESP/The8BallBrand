@@ -14,8 +14,7 @@
     <body>
         {{> components/nav}}
         <main>
-            {{#featuredItems.length}}
-            <section>
+            <section id="featured--section">
                 <heading>
                     <div class="heading--container">
                         <h2 class="section--title">FEATURED ITEMS</h2>
@@ -23,13 +22,10 @@
                 </heading>
                 <div class="featured--wrap">
                     <div class="featured" role="listbox">
-                        {{# featuredItems}}
-                        {{> components/item}}
-                        {{/ featuredItems}}
+                        {{> components/featuredItemsContainer}}
                     </div>
                 </div>
             </section>
-            {{/featuredItems.length}}
             <section>
                 <heading>
                     <div class="heading--container">

@@ -30,7 +30,9 @@ app.get('/delete/:id', router)
 app.get('/quit-errorMsg', router)
 app.get("/toggle-fav", router)
 app.get("/clear-favs-list", router)
+
 app.get("/get-items", router)
+app.get("/get-featured-items", router)
 
 // POST routes
 app.post('/add-element', router)
