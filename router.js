@@ -4,7 +4,7 @@ import { data, featured, favorites, sizes, types } from "./service.js"
 // AUX FUNCTIONS
 import formatDate from "./tools/dateUtils.js"
 import avatarGenerator from "./tools/avatarGenerator.js"
-import {publishErrorManager, bidErrorManager} from "./tools/errorManager.js"
+import { publishErrorManager, bidErrorManager } from "./tools/errorManager.js"
 import getUUID from "./tools/uuidGenerator.js"
 import { getURLLastPath } from "./tools/urlUtils.js"
 
@@ -22,9 +22,11 @@ router.get("/legal", (_, res) => res.render("legal"));
 router.get("/edit/:id", renderPublishEdit)
 
 router.get("/delete/:id", handleDeleteElement)
-router.get("/quit-errorMsg", handleQuitErrorMsg )
+router.get("/quit-errorMsg", handleQuitErrorMsg)
 router.get("/toggle-fav", handleToggleFav)
 router.get("/clear-favs-list", handleClearFavsList)
+
+router.get("/get-items", getMoreItems)
 
 // POST routes
 router.post("/add-element", handleAddElement)
@@ -39,10 +41,12 @@ function renderIndex(req, res) {
     const uuid = getUUID(req, res)
     // Extract data of the elements to be featured
     const featuredItems = [...featured].map(id => data[id]).sort((a, b) => b.bids.length - a.bids.length)
-    const dataValues = Object.values(data).sort((a, b) => b.bids.length - a.bids.length) // Sort elements by number of bids
+
+    // let dataValues = Object.values(data).sort((a, b) => b.bids.length - a.bids.length) // Sort elements by number of bids
+    // dataValues = dataValues.slice(0, 4)
 
     // Render page
-    res.render("index", { dataValues, featuredItems, ...parseNav(req, res, uuid) })
+    res.render("index", { featuredItems, ...parseNav(req, res, uuid) })
 }
 
 function renderDetailed(req, res) {
@@ -55,7 +59,7 @@ function renderDetailed(req, res) {
         isEmpty: !(data[id]?.bids.length),  // Bids array is empty
         isFav: favorites[uuid].has(id),  // Element is in used favorites list
     }
-    
+
     // Handle errors
     let errors = []
     const error = req.query.error  // Error flag
@@ -80,7 +84,7 @@ function renderPublish(req, res) {
         cancelRoute: "/",
         postRoute: "/add-element",
         today: new Date().toISOString().split('T')[0],
-        ...(error ? JSON.parse(decodeURIComponent(req.query.form)): {})  // Form data (from query) or empty object in case of error
+        ...(error ? JSON.parse(decodeURIComponent(req.query.form)) : {})  // Form data (from query) or empty object in case of error
     }
 
 
@@ -108,12 +112,12 @@ function renderPublishEdit(req, res) {
         // Form data
         ...data[id],
         finishingDate: data[id].finishingDate.split('/').reverse().join('-'),
-        ...(error ? JSON.parse(decodeURIComponent(req.query.form)): {})
+        ...(error ? JSON.parse(decodeURIComponent(req.query.form)) : {})
     }
 
     // Set selected tag values
-	types.forEach(e => e.selected = e.type === data[id].type ? 'selected' : '')
-	sizes.forEach(e => e.selected = e.size === data[id].size ? 'selected' : '')
+    types.forEach(e => e.selected = e.type === data[id].type ? 'selected' : '')
+    sizes.forEach(e => e.selected = e.size === data[id].size ? 'selected' : '')
 
     // Render page
     res.render("publish", { ...templateParams, types, sizes, error, errors, ...parseNav(req, res, uuid) })
@@ -121,14 +125,14 @@ function renderPublishEdit(req, res) {
 
 // Sub-components Rendering Functions --------------------------------------------------------------------------------------------------
 
-function parseNav(req, res, uuid){
+function parseNav(req, res, uuid) {
     // If user does not have a favorites list, create one
     if (favorites[uuid] === undefined) favorites[uuid] = new Set()
-     
+
     // Extract favorite elements of the user
     const favs = [...favorites[uuid]].map(id => data[id]) || []
 
-    return {favs}
+    return { favs }
 }
 
 
@@ -166,7 +170,7 @@ function handleAddElement(req, res) {
         const finishingDate = formatDate(req.body.finishingDate)  // Format finishing date
 
         data[id] = {
-            id,  
+            id,
             ...req.body,  // Add form data
             finishingDate: finishingDate,
             price: parseFloat(req.body.price),  // Format price (float)
@@ -180,7 +184,7 @@ function handleAddElement(req, res) {
 
 function handleAddBid(req, res) {
     const id = req.params.id
-    
+
     // Bid data
     const bid = parseFloat(req.body.bid)
     const name = req.body.name
@@ -193,17 +197,17 @@ function handleAddBid(req, res) {
 
     // Validate bid data
     const errors = bidErrorManager({ bid, name, email, price })
-    
+
     // Render error message or add bid to the list
     if (errors) res.redirect(`/detailed/${id}?error=true${errors}`)
     else {
         data[id].bids = [{ name, date, bid, picture }, ...data[id].bids]
-        if (data[id].bids.length >= FEATURED_THRESHOLD) featured.add(id)  
+        if (data[id].bids.length >= FEATURED_THRESHOLD) featured.add(id)
         res.redirect(`/detailed/${id}`)
     }
 }
 
-function handleToggleFav(req, res){
+function handleToggleFav(req, res) {
     const id = req.query.id
     const uuid = getUUID(req, res)
 
@@ -212,10 +216,10 @@ function handleToggleFav(req, res){
     else favorites[uuid].add(id)
 
     // Return success flag
-    res.json({success: true})
+    res.json({ success: true })
 }
 
-function handleClearFavsList(req, res){
+function handleClearFavsList(req, res) {
     const uuid = getUUID(req, res)
     const referrer = req.get("Referrer")
 
@@ -224,6 +228,16 @@ function handleClearFavsList(req, res){
 
     // Return success flag
     res.redirect(referrer)
+}
+
+// Fetching Functions ------------------------------------------------------------------------------------------------------------------
+
+function getMoreItems(req, res) {
+    const from = req.query.from
+    const to = req.query.to
+
+    const dataValues = Object.values(data).sort((a, b) => b.bids.length - a.bids.length).slice(from, to)
+    res.render("components/itemsContainer", { dataValues })
 }
 
 // Export routes definitions

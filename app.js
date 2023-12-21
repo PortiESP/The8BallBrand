@@ -5,6 +5,9 @@ import router from './router.js'
 import cookieParser from 'cookie-parser'
 import loggerMiddleware from "./tools/serverLogger.js"
 
+// CONSTANTS
+const PORT = 3000
+const SERVER_URL = `http://localhost:${PORT}`
 
 // INIT
 const app = express()
@@ -27,6 +30,7 @@ app.get('/delete/:id', router)
 app.get('/quit-errorMsg', router)
 app.get("/toggle-fav", router)
 app.get("/clear-favs-list", router)
+app.get("/get-items", router)
 
 // POST routes
 app.post('/add-element', router)
@@ -35,10 +39,10 @@ app.post('/add-bid/:id', router)
 
 
 // Static files
+app.use(express.json())
 app.use(express.static('./public'))
 
 // LISTEN
-app.listen(3000, () => {
-  console.log('Listening on port 3000')
-  console.log('Click here: http://localhost:3000/')
+app.listen(PORT, () => {
+  console.log(`Server running at ${SERVER_URL}`)
 })

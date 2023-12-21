@@ -11,7 +11,7 @@ main {
         align-items: center;
         width: 100%;
 
-        & heading{
+        & heading {
             width: 100%;
 
             & .heading--container {
@@ -72,32 +72,33 @@ main {
                 margin-top: 10px;
                 display: flex;
                 overflow-x: scroll;
-    
+
                 &::-webkit-scrollbar {
                     height: 14px;
                 }
-    
+
                 &::-webkit-scrollbar-track {
                     background: $cardBackground;
                 }
-    
+
                 &::-webkit-scrollbar-thumb {
                     background: $cardBackground;
                 }
+
                 &:hover {
                     &::-webkit-scrollbar-track {
                         background: $featuredScrollBarBg;
                     }
-    
+
                     &::-webkit-scrollbar-thumb {
                         background: $featuredScrollBar;
                     }
                 }
-    
+
                 &::-webkit-scrollbar-thumb:hover {
                     background: $featuredScrollBarHover;
                 }
-    
+
                 & .item {
                     min-width: 280px;
                 }
@@ -105,20 +106,50 @@ main {
         }
 
         & .items--wrap {
-            &.items-wrap--grid{
+            &.items-wrap--grid {
                 display: grid;
             }
-            &.items-wrap--list{
+
+            &.items-wrap--list {
                 display: flex;
                 flex-direction: column;
             }
+
             grid-template-columns: repeat(4, 1fr);
             gap: 10px;
             width: 80%;
             margin-top: 10px;
         }
+
+        & .load-more--div {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+
+            & button#load-more {
+                width: 100px;
+                height: 30px;
+                font-size: 1rem;
+                border: none;
+                color: black;
+                background-color: white;
+
+                &:hover {
+                    background-color: #212529;
+                    color: white;
+                }
+
+                &:active {
+                    background-color: #2c3136;
+                }
+            }
+        }
     }
 }
+
 @media (max-width: 1100px) {
     main {
         & section {
@@ -135,6 +166,7 @@ main {
             & heading .heading--container {
                 width: 90%;
             }
+
             & .items--wrap {
                 width: 90%;
                 grid-template-columns: 1fr 1fr;
@@ -155,7 +187,7 @@ main {
             }
         }
 
-        & .items-wrap--list .add--item{
+        & .items-wrap--list .add--item {
             height: 100px;
         }
 
