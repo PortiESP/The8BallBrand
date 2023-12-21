@@ -46,13 +46,13 @@ async function loadMoreItems() {
 
 async function loadFeaturedItems() {
     // Fetch items
-    const response = await fetch(`/get-featured-items?from=${itemCount}&to=${itemCount + interval}`)
+    const response = await fetch(`/get-featured-items`)
     const html = await response.text()
 
     // Append items to items-wrap
     const itemsWrapper = $featuredItemsSection.querySelector(".featured--wrap").querySelector(".featured")
 
-    itemsWrapper.innerHTML += html
+    itemsWrapper.innerHTML = html
 
     if (itemsWrapper.children.length === 0) $featuredItemsSection.style.display = "none"
     else $featuredItemsSection.style.display = "flex"

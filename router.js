@@ -236,7 +236,7 @@ function getMoreItems(req, res) {
     res.render("components/itemsContainer", { dataValues })
 }
 
-function getFeaturedItems(req, res) {
+function getFeaturedItems(_, res) {
     const featuredItems = [...featured].map(id => data[id]).sort((a, b) => b.bids.length - a.bids.length)
     res.render("components/featuredItemsContainer", { featuredItems })    
 }
