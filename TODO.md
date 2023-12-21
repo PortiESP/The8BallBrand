@@ -1,9 +1,9 @@
 # Parte común 
 
-- [ ] Los elementos de la Página principal se cargan inicialmente usando AJAX. (1 punto)
-- [ ] Botón Cargar más elementos en la Página Principal. (2 puntos)
-  - [ ] Inicialmente se muestran entre 3 y 5 elementos (como mejor quede en el diseño de la página)
-  - [ ] El botón Cargar más elementos, al ser pulsado, descarga del servidor con AJAX los siguientes 3 a 5 elementos
+- [X] Los elementos de la Página principal se cargan inicialmente usando AJAX. (1 punto)
+- [X] Botón Cargar más elementos en la Página Principal. (2 puntos)
+  - [X] Inicialmente se muestran entre 3 y 5 elementos (como mejor quede en el diseño de la página)
+  - [X] El botón Cargar más elementos, al ser pulsado, descarga del servidor con AJAX los siguientes 3 a 5 elementos
   - [ ] Se pueden implementar las siguientes alternativas en vez de un botón Cargar más elementos (misma calificación):
     - [ ] Scroll infinito
     - [ ] Paginación
