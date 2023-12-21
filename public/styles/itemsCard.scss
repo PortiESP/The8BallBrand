@@ -365,11 +365,6 @@
         & .item {
             padding: 0 10px;
 
-            & .item--images {
-                height: 70px;
-                width: 80px;
-            }
-
             & .item--content {
                 & .div--bids .number--of--bids {
                     $ballSize: 30px;
@@ -393,9 +388,6 @@
         width: 92%;
 
         & .item {
-            padding: 0;
-            padding-right: 10px;
-
             & .item--images {
                 width: 70px;
             }
@@ -415,7 +407,6 @@
 
     }
 }
-
 
 @media (max-width: 400px) {
     .items-wrap--list .item {

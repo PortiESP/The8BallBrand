@@ -316,10 +316,6 @@
   .items-wrap--list .item {
     padding: 0 10px;
   }
-  .items-wrap--list .item .item--images {
-    height: 70px;
-    width: 80px;
-  }
   .items-wrap--list .item .item--content .div--bids .number--of--bids {
     width: 30px;
     height: 30px;
@@ -333,10 +329,6 @@
 @media (max-width: 500px) {
   .items--wrap.items-wrap--list {
     width: 92%;
-  }
-  .items--wrap.items-wrap--list .item {
-    padding: 0;
-    padding-right: 10px;
   }
   .items--wrap.items-wrap--list .item .item--images {
     width: 70px;
