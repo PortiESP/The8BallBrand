@@ -46,8 +46,7 @@ function validateProductDescription() {
     const valueLength = element.value.trim().length
 
     if (valueLength < DESCRIPTION_MIN_CHARS || valueLength > DESCRIPTION_MAX_CHARS) {
-      document.querySelector("input[name=\"description\"] + .invalid-feedback").innerHTML = "Use 50-500 characters"
-
+        document.querySelector("input[name=\"description\"] + .invalid-feedback").innerHTML = "Use 50-500 characters"
         element.classList.add("is-invalid")
         element.classList.remove("is-valid")
         return false
@@ -62,6 +61,7 @@ function validateProductPrice() {
     const element = $productPrice
 
     if (element.value <= 0) {
+        document.querySelector("input[name=\"price\"] + .invalid-feedback").innerHTML = "Price can't be 0 or negative"
         element.classList.add("is-invalid")
         element.classList.remove("is-valid")
         return false
@@ -76,6 +76,7 @@ function validateProductImage() {
     const element = $productImage
 
     if (!element.value.match(URL_REGEX) && !element.value.match(LOCAL_URL_REGEX)) {
+        document.querySelector("input[name=\"image\"] + .invalid-feedback").innerHTML = "Invalid image URL"
         element.classList.add("is-invalid")
         element.classList.remove("is-valid")
         return false
