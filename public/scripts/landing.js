@@ -9,7 +9,7 @@ const $loadMoreButton = document.querySelector("#load-more")
 
 // Item Counter
 let itemCount = 0
-const interval = 4
+const INTERVAL = 4
 
 // Adding listeners
 $layoutButton.addEventListener("click", toggleLayout)
@@ -28,11 +28,11 @@ function toggleLayout() {
 
 async function loadMoreItems() {
     // Fetch items
-    const response = await fetch(`/get-items?from=${itemCount}&to=${itemCount + interval}`)
+    const response = await fetch(`/get-items?from=${itemCount}&to=${itemCount + INTERVAL}`)
     const html = await response.text()
 
     // Update item counter
-    itemCount += interval
+    itemCount += INTERVAL
 
     // Remove link item
     const $linkItem = document.querySelector(".item--link#add-element--link")
