@@ -60,10 +60,6 @@ async function loadFeaturedItems() {
     console.log("Featured items loaded")
 }
 
-async function loadItems() {
-    loadFeaturedItems()
-    loadMoreItems()
-}
-
 // INIT 
-loadItems()
+loadFeaturedItems()
+loadMoreItems()
