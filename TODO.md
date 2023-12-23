@@ -4,9 +4,9 @@
 - [X] Botón Cargar más elementos en la Página Principal. (2 puntos)
   - [X] Inicialmente se muestran entre 3 y 5 elementos (como mejor quede en el diseño de la página)
   - [X] El botón Cargar más elementos, al ser pulsado, descarga del servidor con AJAX los siguientes 3 a 5 elementos
-  - [ ] Se pueden implementar las siguientes alternativas en vez de un botón Cargar más elementos (misma calificación):
-    - [ ] Scroll infinito
-    - [ ] Paginación
+  - [X] Se pueden implementar las siguientes alternativas en vez de un botón Cargar más elementos (misma calificación):
+    - [X] Scroll infinito
+    - [X] Paginación
 - [X] Validación de formulario a nivel de cliente (pista: bootstrap tiene utilidades para esto)
   - [X] El campo título no debe estar vacío. (0.25 puntos)
   - [X] El campo título debe tener como primer carácter una letra mayúscula. (0.75 puntos)

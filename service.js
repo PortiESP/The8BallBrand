@@ -1,6 +1,6 @@
 export const data = {
-    "0001": {
-        id: "0001",
+    "1": {
+        id: "1",
         name: "Oversized Fit Hoodie",
         description: "Stay warm and stylish with this cozy oversized hoodie.",
         image: "/assets/clothes/hoodie1.png",
@@ -60,8 +60,8 @@ export const data = {
 
         ],
     },
-    "0002": {
-        id: "0002",
+    "2": {
+        id: "2",
         name: "Top Hoodie",
         description: "Comfort and style combined in this top-tier hoodie for a relaxed day or night out.",
         image: "/assets/clothes/hoodie2.png",
@@ -110,8 +110,8 @@ export const data = {
             },
         ],
     },
-    "0003": {
-        id: "0003",
+    "3": {
+        id: "3",
         name: "Benetton Hoodie",
         description: "Stylish comfort with this Benetton hoodie. Perfect for a fashionable look.",
         image: "/assets/clothes/hoodie3.png",
@@ -145,8 +145,8 @@ export const data = {
             },
         ],
     },
-    "0004": {
-        id: "0004",
+    "4": {
+        id: "4",
         name: "Jordan Hoodie",
         description: "Iconic Jordan hoodie for sports enthusiasts and streetwear lovers.",
         image: "/assets/clothes/hoodie4.png",
@@ -188,8 +188,8 @@ export const data = {
             
         ],
     },
-    "0005": {
-        id: "0005",
+    "5": {
+        id: "5",
         name: "Top Jeans",
         description: "Template description",
         image: "/assets/clothes/jeans.png",
@@ -232,8 +232,8 @@ export const data = {
             },
         ],
     },
-    "0006": {
-        id: "0006",
+    "6": {
+        id: "6",
         name: "Stylish Shirt",
         description: "A trendy shirt for any occasion.",
         image: "/assets/clothes/shirt.png",
@@ -251,8 +251,8 @@ export const data = {
             }
         ]
     },
-    "0007": {
-        id: "0007",
+    "7": {
+        id: "7",
         name: "Classic Jeans",
         description: "Timeless denim jeans for a casual look.",
         image: "/assets/clothes/jeans2.png",
@@ -262,8 +262,8 @@ export const data = {
         finishingDate: "05/12/2023",
         bids: []
     },
-    "0008": {
-        id: "0008",
+    "8": {
+        id: "8",
         name: "Elegant Dress",
         description: "An elegant dress for special occasions.",
         image: "/assets/clothes/dress.png",
@@ -273,8 +273,8 @@ export const data = {
         finishingDate: "10/03/2024",
         bids: []
     },
-    "0009": {
-        id: "0009",
+    "9": {
+        id: "9",
         name: "Casual T-Shirt",
         description: "Comfortable t-shirt for everyday wear.",
         image: "/assets/clothes/shirt1.png",
@@ -284,8 +284,8 @@ export const data = {
         finishingDate: "15/12/2023",
         bids: []
     },
-    "0010": {
-        id: "0010",
+    "10": {
+        id: "10",
         name: "Sporty Jacket",
         description: "A sporty jacket for an active lifestyle.",
         image: "/assets/clothes/jacket.png",
@@ -295,8 +295,8 @@ export const data = {
         finishingDate: "20/12/2023",
         bids: []
     },
-    "0011": {
-        id: "0011",
+    "11": {
+        id: "11",
         name: "Cozy Sweater",
         description: "A cozy sweater for chilly days.",
         image: "/assets/clothes/sweater.png",
@@ -306,8 +306,8 @@ export const data = {
         finishingDate: "25/12/2023",
         bids: []
     },
-    "0012": {
-        id: "0012",
+    "12": {
+        id: "12",
         name: "Formal Blouse",
         description: "A formal blouse for professional settings.",
         image: "/assets/clothes/blouse.png",
@@ -317,8 +317,8 @@ export const data = {
         finishingDate: "30/12/2023",
         bids: []
     },
-    "0013": {
-        id: "0013",
+    "13": {
+        id: "13",
         name: "Chic Skirt",
         description: "A chic skirt for a stylish look.",
         image: "/assets/clothes/skirt.png",
@@ -328,8 +328,8 @@ export const data = {
         finishingDate: "01/01/2024",
         bids: []
     },
-    "0014": {
-        id: "0014",
+    "14": {
+        id: "14",
         name: "Active Leggings",
         description: "Leggings for a comfortable workout.",
         image: "/assets/clothes/leggins.png",
@@ -339,8 +339,8 @@ export const data = {
         finishingDate: "05/01/2024",
         bids: []
     },
-    "0015": {
-        id: "0015",
+    "15": {
+        id: "15",
         name: "Causal Shorts",
         description: "Casual shorts for a relaxed day.",
         image: "/assets/clothes/shorts.png",
@@ -352,7 +352,7 @@ export const data = {
     }
 }
 
-export const featured = new Set(["0001", "0002", "0003", "0004","0005"])
+export const featured = new Set(["1", "2", "3", "4","5"])
 
 export const sizes = [
     { "size": "XS" },
@@ -382,7 +382,7 @@ export const types = [
 
 export const favorites = {
     // Template value
-    "uuidxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx": new Set(["0001", "0002", "0003", "0004"]),
+    "uuidxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx": new Set(["1", "2", "3", "4"]),
     // Values
-    "mxzbwdhy-xmrt-lvap-arcs-popy": new Set(["0001", "0002", "0003", "0004"]),
+    "mxzbwdhy-xmrt-lvap-arcs-popy": new Set(["1", "2", "3", "4"]),
 }
