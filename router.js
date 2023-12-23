@@ -28,6 +28,7 @@ router.get("/clear-favs-list", handleClearFavsList)
 
 router.get("/get-items", getMoreItems)
 router.get("/get-featured-items", getFeaturedItems)
+router.get("/validate-name", checkValidName)
 
 // POST routes
 router.post("/add-element", handleAddElement)
@@ -239,6 +240,12 @@ function getMoreItems(req, res) {
 function getFeaturedItems(_, res) {
     const featuredItems = [...featured].map(id => data[id]).sort((a, b) => b.bids.length - a.bids.length)
     res.render("components/featuredItemsContainer", { featuredItems })    
+}
+
+function checkValidName(req, res) {
+    const name = req.query.name
+    const valid = Object.values(data).every(item => item.name !== name)
+    res.json({ valid })
 }
 
 // Export routes definitions

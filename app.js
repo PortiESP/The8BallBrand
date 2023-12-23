@@ -33,6 +33,7 @@ app.get("/clear-favs-list", router)
 
 app.get("/get-items", router)
 app.get("/get-featured-items", router)
+app.get("/validate-name", router)
 
 // POST routes
 app.post('/add-element', router)

@@ -25,7 +25,7 @@ $productImage.addEventListener("input", validateProductImage)
 $form.addEventListener("submit", validateForm)
 
 // Callbacks for listeners
-function validateProductName() {
+async function validateProductName() {
     const element = $productName
     const valueLength = element.value.trim().length
 
@@ -34,10 +34,25 @@ function validateProductName() {
         element.classList.add("is-invalid")
         element.classList.remove("is-valid")
         return false
+
     } else {
-        element.classList.add("is-valid")
-        element.classList.remove("is-invalid")
-        return true
+        await fetch(`/validate-name?name=${element.value}`)
+        .then(response => response.json())
+        .then(data => {
+            const isValid = data.valid
+            
+            if (!isValid) {
+                document.querySelector("input[name=\"name\"] + .invalid-feedback").innerHTML = "Already exists"
+                element.classList.add("is-invalid")
+                element.classList.remove("is-valid")
+                return false
+            }
+
+            element.classList.add("is-valid")
+            element.classList.remove("is-invalid")
+            return true
+        })
+        .catch(error => console.error(error))
     }
 }
 
