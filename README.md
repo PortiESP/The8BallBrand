@@ -39,3 +39,12 @@ Follow these steps to get the application up and running:
     ```
 
 5. 🌐 **Open your browser** and go to `http://localhost:3000/`
+
+
+## 📝 Developer Notes
+
+- 🎯 **Main Page Searches:** If you search from the main page, the results will appear on the same page.
+
+- 🌐 **Other Page Searches:** If you search from any other page, the results will appear on a separate search page.
+
+- 💡 **Why a Search Bar on the Main Page?** The search bar working doesn't make sense on the main page, but it was requiered by the project's specifications.
