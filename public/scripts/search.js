@@ -1,5 +1,4 @@
 const $searchInput = document.querySelector('#search--input')
-
 $searchInput.addEventListener('keydown', searchElements)
 
 async function searchElements(event) {
@@ -12,12 +11,14 @@ async function searchElements(event) {
         // Get DOM elements
         const $sectionsTitle = document.getElementsByClassName("section--title")
         const $title = $sectionsTitle[$sectionsTitle.length - 1]
+        const $addMoreButton = document.querySelector("#load-more")
         const $itemsContainer = document.querySelector(".items--wrap")
         const $checkBox = document.querySelector("#toggle--search")
 
         // Reset values, load content and hide load more button
         $title.innerHTML = `Search results for "${$searchInput.value}"`
         $itemsContainer.innerHTML = html
+        $addMoreButton.style.display = "none"
         $checkBox.checked = false
         $searchInput.value = ""
         
