@@ -1,6 +1,4 @@
 const $searchInput = document.querySelector('#search--input')
-const $layoutButtonIcon = document.querySelector(".items--layout i")
-const $itemsWrap = document.querySelector(".items--wrap")
 
 $searchInput.addEventListener('keydown', searchElements)
 
