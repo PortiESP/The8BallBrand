@@ -20,6 +20,7 @@ router.get("/detailed/:id", renderDetailed);
 router.get("/publish", renderPublish);
 router.get("/legal", (_, res) => res.render("legal"));
 router.get("/edit/:id", renderPublishEdit)
+router.get("/search/:searched", renderSearch)
 
 router.get("/delete/:id", handleDeleteElement)
 router.get("/quit-errorMsg", handleQuitErrorMsg)
@@ -29,6 +30,7 @@ router.get("/clear-favs-list", handleClearFavsList)
 router.get("/get-items", getMoreItems)
 router.get("/get-featured-items", getFeaturedItems)
 router.get("/validate-name", checkValidName)
+router.get("/search", getSearchResults)
 
 // POST routes
 router.post("/add-element", handleAddElement)
@@ -41,9 +43,14 @@ router.post("/add-bid/:id", handleAddBid)
 // Rendering Functions --------------------------------------------------------------------------------------------------
 function renderIndex(req, res) {
     const uuid = getUUID(req, res)
+    res.render("index", { ...parseNav(req, res, uuid) })
+}
 
-    // Render page
-    res.render("index", {...parseNav(req, res, uuid) })
+function renderSearch(req, res) {
+    const searched = req.params.searched
+    const uuid = getUUID(req, res)
+    const dataValues = Object.values(data).filter(item => item.name.toLowerCase().includes(searched.toLowerCase()))
+    res.render("search", { ...parseNav(req, res, uuid), dataValues, searched })
 }
 
 function renderDetailed(req, res) {
@@ -239,13 +246,19 @@ function getMoreItems(req, res) {
 
 function getFeaturedItems(_, res) {
     const featuredItems = [...featured].map(id => data[id]).sort((a, b) => b.bids.length - a.bids.length)
-    res.render("components/featuredItemsContainer", { featuredItems })    
+    res.render("components/featuredItemsContainer", { featuredItems })
 }
 
 function checkValidName(req, res) {
     const name = req.query.name
     const valid = Object.values(data).every(item => item.name !== name)
     res.json({ valid })
+}
+
+function getSearchResults(req, res) {
+    const searched = req.query.searched
+    const results = Object.values(data).filter(item => item.name.toLowerCase().includes(searched.toLowerCase()))
+    res.render("components/itemsContainer", { dataValues: results })
 }
 
 // Export routes definitions

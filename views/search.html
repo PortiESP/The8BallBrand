@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>8 Ball</title>
+        <title>8 Ball | {{searched}}</title>
         <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
         <link rel="stylesheet" href="/styles/global.css" />
         <link rel="stylesheet" href="/styles/landing.css" />
@@ -14,22 +14,10 @@
     <body>
         {{> components/nav}}
         <main>
-            <section id="featured--section">
-                <heading>
-                    <div class="heading--container">
-                        <h2 class="section--title">FEATURED ITEMS</h2>
-                    </div>
-                </heading>
-                <div class="featured--wrap">
-                    <div class="featured" role="listbox">
-                        {{> components/featuredItemsContainer}}
-                    </div>
-                </div>
-            </section>
             <section>
                 <heading>
                     <div class="heading--container">
-                        <h2 class="section--title">LATEST SALES</h2>
+                        <h2 class="section--title">Results for "{{searched}}"...</h2>
                         <button class="items--layout">
                             <span><i class="bi bi-grid"></i></span>
                         </button>
@@ -37,9 +25,6 @@
                 </heading>
                 <div class="items--wrap items-wrap--grid">
                     {{> components/itemsContainer}}
-                </div>
-                <div class="load-more--div">
-                    <button id="load-more">Load More</button>
                 </div>
             </section>
         </main>
@@ -49,7 +34,6 @@
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
 
-        <script src="/scripts/landing.js"></script>
         <script src="/scripts/search.js"></script>
     </body>
 

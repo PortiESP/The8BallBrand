@@ -27,13 +27,16 @@ app.get('/detailed/:id', router)
 app.get('/legal', router)
 app.get('/edit/:id', router)
 app.get('/delete/:id', router)
-app.get('/quit-errorMsg', router)
-app.get("/toggle-fav", router)
-app.get("/clear-favs-list", router)
+app.get('/search/:searched', router)
 
-app.get("/get-items", router)
-app.get("/get-featured-items", router)
-app.get("/validate-name", router)
+app.get('/quit-errorMsg', router)
+app.get('/toggle-fav', router)
+app.get('/clear-favs-list', router)
+
+app.get('/get-items', router)
+app.get('/get-featured-items', router)
+app.get('/validate-name', router)
+app.get('/search', router)
 
 // POST routes
 app.post('/add-element', router)
