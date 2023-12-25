@@ -61,5 +61,7 @@ async function loadFeaturedItems() {
 }
 
 // INIT 
-loadFeaturedItems()
-loadMoreItems()
+if (location.pathname === "/") {
+    loadFeaturedItems()
+    loadMoreItems()
+}
