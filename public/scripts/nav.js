@@ -1,6 +1,13 @@
 const $searchInput = document.querySelector('#search--input')
-$searchInput.addEventListener('keydown', searchElements)
 
+const $favsList = document.querySelector(".liked--list")
+const $favsBubble = document.querySelector(".favs--bubble")
+const $favsCheckbox = document.querySelector("label[for='favorite-checkbox']")
+
+$searchInput.addEventListener('keydown', searchElements)
+$favsCheckbox.addEventListener("click", () => toggleFav(new URL(location).pathname.split("/").slice(-1)[0]))
+
+// Search elements by name
 async function searchElements(event) {
     if (event.key !== "Enter") return
 
@@ -27,3 +34,23 @@ async function searchElements(event) {
 
     else location.href = "/"
 }
+
+// Send a request to the server to toggle the fav status of the element, then reload the page
+function toggleFav(id) {
+    fetch(`/toggle-fav${id ? "?id=" + id : ""}`)
+        .then((res) => res.text())
+        .then((data) => {
+            console.log("Data" + data)
+            $favsList.innerHTML = data
+            console.log("Inner" + $favsList.innerHTML)
+            const favsNum = $favsList.querySelectorAll(".item--liked").length
+            if ($favsBubble) {
+                $favsBubble.innerHTML = favsNum
+                $favsBubble.style.display = favsNum ? "inline-block" : "none"
+                document.querySelector("a[href='/clear-favs-list']").innerHTML = `Clear list (${favsNum})`
+            }
+        })
+}
+
+// INIT
+toggleFav()

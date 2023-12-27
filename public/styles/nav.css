@@ -49,6 +49,7 @@ nav.navbar .navbar-nav .icon--liked {
   position: relative;
 }
 nav.navbar .navbar-nav .icon--liked span.favs--bubble {
+  display: none;
   position: absolute;
   left: 14px;
   background: #e00;

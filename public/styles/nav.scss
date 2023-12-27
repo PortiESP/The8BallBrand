@@ -64,6 +64,7 @@ nav.navbar {
             position: relative;
             // ------------------- BUBBLE
             & span.favs--bubble {
+                display: none;
                 $size: 18px;
 
                 position: absolute;
