@@ -25,3 +25,7 @@
 - [X] Página nuevo elemento/editar elemento: Al introducir un título, se comprueba que no exista en el servidor sin recargar la página (+1.5 puntos)
 - [ ] Página detalle: Se cargan y añaden los subelementos sin recargar la página (AJAX) (+0.5 puntos)
 - [ ] Animaciones con JavaScript (puntuación variable)
+
+# Problemas que solucionar
+
+- Caraga inicial de elementos en la página principal: Poner una barra de carga mientras se cargan los elementos
