@@ -8,18 +8,14 @@
             <!----------------------------------------------------------------------------- Heart --->
             <label class="nav-link icon--liked" for="toggle--liked">
                 <i class="fs-4 bi bi-heart-fill" role="button"></i>
-                {{#favs.length}}
                 <span class="favs--bubble">{{favs.length}}</span>
-                {{/favs.length}}
             </label>
             <input type="checkbox" id="toggle--liked" />
             <div class="div--liked" id="div--liked" role="modal">
                 <heading class="liked--title"><span>Liked products</span><label for="toggle--liked" class="close"
                         role="button">Close</label></heading>
                 <div class="liked--list" role="listbox">
-                    {{#favs}}
-                    {{> components/navItem}}
-                    {{/favs}}
+                    {{> components/navItemsContainer}}
                 </div>
                 <div class="checkout">
                     <button>

@@ -15,10 +15,10 @@ const FEATURED_THRESHOLD = 3
 const router = express.Router()
 
 // Declare possible routes (not enabled until enabled by `app.get()`)
-router.get("/", renderIndex);
-router.get("/detailed/:id", renderDetailed);
-router.get("/publish", renderPublish);
-router.get("/legal", (_, res) => res.render("legal"));
+router.get("/", renderIndex)
+router.get("/detailed/:id", renderDetailed)
+router.get("/publish", renderPublish)
+router.get("/legal", (_, res) => res.render("legal"))
 router.get("/edit/:id", renderPublishEdit)
 router.get("/search/:searched", renderSearch)
 
@@ -39,7 +39,6 @@ router.post("/add-bid/:id", handleAddBid)
 
 //================================================================[Functions]================================================================//
 
-
 // Rendering Functions --------------------------------------------------------------------------------------------------
 function renderIndex(req, res) {
     const uuid = getUUID(req, res)
@@ -49,7 +48,7 @@ function renderIndex(req, res) {
 function renderSearch(req, res) {
     const searched = req.params.searched
     const uuid = getUUID(req, res)
-    const dataValues = Object.values(data).filter(item => item.name.toLowerCase().includes(searched.toLowerCase()))
+    const dataValues = Object.values(data).filter((item) => item.name.toLowerCase().includes(searched.toLowerCase()))
     res.render("search", { ...parseNav(req, res, uuid), dataValues, searched })
 }
 
@@ -59,15 +58,15 @@ function renderDetailed(req, res) {
 
     // Template page values
     const templateParams = {
-        ...data[id],  // Element data
-        isEmpty: !(data[id]?.bids.length),  // Bids array is empty
-        isFav: favorites[uuid].has(id),  // Element is in used favorites list
+        ...data[id], // Element data
+        isEmpty: !data[id]?.bids.length, // Bids array is empty
+        isFav: favorites[uuid].has(id), // Element is in used favorites list
     }
 
     // Handle errors
     let errors = []
-    const error = req.query.error  // Error flag
-    if (error) errors = decodeURIComponent(req.query.errorMsg).split(",")  // Error list (from query)
+    const error = req.query.error // Error flag
+    if (error) errors = decodeURIComponent(req.query.errorMsg).split(",") // Error list (from query)
 
     // Render page
     res.render("detailed", { ...templateParams, error, errors, ...parseNav(req, res, uuid) })
@@ -78,8 +77,8 @@ function renderPublish(req, res) {
 
     // Handle errors
     let errors = []
-    const error = req.query.error  // Error flag
-    if (error) errors = decodeURIComponent(req.query.errorMsg).split(",")  // Error list (from query)
+    const error = req.query.error // Error flag
+    if (error) errors = decodeURIComponent(req.query.errorMsg).split(",") // Error list (from query)
 
     // Template page values
     const templateParams = {
@@ -87,15 +86,13 @@ function renderPublish(req, res) {
         pageLittleTitle: "Publish",
         cancelRoute: "/",
         postRoute: "/add-element",
-        today: new Date().toISOString().split('T')[0],
-        ...(error ? JSON.parse(decodeURIComponent(req.query.form)) : {})  // Form data (from query) or empty object in case of error
+        today: new Date().toISOString().split("T")[0],
+        ...(error ? JSON.parse(decodeURIComponent(req.query.form)) : {}), // Form data (from query) or empty object in case of error
     }
-
 
     // Render page
     res.render("publish", { ...templateParams, types, sizes, error, errors, ...parseNav(req, res, uuid) })
 }
-
 
 function renderPublishEdit(req, res) {
     const id = req.params.id
@@ -103,8 +100,8 @@ function renderPublishEdit(req, res) {
 
     // Handle errors
     let errors = []
-    const error = req.query.error  // Error flag
-    if (error) errors = decodeURIComponent(req.query.errorMsg).split(",")  // Error list (from query)
+    const error = req.query.error // Error flag
+    if (error) errors = decodeURIComponent(req.query.errorMsg).split(",") // Error list (from query)
 
     // Template page values
     const templateParams = {
@@ -112,16 +109,16 @@ function renderPublishEdit(req, res) {
         pageLittleTitle: "Edit",
         cancelRoute: `/detailed/${id}`,
         postRoute: `/edit-element/${id}`,
-        today: new Date().toISOString().split('T')[0],
+        today: new Date().toISOString().split("T")[0],
         // Form data
         ...data[id],
-        finishingDate: data[id].finishingDate.split('/').reverse().join('-'),
-        ...(error ? JSON.parse(decodeURIComponent(req.query.form)) : {})
+        finishingDate: data[id].finishingDate.split("/").reverse().join("-"),
+        ...(error ? JSON.parse(decodeURIComponent(req.query.form)) : {}),
     }
 
     // Set selected tag values
-    types.forEach(e => e.selected = e.type === data[id].type ? 'selected' : '')
-    sizes.forEach(e => e.selected = e.size === data[id].size ? 'selected' : '')
+    types.forEach((e) => (e.selected = e.type === data[id].type ? "selected" : ""))
+    sizes.forEach((e) => (e.selected = e.size === data[id].size ? "selected" : ""))
 
     // Render page
     res.render("publish", { ...templateParams, types, sizes, error, errors, ...parseNav(req, res, uuid) })
@@ -134,11 +131,10 @@ function parseNav(req, res, uuid) {
     if (favorites[uuid] === undefined) favorites[uuid] = new Set()
 
     // Extract favorite elements of the user
-    const favs = [...favorites[uuid]].map(id => data[id]) || []
+    const favs = [...favorites[uuid]].map((id) => data[id]) || []
 
     return { favs }
 }
-
 
 // Handling Functions ------------------------------------------------------------------------------------------------------------------
 function handleDeleteElement(req, res) {
@@ -150,41 +146,38 @@ function handleDeleteElement(req, res) {
     res.redirect(`/`)
 }
 
-
 function handleQuitErrorMsg(req, res) {
     // Redirect to previous page (do not keep error message in query)
-    res.redirect(req.get('Referrer').split('?')[0])
+    res.redirect(req.get("Referrer").split("?")[0])
 }
-
 
 // Handle adding elements and editing elements
 function handleAddElement(req, res) {
-
     // Referrer
     const referrer = req.get("Referrer")
     const target = referrer.includes("edit") ? "edit/" + getURLLastPath(referrer) : "publish"
 
     // Validate form data
     const errors = publishErrorManager(req.body)
-    const encodedForm = encodeURIComponent(JSON.stringify(req.body))  // Encode form data to be able to send it back to the form in case of error
+    const encodedForm = encodeURIComponent(JSON.stringify(req.body)) // Encode form data to be able to send it back to the form in case of error
     if (errors) res.redirect(`/${target}?error=true${errors}&form=${encodedForm}`) // Errors - Redirect to publish page
-    else {  // No errors - Add element to data
+    else {
+        // No errors - Add element to data
         // Add/edit element
-        const id = referrer.includes("edit") ? getURLLastPath(referrer) : (parseInt(Object.keys(data).slice(-1)[0]) + 1).toString()  // Generate element ID (auto-incremental)
-        const finishingDate = formatDate(req.body.finishingDate)  // Format finishing date
+        const id = referrer.includes("edit") ? getURLLastPath(referrer) : (parseInt(Object.keys(data).slice(-1)[0]) + 1).toString() // Generate element ID (auto-incremental)
+        const finishingDate = formatDate(req.body.finishingDate) // Format finishing date
 
         data[id] = {
             id,
-            ...req.body,  // Add form data
+            ...req.body, // Add form data
             finishingDate: finishingDate,
-            price: parseFloat(req.body.price),  // Format price (float)
-            bids: []  // Initialize bids array
+            price: parseFloat(req.body.price), // Format price (float)
+            bids: [], // Initialize bids array
         }
 
         res.redirect(`/detailed/${id}`)
     }
 }
-
 
 function handleAddBid(req, res) {
     const id = req.params.id
@@ -215,12 +208,14 @@ function handleToggleFav(req, res) {
     const id = req.query.id
     const uuid = getUUID(req, res)
 
-    // Toggle favorite element on the users list
-    if (favorites[uuid].has(id)) favorites[uuid].delete(id)
-    else favorites[uuid].add(id)
+    if (id) {
+        // Toggle favorite element on the users list
+        if (favorites[uuid].has(id)) favorites[uuid].delete(id)
+        else favorites[uuid].add(id)
+    }
 
-    // Return success flag
-    res.json({ success: true })
+    // Return favorites list
+    res.render("components/navItemsContainer", { items: [...favorites[uuid]].map((id) => data[id]) })
 }
 
 function handleClearFavsList(req, res) {
@@ -240,24 +235,26 @@ function getMoreItems(req, res) {
     const from = req.query.from
     const to = req.query.to
 
-    const dataValues = Object.values(data).sort((a, b) => b.bids.length - a.bids.length).slice(from, to)
+    const dataValues = Object.values(data)
+        .sort((a, b) => b.bids.length - a.bids.length)
+        .slice(from, to)
     res.render("components/itemsContainer", { dataValues })
 }
 
 function getFeaturedItems(_, res) {
-    const featuredItems = [...featured].map(id => data[id]).sort((a, b) => b.bids.length - a.bids.length)
+    const featuredItems = [...featured].map((id) => data[id]).sort((a, b) => b.bids.length - a.bids.length)
     res.render("components/featuredItemsContainer", { featuredItems })
 }
 
 function checkValidName(req, res) {
     const name = req.query.name
-    const valid = Object.values(data).every(item => item.name !== name)
+    const valid = Object.values(data).every((item) => item.name !== name)
     res.json({ valid })
 }
 
 function getSearchResults(req, res) {
     const searched = req.query.searched
-    const results = Object.values(data).filter(item => item.name.toLowerCase().includes(searched.toLowerCase()))
+    const results = Object.values(data).filter((item) => item.name.toLowerCase().includes(searched.toLowerCase()))
     res.render("components/itemsContainer", { dataValues: results })
 }
 
