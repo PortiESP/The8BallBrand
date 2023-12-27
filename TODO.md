@@ -19,7 +19,7 @@
 # Parte opcional
 
 - [X] Cambiar la implementación de la lista de favoritos para que se ejecute en el front, evitando la recarga de la página  (+3 puntos)
-- [ ] Barra de búsqueda de elementos (+1 punto)
+- [X] Barra de búsqueda de elementos (+1 punto)
 - [ ] Filtro de elementos (+1 punto)
 - [X] Mostrar los elementos (grid) en una sola columna (+2 puntos)
 - [X] Página nuevo elemento/editar elemento: Al introducir un título, se comprueba que no exista en el servidor sin recargar la página (+1.5 puntos)
