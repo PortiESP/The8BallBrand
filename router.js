@@ -170,7 +170,7 @@ function handleAddElement(req, res) {
     if (errors) res.redirect(`/${target}?error=true${errors}&form=${encodedForm}`) // Errors - Redirect to publish page
     else {  // No errors - Add element to data
         // Add/edit element
-        const id = referrer.includes("edit") ? getURLLastPath(referrer) : (Object.keys(data).length + 1).toString()  // Generate element ID (auto-incremental)
+        const id = referrer.includes("edit") ? getURLLastPath(referrer) : (parseInt(Object.keys(data).slice(-1)[0]) + 1).toString()  // Generate element ID (auto-incremental)
         const finishingDate = formatDate(req.body.finishingDate)  // Format finishing date
 
         data[id] = {
