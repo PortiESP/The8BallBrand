@@ -19,27 +19,29 @@ async function loadBids() {
 }
 
 // Add new bids
-function addBid(event) {
+async function addBid(event) {
     event.preventDefault()
     const id = new URL(location).pathname.split("/").slice(-1)[0]
     const bid = { name: $bidName.value, email: $bidEmail.value, bid: $bidValue.value }
-    fetch(`/add-bid?id=${id}`, {
+
+    const response = await fetch(`/add-bid?id=${id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bid)
     })
-    .then(res => ({data: res.text(), code: res.status}))
-    .then(res => { 
-        if (res.code === 200) {
-            $bidContainer.innerHTML = res.data + $bidContainer.innerHTML
-            $bidName.value = ""
-            $bidEmail.value = ""
-            $bidValue.value = ""
-        } else if (res.code === 204) {
-            alert(res.data)
-        }
 
-    })
+    const html = await response.text()
+
+    console.log("RESPONSE: " + response)
+    console.log("HTML: " + html)
+
+    if (response.status === 200) {
+        $bidName.value = ""
+        $bidEmail.value = ""
+        $bidValue.value = ""
+        $bidContainer.innerHTML = html + $bidContainer.innerHTML
+
+    } else alert(html)
 }
 
 // INIT 

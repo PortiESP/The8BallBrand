@@ -275,12 +275,14 @@ function handleAddBid(req, res) {
     // Validate bid data
     const errors = bidErrorManager({ bid, name, email, price })
 
+    console.log("ERRORS: " + errors)
+
     // Render error message or add bid to the list
-    if (errors) res.status(204).send(errors)
+    if (errors) res.status(400).send(errors)
     else {
         data[id].bids = [{ name, date, bid, picture }, ...data[id].bids]
         if (data[id].bids.length >= FEATURED_THRESHOLD) featured.add(id)
-        res.status(200).render("components/bidsContainer", { bids: data[id].bids })
+        res.status(200).render("components/bidCard", { name, date, bid, picture })
     }
 }
 
