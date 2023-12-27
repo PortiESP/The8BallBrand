@@ -9,3 +9,8 @@ function toggleFav(id){
 }
 // Set the event listener on the fav button
 document.querySelector("label[for='favorite-checkbox']").addEventListener("click", ()=>toggleFav(new URL(location).pathname.split("/").slice(-1)[0]))
+
+//load sub-elements without reloading the page
+async function loadSubElements(){
+  
+}
