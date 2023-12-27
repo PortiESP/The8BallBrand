@@ -35,7 +35,7 @@ router.get("/get-bids", getBids)
 // POST routes
 router.post("/add-element", handleAddElement)
 router.post("/edit-element/:id", handleAddElement)
-router.post("/add-bid/:id", handleAddBid)
+router.post("/add-bid", handleAddBid)
 
 //================================================================[Functions]================================================================//
 
@@ -175,37 +175,12 @@ function handleAddElement(req, res) {
     }
 }
 
-// Handle adding bids -------------------------------------------------------------------------------------------------
-function handleAddBid(req, res) {
-    const id = req.params.id
-
-    // Bid data
-    const bid = parseFloat(req.body.bid)
-    const name = req.body.name
-    const email = req.body.email
-    const picture = avatarGenerator(req.body.email)
-    const date = formatDate(Date.now())
-
-    // Item price (initial price or highest bid)
-    const price = data[id].bids.length ? parseFloat(data[id].bids[0].bid) : parseFloat(data[id].price)
-
-    // Validate bid data
-    const errors = bidErrorManager({ bid, name, email, price })
-
-    // Render error message or add bid to the list
-    if (errors) res.redirect(`/detailed/${id}?error=true${errors}`)
-    else {
-        data[id].bids = [{ name, date, bid, picture }, ...data[id].bids]
-        if (data[id].bids.length >= FEATURED_THRESHOLD) featured.add(id)
-        res.redirect(`/detailed/${id}`)
-    }
-}
 
 // Handle toggling favorite elements ----------------------------------------------------------------------------------
 function handleToggleFav(req, res) {
     const id = req.query.id
     const uuid = getUUID(req, res)
-
+    
     if (id) {
         // Toggle favorite element on the users list
         if (favorites[uuid].has(id)) favorites[uuid].delete(id)
@@ -220,7 +195,7 @@ function handleToggleFav(req, res) {
 function handleClearFavsList(req, res) {
     // Get the user UUID
     const uuid = getUUID(req, res)
-
+    
     // Clear user favorites list
     favorites[uuid] = new Set()
 
@@ -257,7 +232,7 @@ function checkValidName(req, res) {
 // Fetch search results -----------------------------------------------------------------------------------------------
 function getSearchResults(req, res) {
     const query = req.query.q
-
+    
     if (!query) res.render("components/itemsContainer", { dataValues: [] })
     else res.render("components/itemsContainer", { dataValues: filterItemsByString(query) })
 }
@@ -278,6 +253,31 @@ function getBids(req,res){
     const bids = data[id].bids
     if (bids.length) res.render("components/bidsContainer", { bids })
     else res.send(`<span class="flag--empty-bids">Be the first one to make a bid!</span>`)
+}
+// Handle adding bids -------------------------------------------------------------------------------------------------
+function handleAddBid(req, res) {
+    const id = req.query.id
+
+    // Bid data
+    const bid = parseFloat(req.body.bid)
+    const name = req.body.name
+    const email = req.body.email
+    const picture = avatarGenerator(req.body.email)
+    const date = formatDate(Date.now())
+
+    // Item price (initial price or highest bid)
+    const price = data[id].bids.length ? parseFloat(data[id].bids[0].bid) : parseFloat(data[id].price)
+
+    // Validate bid data
+    const errors = bidErrorManager({ bid, name, email, price })
+
+    // Render error message or add bid to the list
+    if (errors) res.status(204).send(errors)
+    else {
+        data[id].bids = [{ name, date, bid, picture }, ...data[id].bids]
+        if (data[id].bids.length >= FEATURED_THRESHOLD) featured.add(id)
+        res.status(200).render("components/bidsContainer", { bids: data[id].bids })
+    }
 }
 
 // Export routes definitions
