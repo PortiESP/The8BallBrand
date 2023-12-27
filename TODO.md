@@ -23,12 +23,13 @@
 - [ ] Filtro de elementos (+1 punto)
 - [X] Mostrar los elementos (grid) en una sola columna (+2 puntos)
 - [X] Página nuevo elemento/editar elemento: Al introducir un título, se comprueba que no exista en el servidor sin recargar la página (+1.5 puntos)
-- [ ] Página detalle: Se cargan y añaden los subelementos sin recargar la página (AJAX) (+0.5 puntos)
+- [X] Página detalle: Se cargan y añaden los subelementos sin recargar la página (AJAX) (+0.5 puntos)
 - [ ] Animaciones con JavaScript (puntuación variable)
 
 # Problemas que solucionar
 
 - Carga inicial de elementos en la página principal: Poner una barra de carga mientras se cargan los elementos
+- Añadir estilo errorToast 
 - Btn cargar mas:
   - Mejorar estilo
   - Disabled cuando no hay mas elementos
