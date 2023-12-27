@@ -20,7 +20,6 @@ router.get("/detailed/:id", renderDetailed)
 router.get("/publish", renderPublish)
 router.get("/legal", (_, res) => res.render("legal"))
 router.get("/edit/:id", renderPublishEdit)
-router.get("/search/:searched", renderSearch)
 
 router.get("/delete/:id", handleDeleteElement)
 router.get("/quit-errorMsg", handleQuitErrorMsg)
@@ -45,13 +44,7 @@ function renderIndex(req, res) {
     res.render("index", { ...parseNav(req, res, uuid) })
 }
 
-function renderSearch(req, res) {
-    const searched = req.params.searched
-    const uuid = getUUID(req, res)
-    const dataValues = Object.values(data).filter((item) => item.name.toLowerCase().includes(searched.toLowerCase()))
-    res.render("search", { ...parseNav(req, res, uuid), dataValues, searched })
-}
-
+// Render detailed page --------------------------------------------------------------------------------------------------
 function renderDetailed(req, res) {
     const id = req.params.id
     const uuid = getUUID(req, res)
@@ -72,6 +65,7 @@ function renderDetailed(req, res) {
     res.render("detailed", { ...templateParams, error, errors, ...parseNav(req, res, uuid) })
 }
 
+// Render publish page --------------------------------------------------------------------------------------------------
 function renderPublish(req, res) {
     const uuid = getUUID(req, res)
 
@@ -94,6 +88,7 @@ function renderPublish(req, res) {
     res.render("publish", { ...templateParams, types, sizes, error, errors, ...parseNav(req, res, uuid) })
 }
 
+// Render publish page (edit) --------------------------------------------------------------------------------------------------
 function renderPublishEdit(req, res) {
     const id = req.params.id
     const uuid = getUUID(req, res)
@@ -125,7 +120,6 @@ function renderPublishEdit(req, res) {
 }
 
 // Sub-components Rendering Functions --------------------------------------------------------------------------------------------------
-
 function parseNav(req, res, uuid) {
     // If user does not have a favorites list, create one
     if (favorites[uuid] === undefined) favorites[uuid] = new Set()
@@ -146,12 +140,13 @@ function handleDeleteElement(req, res) {
     res.redirect(`/`)
 }
 
+// Handle error message when quitting publish page ------------------------------------------------------------------
 function handleQuitErrorMsg(req, res) {
     // Redirect to previous page (do not keep error message in query)
     res.redirect(req.get("Referrer").split("?")[0])
 }
 
-// Handle adding elements and editing elements
+// Handle adding elements and editing elements ------------------------------------------------------------------
 function handleAddElement(req, res) {
     // Referrer
     const referrer = req.get("Referrer")
@@ -179,6 +174,7 @@ function handleAddElement(req, res) {
     }
 }
 
+// Handle adding bids -----------------------------------------------------------------------------------------------
 function handleAddBid(req, res) {
     const id = req.params.id
 
@@ -204,6 +200,7 @@ function handleAddBid(req, res) {
     }
 }
 
+// Handle toggling favorite elements -----------------------------------------------------------------------------------------------
 function handleToggleFav(req, res) {
     const id = req.query.id
     const uuid = getUUID(req, res)
@@ -218,6 +215,7 @@ function handleToggleFav(req, res) {
     res.render("components/navItemsContainer", { items: [...favorites[uuid]].map((id) => data[id]) })
 }
 
+// Handle clearing favorites list -----------------------------------------------------------------------------------------------
 function handleClearFavsList(req, res) {
     const uuid = getUUID(req, res)
     const referrer = req.get("Referrer")
@@ -231,6 +229,7 @@ function handleClearFavsList(req, res) {
 
 // Fetching Functions ------------------------------------------------------------------------------------------------------------------
 
+// Fetch more items -----------------------------------------------------------------------------------------------
 function getMoreItems(req, res) {
     const from = req.query.from
     const to = req.query.to
@@ -241,17 +240,20 @@ function getMoreItems(req, res) {
     res.render("components/itemsContainer", { dataValues })
 }
 
+// Fetch featured items -----------------------------------------------------------------------------------------------
 function getFeaturedItems(_, res) {
     const featuredItems = [...featured].map((id) => data[id]).sort((a, b) => b.bids.length - a.bids.length)
     res.render("components/featuredItemsContainer", { featuredItems })
 }
 
+// Fetch valid name -----------------------------------------------------------------------------------------------
 function checkValidName(req, res) {
     const name = req.query.name
     const valid = Object.values(data).every((item) => item.name !== name)
     res.json({ valid })
 }
 
+// Fetch search results -----------------------------------------------------------------------------------------------
 function getSearchResults(req, res) {
     const searched = req.query.searched
     const results = Object.values(data).filter((item) => item.name.toLowerCase().includes(searched.toLowerCase()))
