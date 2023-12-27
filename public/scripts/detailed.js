@@ -30,15 +30,18 @@ async function addBid(event) {
         body: JSON.stringify(bid)
     })
 
-    const html = await response.text()
+    const textResponse = await response.text()
 
     if (response.status === 200) {
         $bidName.value = ""
         $bidEmail.value = ""
         $bidValue.value = ""
-        $bidContainer.innerHTML = html + $bidContainer.innerHTML
+        $bidContainer.innerHTML = textResponse + $bidContainer.innerHTML
 
-    } else alert(html)
+    } else {
+        const errorMsgs = decodeURIComponent(textResponse).split("=")[1].split(",")
+        console.log(errorMsgs)
+    }
 }
 
 // INIT 
