@@ -5,8 +5,10 @@ const $bidContainer = document.querySelector(".comment-background")
 const $bidName = document.querySelector("input[name='name']")
 const $bidEmail = document.querySelector("input[name='email']")
 const $bidValue = document.querySelector("input[name='bid']")
+const $bidButton = document.querySelector("#bid--button")
 
 $favsCheckbox.addEventListener("click", () => toggleFav(new URL(location).pathname.split("/").slice(-1)[0]))
+$bidButton.addEventListener("click", addBid)
 
 // Load bids
 async function loadBids() {
@@ -17,7 +19,8 @@ async function loadBids() {
 }
 
 // Add new bids
-function addBid() {
+function addBid(event) {
+    event.preventDefault()
     const id = new URL(location).pathname.split("/").slice(-1)[0]
     const bid = { name: $bidName.value, email: $bidEmail.value, bid: $bidValue.value }
     fetch(`/add-bid?id=${id}`, {

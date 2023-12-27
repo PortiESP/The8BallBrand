@@ -257,6 +257,7 @@ function getBids(req,res){
 // Handle adding bids -------------------------------------------------------------------------------------------------
 function handleAddBid(req, res) {
     const id = req.query.id
+    console.log(req.body)
 
     // Bid data
     const bid = parseFloat(req.body.bid)
