@@ -4,20 +4,15 @@ const $layoutButtonIcon = document.querySelector(".items--layout i")
 const $itemsWrap = document.querySelector(".items--wrap")
 const $itemsContainer = document.querySelector(".items--wrap")
 const $featuredItemsSection = document.getElementById("featured--section")
+const $loadMoreButton = document.querySelector("#load-more")
 
 // Adding listeners
 $layoutButton.addEventListener("click", toggleLayout)
-
-let $loadMoreButton
-if (location.pathname === "/") {
-    $loadMoreButton = document.querySelector("#load-more")
-    $loadMoreButton.addEventListener("click", loadMoreItems)
-}
+$loadMoreButton.addEventListener("click", loadMoreItems)
 
 // Item Counter
 let itemCount = 0
 const INTERVAL = 4
-
 
 // =========================================================================================================================[ Functions ]>>>
 function toggleLayout() {     
@@ -65,7 +60,5 @@ async function loadFeaturedItems() {
 }
 
 // INIT 
-if (location.pathname === "/") {
-    loadFeaturedItems()
-    loadMoreItems()
-}
+loadFeaturedItems()
+loadMoreItems()
