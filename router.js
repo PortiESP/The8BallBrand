@@ -30,6 +30,7 @@ router.get("/get-items", getMoreItems)
 router.get("/get-featured-items", getFeaturedItems)
 router.get("/validate-name", checkValidName)
 router.get("/search", getSearchResults)
+router.get("/get-bids", getBids)
 
 // POST routes
 router.post("/add-element", handleAddElement)
@@ -269,6 +270,14 @@ function filterItemsByString(query) {
             item.description.toLowerCase().includes(query.toLowerCase())
         )
     })
+}
+
+// Fetch bids ---------------------------------------------------------------------------------------------------------
+function getBids(req,res){
+    const id = req.query.id
+    const bids = data[id].bids
+    if (bids.length) res.render("components/bidsContainer", { bids })
+    else res.send(`<span class="flag--empty-bids">Be the first one to make a bid!</span>`)
 }
 
 // Export routes definitions

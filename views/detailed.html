@@ -88,13 +88,6 @@
             </div>
             <div class="comment-zone">
                 <div class="comment-background">
-                    {{#isEmpty}}
-                    <span class="flag--empty-bids">Be the first one to make a bid!</span>
-                    {{/isEmpty}}
-
-                    {{#bids}}
-                    {{> components/bidCard}}
-                    {{/bids}}
                 </div>
             </div>
             <form class="form-container" method="post" action="/add-bid/{{id}}">
