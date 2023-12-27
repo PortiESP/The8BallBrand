@@ -25,7 +25,6 @@ router.get("/legal", (_, res) => res.render("legal"))
 router.get("/edit/:id", renderPublishEdit)
 
 router.get("/delete/:id", handleDeleteElement)
-router.get("/quit-errorMsg", handleQuitErrorMsg)
 router.get("/toggle-fav", handleToggleFav)
 router.get("/clear-favs-list", handleClearFavsList)
 
@@ -142,12 +141,6 @@ function handleDeleteElement(req, res) {
     featured.delete(id)
 
     res.redirect(`/`)
-}
-
-// Handle error message when quitting publish page --------------------------------------------------------------------
-function handleQuitErrorMsg(req, res) {
-    // Redirect to previous page (do not keep error message in query)
-    res.redirect(req.get("Referrer").split("?")[0])
 }
 
 // Handle adding elements and editing elements ------------------------------------------------------------------------
