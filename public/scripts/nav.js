@@ -6,9 +6,7 @@ export function toggleFav(id) {
     fetch(`/toggle-fav${id ? "?id=" + id : ""}`)
         .then((res) => res.text())
         .then((data) => {
-            console.log("Data" + data)
             $favsList.innerHTML = data
-            console.log("Inner" + $favsList.innerHTML)
             const favsNum = $favsList.querySelectorAll(".item--liked").length
             if ($favsBubble) {
                 $favsBubble.innerHTML = favsNum
