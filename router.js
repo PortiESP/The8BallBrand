@@ -14,6 +14,9 @@ const FEATURED_THRESHOLD = 3
 // INIT
 const router = express.Router()
 
+// CONFIG
+router.use(express.json())
+
 // Declare possible routes (not enabled until enabled by `app.get()`)
 router.get("/", renderIndex)
 router.get("/detailed/:id", renderDetailed)

@@ -46,7 +46,6 @@ app.post('/add-bid', router)
 
 
 // Static files
-app.use(express.json())
 app.use(express.static('./public'))
 
 // LISTEN

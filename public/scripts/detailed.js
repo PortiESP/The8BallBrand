@@ -26,7 +26,7 @@ function addBid(event) {
     fetch(`/add-bid?id=${id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ bid })
+        body: JSON.stringify(bid)
     })
     .then(res => ({data: res.text(), code: res.status}))
     .then(res => { 
@@ -35,7 +35,7 @@ function addBid(event) {
             $bidName.value = ""
             $bidEmail.value = ""
             $bidValue.value = ""
-        }else if (res.code === 204) {
+        } else if (res.code === 204) {
             alert(res.data)
         }
 
