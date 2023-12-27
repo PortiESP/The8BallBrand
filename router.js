@@ -255,9 +255,20 @@ function checkValidName(req, res) {
 
 // Fetch search results -----------------------------------------------------------------------------------------------
 function getSearchResults(req, res) {
-    const searched = req.query.searched
-    const results = Object.values(data).filter((item) => item.name.toLowerCase().includes(searched.toLowerCase()))
-    res.render("components/itemsContainer", { dataValues: results })
+    const query = req.query.q
+
+    if (!query) res.render("components/itemsContainer", { dataValues: [] })
+    else res.render("components/itemsContainer", { dataValues: filterItemsByString(query) })
+}
+
+// Filter function -----------------------------------------------------------------------------------------------
+function filterItemsByString(query) {
+    return Object.values(data).filter((item) => {
+        return (
+            item.name.toLowerCase().includes(query.toLowerCase()) ||
+            item.description.toLowerCase().includes(query.toLowerCase())
+        )
+    })
 }
 
 // Export routes definitions

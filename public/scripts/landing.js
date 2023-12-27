@@ -1,8 +1,7 @@
 // Getting DOM elements
 const $layoutButton = document.querySelector(".items--layout")
 const $layoutButtonIcon = document.querySelector(".items--layout i")
-const $itemsWrap = document.querySelector(".items--wrap")
-const $itemsContainer = document.querySelector(".items--wrap")
+const $itemsContainer = document.querySelector("main .items--wrap")
 const $featuredItemsSection = document.getElementById("featured--section")
 const $loadMoreButton = document.querySelector("#load-more")
 
@@ -21,8 +20,8 @@ function toggleLayout() {
     $layoutButtonIcon.classList.toggle("bi-grid")
 
     // Toggle items-wrap layout
-    $itemsWrap.classList.toggle("items-wrap--grid")
-    $itemsWrap.classList.toggle("items-wrap--list")
+    $itemsContainer.classList.toggle("items-wrap--grid")
+    $itemsContainer.classList.toggle("items-wrap--list")
 }
 
 async function loadMoreItems() {
