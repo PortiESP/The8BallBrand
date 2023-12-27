@@ -50,6 +50,11 @@ function clearFavsList() {
             $favsBubble.innerHTML = 0
             $favsBubble.style.display = "none"
             $clearFavsButton.innerHTML = "Clear List (0)"
+
+            if (location.pathname.includes("detailed/")) {
+                const $favCheckbox = document.querySelector("#favorite-checkbox")
+                $favCheckbox.checked = false
+            }
         })
 }
 
