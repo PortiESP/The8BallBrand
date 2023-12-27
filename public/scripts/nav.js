@@ -8,14 +8,16 @@ const debounce = getDebouncer(parseSearchResults, DEBOUNCE_TIMEOUT)
 
 // EVENTS ==============================================================================
 // Clear the search input
-$searchDeleteButton.addEventListener("click", clearInput)
+$searchDeleteButton.addEventListener("click", resetInput)
 // Input event on the search input
 $searchInput.addEventListener("input", debounce)
 
 // FUNCTIONS ==============================================================================
 // Clear the search input event
-function clearInput() {
+function resetInput() {
     $searchInput.value = ""
+    $searchInput.classList.remove("results--filled")
+    document.querySelector("search .div--search-results").innerHTML = ""
 }
 
 // Send a request to the server to toggle the fav status of the element, then reload the page
@@ -56,10 +58,25 @@ export function getDebouncer(func, wait = 20) {
 
 // Parse the search results
 function parseSearchResults() {
+
+    if (!$searchInput.value) {
+        resetInput()
+        return
+    }
+
     fetch(`/search?q=${$searchInput.value}`)
     .then((res) => res.text())
     .then((data) => {
-        document.querySelector("search .div--search-results").innerHTML = data
+        const $itemsContainer = document.querySelector("search .div--search-results")
+
+        // Update items container
+        $itemsContainer.innerHTML = data
+        
+        // Remove link item
+        const $linkItem = document.querySelector("nav .item--link#add-element--link")
+        $itemsContainer.removeChild($linkItem)
+
+        $searchInput.classList.add("results--filled")
     })       
 }
 

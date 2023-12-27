@@ -257,11 +257,14 @@ nav.navbar {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                position: relative;
+
 
                 & .search--group {
                     position: relative;
                     display: flex;
                     align-items: center;
+                    top:0;
 
                     & input {
                         width: clamp(250px, 80vw, 1000px);
@@ -270,6 +273,12 @@ nav.navbar {
                         outline: none;
                         border-radius: 6px;
                         padding: 20px;
+                        
+                        &.results--filled{
+                            border-radius: 6px 6px 0 0;
+                            border-bottom: 1px solid #0002;
+                            box-shadow: 0 0 10px #0004;
+                        }
                     }
 
                     & button.icon--backspace-search {

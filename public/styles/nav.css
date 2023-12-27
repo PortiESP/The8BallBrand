@@ -208,11 +208,13 @@ nav.navbar .navbar-nav .div--search[role=modal] search {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 nav.navbar .navbar-nav .div--search[role=modal] search .search--group {
   position: relative;
   display: flex;
   align-items: center;
+  top: 0;
 }
 nav.navbar .navbar-nav .div--search[role=modal] search .search--group input {
   width: clamp(250px, 80vw, 1000px);
@@ -221,6 +223,11 @@ nav.navbar .navbar-nav .div--search[role=modal] search .search--group input {
   outline: none;
   border-radius: 6px;
   padding: 20px;
+}
+nav.navbar .navbar-nav .div--search[role=modal] search .search--group input.results--filled {
+  border-radius: 6px 6px 0 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1333333333);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2666666667);
 }
 nav.navbar .navbar-nav .div--search[role=modal] search .search--group button.icon--backspace-search {
   position: absolute;
