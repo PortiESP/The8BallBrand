@@ -32,9 +32,6 @@ async function addBid(event) {
 
     const html = await response.text()
 
-    console.log("RESPONSE: " + response)
-    console.log("HTML: " + html)
-
     if (response.status === 200) {
         $bidName.value = ""
         $bidEmail.value = ""

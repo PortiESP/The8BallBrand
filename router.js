@@ -260,7 +260,6 @@ function getBids(req,res){
 // Handle adding bids -------------------------------------------------------------------------------------------------
 function handleAddBid(req, res) {
     const id = req.query.id
-    console.log(req.body)
 
     // Bid data
     const bid = parseFloat(req.body.bid)
@@ -274,8 +273,6 @@ function handleAddBid(req, res) {
 
     // Validate bid data
     const errors = bidErrorManager({ bid, name, email, price })
-
-    console.log("ERRORS: " + errors)
 
     // Render error message or add bid to the list
     if (errors) res.status(400).send(errors)
