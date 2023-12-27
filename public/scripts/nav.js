@@ -2,17 +2,24 @@ const DEBOUNCE_TIMEOUT = 500  // Debounce timeout in ms
 
 const $favsList = document.querySelector(".liked--list")
 const $favsBubble = document.querySelector(".favs--bubble")
+const $clearFavsButton = document.querySelector("#clear-favs--list")
 const $searchDeleteButton = document.querySelector("#search--button")
 const $searchInput = document.querySelector("#search--input")
 const debounce = getDebouncer(parseSearchResults, DEBOUNCE_TIMEOUT)
 
 // EVENTS ==============================================================================
+
+// Clear the favs list
+$clearFavsButton.addEventListener("click", clearFavsList)
+
 // Clear the search input
 $searchDeleteButton.addEventListener("click", resetInput)
+
 // Input event on the search input
 $searchInput.addEventListener("input", debounce)
 
 // FUNCTIONS ==============================================================================
+
 // Clear the search input event
 function resetInput() {
     $searchInput.value = ""
@@ -20,7 +27,7 @@ function resetInput() {
     document.querySelector("search .div--search-results").innerHTML = ""
 }
 
-// Send a request to the server to toggle the fav status of the element, then reload the page
+// Toggle the fav status of an item
 export function toggleFav(id) {
     fetch(`/toggle-fav${id ? "?id=" + id : ""}`)
         .then((res) => res.text())
@@ -30,11 +37,21 @@ export function toggleFav(id) {
             if ($favsBubble) {
                 $favsBubble.innerHTML = favsNum
                 $favsBubble.style.display = favsNum ? "inline-block" : "none"
-                document.querySelector("a[href='/clear-favs-list']").innerHTML = `Clear list (${favsNum})`
+                $clearFavsButton.innerHTML = `Clear List (${favsNum})`
             }
         })
 }
 
+// Clear the favs list
+function clearFavsList() {
+    fetch("/clear-favs-list")
+        .then(() => {
+            $favsList.innerHTML = ""
+            $favsBubble.innerHTML = 0
+            $favsBubble.style.display = "none"
+            $clearFavsButton.innerHTML = "Clear List (0)"
+        })
+}
 
 // Debounce function
 export function getDebouncer(func, wait = 20) {

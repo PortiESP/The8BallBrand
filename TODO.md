@@ -32,3 +32,4 @@
 - Btn cargar mas:
   - Mejorar estilo
   - Disabled cuando no hay mas elementos
+- Estilos responsive del searchItem
