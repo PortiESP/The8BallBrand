@@ -29,7 +29,6 @@
 # Problemas que solucionar
 
 - Carga inicial de elementos en la página principal: Poner una barra de carga mientras se cargan los elementos
-- Añadir estilo errorToast 
 - Btn cargar mas:
   - Mejorar estilo
   - Disabled cuando no hay mas elementos
