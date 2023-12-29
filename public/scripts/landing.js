@@ -3,15 +3,19 @@ const $layoutButton = document.querySelector(".items--layout")
 const $layoutButtonIcon = document.querySelector(".items--layout i")
 const $itemsContainer = document.querySelector("main .items--wrap")
 const $featuredItemsSection = document.getElementById("featured--section")
-const $loadMoreButton = document.querySelector("#load-more")
+const $loadMoreButton = document.querySelector(".load-more--div")
 
 // Adding listeners
 $layoutButton.addEventListener("click", toggleLayout)
-$loadMoreButton.addEventListener("click", loadMoreItems)
 
 // Item Counter
 let itemCount = 0
 const INTERVAL = 4
+
+// Intesecting observer
+const observer = new IntersectionObserver((e)=> e[0].isIntersecting && loadMoreItems(), { threshold: 0, rootMargin: "0px 0px 0px 0px", root: null })
+observer.observe($loadMoreButton)
+
 
 // =========================================================================================================================[ Functions ]>>>
 function toggleLayout() {     
@@ -25,6 +29,7 @@ function toggleLayout() {
 }
 
 async function loadMoreItems() {
+    console.log("Loading items...")
     // Fetch items
     const response = await fetch(`/get-items?from=${itemCount}&to=${itemCount + INTERVAL}`)
     const html = await response.text()
@@ -58,6 +63,7 @@ async function loadFeaturedItems() {
     console.log("Featured items loaded")
 }
 
+
+
 // INIT 
 loadFeaturedItems()
-loadMoreItems()
