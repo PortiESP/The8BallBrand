@@ -1,53 +1,47 @@
-.error-bubble-background {
+.error-msg-wrapper {
   position: fixed;
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  display: none;
-  justify-content: center;
-  z-index: 1000;
+  right: 30px;
+  bottom: 30px;
+  z-index: 1;
+  transform: translateX(130%);
+  transition: all 0.3s ease;
 }
-.error-bubble-background .error-bubble {
-  width: 300px;
-  height: 200px;
-  background-color: #ddd;
-  border: 1px solid rgba(17, 17, 17, 0.5333333333);
-  display: flex;
-  flex-direction: column;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+.error-msg-wrapper.show {
+  transform: translateX(0);
 }
-.error-bubble-background .error-bubble .error-bubble-header {
-  background-color: #cdcdcd;
-  padding: 5px 15px;
-  font-weight: 600;
-  font-size: 1em;
+.error-msg-wrapper .card {
+  position: relative;
+  width: clamp(300px, 70vw, 600px);
+  background-color: #eee;
+  padding: 20px 20px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  gap: 10px;
   align-items: center;
-  border-bottom: 1px solid #aaa;
+  border-left: 5px solid #d74949;
+  border-radius: 3px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-.error-bubble-background .error-bubble .error-bubble-header .error-bubble-icon {
-  padding-right: 10px;
-  color: rgb(224, 146, 0);
+.error-msg-wrapper .card .subject {
+  flex: 1;
+  padding-left: 10px;
 }
-.error-bubble-background .error-bubble .error-bubble-header .error-bubble-button {
-  background: none;
-  border: none;
-  cursor: pointer;
+.error-msg-wrapper .card .subject h3 {
   font-size: 1.2em;
-  font-weight: 500;
-  color: #000;
+  margin-bottom: 4px;
 }
-.error-bubble-background .error-bubble .error-bubble-header .error-bubble-button:visited {
-  text-decoration: none;
+.error-msg-wrapper .card .subject .error-msg {
+  color: #909092;
+  margin: 0;
+  list-style-position: inside;
+  padding-left: 0;
 }
-.error-bubble-background .error-bubble .error-bubble-body {
-  padding-top: 15px;
-  font-size: 0.9em;
-  color: #888;
+.error-msg-wrapper .card .icon {
+  font-size: 28px;
+  color: #d74949;
 }
-.error-bubble-background .error-bubble.notError {
-  display: none;
+.error-msg-wrapper .card .icon-times {
+  font-size: 28px;
+  color: #c3c2c7;
+  cursor: pointer;
 }/*# sourceMappingURL=errorBubble.css.map */

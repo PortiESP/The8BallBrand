@@ -11,9 +11,9 @@ const $bidValue = document.querySelector("input[name='bid']")
 const $bidButton = document.querySelector("#bid--button")
 
 // Error toast elements
-const $errorToast = document.querySelector(".error-bubble-background")
-const $errorToastText = document.querySelector(".error-bubble-body ul")
-const $errorToastClose = document.querySelector(".error-bubble-button")
+const $errorToast = document.querySelector(".error-msg-wrapper")
+const $errorToastText = document.querySelector(".error-msg-wrapper .error-msg")
+const $errorToastClose = document.querySelector(".error-msg-wrapper .icon-times")
 
 $favsCheckbox.addEventListener("click", () => toggleFav(new URL(location).pathname.split("/").slice(-1)[0]))
 $bidButton.addEventListener("click", addBid)
@@ -46,18 +46,17 @@ async function addBid(event) {
         $bidEmail.value = ""
         $bidValue.value = ""
         $bidContainer.innerHTML = textResponse + $bidContainer.innerHTML
-
+        $errorToast.classList.remove("show")
     } else {
         const errorMsgs = decodeURIComponent(textResponse).split("=")[1].split(",")
-        $errorToast.style.display = "flex"
-        $errorToastText.innerHTML += errorMsgs.map(msg => `<li>${msg}</li>`).join("")
+        $errorToastText.innerHTML = errorMsgs.map(msg => `<li>${msg}</li>`).join("")
+        $errorToast.classList.add("show")
     }
 }
 
 // Close error toast
 function closeErrorToast() {
-    $errorToast.style.display = "none"
-    $errorToastText.innerHTML = ""
+    $errorToast.classList.remove("show")
 }
 
 // INIT 
