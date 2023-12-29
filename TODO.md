@@ -29,7 +29,4 @@
 # Problemas que solucionar
 
 - Carga inicial de elementos en la página principal: Poner una barra de carga mientras se cargan los elementos
-- Btn cargar mas:
-  - Mejorar estilo
-  - Disabled cuando no hay mas elementos
 - Estilos responsive del searchItem
