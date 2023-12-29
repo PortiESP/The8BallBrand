@@ -3,7 +3,7 @@
   flex-direction: column;
   width: clamp(250px, 80vw, 1000px);
   position: relative;
-  height: 60vh;
+  max-height: 60vh;
   overflow-y: scroll;
   border-radius: 0 0 6px 6px;
   -ms-overflow-style: none;
@@ -145,4 +145,12 @@
 }
 .div--search-results .item:hover .item--image-front {
   transform: scale(110%);
+}
+.div--search-results .item--no-results {
+  background: #eee;
+  color: #000;
+  padding: 20px;
+  text-align: center;
+  color: rgba(136, 136, 136, 0.5333333333);
+  font-style: italic;
 }/*# sourceMappingURL=searchItems.css.map */

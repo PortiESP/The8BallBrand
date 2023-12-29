@@ -5,7 +5,7 @@
     flex-direction: column;
     width: clamp(250px, 80vw, 1000px);
     position: relative;
-    height: 60vh;
+    max-height: 60vh;
     overflow-y: scroll;
     border-radius: 0 0 6px 6px;
 
@@ -14,167 +14,173 @@
         display: none;
     }
     // Remove scrollbar for IE, Edge and Firefox
-    -ms-overflow-style: none;  // IE and Edge
-    scrollbar-width: none;  // Firefox
-
-
-
+    -ms-overflow-style: none; // IE and Edge
+    scrollbar-width: none; // Firefox
 
     & .item--link {
-      text-decoration: none;
-      color: inherit;
-  }
-    
+        text-decoration: none;
+        color: inherit;
+    }
+
     & .item {
-      display: flex;
-      background: $searchBackground;
-      color: $cardColor;
-      padding: 10px;
-      height: 100%;
+        display: flex;
+        background: $searchBackground;
+        color: $cardColor;
+        padding: 10px;
+        height: 100%;
 
-      & .item--images {
-          position: relative;
-          display: flex;
-          justify-content: center;
-          height: 100px;
-          width: 150px;
-          overflow: hidden;
-          transition: height 0.1s ease;
+        & .item--images {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            height: 100px;
+            width: 150px;
+            overflow: hidden;
+            transition: height 0.1s ease;
 
-          & .item--image-front {
-              position: relative;
-              width: 100%;
-              object-fit: contain;
-              transition: all 0.1s ease;
-          }
-      }
+            & .item--image-front {
+                position: relative;
+                width: 100%;
+                object-fit: contain;
+                transition: all 0.1s ease;
+            }
+        }
 
-      & .item--content {
-          display: flex;
-          width: 100%;
-          padding-right: 30px;
-          align-items: center;
-          justify-content: space-between;
-          gap: 15px;
-          position: relative;
-          font-size: 1.2rem;
+        & .item--content {
+            display: flex;
+            width: 100%;
+            padding-right: 30px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            position: relative;
+            font-size: 1.2rem;
 
-          & .div--bids {
-              width: 15%;
-          }
+            & .div--bids {
+                width: 15%;
+            }
 
-          & p {
-              width: 40%;
-          }
+            & p {
+                width: 40%;
+            }
 
-          & .item--price {
-              width: 20%;
-          }
+            & .item--price {
+                width: 20%;
+            }
 
-          & .list--type {
-              width: 15%;
-          }
+            & .list--type {
+                width: 15%;
+            }
 
-          & .list--size {
-              width: 10%;
-          }
+            & .list--size {
+                width: 10%;
+            }
 
-          & .div--bids {
-              display: flex;
-              align-items: center;
-              justify-content: center;
+            & .div--bids {
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
-              & .number--of--bids {
-                  $ballSize: 50px;
-                  top: -200px;
-                  right: 0;
-                  width: $ballSize;
-                  height: $ballSize;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  border-radius: 50%;
-                  color: #212529;
-                  background-color: #eee;
-                  border: calc($ballSize / 5) solid #212529;
-                  font-size: calc($ballSize / 2.5);
-                  flex-shrink: 0;
+                & .number--of--bids {
+                    $ballSize: 50px;
+                    top: -200px;
+                    right: 0;
+                    width: $ballSize;
+                    height: $ballSize;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    color: #212529;
+                    background-color: #eee;
+                    border: calc($ballSize / 5) solid #212529;
+                    font-size: calc($ballSize / 2.5);
+                    flex-shrink: 0;
 
-                  & .bid--number {
-                      width: 100%;
-                      text-align: center;
-                  }
-              }
-          }
+                    & .bid--number {
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
+            }
 
-          & p {
-              font-weight: 600;
-              margin: 0;
-              padding: 10px 5px;
-              word-break: break-word;
-          }
+            & p {
+                font-weight: 600;
+                margin: 0;
+                padding: 10px 5px;
+                word-break: break-word;
+            }
 
-          & .item--price {
-              position: relative;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
+            & .item--price {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
 
-              & strong {
-                  font-weight: 500;
-                  border: 1px solid black;
-                  padding: 10px 15px;
-                  border-bottom: 4px solid black;
-              }
+                & strong {
+                    font-weight: 500;
+                    border: 1px solid black;
+                    padding: 10px 15px;
+                    border-bottom: 4px solid black;
+                }
 
-              & .sale {
-                  position: absolute;
-                  top: -4px;
-                  right: -20px;
-                  background-color: $notification;
-                  color: $white;
-                  font-size: 0.6em;
-                  padding: 0px 4px;
-                  border-radius: 4px;
-                  border: 1px solid $cardBackground;
-                  padding: 0 2px;
-              }
+                & .sale {
+                    position: absolute;
+                    top: -4px;
+                    right: -20px;
+                    background-color: $notification;
+                    color: $white;
+                    font-size: 0.6em;
+                    padding: 0px 4px;
+                    border-radius: 4px;
+                    border: 1px solid $cardBackground;
+                    padding: 0 2px;
+                }
 
-              & .price--old {
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  height: 0;
-                  color: $cardPriceOld;
-                  font-size: 0.8em;
-                  text-decoration: line-through;
-                  position: relative;
-                  top: -10px;
-                  font-weight: 300;
-              }
-          }
+                & .price--old {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 0;
+                    color: $cardPriceOld;
+                    font-size: 0.8em;
+                    text-decoration: line-through;
+                    position: relative;
+                    top: -10px;
+                    font-weight: 300;
+                }
+            }
 
-          & .list--view {
-              &.list--type {
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-              }
+            & .list--view {
+                &.list--type {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
 
-              &.list--size {
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-              }
-          }
-      }
+                &.list--size {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
 
-      &:hover {
-          background-color: #eee;
+        &:hover {
+            background-color: #eee;
 
-          & .item--image-front {
-              transform: scale(110%);
-          }
-      }
-  }
+            & .item--image-front {
+                transform: scale(110%);
+            }
+        }
+    }
+
+    & .item--no-results{
+        background: $searchBackground;
+        color: $cardColor;
+        padding: 20px;
+        text-align: center;
+        color: #8888;
+        font-style: italic;
+    }
 }

@@ -90,13 +90,20 @@ function parseSearchResults() {
     .then((res) => res.text())
     .then((data) => {
         const $itemsContainer = document.querySelector("search .div--search-results")
-
-        // Update items container
-        $itemsContainer.innerHTML = data
         
-        // Remove link item
-        const $linkItem = document.querySelector("nav .item--link#add-element--link")
-        $itemsContainer.removeChild($linkItem)
+        
+        const noResults = !data.includes("detailed/")
+        if (noResults) {
+            $itemsContainer.innerHTML = `<div class="item--no-results">No results found</div>`
+        } else {
+            // Remove link item
+            $itemsContainer.innerHTML = data
+            const $linkItem = document.querySelector("nav .item--link#add-element--link")
+            $itemsContainer.removeChild($linkItem)
+        }
+        // Update items container
+        
+        
 
         $searchInput.classList.add("results--filled")
     })       
