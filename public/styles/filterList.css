@@ -1,1 +1,125 @@
-/*# sourceMappingURL=filterList.css.map */
+.filter--div[role=modal] {
+  position: fixed;
+  top: 100px;
+  right: 10px;
+  width: 450px;
+  padding: 10px;
+  background: #eee;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2666666667);
+  transition: all 0.1s ease;
+}
+.filter--div[role=modal] > .filter--title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  margin: 0px 10px;
+  padding-top: 20px;
+  padding-bottom: 8px;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(68, 68, 68, 0.0666666667);
+}
+.filter--div[role=modal] > .filter--title .close {
+  background: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.2666666667);
+  font-weight: 300;
+  font-size: 0.8em;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+.filter--div[role=modal] > .filter--list {
+  max-height: calc(100vh - 100px - 40px - 70px - 20px);
+  overflow-y: scroll;
+}
+.filter--div[role=modal] > .filter--list::-webkit-scrollbar {
+  height: 12px;
+}
+.filter--div[role=modal] > .filter--list::-webkit-scrollbar-track {
+  background: #eee;
+}
+.filter--div[role=modal] > .filter--list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.0666666667);
+  border: 5px solid #eee;
+  border-radius: 20px;
+}
+.filter--div[role=modal] > .filter--list:hover::-webkit-scrollbar-thumb {
+  background: #dfdfdf;
+}
+.filter--div[role=modal] > .filter--list::-webkit-scrollbar-thumb:hover {
+  background: #c7c7c7;
+}
+.filter--div[role=modal] > .filter--list > .filter--item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  padding: 4px 10px;
+  padding-right: 10px;
+  color: #444;
+  text-decoration: none;
+}
+.filter--div[role=modal] > .filter--list > .filter--item:hover {
+  background: #e0e0e0;
+}
+.filter--div[role=modal] > .filter--list > .filter--item:hover .item--count::before {
+  border-bottom: 10px solid rgba(0, 0, 0, 0.1333333333);
+}
+.filter--div[role=modal] > .filter--list > .filter--item:hover .item--count::after {
+  border-top: 10px solid rgba(0, 0, 0, 0.1333333333);
+}
+.filter--div[role=modal] > .filter--list > .filter--item > .item--icon {
+  position: relative;
+  width: 40%;
+  max-width: 80px;
+  height: 100%;
+}
+.filter--div[role=modal] > .filter--list > .filter--item > .item--icon img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+.filter--div[role=modal] > .filter--list > .filter--item > .filter--content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 6px;
+}
+.filter--div[role=modal] > .filter--list > .filter--item > .filter--content p {
+  margin: 0;
+  word-break: break-word;
+}
+.filter--div[role=modal] > .filter--list > .filter--item > .filter--content .item--price {
+  position: relative;
+  font-size: 0.8em;
+  color: #aaa;
+  line-height: 14px;
+}
+.filter--div[role=modal] > .filter--item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  height: 70px;
+  border-top: 1px solid rgba(68, 68, 68, 0.0666666667);
+  margin: 0 auto;
+}
+.filter--div[role=modal] > .filter--item button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  background: none;
+  color: black;
+  width: 100%;
+  height: 70%;
+  border-radius: 4px;
+}
+.filter--div[role=modal] > .filter--item button:hover {
+  background: black;
+  color: #eee;
+}/*# sourceMappingURL=filterList.css.map */
