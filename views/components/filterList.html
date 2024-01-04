@@ -1,31 +1,30 @@
 <div class="filter--div" id="filter--div" role="modal">
     <heading class="filter--title">
-        <span>Filter your search by:</span>
+        <span>Filter your search</span>
         <button class="close" id="close-filter--button">Close</button>
     </heading>
     <form class="filter--list" role="listbox">
         <div class="filter--item" role="listitem">
             <div class="item--icon">
-                <span class="filter--name">Size</span>
                 <i class="bi bi-sort-down"></i>
+                <span class="filter--name">Size</span>
             </div>
             <div class="filter--content">
                 <div class="checkbox--container">
                     {{#sizes}}
                     <input type="checkbox" id="size--{{size}}" name="size" value="{{size}}" />
                     <label for="size--{{size}}">{{size}}</label>
-
                     {{/sizes}}
                 </div>
             </div>
         </div>
         <div class="filter--item" role="listitem">
             <div class="item--icon">
-                <span class="filter--name">Category</span>
                 <i class="bi bi-tag"></i>
+                <span class="filter--name">Category</span>
             </div>
             <div class="filter--content">
-                <div class="checkbox--container">
+                <div class="default--container">
                     <select name="type" id="type--selector">
                         {{#types}}
                         <option value="{{type}}" {{selected}}>{{type}}</option>
@@ -36,14 +35,14 @@
         </div>
         <div class="filter--item" role="listitem">
             <div class="item--icon">
+                <i class="bi bi-currency-dollar"></i>
                 <span class="filter--name">Price</span>
-                <i class="bi bi-sort-down"></i>
             </div>
             <div class="filter--content">
                 <!-- min and max price -->
-                <div class="checkbox--container">
-                    <input type="number"><span>Min</span>
-                    <input type="number"><span>Max</span>
+                <div class="default--container">
+                    <div class="min--price"><span>Min</span><input type="number"></div>
+                    <div class="max--price"><span>Max</span><input type="number"></div>
                 </div>
             </div>
         </div>

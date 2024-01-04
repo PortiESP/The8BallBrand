@@ -18,6 +18,7 @@
   padding-top: 20px;
   padding-bottom: 8px;
   font-weight: 700;
+  font-size: 1.1em;
   border-bottom: 1px solid rgba(68, 68, 68, 0.0666666667);
 }
 .filter--div[role=modal] > .filter--title .close {
@@ -30,8 +31,9 @@
   cursor: pointer;
 }
 .filter--div[role=modal] > .filter--list {
-  max-height: calc(100vh - 100px - 40px - 70px - 20px);
   overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
 }
 .filter--div[role=modal] > .filter--list::-webkit-scrollbar {
   height: 12px;
@@ -53,26 +55,23 @@
 .filter--div[role=modal] > .filter--list > .filter--item {
   position: relative;
   display: flex;
-  align-items: center;
-  height: 100px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  gap: 20px;
   padding: 4px 10px;
   padding-right: 10px;
   color: #444;
   text-decoration: none;
+  padding: 15px;
+  border-bottom: 1px solid rgba(68, 68, 68, 0.3333333333);
 }
-.filter--div[role=modal] > .filter--list > .filter--item:hover {
-  background: #e0e0e0;
-}
-.filter--div[role=modal] > .filter--list > .filter--item:hover .item--count::before {
-  border-bottom: 10px solid rgba(0, 0, 0, 0.1333333333);
-}
-.filter--div[role=modal] > .filter--list > .filter--item:hover .item--count::after {
-  border-top: 10px solid rgba(0, 0, 0, 0.1333333333);
+.filter--div[role=modal] > .filter--list > .filter--item:last-child {
+  border-bottom: none;
 }
 .filter--div[role=modal] > .filter--list > .filter--item > .item--icon {
   position: relative;
   width: 40%;
-  max-width: 80px;
   height: 100%;
 }
 .filter--div[role=modal] > .filter--list > .filter--item > .item--icon img {
@@ -80,6 +79,9 @@
      object-fit: contain;
   width: 100%;
   height: 100%;
+}
+.filter--div[role=modal] > .filter--list > .filter--item .filter--name, .filter--div[role=modal] > .filter--list > .filter--item i {
+  font-size: 1.1em;
 }
 .filter--div[role=modal] > .filter--list > .filter--item > .filter--content {
   width: 100%;
