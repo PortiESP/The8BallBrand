@@ -4,7 +4,7 @@
   right: 10px;
   width: 450px;
   padding: 10px;
-  background: #eee;
+  background: #fff;
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2666666667);
   transition: all 0.1s ease;
@@ -109,7 +109,7 @@
   border-top: 1px solid rgba(68, 68, 68, 0.0666666667);
   margin: 0 auto;
 }
-.filter--div[role=modal] > .filter--item button {
+.filter--div[role=modal] > .filter--item .filter-item--button {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -121,7 +121,7 @@
   height: 70%;
   border-radius: 4px;
 }
-.filter--div[role=modal] > .filter--item button:hover {
+.filter--div[role=modal] > .filter--item .filter-item--button:hover {
   background: black;
   color: #eee;
 }/*# sourceMappingURL=filterList.css.map */

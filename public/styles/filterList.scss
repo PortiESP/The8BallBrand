@@ -5,7 +5,8 @@
     right: 10px;
     width: 450px;
     padding: 10px;
-    background: $likedBg;
+    // background: $likedBg;
+    background: #fff;
     border-radius: 4px;
     box-shadow: 0 0 10px #0004;
     transition: all .1s ease;
@@ -134,7 +135,7 @@
         border-top: 1px solid #4441;
         margin: 0 auto;
 
-        & button {
+        & .filter-item--button {
             display: flex;
             flex-direction: column;
             justify-content: center;
