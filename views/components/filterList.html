@@ -1,11 +1,55 @@
+<div class="filter--div" id="filter--div" role="modal">
+    <heading class="filter--title">
+        <span>Filter your search by:</span>
+        <button id="close-filter--button">Close</button>
+    </heading>
+    <form class="filter--list" role="listbox">
+        <div class="filter--item" role="listitem">
+            <div class="item--icon">
+                <span class="filter--name">Size</span>
+                <i class="bi bi-sort-down"></i>
+            </div>
+            <div class="filter--content">
+                <div class="checkbox--container">
+                    {{#sizes}}
+                    <input type="checkbox" id="size--{{size}}" name="size" value="{{size}}" />
+                    <label for="size--{{size}}">{{size}}</label>
 
-<div class="filter--div" id="div--liked" role="modal">
-    <heading class="liked--title"><span>Liked products</span><label for="toggle--liked" class="close"
-            role="button">Close</label></heading>
-    <div class="liked--list" role="listbox">
-        {{> components/navItemsContainer}}
-    </div>
-    <div class="checkout">
-        <button id="clear-favs--list">Clear List (0)</button>
-    </div>
+                    {{/sizes}}
+                </div>
+            </div>
+        </div>
+        <div class="filter--item" role="listitem">
+            <div class="item--icon">
+                <span class="filter--name">Category</span>
+                <i class="bi bi-tag"></i>
+            </div>
+            <div class="filter--content">
+                <div class="checkbox--container">
+                    <select name="type" id="type--selector">
+                        {{#types}}
+                        <option value="{{type}}" {{selected}}>{{type}}</option>
+                        {{/types}}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="filter--item" role="listitem">
+            <div class="item--icon">
+                <span class="filter--name">Price</span>
+                <i class="bi bi-sort-down"></i>
+            </div>
+            <div class="filter--content">
+                <!-- min and max price -->
+                <div class="checkbox--container">
+                    <input type="number"><span>Min</span>
+                    <input type="number"><span>Max</span>
+                </div>
+            </div>
+        </div>
+        <div class="filter--item">
+            <button id="clear-filters--button">Reset filters</button>
+            <button id="filter--button">Filter</button>
+        </div>
+    </form>
 </div>

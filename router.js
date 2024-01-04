@@ -44,7 +44,7 @@ router.post("/add-bid", handleAddBid)
 // Rendering Functions =====================================================================================================
 function renderIndex(req, res) {
     const uuid = getUUID(req, res)
-    res.render("index", { ...parseNav(req, res, uuid) })
+    res.render("index", { ...parseNav(req, res, uuid),sizes, types })
 }
 
 // Render detailed page -----------------------------------------------------------------------------------------------
