@@ -1,12 +1,15 @@
 // Getting DOM elements
 const $layoutButton = document.querySelector("#alter-layout--button")
 const $layoutButtonIcon = document.querySelector("#alter-layout--button i")
+const $filterButton = document.querySelector("#filter--button")
+const $filterButtonIcon = document.querySelector("#filter--button i")
 const $itemsContainer = document.querySelector("main .items--wrap")
 const $featuredItemsSection = document.getElementById("featured--section")
 const $loadMoreButton = document.querySelector(".load-more--div")
 
 // Adding listeners
 $layoutButton.addEventListener("click", toggleLayout)
+$filterButton.addEventListener("click", toggleFilter)
 
 // Item Counter
 let itemCount = 0
@@ -26,6 +29,17 @@ function toggleLayout() {
     // Toggle items-wrap layout
     $itemsContainer.classList.toggle("items-wrap--grid")
     $itemsContainer.classList.toggle("items-wrap--list")
+}
+
+function toggleFilter() {
+    // Toggle filter icon
+    $filterButtonIcon.classList.toggle("bi-funnel")
+    $filterButtonIcon.classList.toggle("bi-funnel-fill")
+
+    // Toggle filter
+    const $filter = document.querySelector(".filter")
+    $filter.classList.toggle("filter--active")
+
 }
 
 async function loadMoreItems() {

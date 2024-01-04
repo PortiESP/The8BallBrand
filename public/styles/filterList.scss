@@ -1,0 +1,19 @@
+.icon--liked {
+    position: relative;
+    // ------------------- BUBBLE
+    & span.favs--bubble {
+        display: none;
+        $size: 18px;
+
+        position: absolute;
+        left: 14px;
+        background: $notification;
+        color: $white;
+        width: $size;
+        height: $size;
+        text-align: center;
+        line-height: $size;
+        border-radius: 50%;
+        font-size: 0.8em;
+    }
+}
