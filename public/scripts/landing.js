@@ -1,6 +1,6 @@
 // Getting DOM elements
-const $layoutButton = document.querySelector(".items--layout")
-const $layoutButtonIcon = document.querySelector(".items--layout i")
+const $layoutButton = document.querySelector("#alter-layout--button")
+const $layoutButtonIcon = document.querySelector("#alter-layout--button i")
 const $itemsContainer = document.querySelector("main .items--wrap")
 const $featuredItemsSection = document.getElementById("featured--section")
 const $loadMoreButton = document.querySelector(".load-more--div")

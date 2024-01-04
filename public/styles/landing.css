@@ -29,7 +29,7 @@ main section heading .heading--container .section--title {
   border-bottom: 2px solid rgba(255, 255, 255, 0.2666666667);
   margin: 0;
 }
-main section heading .heading--container .items--layout {
+main section heading .heading--container .items--button {
   width: 60px;
   height: 60px;
   font-size: 1.4rem;
@@ -37,11 +37,11 @@ main section heading .heading--container .items--layout {
   color: black;
   background-color: white;
 }
-main section heading .heading--container .items--layout:hover {
+main section heading .heading--container .items--button:hover {
   background-color: #212529;
   color: white;
 }
-main section heading .heading--container .items--layout:active {
+main section heading .heading--container .items--button:active {
   background-color: #2c3136;
 }
 main section .item--link {
