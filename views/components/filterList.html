@@ -3,7 +3,7 @@
         <span>Filter your search</span>
         <button class="close" id="close-filter--button">Close</button>
     </heading>
-    <form class="filter--list" role="listbox">
+    <form id="filter--form" class="filter--list" role="listbox">
         <div class="filter--item" role="listitem">
             <div class="item--icon">
                 <i class="bi bi-sort-down"></i>
@@ -26,8 +26,9 @@
             <div class="filter--content">
                 <div class="default--container">
                     <select name="type" id="type--selector">
+                        <option value="none" disabled selected>None</option>
                         {{#types}}
-                        <option value="{{type}}" {{selected}}>{{type}}</option>
+                        <option value="{{type}}">{{type}}</option>
                         {{/types}}
                     </select>
                 </div>

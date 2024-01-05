@@ -1,15 +1,20 @@
+
 // Getting DOM elements
 const $layoutButton = document.querySelector("#alter-layout--button")
 const $layoutButtonIcon = document.querySelector("#alter-layout--button i")
-const $filterButton = document.querySelector("#alter-filter--button")
+const $alterFilterButton = document.querySelector("#alter-filter--button")
 const $filterButtonIcon = document.querySelector("#alter-filter--button i")
+const $filterButton = document.querySelector("#filter--button")
+const $resetFilterButton = document.querySelector("#clear-filters--button")
 const $itemsContainer = document.querySelector("main .items--wrap")
 const $featuredItemsSection = document.getElementById("featured--section")
 const $loadMoreButton = document.querySelector(".load-more--div")
 
 // Adding listeners
 $layoutButton.addEventListener("click", toggleLayout)
-$filterButton.addEventListener("click", toggleFilter)
+$alterFilterButton.addEventListener("click", toggleFilter)
+$filterButton.addEventListener("click", filterElements)
+$resetFilterButton.addEventListener("click", resetFilterElements)
 
 // Item Counter
 let itemCount = 0
@@ -40,6 +45,16 @@ function toggleFilter() {
     const $filter = document.querySelector(".filter")
     $filter.classList.toggle("filter--active")
 
+}
+
+function filterElements(event) {
+    // get filter values
+    event.preventDefault()
+}
+
+function resetFilterElements(event) {
+    event.preventDefault()
+    document.querySelector("#filter--form").reset()
 }
 
 async function loadMoreItems() {
