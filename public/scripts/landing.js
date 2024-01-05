@@ -1,3 +1,4 @@
+const { urlencoded } = require("body-parser")
 
 // Getting DOM elements
 const $layoutButton = document.querySelector("#alter-layout--button")
@@ -44,16 +45,17 @@ function toggleFilter() {
     // Toggle filter
     const $filter = document.querySelector(".filter--div")
     $filter.classList.toggle("filter--active")
-
-
-
-
 }
 
 function filterElements(event) {
-    // get filter values
-
     event.preventDefault()
+    // get filter values
+    const checkedSize = [...document.querySelectorAll(".checkbox--container input[type=checkbox]")].filter(e => e.checked).map(e => e.value)
+    const selectedCategory = document.querySelector("select").selectedOptions[0].innerText
+    const selectedPrice = [...document.querySelectorAll("default--container input[type=number]")]
+    const query = encodeURIComponent("sizes=" + checkedSize.join(",") + "&type=" + selectedCategory + "&min=" + selectedPrice[0] + "&max=" + selectedPrice[1])
+    fetch(`/filter-index?${query}`)
+
 }
 
 function resetFilterElements(event) {

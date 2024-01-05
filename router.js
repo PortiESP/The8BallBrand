@@ -33,6 +33,7 @@ router.get("/get-featured-items", getFeaturedItems)
 router.get("/validate-name", checkValidName)
 router.get("/search", getSearchResults)
 router.get("/get-bids", getBids)
+router.get("/filter-index", filterIndex)
 
 // POST routes
 router.post("/add-element", handleAddElement)
@@ -274,6 +275,26 @@ function handleAddBid(req, res) {
         if (data[id].bids.length >= FEATURED_THRESHOLD) featured.add(id)
         res.status(200).render("components/bidCard", { name, date, bid, picture })
     }
+}
+
+function filterIndex(req,res){
+    const sizes = req.query.sizes 
+    const type =  req.query.type
+    const min =  req.query.min
+    const max =  req.query.max
+
+    const filtered = Object.values(data).filter(element => {
+    const evaluation = [
+        sizes ? sizes.includes(element.size) : true,
+        type ? type === element.type : true,
+        min ? min <= element.price : true,
+        max ? max  >= element.price : true
+    ].every(e=>e)
+    return evaluation
+    res.render("components/itemsContainer", {dataValues : filtered} )
+
+        
+    });
 }
 
 // Export routes definitions

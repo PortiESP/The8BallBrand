@@ -38,6 +38,7 @@ app.get('/get-featured-items', router)
 app.get('/validate-name', router)
 app.get('/search', router)
 app.get('/get-bids', router)
+app.get('/filter-index', router)
 
 // POST routes
 app.post('/add-element', router)
