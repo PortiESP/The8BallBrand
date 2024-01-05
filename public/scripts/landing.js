@@ -1,6 +1,8 @@
-const { urlencoded } = require("body-parser")
+
+let enableLoadMore = true
 
 // Getting DOM elements
+const $link = document.querySelector(".item--link#add-element--link")
 const $layoutButton = document.querySelector("#alter-layout--button")
 const $layoutButtonIcon = document.querySelector("#alter-layout--button i")
 const $alterFilterButton = document.querySelector("#alter-filter--button")
@@ -49,21 +51,43 @@ function toggleFilter() {
 
 function filterElements(event) {
     event.preventDefault()
+    enableLoadMore = false
+
     // get filter values
     const checkedSize = [...document.querySelectorAll(".checkbox--container input[type=checkbox]")].filter(e => e.checked).map(e => e.value)
-    const selectedCategory = document.querySelector("select").selectedOptions[0].innerText
-    const selectedPrice = [...document.querySelectorAll("default--container input[type=number]")]
-    const query = encodeURIComponent("sizes=" + checkedSize.join(",") + "&type=" + selectedCategory + "&min=" + selectedPrice[0] + "&max=" + selectedPrice[1])
-    fetch(`/filter-index?${query}`)
+    const selectedCategory = document.querySelector("select").selectedOptions[0].value
+    const selectedPrice = [...document.querySelectorAll(".default--container input[type=number]")].map(e => e.value)
+    const query = "sizes=" + checkedSize.join(",") + "&type=" + selectedCategory + "&min=" + selectedPrice[0] + "&max=" + selectedPrice[1]
 
+    fetch(`/filter-index?${query}`)
+    .then(response => response.text())
+    .then(html => {
+        // Append items to items-wrap
+        const $products = $itemsContainer.querySelectorAll(".item--link.product")
+        
+        $products.forEach(e => e.remove())
+        $link.insertAdjacentHTML("beforebegin", html)
+    })
+
+    // Toggle filter
+    const $filter = document.querySelector(".filter--div")
+    $filter.classList.toggle("filter--active")    
 }
 
 function resetFilterElements(event) {
     event.preventDefault()
+    enableLoadMore = true
     document.querySelector("#filter--form").reset()
+
+    const $products = $itemsContainer.querySelectorAll(".item--link.product")
+    $products.forEach(e => e.remove())
+
+    itemCount = 0
 }
 
 async function loadMoreItems() {
+    if (!enableLoadMore) return
+
     console.log("Loading items...")
     // Fetch items
     const response = await fetch(`/get-items?from=${itemCount}&to=${itemCount + INTERVAL}`)
@@ -73,11 +97,6 @@ async function loadMoreItems() {
     itemCount += INTERVAL
 
     // Append items to items-wrap
-    const $link = document.querySelector(".item--link#add-element--link")
-    // Create fragment
-    const $content = document.createDocumentFragment()
-    $content.innerHTML = html
-    console.log($content)
     $link.insertAdjacentHTML("beforebegin", html)
 
     console.log("Items loaded")

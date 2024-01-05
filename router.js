@@ -283,19 +283,21 @@ function filterIndex(req,res){
     const min =  req.query.min
     const max =  req.query.max
 
+    console.log(req.query)
+
     const filtered = Object.values(data).filter(element => {
     const evaluation = [
         sizes ? sizes.includes(element.size) : true,
         type ? type === element.type : true,
         min ? min <= element.price : true,
         max ? max  >= element.price : true
-    ].every(e=>e)
-    return evaluation
-   
+    ].every(e => e)
 
-        
-    });
-     res.render("components/itemsContainer", {dataValues : filtered} )
+    console.log(element.id, evaluation)
+    return evaluation
+    })
+
+    res.render("components/itemsContainer", { dataValues : filtered })
 }
 
 // Export routes definitions
