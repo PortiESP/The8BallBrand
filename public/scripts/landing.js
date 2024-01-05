@@ -83,6 +83,10 @@ function resetFilterElements(event) {
     $products.forEach(e => e.remove())
 
     itemCount = 0
+
+    // Toggle filter
+    const $filter = document.querySelector(".filter--div")
+    $filter.classList.toggle("filter--active")
 }
 
 async function loadMoreItems() {
