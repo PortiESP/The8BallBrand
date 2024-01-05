@@ -291,10 +291,11 @@ function filterIndex(req,res){
         max ? max  >= element.price : true
     ].every(e=>e)
     return evaluation
-    res.render("components/itemsContainer", {dataValues : filtered} )
+   
 
         
     });
+     res.render("components/itemsContainer", {dataValues : filtered} )
 }
 
 // Export routes definitions
