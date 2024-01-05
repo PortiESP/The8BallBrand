@@ -51,12 +51,13 @@ async function loadMoreItems() {
     // Update item counter
     itemCount += INTERVAL
 
-    // Remove link item
-    const $linkItem = document.querySelector(".item--link#add-element--link")
-    $itemsContainer.removeChild($linkItem)
-
     // Append items to items-wrap
-    $itemsContainer.insertAdjacentHTML("beforeend", html)
+    const $link = document.querySelector(".item--link#add-element--link")
+    // Create fragment
+    const $content = document.createDocumentFragment()
+    $content.innerHTML = html
+    console.log($content)
+    $link.insertAdjacentHTML("beforebegin", html)
 
     console.log("Items loaded")
 }

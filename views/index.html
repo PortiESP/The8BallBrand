@@ -23,7 +23,6 @@
                 </heading>
                 <div class="featured--wrap">
                     <div class="featured" role="listbox">
-                        {{> components/featuredItemsContainer}}
                     </div>
                 </div>
             </section>
@@ -40,7 +39,11 @@
                     </div>
                 </heading>
                 <div class="items--wrap items-wrap--grid">
-                    {{> components/itemsContainer}}
+                    <a href="/publish" class="item--link" id="add-element--link">
+                        <div class="add--item">
+                            <span><i class="bi bi-plus"></i></span>
+                        </div>
+                    </a>
                 </div>
                 <div class="load-more--div">
                 </div>
