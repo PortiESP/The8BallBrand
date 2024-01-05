@@ -8,6 +8,10 @@
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2666666667);
   transition: all 0.1s ease;
+  transform: translateX(110%);
+}
+.filter--div[role=modal].filter--active {
+  transform: translateX(0%);
 }
 .filter--div[role=modal] > .filter--title {
   display: flex;

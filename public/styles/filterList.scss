@@ -10,7 +10,10 @@
     border-radius: 4px;
     box-shadow: 0 0 10px #0004;
     transition: all .1s ease;
-    // transform: translateX(110%);
+    transform: translateX(110%);
+    &.filter--active{
+        transform: translateX(0%);
+    }
 
     // ---- Title
     & > .filter--title {

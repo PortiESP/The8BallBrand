@@ -42,13 +42,17 @@ function toggleFilter() {
     $filterButtonIcon.classList.toggle("bi-funnel-fill")
 
     // Toggle filter
-    const $filter = document.querySelector(".filter")
+    const $filter = document.querySelector(".filter--div")
     $filter.classList.toggle("filter--active")
+
+
+
 
 }
 
 function filterElements(event) {
     // get filter values
+
     event.preventDefault()
 }
 
