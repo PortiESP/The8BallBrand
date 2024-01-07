@@ -113,17 +113,20 @@
                     }
                 }
             }
-
+            &:last-child{
+                align-items: flex-end;
+            }
             & #clear-filters--button,
             #filter--button {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                align-items: center;
+                align-items: flex-end;
+                text-align: right;
                 border: 1px solid black;
                 background: none;
                 color: black;
-                width: 80%;
+                width: 60%;
                 height: 70%;
                 border-radius: 4px;
 

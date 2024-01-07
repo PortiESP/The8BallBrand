@@ -94,16 +94,20 @@
   border-radius: 4px;
   padding: 1px;
 }
+.filter--div[role=modal] > .filter--list > .filter--item:last-child {
+  align-items: flex-end;
+}
 .filter--div[role=modal] > .filter--list > .filter--item #clear-filters--button,
 .filter--div[role=modal] > .filter--list > .filter--item #filter--button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  text-align: right;
   border: 1px solid black;
   background: none;
   color: black;
-  width: 80%;
+  width: 60%;
   height: 70%;
   border-radius: 4px;
 }
