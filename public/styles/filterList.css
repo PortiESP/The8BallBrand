@@ -1,14 +1,14 @@
+.filter--menu {
+  width: 80%;
+}
+
 .filter--div[role=modal] {
-  position: fixed;
-  top: 100px;
-  right: 10px;
-  width: 450px;
+  width: 100%;
   padding: 10px;
   background: #fff;
-  border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2666666667);
-  transition: all 0.1s ease;
-  transform: translateX(110%);
+  transition: all 0.7s ease;
+  transform: translateX(170%);
 }
 .filter--div[role=modal].filter--active {
   transform: translateX(0%);
@@ -23,66 +23,31 @@
   padding-bottom: 8px;
   font-weight: 700;
   font-size: 1.1em;
-  border-bottom: 1px solid rgba(68, 68, 68, 0.0666666667);
-}
-.filter--div[role=modal] > .filter--title .close {
-  background: none;
-  border: none;
-  color: rgba(0, 0, 0, 0.2666666667);
-  font-weight: 300;
-  font-size: 0.8em;
-  padding: 4px 10px;
-  cursor: pointer;
 }
 .filter--div[role=modal] > .filter--list {
-  overflow-y: scroll;
   display: flex;
-  flex-direction: column;
-}
-.filter--div[role=modal] > .filter--list::-webkit-scrollbar {
-  height: 12px;
-}
-.filter--div[role=modal] > .filter--list::-webkit-scrollbar-track {
-  background: #eee;
-}
-.filter--div[role=modal] > .filter--list::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.0666666667);
-  border: 5px solid #eee;
-  border-radius: 20px;
-}
-.filter--div[role=modal] > .filter--list:hover::-webkit-scrollbar-thumb {
-  background: #dfdfdf;
-}
-.filter--div[role=modal] > .filter--list::-webkit-scrollbar-thumb:hover {
-  background: #c7c7c7;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .filter--div[role=modal] > .filter--list > .filter--item {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-around;
-  gap: 20px;
+  align-items: center;
+  justify-content: center;
   padding: 4px 10px;
   padding-right: 10px;
   color: #444;
   text-decoration: none;
   padding: 15px;
-  border-bottom: 1px solid rgba(68, 68, 68, 0.3333333333);
+  width: 25%;
 }
 .filter--div[role=modal] > .filter--list > .filter--item:last-child {
   border-bottom: none;
 }
 .filter--div[role=modal] > .filter--list > .filter--item > .item--icon {
   position: relative;
-  width: 40%;
-  height: 100%;
-}
-.filter--div[role=modal] > .filter--list > .filter--item > .item--icon img {
-  -o-object-fit: contain;
-     object-fit: contain;
   width: 100%;
-  height: 100%;
 }
 .filter--div[role=modal] > .filter--list > .filter--item .filter--name, .filter--div[role=modal] > .filter--list > .filter--item i {
   font-size: 1.1em;
@@ -94,15 +59,19 @@
   justify-content: center;
   padding-left: 6px;
 }
-.filter--div[role=modal] > .filter--list > .filter--item > .filter--content p {
-  margin: 0;
-  word-break: break-word;
+.filter--div[role=modal] > .filter--list > .filter--item > .filter--content .interval--container {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
 }
-.filter--div[role=modal] > .filter--list > .filter--item > .filter--content .item--price {
-  position: relative;
-  font-size: 0.8em;
-  color: #aaa;
-  line-height: 14px;
+.filter--div[role=modal] > .filter--list > .filter--item > .filter--content .interval--container input {
+  width: 50px;
+  border: none;
+  outline: none;
+  background: rgba(0, 0, 0, 0.0666666667);
+  border-radius: 4px;
+  padding: 1px;
 }
 .filter--div[role=modal] > .filter--item {
   display: flex;
