@@ -1,43 +1,29 @@
 @import "./identity";
-.filter--menu{
+
+.filter--menu {
     width: 80%;
 }
 
 .filter--div[role="modal"] {
     width: 100%;
-    padding: 10px;
-    // background: $likedBg;
     background: #fff;
     box-shadow: 0 0 10px #0004;
     transition: all .7s ease;
     transform: translateX(170%);
-    &.filter--active{
+
+    &.filter--active {
         transform: translateX(0%);
     }
 
-    // ---- Title
-    & > .filter--title {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 40px;
-        margin: 0px 10px;
-        padding-top: 20px;
-        padding-bottom: 8px;
-        font-weight: 700;
-        font-size: 1.1em ;
-
-    }
-
     // ---- List
-    & > .filter--list {
+    &>.filter--list {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
 
         // ----------------------------- liked ITEM
 
-        & > .filter--item {
+        &>.filter--item {
             position: relative;
             display: flex;
             flex-direction: column;
@@ -49,33 +35,74 @@
             text-decoration: none;
             padding: 15px;
             width: 25%;
+            gap: 10px;
 
             &:last-child {
                 border-bottom: none;
             }
-        
 
-            & > .item--icon {
+
+            &>.item--icon {
                 position: relative;
                 width: 100%;
             }
 
-            &  .filter--name, i{
-                font-size: 1.1em ;
+            & .filter--name,
+            i {
+                font-size: 1.1em;
             }
 
-            & > .filter--content {
+            &>.filter--content {
                 width: 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 padding-left: 6px;
 
-                & .interval--container{
+                & .checkbox--container {
                     display: flex;
-                    justify-content: center;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    gap: 5px;
+
+                    & .size--label {
+                        $size--box: 35px;
+                        width: $size--box;
+                        height: $size--box;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 5px;
+                        border-radius: 50px;
+                        background-color: #0001;
+                        font-size: 0.9em;
+
+                    }
+
+                    & input[type="checkbox"] {
+                        display: none;
+                    }
+
+                    & input[type="checkbox"]:checked+label {
+                        background: black;
+                        color: white;
+                    }
+                }
+
+                & select {
+                    border: none;
+                    outline: none;
+                    background: #0001;
+                    border-radius: 4px;
+                    padding: 0 4px;
+                }
+
+                & .interval--container {
+                    display: flex;
+                    justify-content: flex-start;
                     gap: 5px;
                     align-items: center;
+
                     & input {
                         width: 50px;
                         border: none;
@@ -85,37 +112,28 @@
                         padding: 1px;
                     }
                 }
-            }  
-        }
-    }
-
-    // ---- Button
-    & > .filter--item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 95%;
-        height: 70px;
-        border-top: 1px solid #4441;
-        margin: 0 auto;
-
-        & .filter-item--button {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid black;
-            background: none;
-            color: black;
-            width: 100%;
-            height: 70%;
-            border-radius: 4px;
-
-            &:hover {
-                background: black;
-                color: $white;
             }
 
+            & #clear-filters--button,
+            #filter--button {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid black;
+                background: none;
+                color: black;
+                width: 80%;
+                height: 70%;
+                border-radius: 4px;
+
+                &:hover {
+                    background: black;
+                    color: $white;
+                }
+
+            }
         }
     }
+
 }

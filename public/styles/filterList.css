@@ -4,7 +4,6 @@
 
 .filter--div[role=modal] {
   width: 100%;
-  padding: 10px;
   background: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2666666667);
   transition: all 0.7s ease;
@@ -12,17 +11,6 @@
 }
 .filter--div[role=modal].filter--active {
   transform: translateX(0%);
-}
-.filter--div[role=modal] > .filter--title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 40px;
-  margin: 0px 10px;
-  padding-top: 20px;
-  padding-bottom: 8px;
-  font-weight: 700;
-  font-size: 1.1em;
 }
 .filter--div[role=modal] > .filter--list {
   display: flex;
@@ -41,6 +29,7 @@
   text-decoration: none;
   padding: 15px;
   width: 25%;
+  gap: 10px;
 }
 .filter--div[role=modal] > .filter--list > .filter--item:last-child {
   border-bottom: none;
@@ -49,7 +38,8 @@
   position: relative;
   width: 100%;
 }
-.filter--div[role=modal] > .filter--list > .filter--item .filter--name, .filter--div[role=modal] > .filter--list > .filter--item i {
+.filter--div[role=modal] > .filter--list > .filter--item .filter--name,
+.filter--div[role=modal] > .filter--list > .filter--item i {
   font-size: 1.1em;
 }
 .filter--div[role=modal] > .filter--list > .filter--item > .filter--content {
@@ -59,9 +49,40 @@
   justify-content: center;
   padding-left: 6px;
 }
+.filter--div[role=modal] > .filter--list > .filter--item > .filter--content .checkbox--container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.filter--div[role=modal] > .filter--list > .filter--item > .filter--content .checkbox--container .size--label {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.0666666667);
+  font-size: 0.9em;
+}
+.filter--div[role=modal] > .filter--list > .filter--item > .filter--content .checkbox--container input[type=checkbox] {
+  display: none;
+}
+.filter--div[role=modal] > .filter--list > .filter--item > .filter--content .checkbox--container input[type=checkbox]:checked + label {
+  background: black;
+  color: white;
+}
+.filter--div[role=modal] > .filter--list > .filter--item > .filter--content select {
+  border: none;
+  outline: none;
+  background: rgba(0, 0, 0, 0.0666666667);
+  border-radius: 4px;
+  padding: 0 4px;
+}
 .filter--div[role=modal] > .filter--list > .filter--item > .filter--content .interval--container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 5px;
   align-items: center;
 }
@@ -73,16 +94,8 @@
   border-radius: 4px;
   padding: 1px;
 }
-.filter--div[role=modal] > .filter--item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 95%;
-  height: 70px;
-  border-top: 1px solid rgba(68, 68, 68, 0.0666666667);
-  margin: 0 auto;
-}
-.filter--div[role=modal] > .filter--item .filter-item--button {
+.filter--div[role=modal] > .filter--list > .filter--item #clear-filters--button,
+.filter--div[role=modal] > .filter--list > .filter--item #filter--button {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -90,11 +103,12 @@
   border: 1px solid black;
   background: none;
   color: black;
-  width: 100%;
+  width: 80%;
   height: 70%;
   border-radius: 4px;
 }
-.filter--div[role=modal] > .filter--item .filter-item--button:hover {
+.filter--div[role=modal] > .filter--list > .filter--item #clear-filters--button:hover,
+.filter--div[role=modal] > .filter--list > .filter--item #filter--button:hover {
   background: black;
   color: #eee;
 }/*# sourceMappingURL=filterList.css.map */

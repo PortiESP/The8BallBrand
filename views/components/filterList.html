@@ -1,7 +1,4 @@
 <div class="filter--div" id="filter--div" role="modal">
-    <heading class="filter--title">
-        <span>Filter your search</span>
-    </heading>
     <form id="filter--form" class="filter--list" role="listbox">
         <div class="filter--item" role="listitem">
             <div class="item--icon">
@@ -12,7 +9,7 @@
                 <div class="checkbox--container">
                     {{#sizes}}
                     <input type="checkbox" id="size--{{size}}" name="size" value="{{size}}" />
-                    <label for="size--{{size}}">{{size}}</label>
+                    <label class="size--label" for="size--{{size}}">{{size}}</label>
                     {{/sizes}}
                 </div>
             </div>
