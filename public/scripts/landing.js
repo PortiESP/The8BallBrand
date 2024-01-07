@@ -46,7 +46,9 @@ function toggleFilter() {
 
     // Toggle filter
     const $filter = document.querySelector(".filter--div")
+    const $filterContainer = document.querySelector(".filter--menu")
     $filter.classList.toggle("filter--active")
+    $filterContainer.classList.toggle("filter--active")
 }
 
 function filterElements(event) {
@@ -84,9 +86,6 @@ function resetFilterElements(event) {
 
     itemCount = 0
     loadMoreItems()
-    // Toggle filter
-    const $filter = document.querySelector(".filter--div")
-    $filter.classList.toggle("filter--active")
 }
 
 async function loadMoreItems() {

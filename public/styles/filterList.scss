@@ -1,18 +1,25 @@
 @import "./identity";
 
 .filter--menu {
+    height: 0;
     width: 80%;
+    overflow: hidden;
+
+    &.filter--active {
+        height: 100%;
+    }
 }
 
 .filter--div[role="modal"] {
     width: 100%;
     background: #fff;
     box-shadow: 0 0 10px #0004;
-    transition: all .7s ease;
-    transform: translateX(170%);
-
+    transform: translateY(-180%);
+    transition: all 0.3s ease;
+    
     &.filter--active {
-        transform: translateX(0%);
+        transform: translateY(0);
+        transition: all 0.3s ease;
     }
 
     // ---- List
@@ -63,7 +70,7 @@
                     display: flex;
                     align-items: center;
                     flex-wrap: wrap;
-                    gap: 5px;
+                    gap: 10px;
 
                     & .size--label {
                         $size--box: 35px;
@@ -77,45 +84,67 @@
                         background-color: #0001;
                         font-size: 0.9em;
 
+                        &:active {
+                            background-color: #0005;
+                            color: #000;
+                        }
+
+                        &:hover {
+                            background-color: #0003;
+                            color: #000;
+                            cursor: pointer;
+                        }
                     }
 
                     & input[type="checkbox"] {
                         display: none;
                     }
 
-                    & input[type="checkbox"]:checked+label {
+                    & input[type="checkbox"]:checked + label {
                         background: black;
                         color: white;
                     }
                 }
 
                 & select {
+                    width: 90%;
                     border: none;
                     outline: none;
                     background: #0001;
                     border-radius: 4px;
-                    padding: 0 4px;
+                    padding: 2px 4px;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
 
                 & .interval--container {
                     display: flex;
                     justify-content: flex-start;
-                    gap: 5px;
                     align-items: center;
+                    gap: 30px;
 
-                    & input {
-                        width: 50px;
-                        border: none;
-                        outline: none;
-                        background: #0001;
-                        border-radius: 4px;
-                        padding: 1px;
+                    & .interval--item {
+                        display: flex;
+                        gap: 10px;
+
+                        & input {
+                            width: 50%;
+                            border: none;
+                            outline: none;
+                            background: #0001;
+                            border-radius: 4px;
+                            padding: 3px;
+                        }
                     }
                 }
             }
+
             &:last-child{
                 align-items: flex-end;
             }
+
             & #clear-filters--button,
             #filter--button {
                 display: flex;
@@ -134,7 +163,16 @@
                     background: black;
                     color: $white;
                 }
+            }
 
+            #clear-filters--button {
+                border: 1px solid red;
+                color: red;
+
+                &:hover {
+                    color: $dangerColor;
+                    background-color: $dangerColorBackground;
+                }
             }
         }
     }
