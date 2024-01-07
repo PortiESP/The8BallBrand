@@ -83,7 +83,7 @@ function resetFilterElements(event) {
     $products.forEach(e => e.remove())
 
     itemCount = 0
-
+    loadMoreItems()
     // Toggle filter
     const $filter = document.querySelector(".filter--div")
     $filter.classList.toggle("filter--active")
