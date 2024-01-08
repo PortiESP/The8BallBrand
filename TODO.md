@@ -29,6 +29,4 @@
 # Problemas que solucionar
 
 - Carga inicial de elementos en la página principal: Poner una barra de carga mientras se cargan los elementos
-- Estilos responsive del searchItem
 - Comprobar por qué la página se carga desde abajo
-- Añadir estilos responsive a los filtros
