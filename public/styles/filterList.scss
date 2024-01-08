@@ -9,6 +9,7 @@
     height: 120px;
     background: #fff;
     box-shadow: 0 0 10px #0004;
+    transition: all 0.3s ease;
 
     // ---- List
     &>.filter--list {
@@ -21,25 +22,18 @@
 
         & .filter--item {
             height: 100%;
-            // position: relative;
+            width: 25%;
+            padding: 15px;
             display: flex;
+            gap: 10px;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 4px 10px;
+            justify-content: space-between;
             padding-right: 10px;
             color: $likedItemColor;
             text-decoration: none;
-            padding: 15px;
-            width: 25%;
-            gap: 10px;
 
-            &:last-child {
-                border-bottom: none;
-            }
-
-
-            &>.item--icon {
+            & .item--icon {
                 width: 100%;
                 height: 30%;
             }
@@ -49,7 +43,7 @@
                 font-size: 1.1em;
             }
 
-            &>.filter--content {
+            & .filter--content {
                 width: 100%;
                 height: 70%;
                 display: flex;
@@ -73,7 +67,7 @@
                         padding: 5px;
                         border-radius: 50px;
                         background-color: #0001;
-                        font-size: 0.9em;
+                        font-size: 0.8em;
 
                         &:active {
                             background-color: #0005;
@@ -91,7 +85,7 @@
                         display: none;
                     }
 
-                    & input[type="checkbox"]:checked + label {
+                    & input[type="checkbox"]:checked+label {
                         background: black;
                         color: white;
                     }
@@ -118,10 +112,19 @@
 
                     & .interval--item {
                         display: flex;
+                        justify-content: center;
+                        align-items: center;
                         gap: 10px;
 
+                        & span {
+                            width: 30%;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                        }
+
                         & input {
-                            width: 50%;
+                            width: 70%;
                             border: none;
                             outline: none;
                             background: #0001;
@@ -132,7 +135,7 @@
                 }
             }
 
-            &:last-child{
+            &#filter-butons--container {
                 align-items: flex-end;
             }
 
@@ -156,7 +159,7 @@
                 }
             }
 
-            #clear-filters--button {
+            & #clear-filters--button {
                 border: 1px solid red;
                 color: red;
 
@@ -167,5 +170,111 @@
             }
         }
     }
+}
 
+@media (max-width: 1500px) {
+    .filter--div[role="modal"] .filter--list .filter--item {
+        & .item--icon {
+            height: 20%;
+        }
+
+        & .filter--content {
+            height: 80%;
+
+            & .checkbox--container {
+                & .size--label {
+                    $size--box: 30px;
+                    width: $size--box;
+                    height: $size--box;
+                    font-size: 0.8em;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+    .filter--div[role="modal"] .filter--list .filter--item {
+        & .filter--content {
+            & .interval--container {
+                flex-direction: column;
+                gap: 5px;
+
+                & .interval--item {
+                    gap: 5px;
+
+                    & input {
+                        width: 50%;
+                        padding: 2px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .filter--menu {
+        width: 90%;
+    }
+
+    .filter--div[role="modal"] {
+        height: 150px;
+
+        & .filter--list {
+            gap: 0;
+            justify-content: space-evenly;
+
+            & .filter--item {
+                & .item--icon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 1em;
+                }
+
+                & .filter--content {
+
+                    & .checkbox--container,
+                    .interval--container,
+                    .default--container {
+                        justify-content: center;
+                    }
+                }
+
+
+                &#filter-butons--container {
+                    width: 20%;
+                    justify-content: flex-end;
+
+                    & #clear-filters--button,
+                    #filter--button {
+                        height: 30%;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    .filter--div[role="modal"] {
+        height: 170px;
+
+        & .interval--container {
+            & .interval--item {
+                gap: 2px;
+                & span {
+                    width: 20%;
+                    font-size: 0.8em;
+                }
+
+                & input {
+                    width: 80%;
+                    padding: 1px;
+                }
+            }
+        }
+    }
 }

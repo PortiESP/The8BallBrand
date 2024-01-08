@@ -104,7 +104,7 @@ main section .load-more--div {
   position: relative;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1500px) {
   main section .items--wrap {
     grid-template-columns: 1fr 1fr 1fr;
   }
