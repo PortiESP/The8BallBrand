@@ -9,6 +9,7 @@
 
 body {
     background: $themePrimaryAlpha url("../assets/texture.png") fixed;
+    scroll-behavior: smooth;
     scrollbar-width: none;
     font-family: "Poppins", monospace;
     user-select: none;

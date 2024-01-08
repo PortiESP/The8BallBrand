@@ -1,30 +1,21 @@
 .filter--menu {
-  height: 0;
   width: 80%;
-  overflow: hidden;
-}
-.filter--menu.filter--active {
-  height: 100%;
 }
 
 .filter--div[role=modal] {
   width: 100%;
+  height: 120px;
   background: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2666666667);
-  transform: translateY(-180%);
-  transition: all 0.3s ease;
-}
-.filter--div[role=modal].filter--active {
-  transform: translateY(0);
-  transition: all 0.3s ease;
 }
 .filter--div[role=modal] > .filter--list {
+  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.filter--div[role=modal] > .filter--list > .filter--item {
-  position: relative;
+.filter--div[role=modal] > .filter--list .filter--item {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,31 +28,32 @@
   width: 25%;
   gap: 10px;
 }
-.filter--div[role=modal] > .filter--list > .filter--item:last-child {
+.filter--div[role=modal] > .filter--list .filter--item:last-child {
   border-bottom: none;
 }
-.filter--div[role=modal] > .filter--list > .filter--item > .item--icon {
-  position: relative;
+.filter--div[role=modal] > .filter--list .filter--item > .item--icon {
   width: 100%;
+  height: 30%;
 }
-.filter--div[role=modal] > .filter--list > .filter--item .filter--name,
-.filter--div[role=modal] > .filter--list > .filter--item i {
+.filter--div[role=modal] > .filter--list .filter--item .filter--name,
+.filter--div[role=modal] > .filter--list .filter--item i {
   font-size: 1.1em;
 }
-.filter--div[role=modal] > .filter--list > .filter--item > .filter--content {
+.filter--div[role=modal] > .filter--list .filter--item > .filter--content {
   width: 100%;
+  height: 70%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-left: 6px;
 }
-.filter--div[role=modal] > .filter--list > .filter--item > .filter--content .checkbox--container {
+.filter--div[role=modal] > .filter--list .filter--item > .filter--content .checkbox--container {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
 }
-.filter--div[role=modal] > .filter--list > .filter--item > .filter--content .checkbox--container .size--label {
+.filter--div[role=modal] > .filter--list .filter--item > .filter--content .checkbox--container .size--label {
   width: 35px;
   height: 35px;
   display: flex;
@@ -72,23 +64,23 @@
   background-color: rgba(0, 0, 0, 0.0666666667);
   font-size: 0.9em;
 }
-.filter--div[role=modal] > .filter--list > .filter--item > .filter--content .checkbox--container .size--label:active {
+.filter--div[role=modal] > .filter--list .filter--item > .filter--content .checkbox--container .size--label:active {
   background-color: rgba(0, 0, 0, 0.3333333333);
   color: #000;
 }
-.filter--div[role=modal] > .filter--list > .filter--item > .filter--content .checkbox--container .size--label:hover {
+.filter--div[role=modal] > .filter--list .filter--item > .filter--content .checkbox--container .size--label:hover {
   background-color: rgba(0, 0, 0, 0.2);
   color: #000;
   cursor: pointer;
 }
-.filter--div[role=modal] > .filter--list > .filter--item > .filter--content .checkbox--container input[type=checkbox] {
+.filter--div[role=modal] > .filter--list .filter--item > .filter--content .checkbox--container input[type=checkbox] {
   display: none;
 }
-.filter--div[role=modal] > .filter--list > .filter--item > .filter--content .checkbox--container input[type=checkbox]:checked + label {
+.filter--div[role=modal] > .filter--list .filter--item > .filter--content .checkbox--container input[type=checkbox]:checked + label {
   background: black;
   color: white;
 }
-.filter--div[role=modal] > .filter--list > .filter--item > .filter--content select {
+.filter--div[role=modal] > .filter--list .filter--item > .filter--content select {
   width: 90%;
   border: none;
   outline: none;
@@ -96,20 +88,20 @@
   border-radius: 4px;
   padding: 2px 4px;
 }
-.filter--div[role=modal] > .filter--list > .filter--item > .filter--content select:hover {
+.filter--div[role=modal] > .filter--list .filter--item > .filter--content select:hover {
   cursor: pointer;
 }
-.filter--div[role=modal] > .filter--list > .filter--item > .filter--content .interval--container {
+.filter--div[role=modal] > .filter--list .filter--item > .filter--content .interval--container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 30px;
 }
-.filter--div[role=modal] > .filter--list > .filter--item > .filter--content .interval--container .interval--item {
+.filter--div[role=modal] > .filter--list .filter--item > .filter--content .interval--container .interval--item {
   display: flex;
   gap: 10px;
 }
-.filter--div[role=modal] > .filter--list > .filter--item > .filter--content .interval--container .interval--item input {
+.filter--div[role=modal] > .filter--list .filter--item > .filter--content .interval--container .interval--item input {
   width: 50%;
   border: none;
   outline: none;
@@ -117,11 +109,11 @@
   border-radius: 4px;
   padding: 3px;
 }
-.filter--div[role=modal] > .filter--list > .filter--item:last-child {
+.filter--div[role=modal] > .filter--list .filter--item:last-child {
   align-items: flex-end;
 }
-.filter--div[role=modal] > .filter--list > .filter--item #clear-filters--button,
-.filter--div[role=modal] > .filter--list > .filter--item #filter--button {
+.filter--div[role=modal] > .filter--list .filter--item #clear-filters--button,
+.filter--div[role=modal] > .filter--list .filter--item #filter--button {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -134,16 +126,16 @@
   height: 70%;
   border-radius: 4px;
 }
-.filter--div[role=modal] > .filter--list > .filter--item #clear-filters--button:hover,
-.filter--div[role=modal] > .filter--list > .filter--item #filter--button:hover {
+.filter--div[role=modal] > .filter--list .filter--item #clear-filters--button:hover,
+.filter--div[role=modal] > .filter--list .filter--item #filter--button:hover {
   background: black;
   color: #eee;
 }
-.filter--div[role=modal] > .filter--list > .filter--item #clear-filters--button {
+.filter--div[role=modal] > .filter--list .filter--item #clear-filters--button {
   border: 1px solid red;
   color: red;
 }
-.filter--div[role=modal] > .filter--list > .filter--item #clear-filters--button:hover {
+.filter--div[role=modal] > .filter--list .filter--item #clear-filters--button:hover {
   color: #a61313;
   background-color: rgba(166, 19, 19, 0.1019607843);
 }/*# sourceMappingURL=filterList.css.map */

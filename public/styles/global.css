@@ -6,6 +6,7 @@
 @import url("./footer.css");
 body {
   background: rgba(107, 107, 107, 0.7333333333) url("../assets/texture.png") fixed;
+  scroll-behavior: smooth;
   scrollbar-width: none;
   font-family: "Poppins", monospace;
   -webkit-user-select: none;

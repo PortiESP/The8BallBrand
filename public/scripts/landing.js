@@ -5,7 +5,7 @@ let enableLoadMore = true
 const $link = document.querySelector(".item--link#add-element--link")
 const $layoutButton = document.querySelector("#alter-layout--button")
 const $layoutButtonIcon = document.querySelector("#alter-layout--button i")
-const $alterFilterButton = document.querySelector("#alter-filter--button")
+// const $alterFilterButton = document.querySelector("#alter-filter--button")
 const $filterButtonIcon = document.querySelector("#alter-filter--button i")
 const $filterButton = document.querySelector("#filter--button")
 const $resetFilterButton = document.querySelector("#clear-filters--button")
@@ -15,7 +15,6 @@ const $loadMoreButton = document.querySelector(".load-more--div")
 
 // Adding listeners
 $layoutButton.addEventListener("click", toggleLayout)
-$alterFilterButton.addEventListener("click", toggleFilter)
 $filterButton.addEventListener("click", filterElements)
 $resetFilterButton.addEventListener("click", resetFilterElements)
 
@@ -37,18 +36,6 @@ function toggleLayout() {
     // Toggle items-wrap layout
     $itemsContainer.classList.toggle("items-wrap--grid")
     $itemsContainer.classList.toggle("items-wrap--list")
-}
-
-function toggleFilter() {
-    // Toggle filter icon
-    $filterButtonIcon.classList.toggle("bi-funnel")
-    $filterButtonIcon.classList.toggle("bi-funnel-fill")
-
-    // Toggle filter
-    const $filter = document.querySelector(".filter--div")
-    const $filterContainer = document.querySelector(".filter--menu")
-    $filter.classList.toggle("filter--active")
-    $filterContainer.classList.toggle("filter--active")
 }
 
 function filterElements(event) {
