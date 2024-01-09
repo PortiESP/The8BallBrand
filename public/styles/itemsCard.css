@@ -328,7 +328,7 @@
 }
 @media (max-width: 500px) {
   .items--wrap.items-wrap--list {
-    width: 92%;
+    width: 90%;
   }
   .items--wrap.items-wrap--list .item .item--images {
     width: 70px;
