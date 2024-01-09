@@ -172,7 +172,6 @@ function handleAddElement(req, res) {
     }
 }
 
-
 // Handle toggling favorite elements ----------------------------------------------------------------------------------
 function handleToggleFav(req, res) {
     const id = req.query.id
@@ -251,6 +250,7 @@ function getBids(req,res){
     if (bids.length) res.render("components/bidsContainer", { bids })
     else res.send(`<span class="flag--empty-bids">Be the first one to make a bid!</span>`)
 }
+
 // Handle adding bids -------------------------------------------------------------------------------------------------
 function handleAddBid(req, res) {
     const id = req.query.id
