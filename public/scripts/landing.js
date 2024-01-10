@@ -1,3 +1,4 @@
+import lazyImgLoading from "./tools/lazyImgLoading.js"
 
 let enableLoadMore = true
 
@@ -22,12 +23,11 @@ let itemCount = 0
 const INTERVAL = 4
 
 // Intesecting observer
-const observer = new IntersectionObserver((e)=> e[0].isIntersecting && loadMoreItems(), { threshold: 1, rootMargin: "0px 0px -100px 0px", root: null })
+const observer = new IntersectionObserver((e) => e[0].isIntersecting && loadMoreItems(), { threshold: 1, rootMargin: "0px 0px -100px 0px", root: null })
 observer.observe($loadMoreButton)
 
-
 // =========================================================================================================================[ Functions ]>>>
-function toggleLayout() {     
+function toggleLayout() {
     // Toggle layout icon
     $layoutButtonIcon.classList.toggle("bi-view-list")
     $layoutButtonIcon.classList.toggle("bi-grid")
@@ -42,24 +42,24 @@ function filterElements(event) {
     enableLoadMore = false
 
     // get filter values
-    const checkedSize = [...document.querySelectorAll(".checkbox--container input[type=checkbox]")].filter(e => e.checked).map(e => e.value)
+    const checkedSize = [...document.querySelectorAll(".checkbox--container input[type=checkbox]")].filter((e) => e.checked).map((e) => e.value)
     const selectedCategory = document.querySelector("select").selectedOptions[0].value
-    const selectedPrice = [...document.querySelectorAll(".default--container input[type=number]")].map(e => e.value)
+    const selectedPrice = [...document.querySelectorAll(".default--container input[type=number]")].map((e) => e.value)
     const query = "sizes=" + checkedSize.join(",") + "&type=" + selectedCategory + "&min=" + selectedPrice[0] + "&max=" + selectedPrice[1]
 
     fetch(`/filter-index?${query}`)
-    .then(response => response.text())
-    .then(html => {
-        // Append items to items-wrap
-        const $products = $itemsContainer.querySelectorAll(".item--link.product")
-        
-        $products.forEach(e => e.remove())
-        $link.insertAdjacentHTML("beforebegin", html)
-    })
+        .then((response) => response.text())
+        .then((html) => {
+            // Append items to items-wrap
+            const $products = $itemsContainer.querySelectorAll(".item--link.product")
+
+            $products.forEach((e) => e.remove())
+            $link.insertAdjacentHTML("beforebegin", html)
+        })
 
     // Toggle filter
     const $filter = document.querySelector(".filter--div")
-    $filter.classList.toggle("filter--active")    
+    $filter.classList.toggle("filter--active")
 }
 
 function resetFilterElements(event) {
@@ -68,7 +68,7 @@ function resetFilterElements(event) {
     document.querySelector("#filter--form").reset()
 
     const $products = $itemsContainer.querySelectorAll(".item--link.product")
-    $products.forEach(e => e.remove())
+    $products.forEach((e) => e.remove())
 
     itemCount = 0
     loadMoreItems()
@@ -88,6 +88,9 @@ async function loadMoreItems() {
     // Append items to items-wrap
     $link.insertAdjacentHTML("beforebegin", html)
 
+    // Loading animation
+    lazyImgLoading(".items--wrap")
+
     console.log("Items loaded")
 }
 
@@ -104,10 +107,12 @@ async function loadFeaturedItems() {
     if (itemsWrapper.children.length === 0) $featuredItemsSection.style.display = "none"
     else $featuredItemsSection.style.display = "flex"
 
+    // Loading animation
+    lazyImgLoading(".featured--wrap .featured")
+
     console.log("Featured items loaded")
 }
 
 
-
-// INIT 
+// INIT
 loadFeaturedItems()
