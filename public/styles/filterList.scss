@@ -204,7 +204,6 @@
 
                     & input {
                         width: 50%;
-                        padding: 2px;
                     }
                 }
             }
@@ -251,7 +250,8 @@
                     align-items: center;
                     width: 100%;
 
-                    & #clear-filters--button, #filter--button {
+                    & #clear-filters--button,
+                    #filter--button {
                         width: 20%;
                     }
                 }
@@ -261,46 +261,55 @@
 }
 
 @media (max-width: 500px) {
-    .filter--div[role="modal"] .filter--list .filter--item {
-        flex-direction: column;
-        gap: 10px;
-        align-items: flex-start;
-        justify-content: center;
+    .filter--div[role="modal"] .filter--list {
+        gap: 0;
 
-        & .item--icon {
-            width: 100%;
-        }
+        & .filter--item {
+            flex-direction: column;
+            padding: 10px;
+            padding-bottom: 0;
+            gap: 10px;
+            align-items: flex-start;
+            justify-content: center;
 
-        & .filter--content {
-            width: 100%;
+            & .item--icon {
+                width: 100%;
+            }
 
-            & .interval--container {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
+            & .filter--content {
+                width: 100%;
 
-                & .interval--item {
-                    justify-content: flex-start;
+                & .interval--container {
+                    flex-direction: column;
+                    align-items: flex-start;
                     gap: 5px;
 
-                    & span {
-                        width: 20%;
-                    }
+                    & .interval--item {
+                        justify-content: flex-start;
+                        gap: 10px;
 
-                    & input {
-                        width: 80%;
+                        & span {
+                            width: 20%;
+                        }
+
+                        & input {
+                            width: 80%;
+                        }
                     }
                 }
-            }
-            
-            & select {
-                width: 90%;
-            }
-        }
 
-        &#filter-butons--container {
-            & #clear-filters--button, #filter--button {
-                width: 40%;
+                & select {
+                    width: 80%;
+                }
+            }
+
+            &#filter-butons--container {
+                padding: 10px;
+
+                & #clear-filters--button,
+                #filter--button {
+                    width: 40%;
+                }
             }
         }
     }

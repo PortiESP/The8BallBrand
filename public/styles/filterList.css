@@ -167,7 +167,6 @@
   }
   .filter--div[role=modal] .filter--list .filter--item .filter--content .interval--container .interval--item input {
     width: 50%;
-    padding: 2px;
   }
 }
 @media (max-width: 800px) {
@@ -202,13 +201,19 @@
     align-items: center;
     width: 100%;
   }
-  .filter--div[role=modal] .filter--list .filter--item#filter-butons--container #clear-filters--button, .filter--div[role=modal] .filter--list .filter--item#filter-butons--container #filter--button {
+  .filter--div[role=modal] .filter--list .filter--item#filter-butons--container #clear-filters--button,
+  .filter--div[role=modal] .filter--list .filter--item#filter-butons--container #filter--button {
     width: 20%;
   }
 }
 @media (max-width: 500px) {
+  .filter--div[role=modal] .filter--list {
+    gap: 0;
+  }
   .filter--div[role=modal] .filter--list .filter--item {
     flex-direction: column;
+    padding: 10px;
+    padding-bottom: 0;
     gap: 10px;
     align-items: flex-start;
     justify-content: center;
@@ -226,7 +231,7 @@
   }
   .filter--div[role=modal] .filter--list .filter--item .filter--content .interval--container .interval--item {
     justify-content: flex-start;
-    gap: 5px;
+    gap: 10px;
   }
   .filter--div[role=modal] .filter--list .filter--item .filter--content .interval--container .interval--item span {
     width: 20%;
@@ -235,9 +240,13 @@
     width: 80%;
   }
   .filter--div[role=modal] .filter--list .filter--item .filter--content select {
-    width: 90%;
+    width: 80%;
   }
-  .filter--div[role=modal] .filter--list .filter--item#filter-butons--container #clear-filters--button, .filter--div[role=modal] .filter--list .filter--item#filter-butons--container #filter--button {
+  .filter--div[role=modal] .filter--list .filter--item#filter-butons--container {
+    padding: 10px;
+  }
+  .filter--div[role=modal] .filter--list .filter--item#filter-butons--container #clear-filters--button,
+  .filter--div[role=modal] .filter--list .filter--item#filter-butons--container #filter--button {
     width: 40%;
   }
 }/*# sourceMappingURL=filterList.css.map */
