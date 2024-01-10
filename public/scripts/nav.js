@@ -91,24 +91,15 @@ function parseSearchResults() {
     .then((data) => {
         const $itemsContainer = document.querySelector("search .div--search-results")
         
-        
         const noResults = !data.includes("detailed/")
         if (noResults) {
             $itemsContainer.innerHTML = `<div class="item--no-results">No results found</div>`
         } else {
-            // Remove link item
             $itemsContainer.innerHTML = data
-            const $linkItem = document.querySelector("nav .item--link#add-element--link")
-            $itemsContainer.removeChild($linkItem)
+            $searchInput.classList.add("results--filled")
         }
-        // Update items container
-        
-        
-
-        $searchInput.classList.add("results--filled")
     })       
 }
-
 
 // INIT
 toggleFav()

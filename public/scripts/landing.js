@@ -5,7 +5,6 @@ let enableLoadMore = true
 const $link = document.querySelector(".item--link#add-element--link")
 const $layoutButton = document.querySelector("#alter-layout--button")
 const $layoutButtonIcon = document.querySelector("#alter-layout--button i")
-// const $alterFilterButton = document.querySelector("#alter-filter--button")
 const $filterButtonIcon = document.querySelector("#alter-filter--button i")
 const $filterButton = document.querySelector("#filter--button")
 const $resetFilterButton = document.querySelector("#clear-filters--button")
