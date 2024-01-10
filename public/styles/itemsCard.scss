@@ -48,7 +48,12 @@
                 color: #212529;
                 background-color: #eee;
                 border: 7px solid #212529;
-                font-size: 0.85rem;
+                font-size: 0.9rem;
+                font-weight: 700;
+
+                & .bid--number {
+                    padding-top: 2px;
+                }
             }
 
             & p {
