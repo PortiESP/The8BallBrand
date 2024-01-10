@@ -1,4 +1,4 @@
-import { toggleFav } from "./nav.js"
+import { toggleFav, loadUserIcon } from "./nav.js"
 
 // Favs checkbox element
 const $favsCheckbox = document.querySelector("label[for='favorite-checkbox']")
@@ -29,9 +29,12 @@ async function loadBids() {
 
 // Add new bids
 async function addBid(event) {
-    event.preventDefault()
-    const id = new URL(location).pathname.split("/").slice(-1)[0]
+    await event.preventDefault()
+    const id = await new URL(location).pathname.split("/").slice(-1)[0]
     const bid = { name: $bidName.value, email: $bidEmail.value, bid: $bidValue.value }
+
+    // Update last email in the local storage
+    await localStorage.setItem("email", bid.email)
 
     const response = await fetch(`/add-bid?id=${id}`, {
         method: "POST",
@@ -46,13 +49,15 @@ async function addBid(event) {
         $bidEmail.value = ""
         $bidValue.value = ""
         $bidContainer.innerHTML = textResponse + $bidContainer.innerHTML
-        $errorToast.classList.remove("show")
-        const $initialText = document.getElementsByClassName("flag--empty-bids")[0]
+        await $errorToast.classList.remove("show")
+        const $initialText = await document.getElementsByClassName("flag--empty-bids")[0]
         if ($initialText) $initialText.style.display="none"
+        // Update user icon
+        await loadUserIcon()
     } else {
-        const errorMsgs = decodeURIComponent(textResponse).split("=")[1].split(",")
-        $errorToastText.innerHTML = errorMsgs.map(msg => `<li>${msg}</li>`).join("")
-        $errorToast.classList.add("show")
+        const errorMsgs = await decodeURIComponent(textResponse).split("=")[1].split(",")
+        $errorToastText.innerHTML = await errorMsgs.map(msg => `<li>${msg}</li>`).join("")
+        await $errorToast.classList.add("show")
     }
 }
 

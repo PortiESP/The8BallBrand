@@ -28,8 +28,8 @@ nav.navbar {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        gap: 25px;
         align-items: center;
+        gap: 25px;
 
         & > .nav-link {
             color: #6666;
@@ -62,6 +62,7 @@ nav.navbar {
         // ----------------------------------------------------------------- liked
         & .icon--liked {
             position: relative;
+            padding-top: 12px;
             // ------------------- BUBBLE
             & span.favs--bubble {
                 display: none;
@@ -234,6 +235,22 @@ nav.navbar {
                         text-decoration: none;
                     }
                 }
+            }
+        }
+
+        // ----------------------------------------------------------------- profile
+
+        & #user-icon{
+            position: relative;
+
+            & img{
+                $size: 25px;
+                width: $size;
+                height: $size;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 1px solid #0002;
+                filter: brightness(.9);
             }
         }
 

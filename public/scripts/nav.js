@@ -100,5 +100,12 @@ function parseSearchResults() {
     })       
 }
 
+export function loadUserIcon() {
+    const email = localStorage.getItem("email")
+    const $userIcon = document.querySelector("#user-icon")
+    if (email) $userIcon.innerHTML = `<img id="user-icon" src="https://www.gravatar.com/avatar/${email}?s=256&d=identicon" alt="User icon">`
+}
+
 // INIT
 toggleFav()
+loadUserIcon()

@@ -21,8 +21,8 @@ nav.navbar .navbar-nav {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  gap: 25px;
   align-items: center;
+  gap: 25px;
 }
 nav.navbar .navbar-nav > .nav-link {
   color: rgba(102, 102, 102, 0.4);
@@ -47,6 +47,7 @@ nav.navbar .navbar-nav input[type=checkbox]:checked + [role=modal] {
 }
 nav.navbar .navbar-nav .icon--liked {
   position: relative;
+  padding-top: 12px;
 }
 nav.navbar .navbar-nav .icon--liked span.favs--bubble {
   display: none;
@@ -189,6 +190,18 @@ nav.navbar .navbar-nav .div--liked[role=modal] > .checkout button:hover {
 nav.navbar .navbar-nav .div--liked[role=modal] > .checkout button a {
   color: inherit;
   text-decoration: none;
+}
+nav.navbar .navbar-nav #user-icon {
+  position: relative;
+}
+nav.navbar .navbar-nav #user-icon img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.1333333333);
+  filter: brightness(0.9);
 }
 nav.navbar .navbar-nav .icon--search {
   font-size: 22px;
