@@ -22,7 +22,7 @@ let itemCount = 0
 const INTERVAL = 4
 
 // Intesecting observer
-const observer = new IntersectionObserver((e)=> e[0].isIntersecting && loadMoreItems(), { threshold: 0, rootMargin: "0px 0px 0px 0px", root: null })
+const observer = new IntersectionObserver((e)=> e[0].isIntersecting && loadMoreItems(), { threshold: 1, rootMargin: "0px 0px -100px 0px", root: null })
 observer.observe($loadMoreButton)
 
 
