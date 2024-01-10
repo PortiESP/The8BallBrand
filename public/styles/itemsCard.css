@@ -348,8 +348,11 @@
     padding-right: 5px;
     font-size: 0.9rem;
   }
+  .items-wrap--list .item .item--content .div--bids {
+    display: none;
+  }
   .items-wrap--list .item .item--content p {
-    padding: 0;
+    padding: 15px;
   }
   .items-wrap--list .item .item--content .item--price strong {
     padding: 3px;

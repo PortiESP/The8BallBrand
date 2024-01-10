@@ -414,8 +414,12 @@
             padding-right: 5px;
             font-size: 0.9rem;
 
+            & .div--bids {
+                display: none;
+            }
+
             & p {
-                padding: 0;
+                padding: 15px;
             }
 
             & .item--price {

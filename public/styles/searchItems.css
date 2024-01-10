@@ -153,4 +153,63 @@
   text-align: center;
   color: rgba(136, 136, 136, 0.5333333333);
   font-style: italic;
+}
+
+@media (max-width: 1100px) {
+  .div--search-results .item .item--content {
+    padding-right: 15px;
+    font-size: 1rem;
+  }
+  .div--search-results .item .item--content .item--price strong {
+    padding: 5px;
+  }
+  .div--search-results .item .item--content .list--view.list--type {
+    display: none;
+  }
+}
+@media (max-width: 800px) {
+  .div--search-results .item {
+    padding: 0 10px;
+  }
+  .div--search-results .item .item--content .div--bids .number--of--bids {
+    width: 30px;
+    height: 30px;
+    border: 6px solid #212529;
+    font-size: 12px;
+  }
+  .div--search-results .add--item {
+    height: 80px;
+  }
+}
+@media (max-width: 500px) {
+  .div--search-results {
+    width: 90%;
+  }
+  .div--search-results .item .item--images {
+    width: 70px;
+  }
+  .div--search-results .item .item--content {
+    font-size: 0.9rem;
+  }
+  .div--search-results .item .item--content p {
+    width: 100%;
+  }
+  .div--search-results .item .item--content .list--view.list--size {
+    display: none;
+  }
+}
+@media (max-width: 400px) {
+  .div--search-results .item .item--content {
+    padding-right: 5px;
+    font-size: 0.9rem;
+  }
+  .div--search-results .item .item--content .div--bids {
+    display: none;
+  }
+  .div--search-results .item .item--content p {
+    padding: 15px;
+  }
+  .div--search-results .item .item--content .item--price strong {
+    padding: 3px;
+  }
 }/*# sourceMappingURL=searchItems.css.map */

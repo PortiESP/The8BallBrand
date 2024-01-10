@@ -261,13 +261,14 @@ nav.navbar {
 
 
                 & .search--group {
+                    width: 80%;
                     position: relative;
                     display: flex;
                     align-items: center;
                     top:0;
 
                     & input {
-                        width: clamp(250px, 80vw, 1000px);
+                        width: 100%;
                         background: #eee;
                         border: none;
                         outline: none;
@@ -354,5 +355,11 @@ nav.navbar {
                 height: 80px;
             }
         }
+    }
+}
+
+@media (max-width: 500px) {
+    #div--search>search>div.search--group {
+        width: 90%;
     }
 }

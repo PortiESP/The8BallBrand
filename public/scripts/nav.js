@@ -92,12 +92,11 @@ function parseSearchResults() {
         const $itemsContainer = document.querySelector("search .div--search-results")
         
         const noResults = !data.includes("detailed/")
-        if (noResults) {
-            $itemsContainer.innerHTML = `<div class="item--no-results">No results found</div>`
-        } else {
-            $itemsContainer.innerHTML = data
-            $searchInput.classList.add("results--filled")
-        }
+        
+        if (noResults) $itemsContainer.innerHTML = `<div class="item--no-results">No results found</div>`
+        else $itemsContainer.innerHTML = data
+        
+        $searchInput.classList.add("results--filled")
     })       
 }
 

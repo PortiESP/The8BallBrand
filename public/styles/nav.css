@@ -211,13 +211,14 @@ nav.navbar .navbar-nav .div--search[role=modal] search {
   position: relative;
 }
 nav.navbar .navbar-nav .div--search[role=modal] search .search--group {
+  width: 80%;
   position: relative;
   display: flex;
   align-items: center;
   top: 0;
 }
 nav.navbar .navbar-nav .div--search[role=modal] search .search--group input {
-  width: clamp(250px, 80vw, 1000px);
+  width: 100%;
   background: #eee;
   border: none;
   outline: none;
@@ -284,5 +285,10 @@ nav.navbar .nav-search-bar {
   }
   nav.navbar .navbar-nav .div--liked[role=modal] .checkout {
     height: 80px;
+  }
+}
+@media (max-width: 500px) {
+  #div--search > search > div.search--group {
+    width: 90%;
   }
 }/*# sourceMappingURL=nav.css.map */
