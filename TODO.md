@@ -30,3 +30,4 @@
 
 - Carga inicial de elementos en la página principal: Poner una barra de carga mientras se cargan los elementos
 - Comprobar por qué la página se carga desde abajo
+- no se borra el texto de los elementos sin pujas
