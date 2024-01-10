@@ -30,7 +30,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            padding-right: 10px;
             color: $likedItemColor;
             text-decoration: none;
 
@@ -226,6 +225,7 @@
 
             & .filter--item {
                 width: 100%;
+                padding-top: 10px;
                 flex-direction: row;
 
                 & .item--icon {
@@ -275,7 +275,6 @@
 
         & .filter--item {
             flex-direction: column;
-            padding: 20px;
             padding-bottom: 0;
             gap: 10px;
             align-items: flex-start;

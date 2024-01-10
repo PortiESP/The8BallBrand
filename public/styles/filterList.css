@@ -25,7 +25,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding-right: 10px;
   color: #444;
   text-decoration: none;
 }
@@ -180,6 +179,7 @@
   }
   .filter--div[role=modal] .filter--list .filter--item {
     width: 100%;
+    padding-top: 10px;
     flex-direction: row;
   }
   .filter--div[role=modal] .filter--list .filter--item .item--icon {
@@ -219,7 +219,6 @@
   }
   .filter--div[role=modal] .filter--list .filter--item {
     flex-direction: column;
-    padding: 20px;
     padding-bottom: 0;
     gap: 10px;
     align-items: flex-start;
