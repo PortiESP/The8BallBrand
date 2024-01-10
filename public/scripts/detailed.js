@@ -47,6 +47,8 @@ async function addBid(event) {
         $bidValue.value = ""
         $bidContainer.innerHTML = textResponse + $bidContainer.innerHTML
         $errorToast.classList.remove("show")
+        const $initialText = document.getElementsByClassName("flag--empty-bids")[0]
+        if ($initialText) $initialText.style.display="none"
     } else {
         const errorMsgs = decodeURIComponent(textResponse).split("=")[1].split(",")
         $errorToastText.innerHTML = errorMsgs.map(msg => `<li>${msg}</li>`).join("")
