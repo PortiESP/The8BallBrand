@@ -60,6 +60,7 @@
   border-radius: 50px;
   background-color: rgba(0, 0, 0, 0.0666666667);
   font-size: 0.8em;
+  transition: all 0.3s ease;
 }
 .filter--div[role=modal] > .filter--list .filter--item .filter--content .checkbox--container .size--label:active {
   background-color: rgba(0, 0, 0, 0.3333333333);
