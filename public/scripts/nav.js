@@ -109,3 +109,6 @@ export function loadUserIcon() {
 // INIT
 toggleFav()
 loadUserIcon()
+window.onload = function() {
+    scroll(0,0);
+};
