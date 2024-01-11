@@ -1,4 +1,5 @@
 import { toggleFav, loadUserIcon } from "./nav.js"
+import { throwConfetti } from "./tools/confetti.js"
 
 // Favs checkbox element
 const $favsCheckbox = document.querySelector("label[for='favorite-checkbox']")
@@ -39,7 +40,7 @@ async function addBid(event) {
     const response = await fetch(`/add-bid?id=${id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(bid)
+        body: JSON.stringify(bid),
     })
 
     const textResponse = await response.text()
@@ -51,12 +52,15 @@ async function addBid(event) {
         $bidContainer.innerHTML = textResponse + $bidContainer.innerHTML
         await $errorToast.classList.remove("show")
         const $initialText = await document.getElementsByClassName("flag--empty-bids")[0]
-        if ($initialText) $initialText.style.display="none"
+        if ($initialText) $initialText.style.display = "none"
         // Update user icon
         await loadUserIcon()
+        // Confetti
+        throwConfetti()
+
     } else {
         const errorMsgs = await decodeURIComponent(textResponse).split("=")[1].split(",")
-        $errorToastText.innerHTML = await errorMsgs.map(msg => `<li>${msg}</li>`).join("")
+        $errorToastText.innerHTML = await errorMsgs.map((msg) => `<li>${msg}</li>`).join("")
         await $errorToast.classList.add("show")
     }
 }
@@ -66,5 +70,5 @@ function closeErrorToast() {
     $errorToast.classList.remove("show")
 }
 
-// INIT 
+// INIT
 loadBids()
