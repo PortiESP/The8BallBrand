@@ -27,6 +27,7 @@
   - [x] Animacion de despliegue de los elementos de la lista de favoritos
   - [x] Animacion de carga de los elementos
   - [x] Animacion del checkbox de añadir nuevo elemento
+  - [x] Confeti al añadir una nueva puja
   - [ ] Animacion al navegar entre páginas
 
 # Problemas que solucionar
