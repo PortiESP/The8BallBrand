@@ -56,7 +56,7 @@ async function addBid(event) {
         // Update user icon
         await loadUserIcon()
         // Confetti
-        throwConfetti()
+        await throwConfetti()
 
     } else {
         const errorMsgs = await decodeURIComponent(textResponse).split("=")[1].split(",")
