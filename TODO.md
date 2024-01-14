@@ -28,6 +28,3 @@
   - [x] Animacion de carga de los elementos
   - [x] Animacion del checkbox de añadir nuevo elemento
   - [x] Confeti al añadir una nueva puja
-
-# Errores
-- Fallo en el envio del formulario de nuevo elemento

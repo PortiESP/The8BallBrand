@@ -103,6 +103,21 @@ function validateProductImage() {
     }
 }
 
+function validateProductDate() {
+    const element = $productDate
+
+    if (!element.value || element.value < new Date()) {
+        document.querySelector("input[name=\"finishingDate\"] + .invalid-feedback").innerHTML = "Invalid date"
+        element.classList.add("is-invalid")
+        element.classList.remove("is-valid")
+        return false
+    } else {
+        element.classList.add("is-valid")
+        element.classList.remove("is-invalid")
+        return true
+    }
+}
+
 // Form validation
 function validateForm(event) {
     if (
@@ -110,6 +125,7 @@ function validateForm(event) {
         !validateProductDescription() ||
         !validateProductPrice() ||
         !validateProductImage() ||
+        !validateProductDate() ||
         !$termsCheckbox.checked
     ) {
         $termsCheckbox.checked = false
