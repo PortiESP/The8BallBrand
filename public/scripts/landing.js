@@ -71,7 +71,6 @@ function resetFilterElements(event) {
     $products.forEach((e) => e.remove())
 
     itemCount = 0
-    loadMoreItems()
 }
 
 async function loadMoreItems() {
