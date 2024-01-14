@@ -31,5 +31,3 @@
   - [ ] Animacion al navegar entre páginas
 
 # Problemas que solucionar
-
-- no se borra el texto de los elementos sin pujas
