@@ -123,6 +123,10 @@
   justify-content: center;
   background: rgba(0, 0, 0, 0.4);
 }
+.items-wrap--grid .item .item--loading.hidden,
+.featured .item .item--loading.hidden {
+  display: none;
+}
 .items-wrap--grid .item .item--loading img,
 .featured .item .item--loading img {
   width: 50px;

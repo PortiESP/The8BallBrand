@@ -11,11 +11,12 @@ export default function lazyImgLoading(section) {
       // ------- While loading -------
       if (e.getAttribute("data-loaded")) return
       e.style.opacity = 0.5
+      $products[i].querySelector(".item--loading").classList.remove("hidden")
 
       // ------- When loaded -------
       e.onload = () => {
           e.style.opacity = 1
-          $products[i].querySelector(".item--loading").style.display = "none"
+          $products[i].querySelector(".item--loading").classList.add("hidden")
 
           // Prevent setting the animation again on loaded images
           e.setAttribute("data-loaded", true)
