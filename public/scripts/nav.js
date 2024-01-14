@@ -1,3 +1,5 @@
+import lazyImgLoading from "./tools/lazyImgLoading.js"
+
 const DEBOUNCE_TIMEOUT = 500  // Debounce timeout in ms
 
 const $favsList = document.querySelector(".liked--list")
@@ -94,7 +96,10 @@ function parseSearchResults() {
         const noResults = !data.includes("detailed/")
         
         if (noResults) $itemsContainer.innerHTML = `<div class="item--no-results">No results found</div>`
-        else $itemsContainer.innerHTML = data
+        else {
+            $itemsContainer.innerHTML = data
+            lazyImgLoading(".div--search-results")
+        }
         
         $searchInput.classList.add("results--filled")
     })       
