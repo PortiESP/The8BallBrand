@@ -5,8 +5,10 @@ const NAME_MAX_CHARS = 20
 const DESCRIPTION_MIN_CHARS = 50
 const DESCRIPTION_MAX_CHARS = 500
 
-const URL_REGEX = /^(https?):\/\/[^ "]+\.[a-z]{0,3}\/[^ "]+\.(jpg|png|svg|jpeg|gif)$/
-const LOCAL_URL_REGEX = /^\/assets\/clothes\/[^ "]+\.(jpg|png|svg|jpeg|gif)$/
+const URL_REGEX = /^(https?):\/\/[^ "]+\.[a-z]{0,3}\/[^ "]+\.(jpg|png|svg|jpeg|gif|webp)$/
+const LOCAL_URL_REGEX = /^\/assets\/clothes\/[^ "]+\.(jpg|png|svg|jpeg|gif|webp)$/
+
+let isNameValid = false
 
 // Get elements
 const $productName = document.querySelector('input[name="name"]')
@@ -25,7 +27,7 @@ $productImage.addEventListener("input", validateProductImage)
 $form.addEventListener("submit", validateForm)
 
 // Callbacks for listeners
-async function validateProductName() {
+function validateProductName() {
     const element = $productName
     const valueLength = element.value.trim().length
 
@@ -33,26 +35,25 @@ async function validateProductName() {
         document.querySelector("input[name=\"name\"] + .invalid-feedback").innerHTML = "Capitalize the first letter and use 3-20 characters"
         element.classList.add("is-invalid")
         element.classList.remove("is-valid")
-        return false
+        isNameValid = false
 
     } else {
-        await fetch(`/validate-name?name=${element.value}`)
+        fetch(`/validate-name?name=${element.value}`)
         .then(response => response.json())
         .then(data => {
             const isValid = data.valid
-            
+
             if (!isValid) {
                 document.querySelector("input[name=\"name\"] + .invalid-feedback").innerHTML = "Already exists"
                 element.classList.add("is-invalid")
                 element.classList.remove("is-valid")
-                return false
+                isNameValid = false
+            } else {
+                element.classList.add("is-valid")
+                element.classList.remove("is-invalid")
+                isNameValid = true
             }
-
-            element.classList.add("is-valid")
-            element.classList.remove("is-invalid")
-            return true
         })
-        .catch(error => console.error(error))
     }
 }
 
@@ -104,7 +105,13 @@ function validateProductImage() {
 
 // Form validation
 function validateForm(event) {
-    if (!validateProductName($productName) || !validateProductDescription() || !validateProductPrice() || !validateProductImage() || !$termsCheckbox.checked) {
+    if (
+        !isNameValid ||
+        !validateProductDescription() ||
+        !validateProductPrice() ||
+        !validateProductImage() ||
+        !$termsCheckbox.checked
+    ) {
         $termsCheckbox.checked = false
         event.preventDefault()
     }
