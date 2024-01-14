@@ -185,7 +185,10 @@
 }
 
 .items-wrap--list {
+    position: relative;
+
     & .item {
+        position: relative;
         display: flex;
         background: $cardBackground;
         color: $cardColor;
@@ -335,6 +338,33 @@
             & .item--image-front {
                 transform: scale(110%);
             }
+        }
+    }
+
+    & .item--loading {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0006;
+        // padding-left: 50px;
+
+        &.hidden {
+            display: none;
+        }	
+
+
+        & img{
+            $size: 50px;
+            width: $size;
+            height: $size;
+            object-fit: contain;
+            animation: rotate 5s cubic-bezier(0,.88,1,.99) infinite;
+            
         }
     }
 
