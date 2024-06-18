@@ -5,6 +5,15 @@ import router from './router.js'
 import cookieParser from 'cookie-parser'
 import loggerMiddleware from "./tools/serverLogger.js"
 
+// Import additional dependencies
+import path from 'path'
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
+
+// Get current directory
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
 // CONSTANTS
 const PORT = process.env.PORT || 3000
 
@@ -12,7 +21,7 @@ const PORT = process.env.PORT || 3000
 const app = express()
 
 // Config
-app.set("views", "./views")  // Set views folder as default folder for templates
+app.set('views', path.join(__dirname, 'views'))  // Set views folder as default folder for templates
 app.set("view engine", "html")  // Use html as template engine
 app.engine('html', mustache())  // Use mustache as template engine
 app.use(bodyParser.urlencoded({ extended: true }))  // Manage POST requests
