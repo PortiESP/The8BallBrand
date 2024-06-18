@@ -6,8 +6,7 @@ import cookieParser from 'cookie-parser'
 import loggerMiddleware from "./tools/serverLogger.js"
 
 // CONSTANTS
-const PORT = 3000
-const SERVER_URL = `http://localhost:${PORT}`
+const PORT = process.env.PORT || 3000
 
 // INIT
 const app = express()
@@ -51,5 +50,5 @@ app.use(express.static('./public'))
 
 // LISTEN
 app.listen(PORT, () => {
-  console.log(`Server running at ${SERVER_URL}`)
+  console.log(`Server running at port ${PORT}`)
 })

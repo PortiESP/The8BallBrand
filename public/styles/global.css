@@ -7,16 +7,11 @@
 body {
   background: rgba(107, 107, 107, 0.7333333333) url("../assets/texture.png") fixed;
   scroll-behavior: smooth;
-  scrollbar-width: none;
   font-family: "Poppins", monospace;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-  width: 100vw;
-  /* Hide scrollbar for Chrome, Safari and Opera */
+  width: 100%;
 }
 body::-webkit-scrollbar {
   display: none;
