@@ -10,7 +10,7 @@
 | ---------------------------------------------------------------------------- | -------------- | -------------------------------------------- | ----------------------------------------------------------- |
 | <img src="https://avatars.githubusercontent.com/u/121297520?v=4" width="50"> | Diego Sánchez  | [@CuB1z](https://github.com/CuB1z)           | [Diego Sánchez](https://www.linkedin.com/in/cub1z/)         |
 | <img src="https://avatars.githubusercontent.com/u/47105148?v=4" width="50">  | Jaime Portillo | [@PortiESP](https://github.com/PortiESP)     | [Jaime Portillo](https://www.linkedin.com/in/porti/)        |
-| <img src="https://avatars.githubusercontent.com/u/146845008?v=4" width="50"> | Daniel Santos  | [@danisntoss](https://github.com/danisntoss) | [Daniel Santos ](https://www.linkedin.com/in/danisantos15/) |
+| <img src="https://avatars.githubusercontent.com/u/146845008?v=4" width="50"> | Daniel Santos  | [@danisntoss](https://github.com/danisntoss) | [Daniel Santos ](https://www.linkedin.com/in/danisntoss/) |
 
 ## 📂 Repository
 
